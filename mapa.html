@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa de Alianzas Estratégicas</title>
+
+<style>
+:root{
+  --verde:#21644e;
+  --verde2:#2f8063;
+  --fondo:#f4f7f6;
+  --texto:#23313a;
+  --gris:#63727a;
+  --borde:#dce5e1;
+  --blanco:#ffffff;
+  --sombra:0 12px 35px rgba(30,60,50,.10);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--texto);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(175,218,202,.28), transparent 24%),
+    radial-gradient(circle at 90% 80%, rgba(190,218,239,.25), transparent 25%),
+    var(--fondo);
+}
+
+header{
+  height:90px;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--borde);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(12px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brand-icon{
+  width:55px;
+  height:55px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  font-size:28px;
+  background:#e8f1ed;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+}
+
+.brand p{
+  margin:5px 0 0;
+  color:var(--gris);
+  font-size:14px;
+}
+
+nav{
+  display:flex;
+  gap:34px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#415058;
+  font-weight:600;
+  padding:10px 0;
+}
+
+nav a:hover,
+nav a.active{
+  color:var(--verde);
+  border-bottom:3px solid var(--verde);
+}
+
+.header-btn{
+  border:none;
+  background:#edf4f1;
+  color:var(--verde);
+  padding:13px 20px;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.hero{
+  padding:45px 6% 25px;
+  max-width:1450px;
+  margin:auto;
+}
+
+.hero h2{
+  font-size:42px;
+  margin:0;
+  line-height:1.15;
+}
+
+.hero h2 span{
+  color:var(--verde);
+}
+
+.hero p{
+  max-width:560px;
+  color:#59676e;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.dashboard{
+  max-width:1450px;
+  margin:auto;
+  padding:0 6% 50px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+}
+
+.map-box,
+.panel{
+  background:rgba(255,255,255,.86);
+  border:1px solid var(--borde);
+  border-radius:24px;
+  box-shadow:var(--sombra);
+}
+
+.map-box{
+  min-height:680px;
+  position:relative;
+  overflow:hidden;
+  padding:25px;
+}
+
+.map-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.map-title h3{
+  margin:0;
+  font-size:23px;
+}
+
+.map-title span{
+  color:var(--gris);
+  font-size:14px;
+}
+
+.map-area{
+  height:530px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:10px;
+}
+
+.peru{
+  width:390px;
+  height:500px;
+  position:relative;
+  filter:drop-shadow(0 18px 20px rgba(44,84,67,.14));
+}
+
+/* Silueta decorativa del Perú */
+.peru-shape{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,#d9ecdf,#b8dcc8);
+  clip-path:polygon(
+    43% 2%,52% 7%,55% 15%,63% 19%,61% 28%,
+    69% 34%,66% 42%,73% 50%,68% 59%,
+    74% 66%,67% 74%,70% 82%,61% 91%,
+    56% 99%,47% 94%,42% 86%,34% 82%,
+    31% 73%,24% 68%,28% 58%,21% 50%,
+    25% 41%,19% 32%,27% 25%,29% 16%,
+    37% 11%
+  );
+  border-radius:45%;
+}
+
+.point{
+  position:absolute;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:4px solid white;
+  color:white;
+  font-weight:bold;
+  font-size:19px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 7px 18px rgba(0,0,0,.16);
+  transition:.2s;
+}
+
+.point:hover,
+.point.active{
+  transform:scale(1.13);
+  outline:5px solid rgba(33,100,78,.16);
+}
+
+.point small{
+  position:absolute;
+  top:58px;
+  width:130px;
+  text-align:center;
+  color:#27363c;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.p1{top:16%;left:28%;background:#3d996f;}
+.p2{top:28%;left:55%;background:#4e82c7;}
+.p3{top:46%;left:51%;background:#4e82c7;}
+.p4{top:58%;left:32%;background:#ed5267;}
+.p5{top:66%;left:67%;background:#f29b38;}
+.p6{top:84%;left:51%;background:#4e82c7;}
+
+.legend{
+  position:absolute;
+  left:25px;
+  top:95px;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:var(--sombra);
+}
+
+.legend h4{
+  margin:0 0 13px;
+}
+
+.legend div{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  margin:9px 0;
+  color:#526068;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+}
+
+.instruction{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  right:25px;
+  background:#edf4f1;
+  border:1px solid #d7e7df;
+  color:var(--verde);
+  padding:17px;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+/* PANEL DERECHO */
+.panel{
+  padding:24px;
+  min-height:680px;
+}
+
+.panel-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+
+.location-icon{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#e7f1ed;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+}
+
+.panel-header h3{
+  margin:0;
+  font-size:25px;
+}
+
+.panel-header p{
+  margin:5px 0 0;
+  color:var(--gris);
+}
+
+.close{
+  margin-left:auto;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.institution{
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:12px;
+  display:grid;
+  grid-template-columns:58px 1fr auto;
+  gap:14px;
+  align-items:center;
+  transition:.2s;
+}
+
+.institution:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(30,60,50,.08);
+}
+
+.initials{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#eaf0ed;
+  color:var(--verde);
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.info h4{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.info p{
+  margin:4px 0;
+  color:#59666d;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.detail-btn{
+  border:none;
+  background:#edf4f1;
+  color:var(--verde);
+  padding:11px 14px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.view-all{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:14px;
+  background:#e8f0ec;
+  color:var(--verde);
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.empty{
+  text-align:center;
+  color:var(--gris);
+  padding:80px 20px;
+}
+
+footer{
+  max-width:1450px;
+  margin:0 auto 35px;
+  padding:0 6%;
+}
+
+.footer-box{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.footer-box strong{
+  color:var(--verde);
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(15,30,25,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:30;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-content{
+  width:min(600px,100%);
+  background:white;
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+  position:relative;
+}
+
+.modal-content h2{
+  margin-top:0;
+}
+
+.modal-close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.modal-data p{
+  border-bottom:1px solid #edf0ee;
+  padding:11px 0;
+  margin:0;
+}
+
+@media(max-width:1000px){
+  header{
+    height:auto;
+    padding:18px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .header-btn{
+    display:none;
+  }
+
+  .dashboard{
+    grid-template-columns:1fr;
+  }
+
+  .map-box{
+    min-height:620px;
+  }
+}
+
+@media(max-width:600px){
+  .hero h2{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .peru{
+    transform:scale(.85);
+  }
+
+  .legend{
+    left:10px;
+    top:70px;
+    padding:10px;
+  }
+
+  .instruction{
+    left:15px;
+    right:15px;
+    font-size:13px;
+  }
+
+  .institution{
+    grid-template-columns:48px 1fr;
+  }
+
+  .detail-btn{
+    grid-column:2;
+    justify-self:start;
+  }
+
+  .footer-box{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">🤝</div>
+    <div>
+      <h1>Alianzas Estratégicas</h1>
+      <p>Modalidad a distancia · Psicología</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Directorio de instituciones</a>
+    <a href="mapa.html" class="active">Mapa de alianzas</a>
+  </nav>
+
+  <button class="header-btn" onclick="mostrarAyuda()">ⓘ ¿Cómo funciona?</button>
+</header>
+
+<section class="hero">
+  <h2>Encuentra nuestras alianzas <span>cerca de ti</span></h2>
+  <p>
+    Explora el mapa del Perú y conoce las instituciones aliadas
+    disponibles en cada departamento.
+  </p>
+</section>
+
+<main class="dashboard">
+
+  <section class="map-box">
+
+    <div class="map-title">
+      <h3>🗺️ Mapa de alianzas</h3>
+      <span id="totalTexto">Cargando instituciones...</span>
+    </div>
+
+    <div class="legend">
+      <h4>Leyenda</h4>
+      <div><span class="dot" style="background:#3d996f"></span> 1 - 2 instituciones</div>
+      <div><span class="dot" style="background:#4e82c7"></span> 3 - 5 instituciones</div>
+      <div><span class="dot" style="background:#f29b38"></span> 6 - 8 instituciones</div>
+      <div><span class="dot" style="background:#ed5267"></span> 9 a más instituciones</div>
+    </div>
+
+    <div class="map-area">
+      <div class="peru">
+        <div class="peru-shape"></div>
+
+        <button class="point p1" data-depto="Lambayeque">
+          <span class="num">0</span>
+          <small>Lambayeque</small>
+        </button>
+
+        <button class="point p2" data-depto="Cajamarca">
+          <span class="num">0</span>
+          <small>Cajamarca</small>
+        </button>
+
+        <button class="point p3" data-depto="Junín">
+          <span class="num">0</span>
+          <small>Junín</small>
+        </button>
+
+        <button class="point p4" data-depto="Lima">
+          <span class="num">0</span>
+          <small>Lima</small>
+        </button>
+
+        <button class="point p5" data-depto="Cusco">
+          <span class="num">0</span>
+          <small>Cusco</small>
+        </button>
+
+        <button class="point p6" data-depto="Arequipa">
+          <span class="num">0</span>
+          <small>Arequipa</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="instruction">
+      📍 Haz clic en un departamento para ver las instituciones disponibles.
+    </div>
+
+  </section>
+
+  <section class="panel">
+
+    <div class="panel-header">
+      <div class="location-icon">📍</div>
+
+      <div>
+        <h3 id="tituloDepartamento">Selecciona una región</h3>
+        <p id="subtituloDepartamento">
+          Haz clic en un punto del mapa.
+        </p>
+      </div>
+
+      <button class="close" onclick="limpiarSeleccion()">×</button>
+    </div>
+
+    <div id="listaInstituciones">
+      <div class="empty">
+        <h3>🗺️ Explora el mapa</h3>
+        <p>Selecciona un departamento para conocer sus instituciones aliadas.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-box">
+    <div>
+      <strong>📢 ¿No encuentras tu departamento?</strong>
+      <p>Pronto ampliaremos nuestras alianzas a más regiones del país.</p>
+    </div>
+
+    <div>
+      🤝 Comprometidos con el desarrollo profesional y el bienestar.
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="cerrarModal()">×</button>
+    <div id="modalContenido"></div>
+  </div>
+</div>
+
+<script>
+
+let data = [];
+
+/* FUNCIONES PARA LEER EL CSV */
+
+function parseCSV(text){
+  const lines = text
+    .replace(/^\uFEFF/, "")
+    .split(/\r?\n/)
+    .filter(line => line.trim() !== "");
+
+  if(lines.length < 2) return [];
+
+  const headers = parseLine(lines[0])
+    .map(h => h.trim().toLowerCase());
+
+  return lines.slice(1).map(line => {
+    const values = parseLine(line);
+
+    let obj = {};
+
+    headers.forEach((header,index)=>{
+      obj[header] = (values[index] || "").trim();
+    });
+
+    return obj;
+  }).filter(x => x.institucion);
+}
+
+function parseLine(line){
+  let result = [];
+  let current = "";
+  let insideQuotes = false;
+
+  for(let i=0;i<line.length;i++){
+    let char = line[i];
+
+    if(char === '"'){
+      if(insideQuotes && line[i+1] === '"'){
+        current += '"';
+        i++;
+      }else{
+        insideQuotes = !insideQuotes;
+      }
+    }else if(char === "," && !insideQuotes){
+      result.push(current);
+      current = "";
+    }else{
+      current += char;
+    }
+  }
+
+  result.push(current);
+
+  return result;
+}
+
+async function cargarDatos(){
+
+  try{
+
+    const respuesta = await fetch("alianzas.csv?nocache=" + Date.now());
+
+    if(!respuesta.ok){
+      throw new Error("No se pudo cargar el CSV");
+    }
+
+    const texto = await respuesta.text();
+
+    data = parseCSV(texto);
+
+    actualizarMapa();
+
+    document.getElementById("totalTexto").textContent =
+      data.length + " instituciones registradas";
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("totalTexto").textContent =
+      "No se pudo cargar la información";
+
+  }
+
+}
+
+function normalizar(texto){
+  return String(texto || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase()
+    .trim();
+}
+
+function obtenerDepartamento(nombre){
+
+  const encontrado = data.find(x =>
+    normalizar(x.departamento) === normalizar(nombre)
+  );
+
+  return encontrado ? encontrado.departamento : nombre;
+}
+
+function colorPorCantidad(cantidad){
+
+  if(cantidad <= 2) return "#3d996f";
+  if(cantidad <= 5) return "#4e82c7";
+  if(cantidad <= 8) return "#f29b38";
+
+  return "#ed5267";
+}
+
+function actualizarMapa(){
+
+  document.querySelectorAll(".point").forEach(punto => {
+
+    const depto = punto.dataset.depto;
+
+    const cantidad = data.filter(x =>
+      normalizar(x.departamento) === normalizar(depto)
+    ).length;
+
+    punto.querySelector(".num").textContent = cantidad;
+
+    punto.style.background = colorPorCantidad(cantidad);
+
+  });
+
+}
+
+document.querySelectorAll(".point").forEach(punto => {
+
+  punto.addEventListener("click", () => {
+
+    document.querySelectorAll(".point")
+      .forEach(p => p.classList.remove("active"));
+
+    punto.classList.add("active");
+
+    mostrarDepartamento(punto.dataset.depto);
+
+  });
+
+});
+
+function mostrarDepartamento(departamento){
+
+  const registros = data.filter(x =>
+    normalizar(x.departamento) === normalizar(departamento)
+  );
+
+  const nombreReal =
+    registros.length ? registros[0].departamento : departamento;
+
+  document.getElementById("tituloDepartamento").textContent =
+    nombreReal;
+
+  document.getElementById("subtituloDepartamento").textContent =
+    registros.length === 1
+      ? "1 institución disponible"
+      : registros.length + " instituciones disponibles";
+
+  const lista = document.getElementById("listaInstituciones");
+
+  if(!registros.length){
+
+    lista.innerHTML = `
+      <div class="empty">
+        <h3>Próximamente</h3>
+        <p>
+          Actualmente no contamos con instituciones registradas
+          en este departamento.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  lista.innerHTML = registros.map((item,index)=>{
+
+    const nombre = item.institucion || "Institución";
+    const area = item.area || "No especificada";
+    const vacantes = item.vacantes || "No especificado";
+
+    return `
+      <article class="institution">
+
+        <div class="initials">
+          ${iniciales(nombre)}
+        </div>
+
+        <div class="info">
+          <h4>${escapeHTML(nombre)}</h4>
+          <p><strong>Área:</strong> ${escapeHTML(area)}</p>
+          <p><strong>Vacantes:</strong> ${escapeHTML(vacantes)}</p>
+        </div>
+
+        <button class="detail-btn"
+          onclick="verDetalle(${data.indexOf(item)})">
+          Ver detalles ›
+        </button>
+
+      </article>
+    `;
+
+  }).join("") + `
+    <button class="view-all" onclick="irAlDirectorio('${nombreReal}')">
+      🏢 Ver todas las instituciones de ${escapeHTML(nombreReal)}
+    </button>
+  `;
+
+}
+
+function iniciales(nombre){
+
+  return nombre
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0,2)
+    .map(x => x[0])
+    .join("")
+    .toUpperCase();
+
+}
+
+function escapeHTML(valor){
+
+  return String(valor || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+
+}
+
+function verDetalle(index){
+
+  const x = data[index];
+
+  if(!x) return;
+
+  const campos = [
+    ["Ubicación", [x.provincia_ciudad, x.departamento].filter(Boolean).join(", ")],
+    ["Área", x.area],
+    ["Vacantes", x.vacantes],
+    ["Dirección", x.direccion],
+    ["Horario", x.horario]
+  ];
+
+  document.getElementById("modalContenido").innerHTML = `
+    <h2>${escapeHTML(x.institucion)}</h2>
+
+    <div class="modal-data">
+      ${campos
+        .filter(([_,valor]) => valor && String(valor).trim() !== "")
+        .map(([titulo,valor]) =>
+          `<p><strong>${titulo}:</strong><br>${escapeHTML(valor)}</p>`
+        )
+        .join("")
+      }
+    </div>
+  `;
+
+  document.getElementById("modal").classList.add("show");
+
+}
+
+function cerrarModal(){
+
+  document.getElementById("modal").classList.remove("show");
+
+}
+
+function limpiarSeleccion(){
+
+  document.querySelectorAll(".point")
+    .forEach(p => p.classList.remove("active"));
+
+  document.getElementById("tituloDepartamento").textContent =
+    "Selecciona una región";
+
+  document.getElementById("subtituloDepartamento").textContent =
+    "Haz clic en un punto del mapa.";
+
+  document.getElementById("listaInstituciones").innerHTML = `
+    <div class="empty">
+      <h3>🗺️ Explora el mapa</h3>
+      <p>
+        Selecciona un departamento para conocer sus
+        instituciones aliadas.
+      </p>
+    </div>
+  `;
+
+}
+
+function irAlDirectorio(departamento){
+
+  window.location.href = "index.html";
+
+}
+
+function mostrarAyuda(){
+
+  document.getElementById("modalContenido").innerHTML = `
+    <h2>¿Cómo funciona?</h2>
+
+    <div class="modal-data">
+      <p>🗺️ Selecciona un departamento en el mapa.</p>
+      <p>🏢 Visualiza las instituciones disponibles en esa región.</p>
+      <p>ℹ️ Presiona <strong>Ver detalles</strong> para consultar la información completa.</p>
+      <p>🔄 La información se actualiza a partir de la misma base de datos del directorio.</p>
+    </div>
+  `;
+
+  document.getElementById("modal").classList.add("show");
+
+}
+
+document.getElementById("modal").addEventListener("click", function(e){
+
+  if(e.target === this){
+    cerrarModal();
+  }
+
+});
+
+cargarDatos();
+
+</script>
+
+</body>
+</html>
