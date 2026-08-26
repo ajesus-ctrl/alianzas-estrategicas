@@ -1,71 +1,798 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Alianzas Estratégicas</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alianzas Estratégicas</title>
+
 <style>
-:root{--g:#146b4a;--p:#eaf5ef;--i:#19312a;--m:#66736d;--l:#e1e8e4}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7faf8;color:var(--i)}header{background:#fff;border-bottom:1px solid var(--l);padding:18px 6%;display:flex;align-items:center}.brand{display:flex;gap:12px;align-items:center}.mark{width:48px;height:48px;border-radius:14px;background:var(--p);display:grid;place-items:center;font-size:25px}h1{font-size:19px;margin:0}.sub{margin:3px 0 0;color:var(--m);font-size:13px}.hero{background:linear-gradient(135deg,#edf8f1,#f8fbf9);padding:46px 6% 35px;text-align:center}.hero h2{font-size:clamp(30px,5vw,48px);margin:0 0 10px}.hero p{max-width:760px;margin:auto;color:#56635d}.wrap{max-width:1180px;margin:auto;padding:0 22px 50px}.filters{margin-top:-18px;background:#fff;border:1px solid var(--l);border-radius:16px;padding:16px;display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;box-shadow:0 8px 28px #153c2b12}input,select{padding:13px;border:1px solid #ccd8d2;border-radius:10px;font-size:14px;background:#fff}.filters button,.more{border:0;border-radius:10px;padding:12px;background:var(--g);color:#fff;font-weight:700;cursor:pointer}.summary{display:flex;justify-content:space-between;margin:25px 0 14px;color:var(--m);font-size:14px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--l);border-radius:18px;padding:18px;box-shadow:0 5px 18px #153c2b0a;display:flex;flex-direction:column;min-height:270px}.top{display:flex;gap:13px;align-items:center}.logo{width:62px;height:62px;border-radius:15px;background:#f0f5f2;border:1px solid var(--l);display:grid;place-items:center;flex:0 0 62px;font-weight:700;color:var(--g)}.card h3{font-size:17px;margin:0;line-height:1.25}.tags{margin:14px 0 4px}.tag{display:inline-block;background:var(--p);color:var(--g);padding:5px 8px;border-radius:999px;font-size:11px;margin:2px}.meta{color:#53615b;font-size:13px;line-height:1.55;margin-top:7px}.vac{margin-top:auto;background:#f4faf6;border-radius:10px;padding:10px;font-weight:700;color:var(--g)}.more{margin-top:10px;width:100%;background:#fff;color:var(--g);border:1px solid #c8d8d0}#modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;padding:20px;align-items:center;justify-content:center}.dialog{background:#fff;max-width:680px;width:100%;max-height:90vh;overflow:auto;border-radius:20px;padding:25px}.close{float:right;border:0;background:#eef4f0;border-radius:9px;padding:8px 11px;cursor:pointer}.detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.item{border:1px solid var(--l);border-radius:12px;padding:12px}.item strong{display:block;font-size:12px;color:var(--m);margin-bottom:4px}footer{text-align:center;color:var(--m);font-size:12px;padding:25px}@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cards{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.detailgrid{grid-template-columns:1fr}}
-</style></head><body>
-<header><div class="brand"><div class="mark">🤝</div><div><h1>Alianzas Estratégicas</h1><p class="sub">Modalidad a distancia · Psicología</p></div></div></header>
-<section class="hero"><h2>Nuestras Alianzas Estratégicas</h2><p>Conoce las instituciones aliadas y consulta de manera rápida su ubicación, área, vacantes y horarios.</p></section>
-<main class="wrap"><section class="filters"><input id="q" placeholder="🔎 Buscar institución"><select id="d"><option value="">Todos los departamentos</option></select><select id="a"><option value="">Todas las áreas</option></select><button id="clear">Limpiar</button></section>
-<div class="summary"><span id="count"></span><span>Prototipo · agosto 2026</span></div><section id="cards" class="cards"></section></main>
-<footer>Directorio de Alianzas Estratégicas · Información basada en la matriz proporcionada.</footer>
-<div id="modal"><div class="dialog"><button class="close" id="close">Cerrar</button><div id="detail"></div></div></div>
+:root{
+  --green:#176b4a;
+  --green2:#12563c;
+  --text:#24363a;
+  --muted:#647174;
+  --line:#d6dddd;
+  --bg:#f4f6f4;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ENCABEZADO */
+header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px 6%;
+  background:#fff;
+  border-bottom:1px solid #dce3e1;
+}
+
+.mark{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#e7f0ec;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:25px;
+}
+
+.brand p{
+  margin:5px 0 0;
+  color:#647174;
+  font-size:16px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px 35px;
+  background:linear-gradient(180deg,#edf5f2 0%,#f4f6f4 100%);
+}
+
+.hero h2{
+  margin:0;
+  font-size:48px;
+}
+
+.hero p{
+  max-width:850px;
+  margin:12px auto 0;
+  font-size:20px;
+  line-height:1.4;
+  color:#4f5d61;
+}
+
+/* CONTENIDO */
+.wrap{
+  width:min(1200px,94%);
+  margin:0 auto;
+}
+
+/* FILTROS */
+.filters{
+  margin-top:20px;
+  padding:20px;
+  background:#fff;
+  border:1px solid #d8e0de;
+  border-radius:22px;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr auto;
+  gap:12px;
+  box-shadow:0 10px 25px rgba(20,50,40,.06);
+}
+
+input,
+select,
+button{
+  height:58px;
+  border-radius:14px;
+  font-size:17px;
+}
+
+input,
+select{
+  width:100%;
+  padding:0 18px;
+  border:1px solid #cbd5d2;
+  background:#fff;
+  outline:none;
+}
+
+input:focus,
+select:focus{
+  border-color:var(--green);
+}
+
+button{
+  border:none;
+  padding:0 35px;
+  background:var(--green);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  background:var(--green2);
+}
+
+/* RESUMEN */
+.summary{
+  display:flex;
+  justify-content:space-between;
+  margin:28px 0;
+  color:#526064;
+  font-size:17px;
+}
+
+/* TARJETAS */
+#cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+  gap:20px;
+  padding-bottom:45px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #d8e0de;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 8px 20px rgba(20,50,40,.05);
+}
+
+.top{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.logo{
+  width:52px;
+  height:52px;
+  min-width:52px;
+  border-radius:14px;
+  background:#e7f0ec;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:var(--green);
+  overflow:hidden;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.card h3{
+  margin:0;
+  font-size:19px;
+}
+
+.tags{
+  margin:16px 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.tag{
+  background:#edf5f2;
+  color:#176b4a;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+.info{
+  border-top:1px solid #e3e8e6;
+  padding-top:14px;
+  font-size:14px;
+  line-height:1.7;
+  color:#526064;
+}
+
+.info strong{
+  color:#27393d;
+}
+
+.empty{
+  grid-column:1/-1;
+  font-size:18px;
+  padding:10px 0;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#647174;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+  .filters{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h2{
+    font-size:36px;
+  }
+}
+
+@media(max-width:550px){
+  header{
+    padding:15px 5%;
+  }
+
+  .brand h1{
+    font-size:20px;
+  }
+
+  .hero{
+    padding:40px 15px 25px;
+  }
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .filters{
+    grid-template-columns:1fr;
+  }
+
+  .summary{
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="mark">🤝</div>
+
+  <div class="brand">
+    <h1>Alianzas Estratégicas</h1>
+    <p>Modalidad a distancia · Psicología</p>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Nuestras Alianzas Estratégicas</h2>
+
+  <p>
+    Conoce las instituciones aliadas y consulta de manera rápida
+    su ubicación, área, vacantes y horarios.
+  </p>
+</section>
+
+<main class="wrap">
+
+  <section class="filters">
+
+    <input
+      id="q"
+      type="text"
+      placeholder="🔎 Buscar institución"
+    >
+
+    <select id="d">
+      <option value="">Todos los departamentos</option>
+    </select>
+
+    <select id="a">
+      <option value="">Todas las áreas</option>
+    </select>
+
+    <button id="clear">Limpiar</button>
+
+  </section>
+
+  <section class="summary">
+    <span id="count">0 instituciones encontradas</span>
+    <span>Prototipo · agosto 2026</span>
+  </section>
+
+  <section id="cards"></section>
+
+</main>
+
+<footer>
+  Directorio de Alianzas Estratégicas · Información basada en la matriz proporcionada.
+</footer>
+
 <script>
-let data=[{"institucion": "Asociación Educativa Harvard S.R.L.", "departamento": "Junín", "provincia_ciudad": "Huancayo", "area": "Educativa", "vacantes": "2", "direccion": "Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo.", "horario": "Lunes a viernes, 7:45 a. m. – 2:30 p. m."}, {"institucion": "NeuroPsico – Psicología Clínica Integral", "departamento": "Cusco", "provincia_ciudad": "Cusco", "area": "Clínica", "vacantes": "1", "direccion": "Jr. Clorinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco.", "horario": "Lunes a viernes, 2:00 p. m. – 8:00 p. m.; sábado 9:00 a. m. – 1:00 p. m."}, {"institucion": "Centro Psicológico CRECETU S.A.C.", "departamento": "Lima", "provincia_ciudad": "Lima", "area": "Clínica / Organizacional", "vacantes": "5", "direccion": "Sedes en Callao, Rímac y Pueblo Libre.", "horario": "Lunes a viernes, 8:00 a. m. – 6:00 p. m."}, {"institucion": "CEBE Manuel Duato", "departamento": "Lima", "provincia_ciudad": "Lima", "area": "Educativa", "vacantes": "3", "direccion": "Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.", "horario": "Lunes a viernes: turnos mañana y tarde."}, {"institucion": "Centro Psicológico Vida y Ser", "departamento": "Lima", "provincia_ciudad": "Lima", "area": "Clínica / Educativa / Comunitaria", "vacantes": "1", "direccion": "Av. Guillermo Billingurth 1141, San Juan de Miraflores, Lima.", "horario": "Lunes a viernes, 8:00 a. m. – 6:00 p. m."}, {"institucion": "AKUNA – Centro de Desarrollo Psicológico", "departamento": "Arequipa", "provincia_ciudad": "Arequipa", "area": "Clínica", "vacantes": "4", "direccion": "Urbanización La Melgariana E-16, José Luis Bustamante y Rivero.", "horario": "Lunes a viernes, 9:00 a. m. – 1:00 p. m. y 4:00 p. m. – 8:00 p. m."}, {"institucion": "Centro Psicológico Psicokhuyay", "departamento": "Cusco", "provincia_ciudad": "Cusco", "area": "Clínica / Educativa / Organizacional", "vacantes": "1", "direccion": "Av. Los Incas 810, Edificio San Antonio, Wanchaq.", "horario": "Lunes a sábado, 3:00 p. m. – 8:00 p. m."}, {"institucion": "Escuela de Educación Superior Pedagógica Pública Santa Rosa", "departamento": "Cusco", "provincia_ciudad": "Cusco", "area": "Educativa", "vacantes": "1", "direccion": "Calle Carmen Kyjllo 265, Cusco.", "horario": "Cantidad/horario por confirmar."}, {"institucion": "CEPAB – Centro de Aprendizaje y Bienestar", "departamento": "Lima", "provincia_ciudad": "Lima", "area": "Clínica / Organizacional", "vacantes": "4", "direccion": "Calle Los Halcones 287, Surquillo.", "horario": "Lunes a viernes, 2:00 p. m. – 7:00 p. m.; sábado 8:00 a. m. – 1:00 p. m."}, {"institucion": "AESI", "departamento": "Lima", "provincia_ciudad": "Lima / Virtual", "area": "Organizacional", "vacantes": "10", "direccion": "Jr. Jorge Luis Borges N.° 171, Dpto. 4, Chorrillos; modalidad virtual.", "horario": "Lunes a viernes, 8:00 a. m. – 6:00 p. m.; sábado 8:00 a. m. – 12:30 p. m."}, {"institucion": "POWER YOU – Consultora de Recursos Humanos", "departamento": "Junín", "provincia_ciudad": "Huancayo", "area": "Organizacional", "vacantes": "2", "direccion": "Av. Flor de Mayo Mza. G Lote 11, Urb. Primero de Mayo, Huancayo.", "horario": "Lunes a sábado, horario indistinto."}, {"institucion": "SENSES Psicólogos", "departamento": "Arequipa", "provincia_ciudad": "Arequipa", "area": "Clínica / Educativa / Social - Comunitaria", "vacantes": "10", "direccion": "Calle Yapurá 212, Zamácola, Cerro Colorado.", "horario": "Lunes a viernes, 8:00 a. m. – 2:00 p. m.; sábado 8:00 a. m. – 1:00 p. m."}, {"institucion": "CAP – Centro de Atención Psicológica Arequipa", "departamento": "Arequipa", "provincia_ciudad": "Arequipa", "area": "Clínica", "vacantes": "1", "direccion": "Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero.", "horario": "Lunes a sábado: mañana y tarde."}, {"institucion": "CAP – Centro de Atención Psicológica Lima", "departamento": "Lima", "provincia_ciudad": "Lima", "area": "Clínica", "vacantes": "3", "direccion": "Av. Alfredo Mendiola 5988, Los Olivos.", "horario": "Lunes a sábado: mañana y tarde."}, {"institucion": "CAP – Centro de Atención Psicológica Cusco", "departamento": "Cusco", "provincia_ciudad": "Cusco", "area": "Clínica", "vacantes": "2", "direccion": "Av. La Cultura 604, Cusco.", "horario": "Lunes a sábado: mañana y tarde."}, {"institucion": "CAP – Centro de Atención Psicológica Huancayo", "departamento": "Junín", "provincia_ciudad": "Huancayo", "area": "Clínica", "vacantes": "2", "direccion": "Av. San Carlos 1980, Urb. San Antonio.", "horario": "Lunes a sábado: mañana y tarde."}, {"institucion": "Centro Psicológico Comunitario de la UC", "departamento": "Junín", "provincia_ciudad": "Huancayo", "area": "Clínica / Educativa / Organizacional", "vacantes": "6", "direccion": "Jirón Dos de Mayo 570, El Tambo.", "horario": "Lunes a viernes y sábado."}, {"institucion": "I.E. Sagrado Corazón de Jesús – Espinar", "departamento": "Cusco", "provincia_ciudad": "Espinar", "area": "Educativa", "vacantes": "3", "direccion": "Espinar, Cusco.", "horario": "Lunes a viernes, 8:00 a. m. – 2:00 p. m."}];
-const fallbackData=data;
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let data = [];
+
+const $ = id => document.getElementById(id);
+
+
+/* =====================================================
+   LECTOR DE CSV
+   SOPORTA COMAS DENTRO DE COMILLAS
+===================================================== */
+
+function parseCSVLine(line){
+
+  const result = [];
+  let current = "";
+  let insideQuotes = false;
+
+  for(let i = 0; i < line.length; i++){
+
+    const char = line[i];
+
+    if(char === '"'){
+
+      if(
+        insideQuotes &&
+        line[i + 1] === '"'
+      ){
+        current += '"';
+        i++;
+      }else{
+        insideQuotes = !insideQuotes;
+      }
+
+    }else if(
+      char === "," &&
+      !insideQuotes
+    ){
+
+      result.push(current.trim());
+      current = "";
+
+    }else{
+
+      current += char;
+
+    }
+  }
+
+  result.push(current.trim());
+
+  return result;
+}
+
+
+/* =====================================================
+   CARGAR ARCHIVO CSV
+===================================================== */
+
 async function loadCSV(){
+
   try{
-    const r=await fetch('alianzas.csv',{cache:'no-store'});
-    if(!r.ok) throw new Error('CSV no disponible');
-    const t=await r.text();
-    const lines=t.replace(/^\uFEFF/,'').split(/\r?\n/).filter(Boolean);
-    const parse=s=>{let out=[],cur='',q=false;for(let i=0;i<s.length;i++){let c=s[i];if(c==='"'){if(q&&s[i+1]==='"'){cur+='"';i++;}else q=!q;}else if(c===','&&!q){out.push(cur);cur='';}else cur+=c;}out.push(cur);return out;};
-    const h=parse(lines[0]);
-    const parsed=lines.slice(1).map(line=>{const v=parse(line);return Object.fromEntries(h.map((k,i)=>[k,(v[i]||'').trim()]))}).filter(x=>x.institucion);
-    data=parsed.length?parsed:fallbackData;
-  }catch(e){data=fallbackData;}
-  fill(); render();
+
+    const response = await fetch(
+      "alianzas.csv?nocache=" + Date.now(),
+      {
+        cache:"no-store"
+      }
+    );
+
+    if(!response.ok){
+      throw new Error("No se pudo cargar alianzas.csv");
+    }
+
+    const text = await response.text();
+
+    const lines = text
+      .replace(/^\uFEFF/,"")
+      .split(/\r?\n/)
+      .filter(line => line.trim() !== "");
+
+    if(lines.length < 2){
+      throw new Error("El CSV está vacío");
+    }
+
+    const headers = parseCSVLine(
+      lines[0]
+    ).map(header =>
+      header
+        .trim()
+        .replace(/^"|"$/g,"")
+    );
+
+    data = lines
+      .slice(1)
+      .map(line => {
+
+        const values = parseCSVLine(line);
+
+        const item = {};
+
+        headers.forEach((header,index) => {
+
+          item[header] =
+            values[index] || "";
+
+        });
+
+        return item;
+
+      })
+      .filter(item => item.institucion);
+
+    console.log(
+      "Instituciones cargadas:",
+      data.length
+    );
+
+  }catch(error){
+
+    console.error(
+      "Error cargando CSV:",
+      error
+    );
+
+    data = [];
+
+  }
+
+  fill();
+  render();
+
 }
-;const $=id=>document.getElementById(id);
+
+
+/* =====================================================
+   LLENAR FILTROS
+===================================================== */
+
 function fill(){
-  $('d').innerHTML='<option value="">Todos los departamentos</option>';
-  $('a').innerHTML='<option value="">Todas las áreas</option>';
-  [...new Set(data.map(x=>x.departamento).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')).forEach(x=>$('d').insertAdjacentHTML('beforeend',`<option>${x}</option>`));
-  [...new Set(data.flatMap(x=>(x.area||'').split('/').map(x=>x.trim())).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')).forEach(x=>$('a').insertAdjacentHTML('beforeend',`<option>${x}</option>`));
-}
-function initials(n){return n.split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase();}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function filtered(){
-  const q=$('q').value.trim().toLowerCase(), d=$('d').value, a=$('a').value;
-  return data.filter(x=>{
-    const hay=Object.values(x).join(' ').toLowerCase();
-    return (!q||hay.includes(q))&&(!d||x.departamento===d)&&(!a||(x.area||'').split('/').map(v=>v.trim()).includes(a));
+
+  $("d").innerHTML =
+    '<option value="">Todos los departamentos</option>';
+
+  $("a").innerHTML =
+    '<option value="">Todas las áreas</option>';
+
+
+  const departamentos =
+    [...new Set(
+      data
+        .map(x => x.departamento)
+        .filter(Boolean)
+    )]
+    .sort((a,b) =>
+      a.localeCompare(b,"es")
+    );
+
+
+  departamentos.forEach(departamento => {
+
+    $("d").insertAdjacentHTML(
+      "beforeend",
+
+      `<option value="${escapeHTML(departamento)}">
+        ${escapeHTML(departamento)}
+      </option>`
+    );
+
   });
+
+
+  const areas =
+    [...new Set(
+      data
+        .flatMap(x =>
+          String(x.area || "")
+            .split("/")
+            .map(area => area.trim())
+        )
+        .filter(Boolean)
+    )]
+    .sort((a,b) =>
+      a.localeCompare(b,"es")
+    );
+
+
+  areas.forEach(area => {
+
+    $("a").insertAdjacentHTML(
+      "beforeend",
+
+      `<option value="${escapeHTML(area)}">
+        ${escapeHTML(area)}
+      </option>`
+    );
+
+  });
+
 }
+
+
+/* =====================================================
+   FILTRAR
+===================================================== */
+
+function filtered(){
+
+  const query =
+    $("q").value
+      .trim()
+      .toLowerCase();
+
+  const departamento =
+    $("d").value;
+
+  const area =
+    $("a").value;
+
+
+  return data.filter(item => {
+
+    const nombre =
+      String(item.institucion || "")
+        .toLowerCase();
+
+    const coincideNombre =
+      !query ||
+      nombre.includes(query);
+
+
+    const coincideDepartamento =
+      !departamento ||
+      item.departamento === departamento;
+
+
+    const listaAreas =
+      String(item.area || "")
+        .split("/")
+        .map(x => x.trim());
+
+
+    const coincideArea =
+      !area ||
+      listaAreas.includes(area);
+
+
+    return (
+      coincideNombre &&
+      coincideDepartamento &&
+      coincideArea
+    );
+
+  });
+
+}
+
+
+/* =====================================================
+   ESCAPAR TEXTO
+===================================================== */
+
+function escapeHTML(text){
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   INICIALES
+===================================================== */
+
+function initials(name){
+
+  return String(name || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0,2)
+    .map(word =>
+      word.charAt(0)
+    )
+    .join("")
+    .toUpperCase();
+
+}
+
+
+/* =====================================================
+   RENDERIZAR
+===================================================== */
+
 function render(){
-  const rows=filtered();
-  $('count').textContent=`${rows.length} institución${rows.length===1?'':'es'} encontrada${rows.length===1?'':'s'}`;
-  $('cards').innerHTML=rows.length?rows.map((x,i)=>`<article class="card">
-    <div class="top"><div class="logo">${esc(initials(x.institucion))}</div><h3>${esc(x.institucion)}</h3></div>
-    <div class="tags">${(x.area||'').split('/').map(t=>`<span class="tag">${esc(t.trim())}</span>`).join('')}</div>
-    <div class="meta"><div>📍 ${esc(x.provincia_ciudad)}, ${esc(x.departamento)}</div><div>🕒 ${esc(x.horario)}</div></div>
-    <div class="vac">${esc(x.vacantes)} vacante${String(x.vacantes)==='1'?'':'s'}</div>
-    <button class="more" data-i="${i}">Ver detalles</button>
-  </article>`).join(''):'<p>No encontramos resultados.</p>';
-  [...document.querySelectorAll('.more')].forEach(b=>b.onclick=()=>show(rows[+b.dataset.i]));
+
+  const rows = filtered();
+
+
+  $("count").textContent =
+    `${rows.length} ${
+      rows.length === 1
+        ? "institución encontrada"
+        : "instituciones encontradas"
+    }`;
+
+
+  if(!rows.length){
+
+    $("cards").innerHTML = `
+      <div class="empty">
+        No encontramos resultados.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  $("cards").innerHTML =
+    rows.map(item => {
+
+      const areas =
+        String(item.area || "")
+          .split("/")
+          .map(area => area.trim())
+          .filter(Boolean);
+
+
+      let logoHTML =
+        escapeHTML(
+          initials(item.institucion)
+        );
+
+
+      if(
+        item.logo &&
+        String(item.logo).trim() !== ""
+      ){
+
+        logoHTML = `
+          <img
+            src="${escapeHTML(item.logo)}"
+            alt="${escapeHTML(item.institucion)}"
+            onerror="this.parentElement.innerHTML='${escapeHTML(
+              initials(item.institucion)
+            )}'"
+          >
+        `;
+
+      }
+
+
+      return `
+
+        <article class="card">
+
+          <div class="top">
+
+            <div class="logo">
+              ${logoHTML}
+            </div>
+
+            <div>
+
+              <h3>
+                ${escapeHTML(item.institucion)}
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="tags">
+
+            ${areas.map(area => `
+              <span class="tag">
+                ${escapeHTML(area)}
+              </span>
+            `).join("")}
+
+          </div>
+
+
+          <div class="info">
+
+            <div>
+              <strong>📍 Ubicación:</strong>
+              ${escapeHTML(item.provincia_ciudad || "")},
+              ${escapeHTML(item.departamento || "")}
+            </div>
+
+            <div>
+              <strong>👥 Vacantes:</strong>
+              ${escapeHTML(item.vacantes || "No especificado")}
+            </div>
+
+            <div>
+              <strong>🏢 Dirección:</strong>
+              ${escapeHTML(item.direccion || "No especificada")}
+            </div>
+
+            <div>
+              <strong>🕒 Horario:</strong>
+              ${escapeHTML(item.horario || "No especificado")}
+            </div>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
+
 }
-function show(x){
-  $('detail').innerHTML=`<h2>${esc(x.institucion)}</h2><div class="detailgrid">
-    <div class="item"><strong>Departamento</strong>${esc(x.departamento)}</div>
-    <div class="item"><strong>Provincia / ciudad</strong>${esc(x.provincia_ciudad)}</div>
-    <div class="item"><strong>Área</strong>${esc(x.area)}</div>
-    <div class="item"><strong>Vacantes</strong>${esc(x.vacantes)}</div>
-    <div class="item"><strong>Dirección</strong>${esc(x.direccion)}</div>
-    <div class="item"><strong>Horario</strong>${esc(x.horario)}</div>
-  </div>`;
-  $('modal').style.display='flex';
-}
-$('q').oninput=render;$('d').onchange=render;$('a').onchange=render;
-$('clear').onclick=()=>{$('q').value='';$('d').value='';$('a').value='';render();};
-$('close').onclick=()=>{$('modal').style.display='none';};
-$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').style.display='none';};
+
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+
+$("q").addEventListener(
+  "input",
+  render
+);
+
+$("d").addEventListener(
+  "change",
+  render
+);
+
+$("a").addEventListener(
+  "change",
+  render
+);
+
+$("clear").addEventListener(
+  "click",
+  () => {
+
+    $("q").value = "";
+    $("d").value = "";
+    $("a").value = "";
+
+    render();
+
+  }
+);
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
 loadCSV();
-</script></body></html>
+
+</script>
+
+</body>
+</html>
