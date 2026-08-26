@@ -9,17 +9,15 @@
 <style>
 :root{
   --verde:#176b52;
+  --verde2:#23846a;
   --verde-claro:#eaf5f0;
-  --verde-suave:#cfe8dd;
-  --azul:#4f79ad;
-  --naranja:#f0a13a;
-  --rojo:#dc6370;
   --texto:#273847;
-  --gris:#66727f;
-  --borde:#d9e3df;
-  --blanco:#ffffff;
-  --fondo:#f5f8f6;
-  --sombra:0 12px 35px rgba(29,65,52,.12);
+  --gris:#667572;
+  --borde:#dce7e1;
+  --fondo:#f4f8f6;
+  --azul:#4d78ad;
+  --naranja:#ef9a2f;
+  --rojo:#d85d69;
 }
 
 *{
@@ -29,447 +27,393 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:var(--fondo);
   color:var(--texto);
+  background:
+    radial-gradient(circle at top left,#e8f3ee 0%,transparent 35%),
+    linear-gradient(180deg,#f8fbfa 0%,#eef5f2 100%);
 }
-
-/* ENCABEZADO */
 
 header{
   background:#fff;
   border-bottom:1px solid var(--borde);
-  padding:22px 6%;
+}
+
+.header-inner{
+  max-width:1250px;
+  margin:auto;
+  padding:18px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
 }
 
-.icono{
-  width:54px;
-  height:54px;
-  border-radius:18px;
+.logo{
+  width:48px;
+  height:48px;
+  border-radius:14px;
   background:var(--verde-claro);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
 }
 
 .brand h1{
   margin:0;
-  font-size:24px;
+  font-size:20px;
 }
 
 .brand p{
-  margin:5px 0 0;
+  margin:4px 0 0;
   color:var(--gris);
+  font-size:13px;
 }
 
-/* HERO */
+.total{
+  background:var(--verde-claro);
+  color:var(--verde);
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+}
+
+main{
+  max-width:1250px;
+  margin:auto;
+  padding:38px 28px 55px;
+}
 
 .hero{
   text-align:center;
-  padding:55px 20px 35px;
-  background:linear-gradient(180deg,#edf7f2 0%,var(--fondo) 100%);
+  margin-bottom:30px;
 }
 
 .hero h2{
   margin:0;
-  font-size:42px;
-  color:#243b35;
+  font-size:36px;
+  letter-spacing:-1px;
 }
 
 .hero p{
-  max-width:850px;
-  margin:15px auto 0;
-  font-size:18px;
+  color:var(--gris);
+  max-width:680px;
+  margin:12px auto 0;
   line-height:1.6;
-  color:#52636c;
 }
 
-/* CONTENEDOR */
-
-.wrap{
-  width:min(1180px,92%);
-  margin:0 auto 60px;
+.layout{
+  display:grid;
+  grid-template-columns:minmax(500px,1.35fr) minmax(330px,.75fr);
+  gap:24px;
+  align-items:stretch;
 }
 
-/* FILTROS */
-
-.filters{
-  background:#fff;
+.map-card,
+.info-card{
+  background:rgba(255,255,255,.92);
   border:1px solid var(--borde);
   border-radius:24px;
-  padding:18px;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr auto;
-  gap:12px;
-  box-shadow:var(--sombra);
-  margin-top:-10px;
+  box-shadow:0 15px 45px rgba(32,67,54,.08);
 }
 
-.filters input,
-.filters select,
-.filters button{
-  min-height:56px;
-  border-radius:15px;
-  border:1px solid #ccd9d3;
-  padding:0 17px;
-  font-size:16px;
+.map-card{
+  padding:24px;
+  min-height:680px;
 }
 
-.filters input,
-.filters select{
-  background:#fff;
-  color:#34434d;
-}
-
-.filters button{
-  background:var(--verde);
-  color:#fff;
-  border:none;
-  font-weight:bold;
-  cursor:pointer;
-  padding:0 28px;
-}
-
-.filters button:hover{
-  opacity:.92;
-}
-
-/* RESUMEN */
-
-.summary{
+.card-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin:28px 0 18px;
-  color:#52616a;
+  margin-bottom:12px;
 }
 
-/* MAPA */
-
-.map-section{
-  background:#fff;
-  border:1px solid var(--borde);
-  border-radius:28px;
-  padding:28px;
-  box-shadow:var(--sombra);
-}
-
-.map-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.map-header h2{
+.card-head h3{
   margin:0;
-  font-size:27px;
+  font-size:21px;
 }
 
-.map-header span{
+.card-head span{
   color:var(--gris);
+  font-size:13px;
 }
 
-.map-layout{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:20px;
-  align-items:center;
+.map-area{
+  position:relative;
+  min-height:600px;
+  border-radius:20px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,#edf7f2 0%,#e3f0ea 35%,#f6faf8 72%);
+  border:1px solid #dce9e2;
 }
 
-/* LEYENDA */
+.map-area svg{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  height:92%;
+  width:auto;
+  max-width:75%;
+}
+
+.peru-shape{
+  fill:#cfe5d9;
+  stroke:#7ea995;
+  stroke-width:3;
+  filter:drop-shadow(0 14px 12px rgba(35,90,65,.15));
+}
+
+.marker{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  border:none;
+  cursor:pointer;
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  color:#fff;
+  font-weight:700;
+  font-size:23px;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  border:4px solid #fff;
+  transition:.2s ease;
+}
+
+.marker:hover,
+.marker.active{
+  transform:translate(-50%,-50%) scale(1.12);
+}
+
+.marker small{
+  display:block;
+  font-size:11px;
+  margin-top:2px;
+  font-weight:600;
+}
+
+.marker.lima{background:var(--naranja);}
+.marker.junin{background:var(--azul);}
+.marker.cusco{background:var(--azul);}
+.marker.arequipa{background:var(--verde);}
+
+.label{
+  position:absolute;
+  transform:translateX(-50%);
+  font-size:13px;
+  font-weight:700;
+  color:#344840;
+  pointer-events:none;
+}
+
+.lima-marker{left:40%;top:48%;}
+.lima-label{left:40%;top:56%;}
+
+.junin-marker{left:56%;top:39%;}
+.junin-label{left:56%;top:47%;}
+
+.cusco-marker{left:60%;top:65%;}
+.cusco-label{left:60%;top:73%;}
+
+.arequipa-marker{left:52%;top:78%;}
+.arequipa-label{left:52%;top:86%;}
 
 .legend{
+  position:absolute;
+  left:22px;
+  bottom:22px;
+  background:rgba(255,255,255,.95);
   border:1px solid var(--borde);
-  border-radius:18px;
-  padding:18px;
-  background:#fbfdfc;
+  border-radius:16px;
+  padding:14px 17px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.legend h3{
-  margin-top:0;
+.legend strong{
+  display:block;
+  margin-bottom:9px;
+  font-size:13px;
 }
 
-.legend div{
-  margin:13px 0;
-  font-size:14px;
+.legend-item{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:8px;
+  font-size:12px;
+  margin:6px 0;
+  color:#52625b;
 }
 
 .dot{
-  width:12px;
-  height:12px;
+  width:10px;
+  height:10px;
   border-radius:50%;
-  display:inline-block;
 }
 
-.verde{background:#4f9079;}
-.azul{background:var(--azul);}
-.naranja{background:var(--naranja);}
-.rojo{background:var(--rojo);}
-
-/* MAPA SVG */
-
-.map-box{
-  position:relative;
-  min-height:690px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  border-radius:20px;
-  background:
-    radial-gradient(circle at 50% 45%,#f4faf7 0%,#eef5f1 50%,#e6efea 100%);
+.info-card{
+  padding:25px;
+  min-height:680px;
 }
 
-.peru-svg{
-  width:min(100%,500px);
-  height:auto;
-  filter:drop-shadow(0 18px 25px rgba(30,80,60,.18));
+.info-top{
+  padding-bottom:18px;
+  border-bottom:1px solid var(--borde);
 }
 
-/* MARCADORES */
-
-.marker{
-  cursor:pointer;
-}
-
-.marker circle{
-  stroke:#fff;
-  stroke-width:5;
-  filter:drop-shadow(0 6px 8px rgba(0,0,0,.18));
-}
-
-.marker text.number{
-  fill:#fff;
-  font-size:19px;
-  font-weight:bold;
-  text-anchor:middle;
-  dominant-baseline:middle;
-  pointer-events:none;
-}
-
-.marker text.label{
-  fill:#33454c;
-  font-size:14px;
-  font-weight:bold;
-  text-anchor:middle;
-  pointer-events:none;
-}
-
-.marker:hover circle{
-  transform-origin:center;
-  transform:scale(1.13);
-}
-
-/* RESULTADOS */
-
-.info{
-  margin-top:22px;
-  border:1px solid var(--borde);
-  border-radius:18px;
-  padding:18px 22px;
-  background:var(--verde-claro);
-  font-weight:bold;
-  color:#315f50;
-}
-
-.results{
-  margin-top:25px;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--borde);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 8px 25px rgba(30,60,50,.07);
-}
-
-.card-top{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
-.logo-card{
-  width:62px;
-  height:62px;
-  border-radius:18px;
-  background:var(--verde-claro);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.info-top .eyebrow{
   color:var(--verde);
-  font-size:21px;
-  font-weight:bold;
-  flex-shrink:0;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.8px;
 }
 
-.card h3{
+.info-top h3{
+  margin:8px 0 7px;
+  font-size:25px;
+}
+
+.info-top p{
   margin:0;
-  font-size:21px;
+  color:var(--gris);
+  line-height:1.5;
+  font-size:14px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:20px 0;
+}
+
+.stat{
+  background:var(--verde-claro);
+  border-radius:14px;
+  padding:13px;
+}
+
+.stat strong{
+  display:block;
+  color:var(--verde);
+  font-size:22px;
+}
+
+.stat span{
+  color:var(--gris);
+  font-size:11px;
+}
+
+.institutions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:410px;
+  overflow:auto;
+  padding-right:3px;
+}
+
+.institution{
+  border:1px solid var(--borde);
+  border-radius:14px;
+  padding:13px;
+  background:#fff;
+}
+
+.institution h4{
+  margin:0 0 7px;
+  font-size:14px;
+  line-height:1.35;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
 }
 
 .tag{
-  display:inline-block;
-  margin-top:13px;
-  padding:7px 13px;
-  border-radius:20px;
-  background:#eef5f1;
-  color:#356b5b;
+  background:#f1f6f3;
+  color:#50635b;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:11px;
 }
 
-.card hr{
-  border:none;
-  border-top:1px solid var(--borde);
-  margin:17px 0;
-}
-
-.card p{
-  margin:9px 0;
-  line-height:1.5;
-  color:#52616a;
-}
-
-.card strong{
-  color:#34454e;
-}
-
-/* MODAL */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(19,37,32,.52);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:100;
-}
-
-.modal.active{
-  display:flex;
-}
-
-.dialog{
-  width:min(650px,100%);
-  max-height:85vh;
-  overflow:auto;
-  background:#fff;
-  border-radius:24px;
-  padding:28px;
-  position:relative;
-  box-shadow:0 25px 70px rgba(0,0,0,.25);
-}
-
-.close{
-  position:absolute;
-  right:18px;
-  top:15px;
-  border:none;
-  background:#edf3f0;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:21px;
-}
-
-.dialog h2{
-  margin-top:0;
-  color:var(--verde);
-}
-
-.modal-item{
-  padding:15px;
-  border:1px solid var(--borde);
-  border-radius:14px;
-  margin:12px 0;
-}
-
-/* FOOTER */
-
-footer{
+.empty{
   text-align:center;
-  padding:35px 20px;
-  color:#69777d;
-  font-size:14px;
+  padding:45px 15px;
+  color:var(--gris);
 }
 
-/* RESPONSIVE */
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:22px;
+  text-decoration:none;
+  color:var(--verde);
+  font-weight:700;
+}
 
-@media(max-width:850px){
+@media(max-width:950px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .map-card,
+  .info-card{
+    min-height:auto;
+  }
+
+  .map-area{
+    min-height:620px;
+  }
+}
+
+@media(max-width:600px){
+  .header-inner{
+    padding:14px 18px;
+  }
+
+  .total{
+    font-size:12px;
+    padding:8px 11px;
+  }
+
+  main{
+    padding:28px 14px 40px;
+  }
 
   .hero h2{
-    font-size:31px;
+    font-size:29px;
   }
 
-  .filters{
-    grid-template-columns:1fr 1fr;
+  .map-card{
+    padding:14px;
   }
 
-  .filters input{
-    grid-column:1/-1;
+  .map-area{
+    min-height:540px;
   }
 
-  .map-layout{
-    grid-template-columns:1fr;
+  .marker{
+    width:60px;
+    height:60px;
+    font-size:18px;
   }
 
   .legend{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-
-  .legend h3{
-    width:100%;
-  }
-
-  .legend div{
-    margin:4px 8px 4px 0;
-  }
-
-  .results{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:550px){
-
-  .filters{
-    grid-template-columns:1fr;
-  }
-
-  .filters input{
-    grid-column:auto;
-  }
-
-  .summary{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-
-  .map-section{
-    padding:15px;
-  }
-
-  .map-box{
-    min-height:590px;
+    left:12px;
+    bottom:12px;
+    padding:10px;
   }
 }
 </style>
@@ -478,694 +422,376 @@ footer{
 <body>
 
 <header>
-  <div class="brand">
-    <div class="icono">🤝</div>
-    <div>
-      <h1>Alianzas Estratégicas</h1>
-      <p>Convenios y beneficios para participantes</p>
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="logo">🗺️</div>
+      <div>
+        <h1>Alianzas Estratégicas</h1>
+        <p>Plataforma de consulta · Psicología</p>
+      </div>
     </div>
+
+    <div class="total" id="totalHeader">
+      Cargando instituciones...
+    </div>
+
   </div>
 </header>
 
-<section class="hero">
-  <h2>Mapa de Convenios y Alianzas</h2>
-  <p>
-    Explora las instituciones aliadas según el departamento y conoce
-    los convenios, beneficios y oportunidades disponibles.
-  </p>
-</section>
+<main>
 
-<main class="wrap">
-
-  <section class="filters">
-
-    <input
-      id="search"
-      type="text"
-      placeholder="🔎 Buscar institución o convenio"
-    >
-
-    <select id="category">
-      <option value="">Todos los departamentos</option>
-    </select>
-
-    <select id="type">
-      <option value="">Todos los tipos</option>
-    </select>
-
-    <button onclick="clearFilters()">Limpiar</button>
-
+  <section class="hero">
+    <h2>Mapa de alianzas estratégicas</h2>
+    <p>
+      Explora la distribución geográfica de las instituciones aliadas.
+      Selecciona un departamento para conocer las instituciones disponibles.
+    </p>
   </section>
 
-  <div class="summary">
-    <span id="counter">18 instituciones registradas</span>
-    <span>Convenios estratégicos · 2026</span>
-  </div>
+  <section class="layout">
 
-  <section class="map-section">
+    <div class="map-card">
 
-    <div class="map-header">
-      <h2>🗺️ Mapa del Perú</h2>
-      <span>Selecciona un departamento</span>
-    </div>
-
-    <div class="map-layout">
-
-      <aside class="legend">
-        <h3>Leyenda</h3>
-
-        <div>
-          <span class="dot verde"></span>
-          1 - 2 instituciones
-        </div>
-
-        <div>
-          <span class="dot azul"></span>
-          3 - 5 instituciones
-        </div>
-
-        <div>
-          <span class="dot naranja"></span>
-          6 - 8 instituciones
-        </div>
-
-        <div>
-          <span class="dot rojo"></span>
-          9 a más instituciones
-        </div>
-      </aside>
-
-      <div class="map-box">
-
-        <!-- MAPA DEL PERÚ -->
-
-        <svg
-          class="peru-svg"
-          viewBox="0 0 500 820"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Mapa del Perú"
-        >
-
-          <!-- SILUETA DEL PERÚ -->
-
-          <path
-            d="
-            M238 30
-            L278 55
-            L294 95
-            L325 116
-            L319 153
-            L346 181
-            L338 218
-            L365 248
-            L352 286
-            L375 319
-            L365 354
-            L389 392
-            L378 430
-            L395 470
-            L379 508
-            L397 548
-            L376 584
-            L382 626
-            L354 657
-            L341 700
-            L306 731
-            L278 775
-            L246 755
-            L225 716
-            L194 687
-            L181 646
-            L154 619
-            L164 581
-            L143 543
-            L157 507
-            L136 468
-            L151 428
-            L132 389
-            L149 350
-            L130 314
-            L148 278
-            L132 241
-            L153 207
-            L142 169
-            L169 139
-            L178 101
-            L209 78
-            Z
-            "
-            fill="#b9d8ca"
-            stroke="#7faf9a"
-            stroke-width="4"
-            stroke-linejoin="round"
-          />
-
-          <!-- ZONA SELVA -->
-
-          <path
-            d="
-            M278 55
-            L294 95
-            L325 116
-            L319 153
-            L346 181
-            L338 218
-            L365 248
-            L352 286
-            L375 319
-            L365 354
-            L389 392
-            L378 430
-            L395 470
-            L379 508
-            L397 548
-            L376 584
-            L382 626
-            L354 657
-            L341 700
-            L306 731
-            L278 775
-            L265 724
-            L286 678
-            L267 631
-            L287 585
-            L267 541
-            L288 494
-            L270 449
-            L290 404
-            L268 358
-            L291 314
-            L270 269
-            L293 223
-            L270 177
-            L289 130
-            Z
-            "
-            fill="#a8cdbb"
-            opacity=".7"
-          />
-
-          <!-- MARCADORES -->
-
-          <!-- LAMBAYEQUE -->
-
-          <g class="marker" onclick="showDepartment('Lambayeque')">
-            <circle cx="195" cy="160" r="31" fill="#4f9079"/>
-            <text class="number" x="195" y="160">1</text>
-            <text class="label" x="195" y="205">Lambayeque</text>
-          </g>
-
-          <!-- CAJAMARCA -->
-
-          <g class="marker" onclick="showDepartment('Cajamarca')">
-            <circle cx="260" cy="190" r="31" fill="#4f9079"/>
-            <text class="number" x="260" y="190">1</text>
-            <text class="label" x="260" y="235">Cajamarca</text>
-          </g>
-
-          <!-- LIMA -->
-
-          <g class="marker" onclick="showDepartment('Lima')">
-            <circle cx="180" cy="345" r="31" fill="#f0a13a"/>
-            <text class="number" x="180" y="345">6</text>
-            <text class="label" x="180" y="390">Lima</text>
-          </g>
-
-          <!-- JUNÍN -->
-
-          <g class="marker" onclick="showDepartment('Junín')">
-            <circle cx="265" cy="310" r="31" fill="#4f79ad"/>
-            <text class="number" x="265" y="310">4</text>
-            <text class="label" x="265" y="355">Junín</text>
-          </g>
-
-          <!-- CUSCO -->
-
-          <g class="marker" onclick="showDepartment('Cusco')">
-            <circle cx="325" cy="440" r="31" fill="#4f79ad"/>
-            <text class="number" x="325" y="440">5</text>
-            <text class="label" x="325" y="485">Cusco</text>
-          </g>
-
-          <!-- AREQUIPA -->
-
-          <g class="marker" onclick="showDepartment('Arequipa')">
-            <circle cx="245" cy="570" r="31" fill="#4f79ad"/>
-            <text class="number" x="245" y="570">3</text>
-            <text class="label" x="245" y="615">Arequipa</text>
-          </g>
-
-          <!-- PUNO -->
-
-          <g class="marker" onclick="showDepartment('Puno')">
-            <circle cx="325" cy="625" r="31" fill="#4f9079"/>
-            <text class="number" x="325" y="625">1</text>
-            <text class="label" x="325" y="670">Puno</text>
-          </g>
-
-        </svg>
-
+      <div class="card-head">
+        <h3>🗺️ Perú</h3>
+        <span>Haz clic en un marcador</span>
       </div>
 
+      <div class="map-area">
+
+        <svg viewBox="0 0 300 560" aria-label="Mapa del Perú">
+          <path class="peru-shape"
+            d="M150 18
+            L183 40 L194 76 L215 94
+            L208 127 L231 152
+            L224 182 L246 209
+            L236 238 L254 270
+            L241 303 L255 339
+            L238 370 L247 405
+            L225 430 L217 467
+            L190 494 L176 530
+            L157 548 L139 525
+            L128 495 L106 470
+            L98 438 L78 418
+            L87 385 L70 357
+            L82 326 L64 296
+            L77 265 L60 235
+            L72 205 L59 177
+            L78 150 L72 120
+            L94 96 L98 66
+            L120 48 Z"/>
+        </svg>
+
+        <button class="marker lima lima-marker"
+                data-dept="Lima">
+          <span id="numLima">0</span>
+        </button>
+        <div class="label lima-label">Lima</div>
+
+        <button class="marker junin junin-marker"
+                data-dept="Junín">
+          <span id="numJunin">0</span>
+        </button>
+        <div class="label junin-label">Junín</div>
+
+        <button class="marker cusco cusco-marker"
+                data-dept="Cusco">
+          <span id="numCusco">0</span>
+        </button>
+        <div class="label cusco-label">Cusco</div>
+
+        <button class="marker arequipa arequipa-marker"
+                data-dept="Arequipa">
+          <span id="numArequipa">0</span>
+        </button>
+        <div class="label arequipa-label">Arequipa</div>
+
+        <div class="legend">
+          <strong>Distribución</strong>
+
+          <div class="legend-item">
+            <span class="dot" style="background:#23846a"></span>
+            1 - 2 instituciones
+          </div>
+
+          <div class="legend-item">
+            <span class="dot" style="background:#4d78ad"></span>
+            3 - 5 instituciones
+          </div>
+
+          <div class="legend-item">
+            <span class="dot" style="background:#ef9a2f"></span>
+            6 - 8 instituciones
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="info">
-      📍 Haz clic en un departamento para conocer las instituciones,
-      convenios y beneficios disponibles.
-    </div>
+    <aside class="info-card">
+
+      <div class="info-top">
+        <div class="eyebrow">INSTITUCIONES ALIADAS</div>
+        <h3 id="deptTitle">Selecciona un departamento</h3>
+        <p id="deptDescription">
+          Haz clic en uno de los cuatro marcadores del mapa para consultar las instituciones registradas.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong id="deptCount">—</strong>
+          <span>Instituciones</span>
+        </div>
+
+        <div class="stat">
+          <strong id="totalCount">—</strong>
+          <span>Total registradas</span>
+        </div>
+      </div>
+
+      <div class="institutions" id="institutions">
+        <div class="empty">
+          📍 Selecciona Lima, Junín, Cusco o Arequipa.
+        </div>
+      </div>
+
+      <a href="index.html" class="back">
+        ← Volver al inicio
+      </a>
+
+    </aside>
 
   </section>
-
-  <section id="results" class="results"></section>
 
 </main>
 
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-  <div class="dialog">
-
-    <button class="close" onclick="closeModal()">×</button>
-
-    <h2 id="modalTitle"></h2>
-
-    <div id="modalContent"></div>
-
-  </div>
-
-</div>
-
-<footer>
-  Directorio de Alianzas Estratégicas · Información basada en los convenios registrados.
-</footer>
-
-
 <script>
 
-/* =====================================================
-   BASE DE DATOS
-   AQUÍ PUEDES AGREGAR LAS DEMÁS INSTITUCIONES
-===================================================== */
+let data = [];
 
-const data = [
-
-{
-  institucion:"Asociación Educativa Harvard S.R.L.",
-  departamento:"Junín",
-  ciudad:"Huancayo",
-  tipo:"Educación",
-  vacantes:"2",
-  direccion:"Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo",
-  beneficio:"Convenio institucional y oportunidades para participantes."
-},
-
-{
-  institucion:"NeuroPsico – Psicología Clínica Integral",
-  departamento:"Cusco",
-  ciudad:"Cusco",
-  tipo:"Clínica",
-  vacantes:"5",
-  direccion:"Jr. Corinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco",
-  beneficio:"Acceso a beneficios y oportunidades mediante el convenio."
-},
-
-{
-  institucion:"Institución Aliada Lima 1",
-  departamento:"Lima",
-  ciudad:"Lima",
-  tipo:"Educación",
-  vacantes:"6",
-  direccion:"Lima, Perú",
-  beneficio:"Beneficios exclusivos para participantes."
-},
-
-{
-  institucion:"Institución Aliada Lima 2",
-  departamento:"Lima",
-  ciudad:"Lima",
-  tipo:"Capacitación",
-  vacantes:"3",
-  direccion:"Lima, Perú",
-  beneficio:"Descuentos y oportunidades mediante convenio."
-},
-
-{
-  institucion:"Institución Aliada Lima 3",
-  departamento:"Lima",
-  ciudad:"Lima",
-  tipo:"Servicios",
-  vacantes:"4",
-  direccion:"Lima, Perú",
-  beneficio:"Acceso a beneficios institucionales."
-},
-
-{
-  institucion:"Institución Aliada Lambayeque",
-  departamento:"Lambayeque",
-  ciudad:"Chiclayo",
-  tipo:"Educación",
-  vacantes:"2",
-  direccion:"Chiclayo, Lambayeque",
-  beneficio:"Beneficios para participantes."
-},
-
-{
-  institucion:"Institución Aliada Cajamarca",
-  departamento:"Cajamarca",
-  ciudad:"Cajamarca",
-  tipo:"Capacitación",
-  vacantes:"2",
-  direccion:"Cajamarca, Perú",
-  beneficio:"Oportunidades mediante alianza estratégica."
-},
-
-{
-  institucion:"Institución Aliada Arequipa 1",
-  departamento:"Arequipa",
-  ciudad:"Arequipa",
-  tipo:"Servicios",
-  vacantes:"3",
-  direccion:"Arequipa, Perú",
-  beneficio:"Beneficios institucionales."
-},
-
-{
-  institucion:"Institución Aliada Arequipa 2",
-  departamento:"Arequipa",
-  ciudad:"Arequipa",
-  tipo:"Educación",
-  vacantes:"2",
-  direccion:"Arequipa, Perú",
-  beneficio:"Acceso a oportunidades y beneficios."
-},
-
-{
-  institucion:"Institución Aliada Arequipa 3",
-  departamento:"Arequipa",
-  ciudad:"Arequipa",
-  tipo:"Capacitación",
-  vacantes:"1",
-  direccion:"Arequipa, Perú",
-  beneficio:"Convenio para participantes."
-},
-
-{
-  institucion:"Institución Aliada Puno",
-  departamento:"Puno",
-  ciudad:"Puno",
-  tipo:"Educación",
-  vacantes:"2",
-  direccion:"Puno, Perú",
-  beneficio:"Beneficios disponibles para participantes."
-}
-
+const departments = [
+  "Lima",
+  "Junín",
+  "Cusco",
+  "Arequipa"
 ];
 
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const search = document.getElementById("search");
-const category = document.getElementById("category");
-const type = document.getElementById("type");
-const results = document.getElementById("results");
-const counter = document.getElementById("counter");
-
-
-/* =====================================================
-   LLENAR FILTROS
-===================================================== */
-
-function fillFilters(){
-
-  const departments = [...new Set(data.map(x => x.departamento))];
-
-  departments
-  .sort()
-  .forEach(dep => {
-
-    category.innerHTML +=
-    `<option value="${dep}">${dep}</option>`;
-
-  });
-
-
-  const types = [...new Set(data.map(x => x.tipo))];
-
-  types
-  .sort()
-  .forEach(item => {
-
-    type.innerHTML +=
-    `<option value="${item}">${item}</option>`;
-
-  });
-
+function normalize(value){
+  return String(value || "")
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase();
 }
 
+function parseCSV(text){
 
-/* =====================================================
-   FILTRAR
-===================================================== */
+  const lines = text
+    .replace(/^\uFEFF/,"")
+    .split(/\r?\n/)
+    .filter(line => line.trim());
 
-function filtered(){
+  if(lines.length < 2) return [];
 
-  const q = search.value.toLowerCase().trim();
+  function parseLine(line){
+    let result = [];
+    let current = "";
+    let quoted = false;
 
-  return data.filter(x => {
+    for(let i=0;i<line.length;i++){
 
-    const matchSearch =
-      x.institucion.toLowerCase().includes(q) ||
-      x.departamento.toLowerCase().includes(q) ||
-      x.ciudad.toLowerCase().includes(q) ||
-      x.tipo.toLowerCase().includes(q);
+      const char = line[i];
 
-    const matchDepartment =
-      !category.value ||
-      x.departamento === category.value;
+      if(char === '"'){
 
-    const matchType =
-      !type.value ||
-      x.tipo === type.value;
+        if(quoted && line[i+1] === '"'){
+          current += '"';
+          i++;
+        }else{
+          quoted = !quoted;
+        }
 
-    return
-      matchSearch &&
-      matchDepartment &&
-      matchType;
+      }else if(char === "," && !quoted){
 
+        result.push(current);
+        current = "";
+
+      }else{
+        current += char;
+      }
+    }
+
+    result.push(current);
+    return result;
+  }
+
+  const headers = parseLine(lines[0]);
+
+  return lines.slice(1).map(line => {
+
+    const values = parseLine(line);
+    let obj = {};
+
+    headers.forEach((header,index)=>{
+      obj[header.trim()] = (values[index] || "").trim();
+    });
+
+    return obj;
+
+  }).filter(item => item.institucion);
+}
+
+function countDepartment(name){
+
+  return data.filter(item =>
+    normalize(item.departamento) === normalize(name)
+  ).length;
+}
+
+function updateNumbers(){
+
+  const counts = {
+    Lima:countDepartment("Lima"),
+    Junín:countDepartment("Junín"),
+    Cusco:countDepartment("Cusco"),
+    Arequipa:countDepartment("Arequipa")
+  };
+
+  document.getElementById("numLima").textContent = counts.Lima;
+  document.getElementById("numJunin").textContent = counts.Junín;
+  document.getElementById("numCusco").textContent = counts.Cusco;
+  document.getElementById("numArequipa").textContent = counts.Arequipa;
+
+  const total = data.length;
+
+  document.getElementById("totalHeader").textContent =
+    `${total} instituciones en ${departments.filter(d => countDepartment(d) > 0).length} departamentos`;
+
+  document.getElementById("totalCount").textContent = total;
+}
+
+function showDepartment(dept){
+
+  document.querySelectorAll(".marker").forEach(marker=>{
+    marker.classList.remove("active");
   });
 
-}
+  document
+    .querySelector(`.marker[data-dept="${dept}"]`)
+    .classList.add("active");
 
+  const institutions = data.filter(item =>
+    normalize(item.departamento) === normalize(dept)
+  );
 
-/* =====================================================
-   RENDERIZAR TARJETAS
-===================================================== */
+  document.getElementById("deptTitle").textContent = dept;
 
-function initials(name){
+  document.getElementById("deptDescription").textContent =
+    `${institutions.length} institución${institutions.length !== 1 ? "es" : ""} registrada${institutions.length !== 1 ? "s" : ""} en ${dept}.`;
 
-  return name
-  .split(" ")
-  .slice(0,2)
-  .map(x => x[0])
-  .join("")
-  .toUpperCase();
+  document.getElementById("deptCount").textContent =
+    institutions.length;
 
-}
+  const container = document.getElementById("institutions");
 
+  if(!institutions.length){
 
-function render(){
-
-  const rows = filtered();
-
-  counter.textContent =
-    `${rows.length} instituciones encontradas`;
-
-  if(!rows.length){
-
-    results.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        background:#fff;
-        padding:35px;
-        border-radius:20px;
-        border:1px solid var(--borde);
-        text-align:center;
-      ">
-        No encontramos instituciones con esos criterios.
+    container.innerHTML = `
+      <div class="empty">
+        No hay instituciones registradas en este departamento.
       </div>
     `;
 
     return;
   }
 
+  container.innerHTML = institutions.map(item => `
 
-  results.innerHTML = rows.map(x => `
+    <article class="institution">
 
-    <article class="card">
+      <h4>${escapeHTML(item.institucion)}</h4>
 
-      <div class="card-top">
+      <div class="tags">
 
-        <div class="logo-card">
-          ${initials(x.institucion)}
-        </div>
+        <span class="tag">
+          📍 ${escapeHTML(item.provincia_ciudad || dept)}
+        </span>
 
-        <div>
-          <h3>${x.institucion}</h3>
-          <span class="tag">${x.tipo}</span>
-        </div>
+        <span class="tag">
+          ${escapeHTML(item.area || "Área por confirmar")}
+        </span>
+
+        ${item.vacantes ? `
+          <span class="tag">
+            ${escapeHTML(item.vacantes)} vacantes
+          </span>
+        ` : ""}
 
       </div>
-
-      <hr>
-
-      <p>
-        📍 <strong>Ubicación:</strong>
-        ${x.ciudad}, ${x.departamento}
-      </p>
-
-      <p>
-        👥 <strong>Vacantes:</strong>
-        ${x.vacantes}
-      </p>
-
-      <p>
-        🏢 <strong>Dirección:</strong>
-        ${x.direccion}
-      </p>
-
-      <p>
-        🎁 <strong>Beneficio:</strong>
-        ${x.beneficio}
-      </p>
 
     </article>
 
   `).join("");
-
 }
 
+function escapeHTML(value){
 
-/* =====================================================
-   CLIC EN DEPARTAMENTO
-===================================================== */
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
 
-function showDepartment(department){
+async function loadData(){
 
-  const institutions =
-    data.filter(x => x.departamento === department);
+  try{
 
-  document.getElementById("modalTitle").textContent =
-    `${department} · ${institutions.length} institución(es)`;
+    const response = await fetch(
+      "alianzas.csv",
+      {cache:"no-store"}
+    );
 
+    if(!response.ok){
+      throw new Error("No se pudo cargar alianzas.csv");
+    }
 
-  const content =
-    document.getElementById("modalContent");
+    const text = await response.text();
 
+    data = parseCSV(text);
 
-  if(!institutions.length){
+    updateNumbers();
 
-    content.innerHTML = `
-      <p>
-        Actualmente no se registran instituciones disponibles
-        para este departamento.
-      </p>
+    showDepartment("Lima");
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("totalHeader").textContent =
+      "No se pudieron cargar las instituciones";
+
+    document.getElementById("institutions").innerHTML = `
+      <div class="empty">
+        ⚠️ No se pudo leer el archivo de instituciones.
+      </div>
     `;
-
-  }else{
-
-    content.innerHTML =
-      institutions.map(x => `
-
-        <div class="modal-item">
-
-          <strong>${x.institucion}</strong>
-
-          <p>${x.tipo}</p>
-
-          <p>
-            📍 ${x.ciudad}
-          </p>
-
-          <p>
-            🎁 ${x.beneficio}
-          </p>
-
-        </div>
-
-      `).join("");
-
   }
-
-
-  document
-  .getElementById("modal")
-  .classList
-  .add("active");
-
 }
 
+document.querySelectorAll(".marker").forEach(marker=>{
 
-/* =====================================================
-   CERRAR MODAL
-===================================================== */
+  marker.addEventListener("click",()=>{
 
-function closeModal(){
+    showDepartment(marker.dataset.dept);
 
-  document
-  .getElementById("modal")
-  .classList
-  .remove("active");
-
-}
-
-
-document
-.getElementById("modal")
-.addEventListener("click",function(e){
-
-  if(e.target === this){
-    closeModal();
-  }
+  });
 
 });
 
-
-/* =====================================================
-   LIMPIAR
-===================================================== */
-
-function clearFilters(){
-
-  search.value = "";
-  category.value = "";
-  type.value = "";
-
-  render();
-
-}
-
-
-/* =====================================================
-   EVENTOS
-===================================================== */
-
-search.addEventListener("input",render);
-
-category.addEventListener("change",render);
-
-type.addEventListener("change",render);
-
-
-/* =====================================================
-   INICIAR
-===================================================== */
-
-fillFilters();
-
-render();
+loadData();
 
 </script>
 
