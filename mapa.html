@@ -4,18 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convenios y Beneficios</title>
+<title>Mapa de Convenios y Alianzas</title>
 
 <style>
 :root{
   --verde:#176b52;
-  --verde-claro:#e8f3ee;
-  --verde-suave:#f4faf7;
-  --texto:#20312f;
-  --gris:#667572;
+  --verde-claro:#eaf5f0;
+  --verde-suave:#cfe8dd;
+  --azul:#4f79ad;
+  --naranja:#f0a13a;
+  --rojo:#dc6370;
+  --texto:#273847;
+  --gris:#66727f;
   --borde:#d9e3df;
   --blanco:#ffffff;
-  --sombra:0 12px 35px rgba(29,61,52,.10);
+  --fondo:#f5f8f6;
+  --sombra:0 12px 35px rgba(29,65,52,.12);
 }
 
 *{
@@ -25,24 +29,27 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f4f7f6;
+  background:var(--fondo);
   color:var(--texto);
 }
 
 /* ENCABEZADO */
 
 header{
-  background:#ffffff;
+  background:#fff;
   border-bottom:1px solid var(--borde);
-  padding:18px 7%;
-  display:flex;
-  align-items:center;
-  gap:16px;
+  padding:22px 6%;
 }
 
-.logo{
-  width:58px;
-  height:58px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.icono{
+  width:54px;
+  height:54px;
   border-radius:18px;
   background:var(--verde-claro);
   display:flex;
@@ -53,217 +60,291 @@ header{
 
 .brand h1{
   margin:0;
-  font-size:23px;
+  font-size:24px;
 }
 
 .brand p{
   margin:5px 0 0;
   color:var(--gris);
-  font-size:15px;
 }
 
 /* HERO */
 
 .hero{
   text-align:center;
-  padding:65px 20px 45px;
-  background:
-  linear-gradient(135deg,
-  #edf7f3,
-  #f8fbfa);
+  padding:55px 20px 35px;
+  background:linear-gradient(180deg,#edf7f2 0%,var(--fondo) 100%);
 }
 
 .hero h2{
   margin:0;
-  font-size:48px;
-  color:#213936;
+  font-size:42px;
+  color:#243b35;
 }
 
 .hero p{
   max-width:850px;
-  margin:16px auto 0;
-  color:#566563;
-  font-size:20px;
-  line-height:1.5;
+  margin:15px auto 0;
+  font-size:18px;
+  line-height:1.6;
+  color:#52636c;
 }
 
 /* CONTENEDOR */
 
-.container{
-  width:min(1200px,92%);
-  margin:0 auto;
-}
-
-/* INTRO */
-
-.info{
-  margin-top:35px;
-  background:white;
-  border:1px solid var(--borde);
-  border-radius:24px;
-  padding:28px;
-  box-shadow:var(--sombra);
-}
-
-.info h3{
-  margin:0;
-  font-size:26px;
-}
-
-.info p{
-  color:var(--gris);
-  line-height:1.6;
-  margin-bottom:0;
+.wrap{
+  width:min(1180px,92%);
+  margin:0 auto 60px;
 }
 
 /* FILTROS */
 
 .filters{
-  margin:30px 0;
-  background:white;
-  padding:18px;
-  border-radius:22px;
+  background:#fff;
   border:1px solid var(--borde);
+  border-radius:24px;
+  padding:18px;
   display:grid;
   grid-template-columns:2fr 1fr 1fr auto;
   gap:12px;
   box-shadow:var(--sombra);
+  margin-top:-10px;
 }
 
-input,
-select,
-button{
-  font:inherit;
+.filters input,
+.filters select,
+.filters button{
+  min-height:56px;
+  border-radius:15px;
+  border:1px solid #ccd9d3;
+  padding:0 17px;
+  font-size:16px;
 }
 
-input,
-select{
-  width:100%;
-  padding:16px;
-  border-radius:13px;
-  border:1px solid #cfdad6;
+.filters input,
+.filters select{
   background:#fff;
-  outline:none;
+  color:#34434d;
 }
 
-input:focus,
-select:focus{
-  border-color:var(--verde);
-  box-shadow:0 0 0 3px rgba(23,107,82,.10);
-}
-
-button{
-  border:none;
-  border-radius:13px;
-  padding:16px 26px;
-  cursor:pointer;
-  font-weight:bold;
+.filters button{
   background:var(--verde);
-  color:white;
+  color:#fff;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  padding:0 28px;
 }
 
-button:hover{
+.filters button:hover{
   opacity:.92;
 }
 
-/* CONTADOR */
+/* RESUMEN */
 
 .summary{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:20px;
-  color:#5b6966;
+  margin:28px 0 18px;
+  color:#52616a;
 }
 
-/* TARJETAS */
+/* MAPA */
 
-.grid{
+.map-section{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:var(--sombra);
+}
+
+.map-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.map-header h2{
+  margin:0;
+  font-size:27px;
+}
+
+.map-header span{
+  color:var(--gris);
+}
+
+.map-layout{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-  padding-bottom:60px;
+  grid-template-columns:220px 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+/* LEYENDA */
+
+.legend{
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:18px;
+  background:#fbfdfc;
+}
+
+.legend h3{
+  margin-top:0;
+}
+
+.legend div{
+  margin:13px 0;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.verde{background:#4f9079;}
+.azul{background:var(--azul);}
+.naranja{background:var(--naranja);}
+.rojo{background:var(--rojo);}
+
+/* MAPA SVG */
+
+.map-box{
+  position:relative;
+  min-height:690px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 50% 45%,#f4faf7 0%,#eef5f1 50%,#e6efea 100%);
+}
+
+.peru-svg{
+  width:min(100%,500px);
+  height:auto;
+  filter:drop-shadow(0 18px 25px rgba(30,80,60,.18));
+}
+
+/* MARCADORES */
+
+.marker{
+  cursor:pointer;
+}
+
+.marker circle{
+  stroke:#fff;
+  stroke-width:5;
+  filter:drop-shadow(0 6px 8px rgba(0,0,0,.18));
+}
+
+.marker text.number{
+  fill:#fff;
+  font-size:19px;
+  font-weight:bold;
+  text-anchor:middle;
+  dominant-baseline:middle;
+  pointer-events:none;
+}
+
+.marker text.label{
+  fill:#33454c;
+  font-size:14px;
+  font-weight:bold;
+  text-anchor:middle;
+  pointer-events:none;
+}
+
+.marker:hover circle{
+  transform-origin:center;
+  transform:scale(1.13);
+}
+
+/* RESULTADOS */
+
+.info{
+  margin-top:22px;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:18px 22px;
+  background:var(--verde-claro);
+  font-weight:bold;
+  color:#315f50;
+}
+
+.results{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
 }
 
 .card{
-  background:white;
+  background:#fff;
   border:1px solid var(--borde);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:var(--sombra);
-  transition:.25s;
-  display:flex;
-  flex-direction:column;
-}
-
-.card:hover{
-  transform:translateY(-5px);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 8px 25px rgba(30,60,50,.07);
 }
 
 .card-top{
   display:flex;
   gap:15px;
-  align-items:flex-start;
+  align-items:center;
 }
 
-.icon{
-  width:58px;
-  height:58px;
-  min-width:58px;
+.logo-card{
+  width:62px;
+  height:62px;
   border-radius:18px;
   background:var(--verde-claro);
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--verde);
+  font-size:21px;
   font-weight:bold;
-  font-size:19px;
+  flex-shrink:0;
 }
 
 .card h3{
-  margin:3px 0 0;
+  margin:0;
   font-size:21px;
-  line-height:1.25;
 }
 
-.badge{
+.tag{
   display:inline-block;
-  margin-top:14px;
-  padding:8px 12px;
-  background:#eef5f2;
-  color:#39675a;
+  margin-top:13px;
+  padding:7px 13px;
   border-radius:20px;
-  font-size:14px;
+  background:#eef5f1;
+  color:#356b5b;
 }
 
-.line{
-  height:1px;
-  background:var(--borde);
-  margin:20px 0;
+.card hr{
+  border:none;
+  border-top:1px solid var(--borde);
+  margin:17px 0;
 }
 
-.detail{
-  margin:8px 0;
-  color:#596966;
+.card p{
+  margin:9px 0;
   line-height:1.5;
+  color:#52616a;
 }
 
-.detail strong{
-  color:#293b38;
-}
-
-.benefit{
-  margin-top:12px;
-  background:var(--verde-suave);
-  padding:15px;
-  border-radius:14px;
-  color:#425451;
-  line-height:1.5;
-}
-
-.card button{
-  width:100%;
-  margin-top:20px;
+.card strong{
+  color:#34454e;
 }
 
 /* MODAL */
@@ -271,7 +352,7 @@ button:hover{
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(19,36,32,.55);
+  background:rgba(19,37,32,.52);
   display:none;
   align-items:center;
   justify-content:center;
@@ -285,96 +366,96 @@ button:hover{
 
 .dialog{
   width:min(650px,100%);
-  max-height:90vh;
+  max-height:85vh;
   overflow:auto;
-  background:white;
-  border-radius:25px;
-  padding:32px;
+  background:#fff;
+  border-radius:24px;
+  padding:28px;
   position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .close{
   position:absolute;
-  right:20px;
-  top:18px;
-  background:#eef3f1;
-  color:#33423f;
-  width:42px;
-  height:42px;
-  padding:0;
+  right:18px;
+  top:15px;
+  border:none;
+  background:#edf3f0;
+  width:38px;
+  height:38px;
   border-radius:50%;
+  cursor:pointer;
+  font-size:21px;
 }
 
 .dialog h2{
   margin-top:0;
-  padding-right:50px;
+  color:var(--verde);
 }
 
-.section{
-  margin-top:24px;
-  padding:18px;
-  background:#f6f9f8;
-  border-radius:16px;
-}
-
-.section h4{
-  margin:0 0 10px;
-}
-
-.section p{
-  margin:0;
-  color:#586763;
-  line-height:1.6;
+.modal-item{
+  padding:15px;
+  border:1px solid var(--borde);
+  border-radius:14px;
+  margin:12px 0;
 }
 
 /* FOOTER */
 
 footer{
   text-align:center;
-  padding:30px;
-  color:#64736f;
-  border-top:1px solid var(--borde);
-  background:white;
+  padding:35px 20px;
+  color:#69777d;
+  font-size:14px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:950px){
+@media(max-width:850px){
 
-  .grid{
-    grid-template-columns:repeat(2,1fr);
+  .hero h2{
+    font-size:31px;
   }
 
   .filters{
     grid-template-columns:1fr 1fr;
   }
 
+  .filters input{
+    grid-column:1/-1;
+  }
+
+  .map-layout{
+    grid-template-columns:1fr;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .legend h3{
+    width:100%;
+  }
+
+  .legend div{
+    margin:4px 8px 4px 0;
+  }
+
+  .results{
+    grid-template-columns:1fr;
+  }
 }
 
-@media(max-width:600px){
-
-  header{
-    padding:15px 5%;
-  }
-
-  .hero{
-    padding:45px 15px 35px;
-  }
-
-  .hero h2{
-    font-size:34px;
-  }
-
-  .hero p{
-    font-size:17px;
-  }
+@media(max-width:550px){
 
   .filters{
     grid-template-columns:1fr;
   }
 
-  .grid{
-    grid-template-columns:1fr;
+  .filters input{
+    grid-column:auto;
   }
 
   .summary{
@@ -383,6 +464,13 @@ footer{
     gap:8px;
   }
 
+  .map-section{
+    padding:15px;
+  }
+
+  .map-box{
+    min-height:590px;
+  }
 }
 </style>
 </head>
@@ -390,406 +478,679 @@ footer{
 <body>
 
 <header>
-
-  <div class="logo">🤝</div>
-
   <div class="brand">
-    <h1>Convenios y Beneficios</h1>
-    <p>Modalidad a distancia · Psicología</p>
+    <div class="icono">🤝</div>
+    <div>
+      <h1>Alianzas Estratégicas</h1>
+      <p>Convenios y beneficios para participantes</p>
+    </div>
   </div>
-
 </header>
 
-
 <section class="hero">
-
-  <h2>Convenios disponibles para ti</h2>
-
+  <h2>Mapa de Convenios y Alianzas</h2>
   <p>
-    Explora los convenios, beneficios y oportunidades disponibles
-    para nuestros participantes y conoce cómo puedes acceder a ellos.
+    Explora las instituciones aliadas según el departamento y conoce
+    los convenios, beneficios y oportunidades disponibles.
   </p>
-
 </section>
 
+<main class="wrap">
 
-<main class="container">
+  <section class="filters">
 
-<section class="info">
+    <input
+      id="search"
+      type="text"
+      placeholder="🔎 Buscar institución o convenio"
+    >
 
-<h3>Conoce nuestros convenios</h3>
+    <select id="category">
+      <option value="">Todos los departamentos</option>
+    </select>
 
-<p>
-Aquí podrás encontrar información sobre las instituciones con las que
-contamos con convenios, los beneficios disponibles, requisitos y
-datos importantes para que puedas aprovechar cada oportunidad.
-</p>
+    <select id="type">
+      <option value="">Todos los tipos</option>
+    </select>
 
-</section>
+    <button onclick="clearFilters()">Limpiar</button>
 
+  </section>
 
-<section class="filters">
+  <div class="summary">
+    <span id="counter">18 instituciones registradas</span>
+    <span>Convenios estratégicos · 2026</span>
+  </div>
 
-<input
-id="search"
-type="text"
-placeholder="🔎 Buscar institución o beneficio">
+  <section class="map-section">
 
-<select id="category">
+    <div class="map-header">
+      <h2>🗺️ Mapa del Perú</h2>
+      <span>Selecciona un departamento</span>
+    </div>
 
-<option value="">Todas las categorías</option>
-<option value="Educación">Educación</option>
-<option value="Salud">Salud</option>
-<option value="Psicología">Psicología</option>
-<option value="Capacitación">Capacitación</option>
-<option value="Bienestar">Bienestar</option>
+    <div class="map-layout">
 
-</select>
+      <aside class="legend">
+        <h3>Leyenda</h3>
 
+        <div>
+          <span class="dot verde"></span>
+          1 - 2 instituciones
+        </div>
 
-<select id="type">
+        <div>
+          <span class="dot azul"></span>
+          3 - 5 instituciones
+        </div>
 
-<option value="">Todos los convenios</option>
-<option value="Descuento">Descuento</option>
-<option value="Beneficio">Beneficio</option>
-<option value="Oportunidad">Oportunidad</option>
+        <div>
+          <span class="dot naranja"></span>
+          6 - 8 instituciones
+        </div>
 
-</select>
+        <div>
+          <span class="dot rojo"></span>
+          9 a más instituciones
+        </div>
+      </aside>
 
+      <div class="map-box">
 
-<button onclick="clearFilters()">Limpiar</button>
+        <!-- MAPA DEL PERÚ -->
 
-</section>
+        <svg
+          class="peru-svg"
+          viewBox="0 0 500 820"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Mapa del Perú"
+        >
 
+          <!-- SILUETA DEL PERÚ -->
 
-<div class="summary">
+          <path
+            d="
+            M238 30
+            L278 55
+            L294 95
+            L325 116
+            L319 153
+            L346 181
+            L338 218
+            L365 248
+            L352 286
+            L375 319
+            L365 354
+            L389 392
+            L378 430
+            L395 470
+            L379 508
+            L397 548
+            L376 584
+            L382 626
+            L354 657
+            L341 700
+            L306 731
+            L278 775
+            L246 755
+            L225 716
+            L194 687
+            L181 646
+            L154 619
+            L164 581
+            L143 543
+            L157 507
+            L136 468
+            L151 428
+            L132 389
+            L149 350
+            L130 314
+            L148 278
+            L132 241
+            L153 207
+            L142 169
+            L169 139
+            L178 101
+            L209 78
+            Z
+            "
+            fill="#b9d8ca"
+            stroke="#7faf9a"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
 
-<span id="count"></span>
+          <!-- ZONA SELVA -->
 
-<span>Convenios disponibles · 2026</span>
+          <path
+            d="
+            M278 55
+            L294 95
+            L325 116
+            L319 153
+            L346 181
+            L338 218
+            L365 248
+            L352 286
+            L375 319
+            L365 354
+            L389 392
+            L378 430
+            L395 470
+            L379 508
+            L397 548
+            L376 584
+            L382 626
+            L354 657
+            L341 700
+            L306 731
+            L278 775
+            L265 724
+            L286 678
+            L267 631
+            L287 585
+            L267 541
+            L288 494
+            L270 449
+            L290 404
+            L268 358
+            L291 314
+            L270 269
+            L293 223
+            L270 177
+            L289 130
+            Z
+            "
+            fill="#a8cdbb"
+            opacity=".7"
+          />
 
-</div>
+          <!-- MARCADORES -->
 
+          <!-- LAMBAYEQUE -->
 
-<section class="grid" id="cards"></section>
+          <g class="marker" onclick="showDepartment('Lambayeque')">
+            <circle cx="195" cy="160" r="31" fill="#4f9079"/>
+            <text class="number" x="195" y="160">1</text>
+            <text class="label" x="195" y="205">Lambayeque</text>
+          </g>
+
+          <!-- CAJAMARCA -->
+
+          <g class="marker" onclick="showDepartment('Cajamarca')">
+            <circle cx="260" cy="190" r="31" fill="#4f9079"/>
+            <text class="number" x="260" y="190">1</text>
+            <text class="label" x="260" y="235">Cajamarca</text>
+          </g>
+
+          <!-- LIMA -->
+
+          <g class="marker" onclick="showDepartment('Lima')">
+            <circle cx="180" cy="345" r="31" fill="#f0a13a"/>
+            <text class="number" x="180" y="345">6</text>
+            <text class="label" x="180" y="390">Lima</text>
+          </g>
+
+          <!-- JUNÍN -->
+
+          <g class="marker" onclick="showDepartment('Junín')">
+            <circle cx="265" cy="310" r="31" fill="#4f79ad"/>
+            <text class="number" x="265" y="310">4</text>
+            <text class="label" x="265" y="355">Junín</text>
+          </g>
+
+          <!-- CUSCO -->
+
+          <g class="marker" onclick="showDepartment('Cusco')">
+            <circle cx="325" cy="440" r="31" fill="#4f79ad"/>
+            <text class="number" x="325" y="440">5</text>
+            <text class="label" x="325" y="485">Cusco</text>
+          </g>
+
+          <!-- AREQUIPA -->
+
+          <g class="marker" onclick="showDepartment('Arequipa')">
+            <circle cx="245" cy="570" r="31" fill="#4f79ad"/>
+            <text class="number" x="245" y="570">3</text>
+            <text class="label" x="245" y="615">Arequipa</text>
+          </g>
+
+          <!-- PUNO -->
+
+          <g class="marker" onclick="showDepartment('Puno')">
+            <circle cx="325" cy="625" r="31" fill="#4f9079"/>
+            <text class="number" x="325" y="625">1</text>
+            <text class="label" x="325" y="670">Puno</text>
+          </g>
+
+        </svg>
+
+      </div>
+
+    </div>
+
+    <div class="info">
+      📍 Haz clic en un departamento para conocer las instituciones,
+      convenios y beneficios disponibles.
+    </div>
+
+  </section>
+
+  <section id="results" class="results"></section>
 
 </main>
 
+<!-- MODAL -->
 
 <div class="modal" id="modal">
 
-<div class="dialog">
+  <div class="dialog">
 
-<button class="close" onclick="closeModal()">×</button>
+    <button class="close" onclick="closeModal()">×</button>
 
-<h2 id="modalTitle"></h2>
+    <h2 id="modalTitle"></h2>
 
-<div class="section">
+    <div id="modalContent"></div>
 
-<h4>🏢 Institución</h4>
-
-<p id="modalInstitution"></p>
+  </div>
 
 </div>
-
-
-<div class="section">
-
-<h4>🎁 Beneficio</h4>
-
-<p id="modalBenefit"></p>
-
-</div>
-
-
-<div class="section">
-
-<h4>📋 Requisitos</h4>
-
-<p id="modalRequirements"></p>
-
-</div>
-
-
-<div class="section">
-
-<h4>📅 Vigencia / Información</h4>
-
-<p id="modalInfo"></p>
-
-</div>
-
-
-<div class="section">
-
-<h4>📞 Contacto</h4>
-
-<p id="modalContact"></p>
-
-</div>
-
-</div>
-
-</div>
-
 
 <footer>
-
-Convenios y Beneficios · Información para participantes
-
+  Directorio de Alianzas Estratégicas · Información basada en los convenios registrados.
 </footer>
 
 
 <script>
 
-const convenios = [
+/* =====================================================
+   BASE DE DATOS
+   AQUÍ PUEDES AGREGAR LAS DEMÁS INSTITUCIONES
+===================================================== */
+
+const data = [
 
 {
-institucion:"Asociación Educativa Harvard S.R.L.",
-categoria:"Educación",
-tipo:"Beneficio",
-beneficio:"Acceso a beneficios y oportunidades educativas para los participantes.",
-requisitos:"Ser participante activo y cumplir con las condiciones establecidas por la institución.",
-info:"Consultar la disponibilidad y condiciones específicas antes de solicitar el beneficio.",
-contacto:"Información disponible a través de la coordinación correspondiente."
+  institucion:"Asociación Educativa Harvard S.R.L.",
+  departamento:"Junín",
+  ciudad:"Huancayo",
+  tipo:"Educación",
+  vacantes:"2",
+  direccion:"Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo",
+  beneficio:"Convenio institucional y oportunidades para participantes."
 },
 
 {
-institucion:"NeuroPsico – Psicología Clínica Integral",
-categoria:"Psicología",
-tipo:"Beneficio",
-beneficio:"Beneficios y oportunidades relacionadas con servicios especializados en psicología.",
-requisitos:"Presentar la documentación o acreditación solicitada para acceder al beneficio.",
-info:"Sujeto a disponibilidad y condiciones establecidas por la institución.",
-contacto:"Consultar con la institución para conocer horarios y disponibilidad."
+  institucion:"NeuroPsico – Psicología Clínica Integral",
+  departamento:"Cusco",
+  ciudad:"Cusco",
+  tipo:"Clínica",
+  vacantes:"5",
+  direccion:"Jr. Corinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco",
+  beneficio:"Acceso a beneficios y oportunidades mediante el convenio."
 },
 
 {
-institucion:"Centro de Capacitación Profesional",
-categoria:"Capacitación",
-tipo:"Descuento",
-beneficio:"Descuentos especiales en programas, cursos y actividades de capacitación.",
-requisitos:"Acreditar la condición de participante.",
-info:"Los descuentos pueden variar según el programa seleccionado.",
-contacto:"Coordinación académica de la institución."
+  institucion:"Institución Aliada Lima 1",
+  departamento:"Lima",
+  ciudad:"Lima",
+  tipo:"Educación",
+  vacantes:"6",
+  direccion:"Lima, Perú",
+  beneficio:"Beneficios exclusivos para participantes."
 },
 
 {
-institucion:"Centro Integral de Bienestar",
-categoria:"Bienestar",
-tipo:"Beneficio",
-beneficio:"Acceso a beneficios orientados al bienestar y desarrollo personal.",
-requisitos:"Registro previo y presentación de la acreditación correspondiente.",
-info:"Beneficio sujeto a disponibilidad.",
-contacto:"Consultar directamente con el centro."
+  institucion:"Institución Aliada Lima 2",
+  departamento:"Lima",
+  ciudad:"Lima",
+  tipo:"Capacitación",
+  vacantes:"3",
+  direccion:"Lima, Perú",
+  beneficio:"Descuentos y oportunidades mediante convenio."
 },
 
 {
-institucion:"Institución de Formación Continua",
-categoria:"Educación",
-tipo:"Oportunidad",
-beneficio:"Participación en actividades, talleres y programas de formación continua.",
-requisitos:"Cumplir con los requisitos específicos de cada programa.",
-info:"Las convocatorias estarán sujetas a fechas y vacantes disponibles.",
-contacto:"Área de formación y capacitación."
+  institucion:"Institución Aliada Lima 3",
+  departamento:"Lima",
+  ciudad:"Lima",
+  tipo:"Servicios",
+  vacantes:"4",
+  direccion:"Lima, Perú",
+  beneficio:"Acceso a beneficios institucionales."
 },
 
 {
-institucion:"Centro Especializado de Salud",
-categoria:"Salud",
-tipo:"Descuento",
-beneficio:"Acceso a tarifas preferenciales en determinados servicios.",
-requisitos:"Presentar la acreditación correspondiente antes de solicitar el servicio.",
-info:"Consultar previamente los servicios incluidos en el convenio.",
-contacto:"Central de atención de la institución."
+  institucion:"Institución Aliada Lambayeque",
+  departamento:"Lambayeque",
+  ciudad:"Chiclayo",
+  tipo:"Educación",
+  vacantes:"2",
+  direccion:"Chiclayo, Lambayeque",
+  beneficio:"Beneficios para participantes."
+},
+
+{
+  institucion:"Institución Aliada Cajamarca",
+  departamento:"Cajamarca",
+  ciudad:"Cajamarca",
+  tipo:"Capacitación",
+  vacantes:"2",
+  direccion:"Cajamarca, Perú",
+  beneficio:"Oportunidades mediante alianza estratégica."
+},
+
+{
+  institucion:"Institución Aliada Arequipa 1",
+  departamento:"Arequipa",
+  ciudad:"Arequipa",
+  tipo:"Servicios",
+  vacantes:"3",
+  direccion:"Arequipa, Perú",
+  beneficio:"Beneficios institucionales."
+},
+
+{
+  institucion:"Institución Aliada Arequipa 2",
+  departamento:"Arequipa",
+  ciudad:"Arequipa",
+  tipo:"Educación",
+  vacantes:"2",
+  direccion:"Arequipa, Perú",
+  beneficio:"Acceso a oportunidades y beneficios."
+},
+
+{
+  institucion:"Institución Aliada Arequipa 3",
+  departamento:"Arequipa",
+  ciudad:"Arequipa",
+  tipo:"Capacitación",
+  vacantes:"1",
+  direccion:"Arequipa, Perú",
+  beneficio:"Convenio para participantes."
+},
+
+{
+  institucion:"Institución Aliada Puno",
+  departamento:"Puno",
+  ciudad:"Puno",
+  tipo:"Educación",
+  vacantes:"2",
+  direccion:"Puno, Perú",
+  beneficio:"Beneficios disponibles para participantes."
 }
 
 ];
 
 
-const cards = document.getElementById("cards");
+/* =====================================================
+   ELEMENTOS
+===================================================== */
 
 const search = document.getElementById("search");
-
 const category = document.getElementById("category");
-
 const type = document.getElementById("type");
+const results = document.getElementById("results");
+const counter = document.getElementById("counter");
 
-const count = document.getElementById("count");
 
+/* =====================================================
+   LLENAR FILTROS
+===================================================== */
+
+function fillFilters(){
+
+  const departments = [...new Set(data.map(x => x.departamento))];
+
+  departments
+  .sort()
+  .forEach(dep => {
+
+    category.innerHTML +=
+    `<option value="${dep}">${dep}</option>`;
+
+  });
+
+
+  const types = [...new Set(data.map(x => x.tipo))];
+
+  types
+  .sort()
+  .forEach(item => {
+
+    type.innerHTML +=
+    `<option value="${item}">${item}</option>`;
+
+  });
+
+}
+
+
+/* =====================================================
+   FILTRAR
+===================================================== */
+
+function filtered(){
+
+  const q = search.value.toLowerCase().trim();
+
+  return data.filter(x => {
+
+    const matchSearch =
+      x.institucion.toLowerCase().includes(q) ||
+      x.departamento.toLowerCase().includes(q) ||
+      x.ciudad.toLowerCase().includes(q) ||
+      x.tipo.toLowerCase().includes(q);
+
+    const matchDepartment =
+      !category.value ||
+      x.departamento === category.value;
+
+    const matchType =
+      !type.value ||
+      x.tipo === type.value;
+
+    return
+      matchSearch &&
+      matchDepartment &&
+      matchType;
+
+  });
+
+}
+
+
+/* =====================================================
+   RENDERIZAR TARJETAS
+===================================================== */
 
 function initials(name){
 
-return name
-.split(" ")
-.slice(0,2)
-.map(word => word[0])
-.join("")
-.toUpperCase();
+  return name
+  .split(" ")
+  .slice(0,2)
+  .map(x => x[0])
+  .join("")
+  .toUpperCase();
 
 }
 
 
 function render(){
 
-const text = search.value.toLowerCase();
+  const rows = filtered();
 
-const selectedCategory = category.value;
+  counter.textContent =
+    `${rows.length} instituciones encontradas`;
 
-const selectedType = type.value;
+  if(!rows.length){
+
+    results.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        background:#fff;
+        padding:35px;
+        border-radius:20px;
+        border:1px solid var(--borde);
+        text-align:center;
+      ">
+        No encontramos instituciones con esos criterios.
+      </div>
+    `;
+
+    return;
+  }
 
 
-const filtered = convenios.filter(item => {
+  results.innerHTML = rows.map(x => `
 
-const matchText =
-item.institucion.toLowerCase().includes(text) ||
-item.beneficio.toLowerCase().includes(text);
+    <article class="card">
 
-const matchCategory =
-!selectedCategory ||
-item.categoria === selectedCategory;
+      <div class="card-top">
 
-const matchType =
-!selectedType ||
-item.tipo === selectedType;
+        <div class="logo-card">
+          ${initials(x.institucion)}
+        </div>
 
-return matchText && matchCategory && matchType;
+        <div>
+          <h3>${x.institucion}</h3>
+          <span class="tag">${x.tipo}</span>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <p>
+        📍 <strong>Ubicación:</strong>
+        ${x.ciudad}, ${x.departamento}
+      </p>
+
+      <p>
+        👥 <strong>Vacantes:</strong>
+        ${x.vacantes}
+      </p>
+
+      <p>
+        🏢 <strong>Dirección:</strong>
+        ${x.direccion}
+      </p>
+
+      <p>
+        🎁 <strong>Beneficio:</strong>
+        ${x.beneficio}
+      </p>
+
+    </article>
+
+  `).join("");
+
+}
+
+
+/* =====================================================
+   CLIC EN DEPARTAMENTO
+===================================================== */
+
+function showDepartment(department){
+
+  const institutions =
+    data.filter(x => x.departamento === department);
+
+  document.getElementById("modalTitle").textContent =
+    `${department} · ${institutions.length} institución(es)`;
+
+
+  const content =
+    document.getElementById("modalContent");
+
+
+  if(!institutions.length){
+
+    content.innerHTML = `
+      <p>
+        Actualmente no se registran instituciones disponibles
+        para este departamento.
+      </p>
+    `;
+
+  }else{
+
+    content.innerHTML =
+      institutions.map(x => `
+
+        <div class="modal-item">
+
+          <strong>${x.institucion}</strong>
+
+          <p>${x.tipo}</p>
+
+          <p>
+            📍 ${x.ciudad}
+          </p>
+
+          <p>
+            🎁 ${x.beneficio}
+          </p>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  document
+  .getElementById("modal")
+  .classList
+  .add("active");
+
+}
+
+
+/* =====================================================
+   CERRAR MODAL
+===================================================== */
+
+function closeModal(){
+
+  document
+  .getElementById("modal")
+  .classList
+  .remove("active");
+
+}
+
+
+document
+.getElementById("modal")
+.addEventListener("click",function(e){
+
+  if(e.target === this){
+    closeModal();
+  }
 
 });
 
 
-count.textContent =
-`${filtered.length} convenio${filtered.length === 1 ? "" : "s"} encontrado${filtered.length === 1 ? "" : "s"}`;
-
-
-if(filtered.length === 0){
-
-cards.innerHTML = `
-<div style="
-grid-column:1/-1;
-background:white;
-padding:40px;
-border-radius:20px;
-border:1px solid #d9e3df;
-text-align:center;">
-<h3>No encontramos resultados.</h3>
-<p>Intenta realizar otra búsqueda o cambiar los filtros.</p>
-</div>
-`;
-
-return;
-
-}
-
-
-cards.innerHTML = filtered.map((item,index) => `
-
-<article class="card">
-
-<div class="card-top">
-
-<div class="icon">
-
-${initials(item.institucion)}
-
-</div>
-
-<div>
-
-<h3>${item.institucion}</h3>
-
-<span class="badge">
-
-${item.categoria}
-
-</span>
-
-</div>
-
-</div>
-
-
-<div class="line"></div>
-
-
-<div class="detail">
-
-<strong>📌 Tipo:</strong>
-${item.tipo}
-
-</div>
-
-
-<div class="benefit">
-
-<strong>🎁 Beneficio:</strong>
-
-<br>
-
-${item.beneficio}
-
-</div>
-
-
-<button onclick="openModal(${convenios.indexOf(item)})">
-
-Ver información
-
-</button>
-
-</article>
-
-`).join("");
-
-}
-
-
-function openModal(index){
-
-const item = convenios[index];
-
-document.getElementById("modalTitle").textContent =
-item.institucion;
-
-document.getElementById("modalInstitution").textContent =
-item.institucion;
-
-document.getElementById("modalBenefit").textContent =
-item.beneficio;
-
-document.getElementById("modalRequirements").textContent =
-item.requisitos;
-
-document.getElementById("modalInfo").textContent =
-item.info;
-
-document.getElementById("modalContact").textContent =
-item.contacto;
-
-document.getElementById("modal").classList.add("active");
-
-}
-
-
-function closeModal(){
-
-document.getElementById("modal").classList.remove("active");
-
-}
-
+/* =====================================================
+   LIMPIAR
+===================================================== */
 
 function clearFilters(){
 
-search.value = "";
+  search.value = "";
+  category.value = "";
+  type.value = "";
 
-category.value = "";
-
-type.value = "";
-
-render();
+  render();
 
 }
 
+
+/* =====================================================
+   EVENTOS
+===================================================== */
 
 search.addEventListener("input",render);
 
@@ -798,17 +1159,11 @@ category.addEventListener("change",render);
 type.addEventListener("change",render);
 
 
-document.getElementById("modal")
-.addEventListener("click",function(e){
+/* =====================================================
+   INICIAR
+===================================================== */
 
-if(e.target === this){
-
-closeModal();
-
-}
-
-});
-
+fillFilters();
 
 render();
 
