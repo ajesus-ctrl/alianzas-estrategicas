@@ -4,41 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mapa de alianzas estratégicas</title>
+<title>Mapa de Alianzas Estratégicas</title>
 
 <style>
-
 :root{
-  --verde:#176b52;
-  --verde2:#238a64;
-  --azul:#527aa7;
+  --verde:#1f6c60;
+  --azul:#557aa5;
   --naranja:#f39a24;
+  --morado:#8064a2;
   --texto:#34434a;
   --muted:#68767b;
   --borde:#d6e1df;
-  --fondo:#eef5f3;
 }
 
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--texto);
-  background:
-    radial-gradient(circle at top left,#e8f3f0 0%,transparent 35%),
-    linear-gradient(180deg,#f7faf9 0%,#edf4f2 100%);
+  background:linear-gradient(180deg,#f7faf9,#edf4f2);
 }
-
-/* =====================================================
-   ENCABEZADO
-===================================================== */
 
 header{
   background:#fff;
@@ -47,8 +33,8 @@ header{
 
 .header-inner{
   width:min(1200px,94%);
-  margin:auto;
   min-height:88px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -71,38 +57,17 @@ header{
   font-size:27px;
 }
 
-.brand h1{
-  margin:0;
-  font-size:24px;
-}
-
-.brand p{
-  margin:5px 0 0;
-  color:var(--muted);
-  font-size:14px;
-}
+.brand h1{margin:0;font-size:24px}
+.brand p{margin:5px 0 0;color:var(--muted);font-size:14px}
 
 .back-home{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  background:#176b52;
+  color:#fff;
   text-decoration:none;
-  background:var(--verde);
-  color:white;
-  font-weight:700;
+  font-weight:bold;
   padding:13px 20px;
   border-radius:12px;
-  transition:.2s ease;
 }
-
-.back-home:hover{
-  background:#12563f;
-  transform:translateY(-1px);
-}
-
-/* =====================================================
-   HERO
-===================================================== */
 
 .hero{
   text-align:center;
@@ -112,20 +77,14 @@ header{
 .hero h2{
   margin:0;
   font-size:38px;
-  color:#2e4350;
 }
 
 .hero p{
   max-width:760px;
   margin:12px auto 0;
   color:#58676d;
-  font-size:17px;
   line-height:1.5;
 }
-
-/* =====================================================
-   CONTENIDO PRINCIPAL
-===================================================== */
 
 .wrap{
   width:min(1200px,94%);
@@ -136,214 +95,130 @@ header{
   display:grid;
   grid-template-columns:1.45fr .85fr;
   gap:24px;
-  align-items:stretch;
 }
 
-/* =====================================================
-   MAPA
-===================================================== */
-
-.map-card,
-.info-card{
-  background:rgba(255,255,255,.88);
+.map-card,.info-card{
+  background:#fff;
   border:1px solid var(--borde);
   border-radius:26px;
   box-shadow:0 18px 40px rgba(30,70,60,.08);
 }
 
-.map-card{
-  padding:24px;
-}
+.map-card{padding:24px}
 
 .map-heading{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
+  align-items:center;
   margin-bottom:15px;
 }
 
-.map-heading h3{
-  margin:0;
-  font-size:22px;
-}
-
-.map-heading span{
-  color:#5d6b70;
-  font-size:14px;
-}
-
-/* ÁREA DEL MAPA */
+.map-heading h3{margin:0;font-size:22px}
+.map-heading span{font-size:14px;color:#5d6b70}
 
 .map-area{
   position:relative;
-  min-height:640px;
+  height:680px;
   overflow:hidden;
   border-radius:22px;
   border:1px solid #cbdcda;
-
-  background:
-    radial-gradient(circle at 50% 40%,#e2efec 0%,#edf5f3 45%,#f8fbfa 100%);
+  background:radial-gradient(circle at 50% 40%,#e2efec 0%,#edf5f3 48%,#f8fbfa 100%);
 }
 
-/* SVG DEL PERÚ */
-
-.peru-svg{
+/* MAPA */
+.peru-map{
   position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:min(86%,560px);
-  height:92%;
+  inset:20px 70px 30px 70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+.peru-map svg{
+  height:100%;
+  max-width:100%;
   filter:drop-shadow(0 14px 16px rgba(35,90,75,.12));
 }
 
 .peru-shape{
-  fill:#cfe0da;
-  stroke:#7fa49a;
-  stroke-width:3;
+  fill:#d4e3de;
+  stroke:#7e9d94;
+  stroke-width:2.2;
   stroke-linejoin:round;
 }
 
-/* =====================================================
-   MARCADORES
-===================================================== */
-
+/* MARCADORES */
 .marker{
   position:absolute;
   transform:translate(-50%,-50%);
-  width:76px;
-  height:76px;
+  width:72px;
+  height:72px;
   border-radius:50%;
-  border:4px solid white;
-  color:white;
-  font-size:24px;
+  border:4px solid #fff;
+  color:#fff;
+  font-size:22px;
   font-weight:800;
   display:grid;
   place-items:center;
   cursor:pointer;
-  box-shadow:0 12px 25px rgba(0,0,0,.18);
+  z-index:5;
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
   transition:.2s ease;
-  z-index:4;
 }
 
 .marker:hover{
-  transform:translate(-50%,-50%) scale(1.10);
+  transform:translate(-50%,-50%) scale(1.1);
 }
 
 .marker.active{
-  box-shadow:
-    0 0 0 6px rgba(23,107,82,.16),
-    0 15px 30px rgba(0,0,0,.22);
+  outline:6px solid rgba(23,107,82,.16);
 }
 
-.marker.green{
-  background:#1f6c60;
-}
+.range-green{background:var(--verde)}
+.range-blue{background:var(--azul)}
+.range-orange{background:var(--naranja)}
+.upcoming{background:var(--morado)}
 
-.marker.blue{
-  background:#557aa5;
-}
-
-.marker.orange{
-  background:#f39a24;
-}
-
-/* UBICACIONES GEOGRÁFICAS APROXIMADAS */
-
-.marker.lima{
-  left:30%;
-  top:48%;
-}
-
-.marker.junin{
-  left:53%;
-  top:43%;
-}
-
-.marker.ica{
-  left:34%;
-  top:61%;
-}
-
-.marker.ayacucho{
-  left:50%;
-  top:62%;
-}
-
-.marker.cusco{
-  left:65%;
-  top:70%;
-}
-
-.marker.arequipa{
-  left:43%;
-  top:82%;
-}
+/* UBICACIÓN SOBRE LA SILUETA */
+.marker.lima{left:32%;top:48%}
+.marker.junin{left:53%;top:40%}
+.marker.ica{left:34%;top:61%}
+.marker.ayacucho{left:52%;top:59%}
+.marker.cusco{left:65%;top:70%}
+.marker.arequipa{left:42%;top:82%}
 
 /* ETIQUETAS */
-
 .map-label{
   position:absolute;
   transform:translateX(-50%);
+  z-index:4;
   font-size:14px;
-  font-weight:700;
+  font-weight:bold;
   color:#3e4e53;
   pointer-events:none;
-  z-index:3;
 }
 
-.label-lima{
-  left:30%;
-  top:57%;
-}
+.label-lima{left:32%;top:54%}
+.label-junin{left:53%;top:46%}
+.label-ica{left:34%;top:67%}
+.label-ayacucho{left:52%;top:65%}
+.label-cusco{left:65%;top:76%}
+.label-arequipa{left:42%;top:88%}
 
-.label-junin{
-  left:53%;
-  top:52%;
-}
-
-.label-ica{
-  left:34%;
-  top:70%;
-}
-
-.label-ayacucho{
-  left:50%;
-  top:71%;
-}
-
-.label-cusco{
-  left:65%;
-  top:79%;
-}
-
-.label-arequipa{
-  left:43%;
-  top:91%;
-}
-
-/* =====================================================
-   LEYENDA
-===================================================== */
-
+/* LEYENDA */
 .legend{
   position:absolute;
-  left:22px;
-  bottom:22px;
-  z-index:5;
-
-  background:rgba(255,255,255,.94);
-  border:1px solid #d6e0de;
-  border-radius:18px;
-  padding:16px 18px;
-  box-shadow:0 10px 25px rgba(30,60,55,.10);
+  left:20px;
+  bottom:20px;
+  z-index:7;
+  background:rgba(255,255,255,.95);
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:14px 17px;
 }
 
-.legend strong{
-  display:block;
-  margin-bottom:10px;
-}
+.legend strong{display:block;margin-bottom:8px}
 
 .legend-row{
   display:flex;
@@ -351,31 +226,20 @@ header{
   gap:8px;
   margin-top:7px;
   font-size:13px;
-  color:#536166;
 }
 
 .dot{
-  width:9px;
-  height:9px;
+  width:10px;
+  height:10px;
   border-radius:50%;
 }
 
-.dot.green{
-  background:#1f6c60;
-}
+.dot.green{background:var(--verde)}
+.dot.blue{background:var(--azul)}
+.dot.orange{background:var(--naranja)}
+.dot.purple{background:var(--morado)}
 
-.dot.blue{
-  background:#557aa5;
-}
-
-.dot.orange{
-  background:#f39a24;
-}
-
-/* =====================================================
-   PANEL DERECHO
-===================================================== */
-
+/* PANEL */
 .info-card{
   padding:24px;
   min-height:720px;
@@ -388,7 +252,7 @@ header{
   color:#356458;
   font-size:12px;
   letter-spacing:1.5px;
-  font-weight:800;
+  font-weight:bold;
 }
 
 .info-title{
@@ -428,23 +292,17 @@ header{
 }
 
 .stat span{
-  display:block;
-  margin-top:5px;
   font-size:12px;
   color:#627075;
 }
-
-/* LISTA DE INSTITUCIONES */
 
 .institutions{
   flex:1;
   max-height:440px;
   overflow-y:auto;
-  padding-right:5px;
 }
 
 .institution{
-  background:#fff;
   border:1px solid #d5dfdd;
   border-radius:17px;
   padding:15px;
@@ -454,7 +312,6 @@ header{
 .institution h4{
   margin:0 0 10px;
   font-size:15px;
-  line-height:1.35;
 }
 
 .tags{
@@ -465,35 +322,29 @@ header{
 
 .tag{
   background:#edf2f1;
-  color:#5c696d;
   padding:5px 8px;
   border-radius:999px;
   font-size:11px;
 }
 
 .coming-soon{
-  margin-top:10px;
-  padding:28px 18px;
+  padding:30px 18px;
   text-align:center;
-  border:2px dashed #bfd3ce;
+  border:2px dashed #c8b9da;
   border-radius:18px;
-  background:#f5faf8;
+  background:#faf8fc;
 }
 
-.coming-soon .icon{
-  font-size:38px;
-}
+.coming-soon .icon{font-size:38px}
 
 .coming-soon h4{
   margin:10px 0 6px;
-  color:#2f6659;
-  font-size:18px;
+  color:#654b83;
 }
 
 .coming-soon p{
   margin:0;
   color:#647174;
-  font-size:14px;
   line-height:1.5;
 }
 
@@ -506,82 +357,42 @@ header{
 .back-bottom a{
   color:#286756;
   text-decoration:none;
-  font-weight:800;
+  font-weight:bold;
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
 @media(max-width:900px){
-
-  .map-layout{
-    grid-template-columns:1fr;
-  }
-
-  .info-card{
-    min-height:500px;
-  }
-
+  .map-layout{grid-template-columns:1fr}
+  .info-card{min-height:500px}
 }
 
 @media(max-width:600px){
-
   .header-inner{
-    min-height:auto;
     padding:15px 0;
-    align-items:flex-start;
     flex-direction:column;
+    align-items:flex-start;
   }
 
-  .back-home{
-    width:100%;
-  }
-
-  .hero h2{
-    font-size:30px;
-  }
-
-  .map-card{
-    padding:14px;
-  }
-
-  .map-area{
-    min-height:600px;
-  }
-
-  .marker{
-    width:62px;
-    height:62px;
-    font-size:20px;
-  }
-
-  .legend{
-    left:12px;
-    bottom:12px;
-    padding:12px;
-  }
-
+  .back-home{width:100%;text-align:center}
+  .hero h2{font-size:30px}
+  .map-card{padding:14px}
+  .map-area{height:620px}
+  .marker{width:58px;height:58px;font-size:18px}
+  .peru-map{inset:25px 25px 50px 25px}
 }
-
 </style>
 </head>
 
 <body>
 
-<header id="inicio">
-
+<header>
   <div class="header-inner">
 
     <div class="brand">
-
       <div class="mark">🤝</div>
-
       <div>
         <h1>Alianzas Estratégicas</h1>
         <p>Modalidad a distancia · Psicología</p>
       </div>
-
     </div>
 
     <a href="alianzas.html" class="back-home">
@@ -589,786 +400,366 @@ header{
     </a>
 
   </div>
-
 </header>
 
-
 <section class="hero">
-
   <h2>Mapa de alianzas estratégicas</h2>
-
   <p>
-    Explora la distribución geográfica de nuestras instituciones aliadas.
-    Selecciona un departamento para conocer las instituciones disponibles
-    y las próximas zonas de expansión.
+    Explora la distribución geográfica de nuestras instituciones aliadas
+    y conoce las próximas zonas de expansión.
   </p>
-
 </section>
-
 
 <main class="wrap">
 
-  <section class="map-layout">
-
-    <!-- =================================================
-         MAPA
-    ================================================== -->
-
-    <section class="map-card">
-
-      <div class="map-heading">
-
-        <h3>🗺️ Perú</h3>
-
-        <span>Haz clic en un marcador</span>
-
-      </div>
-
-
-      <div class="map-area">
-
-        <!-- SILUETA DEL PERÚ -->
-
-        <svg
-          class="peru-svg"
-          viewBox="0 0 520 720"
-          aria-label="Mapa del Perú"
-        >
-
-          <path
-            class="peru-shape"
-
-            d="
-            M236 28
-            L276 58
-            L286 104
-            L322 133
-            L315 174
-            L348 210
-            L341 250
-            L374 286
-            L365 326
-            L391 367
-            L382 410
-            L404 453
-            L388 492
-            L395 531
-            L366 568
-            L358 615
-            L329 647
-            L315 690
-            L284 711
-            L258 678
-            L244 640
-            L214 614
-            L202 574
-            L174 547
-            L181 507
-            L159 472
-            L171 434
-            L149 398
-            L164 359
-            L143 324
-            L157 288
-            L137 251
-            L151 214
-            L129 176
-            L145 142
-            L142 102
-            L178 76
-            L201 45
-            Z
-            "
-
-          />
-
-        </svg>
-
-
-        <!-- LIMA -->
-
-        <button
-          class="marker orange lima active"
-          data-department="Lima"
-          aria-label="Lima"
-        >
-          6
-        </button>
-
-        <div class="map-label label-lima">
-          Lima
-        </div>
-
-
-        <!-- JUNÍN -->
-
-        <button
-          class="marker blue junin"
-          data-department="Junín"
-          aria-label="Junín"
-        >
-          4
-        </button>
+<section class="map-layout">
+
+<section class="map-card">
+
+<div class="map-heading">
+  <h3>🗺️ Perú</h3>
+  <span>Haz clic en un marcador</span>
+</div>
+
+<div class="map-area">
+
+  <div class="peru-map">
+
+    <!-- SILUETA VERTICAL DEL PERÚ -->
+    <svg viewBox="0 0 300 520" aria-label="Silueta del Perú">
+
+      <path class="peru-shape"
+      d="M111 14
+      C128 17 143 24 157 35
+      L176 53
+      L181 76
+      L199 91
+      L194 113
+      L210 130
+      L205 151
+      L220 171
+      L215 193
+      L229 215
+      L221 239
+      L236 261
+      L230 285
+      L243 309
+      L235 333
+      L246 357
+      L236 383
+      L240 407
+      L224 428
+      L216 456
+      L196 480
+      L177 503
+      L158 511
+      L143 492
+      L134 468
+      L116 451
+      L109 425
+      L91 408
+      L96 383
+      L82 360
+      L91 336
+      L77 314
+      L87 291
+      L73 267
+      L83 244
+      L69 221
+      L79 198
+      L67 176
+      L78 153
+      L67 129
+      L81 108
+      L78 83
+      L94 63
+      L96 40
+      Z"/>
+
+    </svg>
+
+  </div>
+
+  <button class="marker range-orange lima active"
+    data-department="Lima">6</button>
+  <div class="map-label label-lima">Lima</div>
+
+  <button class="marker range-blue junin"
+    data-department="Junín">4</button>
+  <div class="map-label label-junin">Junín</div>
+
+  <button class="marker upcoming ica"
+    data-department="Ica">+</button>
+  <div class="map-label label-ica">Ica</div>
+
+  <button class="marker upcoming ayacucho"
+    data-department="Ayacucho">+</button>
+  <div class="map-label label-ayacucho">Ayacucho</div>
+
+  <button class="marker range-blue cusco"
+    data-department="Cusco">5</button>
+  <div class="map-label label-cusco">Cusco</div>
+
+  <button class="marker range-blue arequipa"
+    data-department="Arequipa">3</button>
+  <div class="map-label label-arequipa">Arequipa</div>
+
+  <div class="legend">
+    <strong>Distribución</strong>
+
+    <div class="legend-row">
+      <span class="dot green"></span> 1–2 instituciones
+    </div>
+
+    <div class="legend-row">
+      <span class="dot blue"></span> 3–5 instituciones
+    </div>
 
-        <div class="map-label label-junin">
-          Junín
-        </div>
+    <div class="legend-row">
+      <span class="dot orange"></span> 6–8 instituciones
+    </div>
 
+    <div class="legend-row">
+      <span class="dot purple"></span> Próximamente
+    </div>
+  </div>
 
-        <!-- ICA -->
+</div>
+</section>
 
-        <button
-          class="marker green ica"
-          data-department="Ica"
-          aria-label="Ica"
-        >
-          +
-        </button>
+<aside class="info-card">
 
-        <div class="map-label label-ica">
-          Ica
-        </div>
+<p class="info-kicker">INSTITUCIONES ALIADAS</p>
 
+<h2 class="info-title" id="department-title">Lima</h2>
 
-        <!-- AYACUCHO -->
+<p class="info-description" id="department-description">
+  Cargando información de las instituciones...
+</p>
 
-        <button
-          class="marker blue ayacucho"
-          data-department="Ayacucho"
-          aria-label="Ayacucho"
-        >
-          +
-        </button>
+<div class="info-line"></div>
 
-        <div class="map-label label-ayacucho">
-          Ayacucho
-        </div>
+<div class="stats">
 
+  <div class="stat">
+    <strong id="department-count">6</strong>
+    <span>Instituciones</span>
+  </div>
 
-        <!-- CUSCO -->
+  <div class="stat">
+    <strong id="total-count">18</strong>
+    <span>Total registradas</span>
+  </div>
 
-        <button
-          class="marker blue cusco"
-          data-department="Cusco"
-          aria-label="Cusco"
-        >
-          5
-        </button>
+</div>
 
-        <div class="map-label label-cusco">
-          Cusco
-        </div>
+<div class="institutions" id="institutions-list"></div>
 
+<div class="back-bottom">
+  <a href="alianzas.html">← Volver al inicio</a>
+</div>
 
-        <!-- AREQUIPA -->
+</aside>
 
-        <button
-          class="marker green arequipa"
-          data-department="Arequipa"
-          aria-label="Arequipa"
-        >
-          3
-        </button>
-
-        <div class="map-label label-arequipa">
-          Arequipa
-        </div>
-
-
-        <!-- LEYENDA -->
-
-        <div class="legend">
-
-          <strong>Distribución</strong>
-
-          <div class="legend-row">
-            <span class="dot green"></span>
-            1 - 2 instituciones
-          </div>
-
-          <div class="legend-row">
-            <span class="dot blue"></span>
-            3 - 5 instituciones
-          </div>
-
-          <div class="legend-row">
-            <span class="dot orange"></span>
-            6 - 8 instituciones
-          </div>
-
-          <div class="legend-row">
-            <span class="dot blue"></span>
-            Próximamente
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =================================================
-         PANEL DE INFORMACIÓN
-    ================================================== -->
-
-    <aside class="info-card">
-
-      <p class="info-kicker">
-        INSTITUCIONES ALIADAS
-      </p>
-
-      <h2
-        class="info-title"
-        id="department-title"
-      >
-        Lima
-      </h2>
-
-      <p
-        class="info-description"
-        id="department-description"
-      >
-        Cargando información de las instituciones...
-      </p>
-
-
-      <div class="info-line"></div>
-
-
-      <div class="stats">
-
-        <div class="stat">
-
-          <strong id="department-count">
-            6
-          </strong>
-
-          <span>
-            Instituciones
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong id="total-count">
-            18
-          </strong>
-
-          <span>
-            Total registradas
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="institutions"
-        id="institutions-list"
-      >
-      </div>
-
-
-      <div class="back-bottom">
-
-        <a href="alianzas.html">
-          ← Volver al inicio
-        </a>
-
-      </div>
-
-    </aside>
-
-  </section>
-
+</section>
 </main>
 
-
 <script>
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
 let data = [];
 
-const $ = id =>
-  document.getElementById(id);
-
-
-/* =====================================================
-   DEPARTAMENTOS QUE DEBEN APARECER EN EL MAPA
-===================================================== */
-
-const mapDepartments = [
-
-  "Lima",
-  "Junín",
-  "Ica",
-  "Ayacucho",
-  "Cusco",
-  "Arequipa"
-
-];
-
-
-/* =====================================================
-   LECTOR CSV
-===================================================== */
+const $ = id => document.getElementById(id);
 
 function parseCSVLine(line){
+  const result=[];
+  let current="";
+  let insideQuotes=false;
 
-  const result = [];
-
-  let current = "";
-  let insideQuotes = false;
-
-
-  for(let i = 0; i < line.length; i++){
-
-    const char = line[i];
-
+  for(let i=0;i<line.length;i++){
+    const char=line[i];
 
     if(char === '"'){
-
-      if(
-        insideQuotes &&
-        line[i + 1] === '"'
-      ){
-
+      if(insideQuotes && line[i+1] === '"'){
         current += '"';
         i++;
-
       }else{
-
-        insideQuotes = !insideQuotes;
-
+        insideQuotes=!insideQuotes;
       }
-
+    }else if(char === "," && !insideQuotes){
+      result.push(current.trim());
+      current="";
+    }else{
+      current+=char;
     }
-
-    else if(
-      char === "," &&
-      !insideQuotes
-    ){
-
-      result.push(
-        current.trim()
-      );
-
-      current = "";
-
-    }
-
-    else{
-
-      current += char;
-
-    }
-
   }
 
-
-  result.push(
-    current.trim()
-  );
-
-
+  result.push(current.trim());
   return result;
-
 }
-
-
-/* =====================================================
-   CARGAR ALIANZAS.CSV
-===================================================== */
 
 async function loadCSV(){
 
   try{
 
-    const response =
-      await fetch(
-        "alianzas.csv?nocache=" + Date.now(),
-        {
-          cache:"no-store"
-        }
-      );
+    const response=await fetch(
+      "alianzas.csv?nocache="+Date.now(),
+      {cache:"no-store"}
+    );
 
+    if(!response.ok) throw new Error("No se pudo cargar alianzas.csv");
 
-    if(!response.ok){
+    const text=await response.text();
 
-      throw new Error(
-        "No se pudo cargar alianzas.csv"
-      );
+    const lines=text
+      .replace(/^\uFEFF/,"")
+      .split(/\r?\n/)
+      .filter(line=>line.trim() !== "");
 
-    }
+    const headers=parseCSVLine(lines[0])
+      .map(header=>header.trim().replace(/^"|"$/g,""));
 
+    data=lines.slice(1).map(line=>{
 
-    const text =
-      await response.text();
+      const values=parseCSVLine(line);
+      const item={};
 
+      headers.forEach((header,index)=>{
+        item[header]=values[index] || "";
+      });
 
-    const lines =
-      text
-        .replace(/^\uFEFF/,"")
-        .split(/\r?\n/)
-        .filter(
-          line =>
-            line.trim() !== ""
-        );
+      return item;
 
+    }).filter(item=>item.institucion);
 
-    const headers =
-      parseCSVLine(
-        lines[0]
-      )
-      .map(
-        header =>
-          header
-            .trim()
-            .replace(/^"|"$/g,"")
-      );
-
-
-    data =
-      lines
-        .slice(1)
-        .map(line => {
-
-          const values =
-            parseCSVLine(line);
-
-
-          const item = {};
-
-
-          headers.forEach(
-            (header,index) => {
-
-              item[header] =
-                values[index] || "";
-
-            }
-          );
-
-
-          return item;
-
-        })
-        .filter(
-          item =>
-            item.institucion
-        );
-
-
-  }
-
-  catch(error){
+  }catch(error){
 
     console.error(error);
-
-    data = [];
+    data=[];
 
   }
 
-
-  showDepartment(
-    "Lima"
-  );
-
+  showDepartment("Lima");
 }
-
-
-/* =====================================================
-   OBTENER INSTITUCIONES POR DEPARTAMENTO
-===================================================== */
 
 function getInstitutions(department){
 
-  return data.filter(
-    item =>
-
-      String(
-        item.departamento || ""
-      )
+  return data.filter(item=>
+    String(item.departamento || "")
       .trim()
-      .toLowerCase()
-
-      ===
-
-      department
-      .toLowerCase()
-
+      .toLowerCase() === department.toLowerCase()
   );
-
 }
-
-
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
 
 function escapeHTML(text){
 
   return String(text ?? "")
-
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
-
-
-/* =====================================================
-   MOSTRAR DEPARTAMENTO
-===================================================== */
 
 function showDepartment(department){
 
-  const institutions =
-    getInstitutions(
-      department
-    );
+  const institutions=getInstitutions(department);
+  const totalRegistered=data.length;
 
+  $("department-title").textContent=department;
+  $("total-count").textContent=totalRegistered;
 
-  const totalRegistered =
-    data.length;
+  if(department === "Ica" || department === "Ayacucho"){
 
-
-  $("department-title").textContent =
-    department;
-
-
-  /* -----------------------------------------------
-     DEPARTAMENTOS PRÓXIMAMENTE
-  ------------------------------------------------ */
-
-  if(
-    department === "Ica" ||
-    department === "Ayacucho"
-  ){
-
-    $("department-description").textContent =
+    $("department-description").textContent=
       `Estamos preparando nuevas alianzas estratégicas en ${department}.`;
 
+    $("department-count").textContent="Próx.";
 
-    $("department-count").textContent =
-      "Próx.";
-
-
-    $("total-count").textContent =
-      totalRegistered;
-
-
-    $("institutions-list").innerHTML = `
-
+    $("institutions-list").innerHTML=`
       <div class="coming-soon">
-
-        <div class="icon">
-          🤝
-        </div>
-
-        <h4>
-          Próximamente
-        </h4>
-
+        <div class="icon">🤝</div>
+        <h4>Próximamente</h4>
         <p>
           Nuevas instituciones aliadas en
           <strong>${escapeHTML(department)}</strong>
           serán incorporadas próximamente.
         </p>
-
       </div>
-
     `;
 
-
     return;
-
   }
 
-
-  /* -----------------------------------------------
-     DEPARTAMENTOS CON INFORMACIÓN
-  ------------------------------------------------ */
-
-  $("department-description").textContent =
-
+  $("department-description").textContent=
     institutions.length === 1
-
       ? `1 institución registrada en ${department}.`
-
       : `${institutions.length} instituciones registradas en ${department}.`;
 
+  $("department-count").textContent=institutions.length;
 
-  $("department-count").textContent =
-    institutions.length;
+  if(!institutions.length){
 
-
-  $("total-count").textContent =
-    totalRegistered;
-
-
-  if(
-    !institutions.length
-  ){
-
-    $("institutions-list").innerHTML = `
-
+    $("institutions-list").innerHTML=`
       <div class="coming-soon">
-
-        <div class="icon">
-          📍
-        </div>
-
-        <h4>
-          Información en actualización
-        </h4>
-
-        <p>
-          Actualmente no hay instituciones registradas
-          para este departamento.
-        </p>
-
+        <div class="icon">📍</div>
+        <h4>Información en actualización</h4>
+        <p>Actualmente no hay instituciones registradas para este departamento.</p>
       </div>
-
     `;
 
-
     return;
-
   }
 
+  $("institutions-list").innerHTML=institutions.map(item=>{
 
-  $("institutions-list").innerHTML =
+    const areas=String(item.area || "")
+      .split("/")
+      .map(area=>area.trim())
+      .filter(Boolean);
 
-    institutions
-      .map(item => {
+    return `
+      <article class="institution">
 
+        <h4>${escapeHTML(item.institucion)}</h4>
 
-        const areas =
+        <div class="tags">
 
-          String(
-            item.area || ""
-          )
+          <span class="tag">
+            📍 ${escapeHTML(item.departamento || "")}
+          </span>
 
-          .split("/")
+          ${areas.map(area=>`
+            <span class="tag">${escapeHTML(area)}</span>
+          `).join("")}
 
-          .map(
-            area =>
-              area.trim()
-          )
+          <span class="tag">
+            ${escapeHTML(item.vacantes || "Vacantes por confirmar")} vacantes
+          </span>
 
-          .filter(Boolean);
+        </div>
 
+      </article>
+    `;
 
-        return `
-
-          <article class="institution">
-
-            <h4>
-              ${escapeHTML(
-                item.institucion
-              )}
-            </h4>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                📍 ${escapeHTML(
-                  item.departamento || ""
-                )}
-              </span>
-
-
-              ${areas.map(area => `
-
-                <span class="tag">
-                  ${escapeHTML(area)}
-                </span>
-
-              `).join("")}
-
-
-              <span class="tag">
-
-                ${escapeHTML(
-                  item.vacantes ||
-                  "Vacantes por confirmar"
-                )}
-
-                vacantes
-
-              </span>
-
-            </div>
-
-          </article>
-
-        `;
-
-      })
-
-      .join("");
-
+  }).join("");
 }
 
+document.querySelectorAll(".marker").forEach(marker=>{
 
-/* =====================================================
-   EVENTOS DEL MAPA
-===================================================== */
+  marker.addEventListener("click",()=>{
 
-document
-  .querySelectorAll(".marker")
-  .forEach(marker => {
-
-
-    marker.addEventListener(
-      "click",
-      () => {
-
-
-        document
-          .querySelectorAll(".marker")
-          .forEach(item =>
-
-            item.classList.remove(
-              "active"
-            )
-
-          );
-
-
-        marker.classList.add(
-          "active"
-        );
-
-
-        showDepartment(
-          marker.dataset.department
-        );
-
-      }
+    document.querySelectorAll(".marker").forEach(item=>
+      item.classList.remove("active")
     );
 
+    marker.classList.add("active");
+
+    showDepartment(marker.dataset.department);
 
   });
 
-
-/* =====================================================
-   INICIAR
-===================================================== */
+});
 
 loadCSV();
-
 </script>
 
 </body>
