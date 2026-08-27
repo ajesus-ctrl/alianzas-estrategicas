@@ -1697,15 +1697,9 @@ function showDepartment(
               <div class="tags">
 
 
-                <span class="tag">
-
-                  📍
-
-                  ${escapeHTML(
-                    item.departamento || ""
-                  )}
-
-                </span>
+        <span class="tag">
+  📍 ${escapeHTML(item.provincia_ciudad || item.departamento || "")}
+</span>
 
 
                 ${areas
