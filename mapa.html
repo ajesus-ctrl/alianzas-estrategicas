@@ -56,8 +56,7 @@ body{
 
 header{
   background:#fff;
-  border-bottom:
-    1px solid var(--borde);
+  border-bottom:1px solid var(--borde);
 }
 
 .header-inner{
@@ -80,9 +79,7 @@ header{
 .mark{
   width:52px;
   height:52px;
-
   border-radius:16px;
-
   background:#e8f2ef;
 
   display:grid;
@@ -105,12 +102,10 @@ header{
 .back-home{
   background:#176b52;
   color:#fff;
-
   text-decoration:none;
   font-weight:bold;
 
   padding:13px 20px;
-
   border-radius:12px;
 
   transition:.2s ease;
@@ -138,14 +133,9 @@ header{
 
 .hero p{
   max-width:760px;
-
-  margin:
-    12px auto 0;
-
+  margin:12px auto 0;
   color:#58676d;
-
   line-height:1.5;
-
   font-size:17px;
 }
 
@@ -156,8 +146,7 @@ header{
 
 .wrap{
   width:min(1200px,94%);
-  margin:
-    0 auto 45px;
+  margin:0 auto 45px;
 }
 
 .map-layout{
@@ -255,18 +244,14 @@ header{
 
 
 /* =====================================================
-   IMAGEN REAL DEL MAPA
+   MAPA REAL DEL PERÚ
 ===================================================== */
 
 .peru-map{
 
   position:absolute;
 
-  inset:
-    20px
-    45px
-    25px
-    45px;
+  inset:15px 20px 15px 20px;
 
   display:flex;
 
@@ -281,13 +266,11 @@ header{
 
 .peru-map-img{
 
-  max-width:100%;
-
-  max-height:100%;
-
   width:auto;
 
-  height:auto;
+  height:100%;
+
+  max-width:100%;
 
   object-fit:contain;
 
@@ -361,7 +344,9 @@ header{
 }
 
 
-/* COLORES */
+/* =====================================================
+   COLORES
+===================================================== */
 
 .range-green{
   background:var(--verde);
@@ -381,54 +366,58 @@ header{
 
 
 /* =====================================================
-   POSICIONES DE LOS MARCADORES
+   POSICIONES SOBRE EL MAPA REAL DEL PERÚ
+
+   Estas posiciones están ajustadas para el SVG vertical
+   que acabas de subir.
 ===================================================== */
+
 
 /* LIMA */
 
 .marker.lima{
   left:30%;
-  top:48%;
+  top:47%;
 }
 
 
 /* JUNÍN */
 
 .marker.junin{
-  left:53%;
-  top:40%;
+  left:51%;
+  top:37%;
 }
 
 
 /* ICA */
 
 .marker.ica{
-  left:33%;
-  top:61%;
+  left:34%;
+  top:60%;
 }
 
 
 /* AYACUCHO */
 
 .marker.ayacucho{
-  left:50%;
-  top:61%;
+  left:51%;
+  top:60%;
 }
 
 
 /* CUSCO */
 
 .marker.cusco{
-  left:65%;
-  top:70%;
+  left:64%;
+  top:72%;
 }
 
 
 /* AREQUIPA */
 
 .marker.arequipa{
-  left:43%;
-  top:82%;
+  left:42%;
+  top:84%;
 }
 
 
@@ -454,34 +443,52 @@ header{
   z-index:4;
 }
 
+
+/* LIMA */
+
 .label-lima{
   left:30%;
-  top:57%;
+  top:55%;
 }
+
+
+/* JUNÍN */
 
 .label-junin{
-  left:53%;
-  top:49%;
+  left:51%;
+  top:45%;
 }
+
+
+/* ICA */
 
 .label-ica{
-  left:33%;
-  top:70%;
+  left:34%;
+  top:68%;
 }
+
+
+/* AYACUCHO */
 
 .label-ayacucho{
-  left:50%;
-  top:70%;
+  left:51%;
+  top:68%;
 }
+
+
+/* CUSCO */
 
 .label-cusco{
-  left:65%;
-  top:79%;
+  left:64%;
+  top:80%;
 }
 
+
+/* AREQUIPA */
+
 .label-arequipa{
-  left:43%;
-  top:91%;
+  left:42%;
+  top:92%;
 }
 
 
@@ -902,8 +909,6 @@ header{
     </div>
 
 
-    <!-- REGRESA A LA PÁGINA PRINCIPAL -->
-
     <a
       href="index.html"
       class="back-home"
@@ -972,7 +977,7 @@ header{
     <div class="peru-map">
 
       <img
-        src="https://ajesus-ctrl.github.io/alianzas-estrategicas/mapa-peru.png"
+        src="Blank_map_of_Peru.svg"
         alt="Mapa del Perú"
         class="peru-map-img"
       >
@@ -1174,7 +1179,7 @@ header{
   </div>
 
 
-  <!-- ESTE SÍ REGRESA AL INICIO -->
+  <!-- ESTE BOTÓN REGRESA A index.html -->
 
   <div class="back-bottom">
 
@@ -1200,7 +1205,6 @@ header{
 ===================================================== -->
 
 <script>
-
 
 let data = [];
 
@@ -1290,7 +1294,6 @@ function parseCSVLine(line){
 async function loadCSV(){
 
   try{
-
 
     const response =
       await fetch(
@@ -1402,18 +1405,14 @@ async function loadCSV(){
 
   catch(error){
 
-    console.error(
-      error
-    );
+    console.error(error);
 
     data = [];
 
   }
 
 
-  showDepartment(
-    "Lima"
-  );
+  showDepartment("Lima");
 
 }
 
@@ -1422,9 +1421,7 @@ async function loadCSV(){
    OBTENER INSTITUCIONES
 ===================================================== */
 
-function getInstitutions(
-  department
-){
+function getInstitutions(department){
 
   return data.filter(
     item =>
@@ -1453,34 +1450,13 @@ function getInstitutions(
 
 function escapeHTML(text){
 
-  return String(
-    text ?? ""
-  )
+  return String(text ?? "")
 
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-
-  .replace(
-    /</g,
-    "&lt;"
-  )
-
-  .replace(
-    />/g,
-    "&gt;"
-  )
-
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-
-  .replace(
-    /'/g,
-    "&#039;"
-  );
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#039;");
 
 }
 
@@ -1489,15 +1465,11 @@ function escapeHTML(text){
    MOSTRAR DEPARTAMENTO
 ===================================================== */
 
-function showDepartment(
-  department
-){
+function showDepartment(department){
 
 
   const institutions =
-    getInstitutions(
-      department
-    );
+    getInstitutions(department);
 
 
   const totalRegistered =
@@ -1573,7 +1545,6 @@ function showDepartment(
 
   /* DEPARTAMENTOS CON ALIANZAS */
 
-
   $("department-description")
     .textContent =
 
@@ -1595,9 +1566,7 @@ function showDepartment(
 
   /* SI NO HAY DATOS */
 
-  if(
-    !institutions.length
-  ){
+  if(!institutions.length){
 
 
     $("institutions-list")
@@ -1632,7 +1601,6 @@ function showDepartment(
 
   /* MOSTRAR INSTITUCIONES */
 
-
   $("institutions-list")
     .innerHTML =
 
@@ -1655,15 +1623,12 @@ function showDepartment(
                 area.trim()
             )
 
-            .filter(
-              Boolean
-            );
+            .filter(Boolean);
 
 
           return `
 
             <article class="institution">
-
 
               <h4>
 
@@ -1695,9 +1660,7 @@ function showDepartment(
 
                     <span class="tag">
 
-                      ${escapeHTML(
-                        area
-                      )}
+                      ${escapeHTML(area)}
 
                     </span>
 
@@ -1744,9 +1707,7 @@ function showDepartment(
 
 document
 
-.querySelectorAll(
-  ".marker"
-)
+.querySelectorAll(".marker")
 
 .forEach(
   marker => {
@@ -1761,22 +1722,16 @@ document
 
         document
 
-        .querySelectorAll(
-          ".marker"
-        )
+        .querySelectorAll(".marker")
 
         .forEach(
           item =>
 
-            item.classList.remove(
-              "active"
-            )
+            item.classList.remove("active")
         );
 
 
-        marker.classList.add(
-          "active"
-        );
+        marker.classList.add("active");
 
 
         showDepartment(
@@ -1798,7 +1753,6 @@ document
 ===================================================== */
 
 loadCSV();
-
 
 </script>
 
