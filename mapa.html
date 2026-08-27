@@ -289,40 +289,22 @@ header{
 ===================================================== */
 
 .marker{
-
-  position:absolute;
-
-  transform:
-    translate(-50%,-50%);
-
-  width:76px;
-
-  height:76px;
-
-  border-radius:50%;
-
-  border:
-    4px solid white;
-
-  color:white;
-
-  font-size:24px;
-
-  font-weight:800;
-
-  display:grid;
-
-  place-items:center;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 12px 25px
-    rgba(0,0,0,.18);
-
-  transition:.2s ease;
-
-  z-index:5;
+    position:absolute;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:24px;
+    font-weight:700;
+    border:4px solid white;
+    box-shadow:0 8px 20px rgba(0,0,0,.22);
+    transform:translate(-50%,-50%);
+    cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease;
+    z-index:2;
 }
 
 .marker:hover{
@@ -375,38 +357,38 @@ header{
 
 /* LIMA */
 .marker.lima{
-    left:24%;
-    top:38%;
+    left:25%;
+    top:47%;
 }
 
 /* JUNÍN */
 .marker.junin{
-    left:48%;
-    top:23%;
+    left:51%;
+    top:37%;
 }
 
 /* ICA */
 .marker.ica{
-    left:28%;
-    top:55%;
+    left:34%;
+    top:61%;
 }
 
 /* AYACUCHO */
 .marker.ayacucho{
-    left:49%;
-    top:55%;
+    left:51%;
+    top:61%;
 }
 
 /* CUSCO */
 .marker.cusco{
-    left:68%;
-    top:67%;
+    left:64%;
+    top:73%;
 }
 
 /* AREQUIPA */
 .marker.arequipa{
-    left:40%;
-    top:82%;
+    left:42%;
+    top:85%;
 }
 
 
