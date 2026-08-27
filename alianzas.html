@@ -20,6 +20,10 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
@@ -27,7 +31,10 @@ body{
   color:var(--text);
 }
 
-/* ENCABEZADO */
+/* =========================================
+   ENCABEZADO
+========================================= */
+
 header{
   display:flex;
   align-items:center;
@@ -59,11 +66,22 @@ header{
   font-size:16px;
 }
 
-/* HERO */
+
+/* =========================================
+   HERO
+========================================= */
+
 .hero{
   text-align:center;
-  padding:60px 20px 35px;
-  background:linear-gradient(180deg,#edf5f2 0%,#f4f6f4 100%);
+  padding:55px 20px 40px;
+  background:
+    radial-gradient(circle at top right,#dceae4 0%,transparent 30%),
+    linear-gradient(180deg,#edf5f2 0%,#f4f6f4 100%);
+}
+
+.hero-content{
+  width:min(1100px,94%);
+  margin:0 auto;
 }
 
 .hero h2{
@@ -79,13 +97,77 @@ header{
   color:#4f5d61;
 }
 
-/* CONTENIDO */
+
+/* =========================================
+   ACCESO AL MAPA
+========================================= */
+
+.map-access{
+  margin:30px auto 0;
+  max-width:850px;
+  padding:20px 24px;
+  background:#ffffff;
+  border:1px solid #cfe0d9;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  box-shadow:0 10px 25px rgba(20,50,40,.08);
+}
+
+.map-access-text{
+  text-align:left;
+}
+
+.map-access-text h3{
+  margin:0 0 5px;
+  font-size:20px;
+  color:var(--text);
+}
+
+.map-access-text p{
+  margin:0;
+  font-size:15px;
+  color:var(--muted);
+}
+
+.map-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:52px;
+  padding:0 24px;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  white-space:nowrap;
+  transition:.2s ease;
+}
+
+.map-button:hover{
+  background:var(--green2);
+  transform:translateY(-1px);
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
 .wrap{
   width:min(1200px,94%);
   margin:0 auto;
 }
 
-/* FILTROS */
+
+/* =========================================
+   FILTROS
+========================================= */
+
 .filters{
   margin-top:20px;
   padding:20px;
@@ -133,7 +215,11 @@ button:hover{
   background:var(--green2);
 }
 
-/* RESUMEN */
+
+/* =========================================
+   RESUMEN
+========================================= */
+
 .summary{
   display:flex;
   justify-content:space-between;
@@ -142,7 +228,11 @@ button:hover{
   font-size:17px;
 }
 
-/* TARJETAS */
+
+/* =========================================
+   TARJETAS
+========================================= */
+
 #cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
@@ -156,6 +246,12 @@ button:hover{
   border-radius:18px;
   padding:22px;
   box-shadow:0 8px 20px rgba(20,50,40,.05);
+  transition:.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(20,50,40,.10);
 }
 
 .top{
@@ -222,14 +318,24 @@ button:hover{
   padding:10px 0;
 }
 
+
+/* =========================================
+   FOOTER
+========================================= */
+
 footer{
   text-align:center;
   padding:35px 20px;
   color:#647174;
 }
 
-/* RESPONSIVE */
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media(max-width:850px){
+
   .filters{
     grid-template-columns:1fr 1fr;
   }
@@ -237,9 +343,24 @@ footer{
   .hero h2{
     font-size:36px;
   }
+
+  .map-access{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .map-access-text{
+    text-align:center;
+  }
+
+  .map-button{
+    width:100%;
+  }
+
 }
 
 @media(max-width:550px){
+
   header{
     padding:15px 5%;
   }
@@ -249,7 +370,7 @@ footer{
   }
 
   .hero{
-    padding:40px 15px 25px;
+    padding:40px 15px 30px;
   }
 
   .hero h2{
@@ -266,32 +387,83 @@ footer{
 
   .summary{
     font-size:14px;
+    flex-direction:column;
+    gap:8px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================================
+     ENCABEZADO
+========================================= -->
+
 <header>
+
   <div class="mark">🤝</div>
 
   <div class="brand">
     <h1>Alianzas Estratégicas</h1>
     <p>Modalidad a distancia · Psicología</p>
   </div>
+
 </header>
 
-<section class="hero">
-  <h2>Nuestras Alianzas Estratégicas</h2>
 
-  <p>
-    Conoce las instituciones aliadas y consulta de manera rápida
-    su ubicación, área, vacantes y horarios.
-  </p>
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h2>Nuestras Alianzas Estratégicas</h2>
+
+    <p>
+      Conoce las instituciones aliadas y consulta de manera rápida
+      su ubicación, área, vacantes y horarios.
+    </p>
+
+
+    <!-- BOTÓN PARA IR AL MAPA -->
+
+    <div class="map-access">
+
+      <div class="map-access-text">
+
+        <h3>🗺️ Explora nuestras alianzas en el mapa</h3>
+
+        <p>
+          Consulta la distribución geográfica de las instituciones
+          aliadas por departamento.
+        </p>
+
+      </div>
+
+      <a href="mapa.html" class="map-button">
+        Ver mapa de alianzas →
+      </a>
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- =========================================
+     CONTENIDO PRINCIPAL
+========================================= -->
+
 <main class="wrap">
+
+
+  <!-- FILTROS -->
 
   <section class="filters">
 
@@ -309,24 +481,46 @@ footer{
       <option value="">Todas las áreas</option>
     </select>
 
-    <button id="clear">Limpiar</button>
+    <button id="clear">
+      Limpiar
+    </button>
 
   </section>
+
+
+  <!-- RESUMEN -->
 
   <section class="summary">
-    <span id="count">0 instituciones encontradas</span>
-    <span>Prototipo · agosto 2026</span>
+
+    <span id="count">
+      0 instituciones encontradas
+    </span>
+
+    <span>
+      Directorio actualizado · 2026
+    </span>
+
   </section>
+
+
+  <!-- TARJETAS -->
 
   <section id="cards"></section>
 
 </main>
 
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
   Directorio de Alianzas Estratégicas · Información basada en la matriz proporcionada.
 </footer>
 
+
 <script>
+
 
 /* =====================================================
    VARIABLES
@@ -334,7 +528,8 @@ footer{
 
 let data = [];
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+  document.getElementById(id);
 
 
 /* =====================================================
@@ -345,12 +540,16 @@ const $ = id => document.getElementById(id);
 function parseCSVLine(line){
 
   const result = [];
+
   let current = "";
+
   let insideQuotes = false;
+
 
   for(let i = 0; i < line.length; i++){
 
     const char = line[i];
+
 
     if(char === '"'){
 
@@ -358,30 +557,48 @@ function parseCSVLine(line){
         insideQuotes &&
         line[i + 1] === '"'
       ){
+
         current += '"';
+
         i++;
+
       }else{
+
         insideQuotes = !insideQuotes;
+
       }
 
-    }else if(
+    }
+
+    else if(
       char === "," &&
       !insideQuotes
     ){
 
-      result.push(current.trim());
+      result.push(
+        current.trim()
+      );
+
       current = "";
 
-    }else{
+    }
+
+    else{
 
       current += char;
 
     }
+
   }
 
-  result.push(current.trim());
+
+  result.push(
+    current.trim()
+  );
+
 
   return result;
+
 }
 
 
@@ -394,59 +611,106 @@ async function loadCSV(){
   try{
 
     const response = await fetch(
+
       "alianzas.csv?nocache=" + Date.now(),
+
       {
         cache:"no-store"
       }
+
     );
+
 
     if(!response.ok){
-      throw new Error("No se pudo cargar alianzas.csv");
+
+      throw new Error(
+        "No se pudo cargar alianzas.csv"
+      );
+
     }
 
-    const text = await response.text();
+
+    const text =
+      await response.text();
+
 
     const lines = text
+
       .replace(/^\uFEFF/,"")
+
       .split(/\r?\n/)
-      .filter(line => line.trim() !== "");
+
+      .filter(
+        line =>
+          line.trim() !== ""
+      );
+
 
     if(lines.length < 2){
-      throw new Error("El CSV está vacío");
+
+      throw new Error(
+        "El CSV está vacío"
+      );
+
     }
 
+
     const headers = parseCSVLine(
+
       lines[0]
-    ).map(header =>
-      header
-        .trim()
-        .replace(/^"|"$/g,"")
+
+    ).map(
+
+      header =>
+
+        header
+
+          .trim()
+
+          .replace(/^"|"$/g,"")
+
     );
 
+
     data = lines
+
       .slice(1)
+
       .map(line => {
 
-        const values = parseCSVLine(line);
+        const values =
+          parseCSVLine(line);
 
         const item = {};
 
-        headers.forEach((header,index) => {
 
-          item[header] =
-            values[index] || "";
+        headers.forEach(
 
-        });
+          (header,index) => {
+
+            item[header] =
+              values[index] || "";
+
+          }
+
+        );
+
 
         return item;
 
       })
-      .filter(item => item.institucion);
+
+      .filter(
+        item =>
+          item.institucion
+      );
+
 
     console.log(
       "Instituciones cargadas:",
       data.length
     );
+
 
   }catch(error){
 
@@ -459,7 +723,9 @@ async function loadCSV(){
 
   }
 
+
   fill();
+
   render();
 
 }
@@ -474,60 +740,118 @@ function fill(){
   $("d").innerHTML =
     '<option value="">Todos los departamentos</option>';
 
+
   $("a").innerHTML =
     '<option value="">Todas las áreas</option>';
 
 
   const departamentos =
-    [...new Set(
-      data
-        .map(x => x.departamento)
-        .filter(Boolean)
-    )]
-    .sort((a,b) =>
-      a.localeCompare(b,"es")
+
+    [
+
+      ...new Set(
+
+        data
+
+          .map(
+            x => x.departamento
+          )
+
+          .filter(Boolean)
+
+      )
+
+    ]
+
+    .sort(
+
+      (a,b) =>
+        a.localeCompare(
+          b,
+          "es"
+        )
+
     );
 
 
-  departamentos.forEach(departamento => {
+  departamentos.forEach(
 
-    $("d").insertAdjacentHTML(
-      "beforeend",
+    departamento => {
 
-      `<option value="${escapeHTML(departamento)}">
-        ${escapeHTML(departamento)}
-      </option>`
-    );
+      $("d").insertAdjacentHTML(
 
-  });
+        "beforeend",
+
+        `<option value="${escapeHTML(departamento)}">
+          ${escapeHTML(departamento)}
+        </option>`
+
+      );
+
+    }
+
+  );
 
 
   const areas =
-    [...new Set(
-      data
-        .flatMap(x =>
-          String(x.area || "")
-            .split("/")
-            .map(area => area.trim())
+
+    [
+
+      ...new Set(
+
+        data
+
+          .flatMap(
+
+            x =>
+
+              String(
+                x.area || ""
+              )
+
+              .split("/")
+
+              .map(
+                area =>
+                  area.trim()
+              )
+
+          )
+
+          .filter(Boolean)
+
+      )
+
+    ]
+
+    .sort(
+
+      (a,b) =>
+        a.localeCompare(
+          b,
+          "es"
         )
-        .filter(Boolean)
-    )]
-    .sort((a,b) =>
-      a.localeCompare(b,"es")
+
     );
 
 
-  areas.forEach(area => {
+  areas.forEach(
 
-    $("a").insertAdjacentHTML(
-      "beforeend",
+    area => {
 
-      `<option value="${escapeHTML(area)}">
-        ${escapeHTML(area)}
-      </option>`
-    );
+      $("a").insertAdjacentHTML(
 
-  });
+        "beforeend",
+
+        `<option value="${escapeHTML(area)}">
+          ${escapeHTML(area)}
+        </option>`
+
+      );
+
+    }
+
+  );
 
 }
 
@@ -539,51 +863,84 @@ function fill(){
 function filtered(){
 
   const query =
+
     $("q").value
+
       .trim()
+
       .toLowerCase();
+
 
   const departamento =
     $("d").value;
+
 
   const area =
     $("a").value;
 
 
-  return data.filter(item => {
+  return data.filter(
 
-    const nombre =
-      String(item.institucion || "")
+    item => {
+
+
+      const nombre =
+
+        String(
+          item.institucion || ""
+        )
+
         .toLowerCase();
 
-    const coincideNombre =
-      !query ||
-      nombre.includes(query);
+
+      const coincideNombre =
+
+        !query ||
+
+        nombre.includes(query);
 
 
-    const coincideDepartamento =
-      !departamento ||
-      item.departamento === departamento;
+      const coincideDepartamento =
+
+        !departamento ||
+
+        item.departamento === departamento;
 
 
-    const listaAreas =
-      String(item.area || "")
+      const listaAreas =
+
+        String(
+          item.area || ""
+        )
+
         .split("/")
-        .map(x => x.trim());
+
+        .map(
+          x =>
+            x.trim()
+        );
 
 
-    const coincideArea =
-      !area ||
-      listaAreas.includes(area);
+      const coincideArea =
+
+        !area ||
+
+        listaAreas.includes(area);
 
 
-    return (
-      coincideNombre &&
-      coincideDepartamento &&
-      coincideArea
-    );
+      return (
 
-  });
+        coincideNombre &&
+
+        coincideDepartamento &&
+
+        coincideArea
+
+      );
+
+    }
+
+  );
 
 }
 
@@ -594,12 +951,34 @@ function filtered(){
 
 function escapeHTML(text){
 
-  return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    text ?? ""
+  )
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
@@ -610,29 +989,42 @@ function escapeHTML(text){
 
 function initials(name){
 
-  return String(name || "")
+  return String(
+    name || ""
+  )
+
     .split(/\s+/)
+
     .filter(Boolean)
+
     .slice(0,2)
-    .map(word =>
-      word.charAt(0)
+
+    .map(
+
+      word =>
+        word.charAt(0)
+
     )
+
     .join("")
+
     .toUpperCase();
 
 }
 
 
 /* =====================================================
-   RENDERIZAR
+   RENDERIZAR TARJETAS
 ===================================================== */
 
 function render(){
 
-  const rows = filtered();
+  const rows =
+    filtered();
 
 
   $("count").textContent =
+
     `${rows.length} ${
       rows.length === 1
         ? "institución encontrada"
@@ -643,9 +1035,13 @@ function render(){
   if(!rows.length){
 
     $("cards").innerHTML = `
+
       <div class="empty">
+
         No encontramos resultados.
+
       </div>
+
     `;
 
     return;
@@ -654,101 +1050,184 @@ function render(){
 
 
   $("cards").innerHTML =
-    rows.map(item => {
 
-      const areas =
-        String(item.area || "")
+    rows.map(
+
+      item => {
+
+
+        const areas =
+
+          String(
+            item.area || ""
+          )
+
           .split("/")
-          .map(area => area.trim())
+
+          .map(
+            area =>
+              area.trim()
+          )
+
           .filter(Boolean);
 
 
-      let logoHTML =
-        escapeHTML(
-          initials(item.institucion)
-        );
+        let logoHTML =
+
+          escapeHTML(
+
+            initials(
+              item.institucion
+            )
+
+          );
 
 
-      if(
-        item.logo &&
-        String(item.logo).trim() !== ""
-      ){
+        if(
 
-        logoHTML = `
-          <img
-            src="${escapeHTML(item.logo)}"
-            alt="${escapeHTML(item.institucion)}"
-            onerror="this.parentElement.innerHTML='${escapeHTML(
-              initials(item.institucion)
-            )}'"
-          >
+          item.logo &&
+
+          String(
+            item.logo
+          ).trim() !== ""
+
+        ){
+
+          logoHTML = `
+
+            <img
+
+              src="${escapeHTML(item.logo)}"
+
+              alt="${escapeHTML(item.institucion)}"
+
+              onerror="this.parentElement.innerHTML='${escapeHTML(
+                initials(
+                  item.institucion
+                )
+              )}'"
+
+            >
+
+          `;
+
+        }
+
+
+        return `
+
+          <article class="card">
+
+
+            <div class="top">
+
+
+              <div class="logo">
+
+                ${logoHTML}
+
+              </div>
+
+
+              <div>
+
+                <h3>
+
+                  ${escapeHTML(
+                    item.institucion
+                  )}
+
+                </h3>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="tags">
+
+              ${areas.map(
+
+                area => `
+
+                  <span class="tag">
+
+                    ${escapeHTML(area)}
+
+                  </span>
+
+                `
+
+              ).join("")}
+
+            </div>
+
+
+            <div class="info">
+
+
+              <div>
+
+                <strong>📍 Ubicación:</strong>
+
+                ${escapeHTML(
+                  item.provincia_ciudad || ""
+                )},
+
+                ${escapeHTML(
+                  item.departamento || ""
+                )}
+
+              </div>
+
+
+              <div>
+
+                <strong>👥 Vacantes:</strong>
+
+                ${escapeHTML(
+                  item.vacantes ||
+                  "No especificado"
+                )}
+
+              </div>
+
+
+              <div>
+
+                <strong>🏢 Dirección:</strong>
+
+                ${escapeHTML(
+                  item.direccion ||
+                  "No especificada"
+                )}
+
+              </div>
+
+
+              <div>
+
+                <strong>🕒 Horario:</strong>
+
+                ${escapeHTML(
+                  item.horario ||
+                  "No especificado"
+                )}
+
+              </div>
+
+
+            </div>
+
+
+          </article>
+
         `;
 
       }
 
-
-      return `
-
-        <article class="card">
-
-          <div class="top">
-
-            <div class="logo">
-              ${logoHTML}
-            </div>
-
-            <div>
-
-              <h3>
-                ${escapeHTML(item.institucion)}
-              </h3>
-
-            </div>
-
-          </div>
-
-
-          <div class="tags">
-
-            ${areas.map(area => `
-              <span class="tag">
-                ${escapeHTML(area)}
-              </span>
-            `).join("")}
-
-          </div>
-
-
-          <div class="info">
-
-            <div>
-              <strong>📍 Ubicación:</strong>
-              ${escapeHTML(item.provincia_ciudad || "")},
-              ${escapeHTML(item.departamento || "")}
-            </div>
-
-            <div>
-              <strong>👥 Vacantes:</strong>
-              ${escapeHTML(item.vacantes || "No especificado")}
-            </div>
-
-            <div>
-              <strong>🏢 Dirección:</strong>
-              ${escapeHTML(item.direccion || "No especificada")}
-            </div>
-
-            <div>
-              <strong>🕒 Horario:</strong>
-              ${escapeHTML(item.horario || "No especificado")}
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
+    ).join("");
 
 }
 
@@ -758,31 +1237,48 @@ function render(){
 ===================================================== */
 
 $("q").addEventListener(
+
   "input",
+
   render
+
 );
+
 
 $("d").addEventListener(
+
   "change",
+
   render
+
 );
+
 
 $("a").addEventListener(
+
   "change",
+
   render
+
 );
 
+
 $("clear").addEventListener(
+
   "click",
+
   () => {
 
     $("q").value = "";
+
     $("d").value = "";
+
     $("a").value = "";
 
     render();
 
   }
+
 );
 
 
