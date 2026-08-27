@@ -8,21 +8,34 @@
 
 <style>
 :root{
-  --verde:#176b52;
-  --verde-claro:#eaf5f0;
-  --texto:#273847;
-  --gris:#667572;
-  --borde:#d9e3df;
+  --morado-principal:#66527f;
+  --morado-oscuro:#4f3d66;
+  --morado-medio:#89759f;
+  --morado-suave:#f1edf5;
+  --morado-claro:#f8f6fa;
+
+  --texto:#303747;
+  --texto-secundario:#667080;
+  --borde:#ded7e6;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   color:var(--texto);
-  background:linear-gradient(180deg,#edf5f2 0%,#f8faf9 50%,#fff 100%);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(137,117,159,.10), transparent 28%),
+    radial-gradient(circle at 85% 70%, rgba(102,82,127,.08), transparent 30%),
+    linear-gradient(180deg,#f7f5f9 0%,#fbfafc 50%,#ffffff 100%);
 }
+
+/* =========================
+   ENCABEZADO
+========================= */
 
 header{
   max-width:1150px;
@@ -31,6 +44,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:25px;
 }
 
 .logo{
@@ -39,28 +53,52 @@ header{
   gap:12px;
   font-size:19px;
   font-weight:700;
-  color:var(--verde);
+  color:var(--morado-oscuro);
 }
 
 .logo-icon{
   width:44px;
   height:44px;
   border-radius:13px;
-  background:var(--verde);
+  background:linear-gradient(
+    135deg,
+    var(--morado-oscuro),
+    var(--morado-principal)
+  );
   display:grid;
   place-items:center;
   color:white;
   font-size:22px;
+  box-shadow:0 8px 20px rgba(79,61,102,.16);
 }
 
 .estado{
-  background:var(--verde-claro);
-  color:var(--verde);
-  padding:10px 18px;
+  background:var(--morado-suave);
+  color:var(--morado-principal);
+  padding:10px 20px;
   border-radius:30px;
   font-size:14px;
   font-weight:bold;
+  letter-spacing:.2px;
 }
+
+.btn-mapa{
+  color:var(--morado-principal);
+  font-weight:600;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:10px;
+  transition:.25s;
+}
+
+.btn-mapa:hover{
+  background:var(--morado-suave);
+  color:var(--morado-oscuro);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   max-width:950px;
@@ -73,17 +111,18 @@ header{
   display:inline-block;
   padding:9px 18px;
   border-radius:30px;
-  background:var(--verde-claro);
-  color:var(--verde);
+  background:var(--morado-suave);
+  color:var(--morado-principal);
   font-size:13px;
   font-weight:bold;
-  letter-spacing:.5px;
+  letter-spacing:1px;
 }
 
 h1{
   margin:22px 0 18px;
   font-size:clamp(40px,6vw,68px);
   letter-spacing:-2px;
+  color:var(--texto);
 }
 
 .hero p{
@@ -91,8 +130,12 @@ h1{
   margin:auto;
   font-size:20px;
   line-height:1.6;
-  color:var(--gris);
+  color:var(--texto-secundario);
 }
+
+/* =========================
+   OPCIONES
+========================= */
 
 .opciones{
   max-width:1000px;
@@ -104,26 +147,47 @@ h1{
 }
 
 .card{
+  position:relative;
+  overflow:hidden;
   text-decoration:none;
   color:inherit;
-  background:white;
+  background:rgba(255,255,255,.88);
   border:1px solid var(--borde);
   border-radius:28px;
   padding:40px;
-  box-shadow:0 12px 35px rgba(29,61,52,.10);
+  box-shadow:0 12px 35px rgba(79,61,102,.08);
   transition:.25s;
+}
+
+/* Detalle abstracto discreto */
+.card::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(137,117,159,.05);
+  right:-70px;
+  top:-70px;
 }
 
 .card:hover{
   transform:translateY(-7px);
-  box-shadow:0 20px 45px rgba(29,61,52,.17);
+  border-color:rgba(102,82,127,.35);
+  box-shadow:0 20px 45px rgba(79,61,102,.14);
 }
 
 .icono{
+  position:relative;
+  z-index:1;
   width:70px;
   height:70px;
   border-radius:20px;
-  background:var(--verde-claro);
+  background:linear-gradient(
+    135deg,
+    var(--morado-suave),
+    #e9e2ef
+  );
   display:grid;
   place-items:center;
   font-size:32px;
@@ -131,25 +195,45 @@ h1{
 }
 
 .card h2{
+  position:relative;
+  z-index:1;
   font-size:27px;
   margin:0 0 14px;
+  color:var(--texto);
 }
 
 .card p{
-  color:var(--gris);
+  position:relative;
+  z-index:1;
+  color:var(--texto-secundario);
   line-height:1.7;
   margin:0;
 }
 
 .boton{
+  position:relative;
+  z-index:1;
   display:inline-block;
   margin-top:28px;
-  padding:14px 20px;
-  background:var(--verde);
+  padding:14px 22px;
+  background:linear-gradient(
+    135deg,
+    var(--morado-oscuro),
+    var(--morado-principal)
+  );
   color:white;
   border-radius:12px;
   font-weight:bold;
+  transition:.25s;
 }
+
+.card:hover .boton{
+  transform:translateX(4px);
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
 
 .info{
   max-width:1000px;
@@ -162,58 +246,125 @@ h1{
   gap:18px;
   align-items:center;
   padding:28px;
-  background:#f4faf7;
+  background:linear-gradient(
+    135deg,
+    #faf8fc,
+    var(--morado-claro)
+  );
   border:1px solid var(--borde);
   border-radius:22px;
+  box-shadow:0 10px 30px rgba(79,61,102,.05);
 }
 
 .info-icon{
-  font-size:30px;
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:var(--morado-suave);
+  display:grid;
+  place-items:center;
+  font-size:26px;
+  flex-shrink:0;
 }
 
-.info h3{margin:0 0 8px}
+.info h3{
+  margin:0 0 8px;
+  color:var(--morado-oscuro);
+}
 
 .info p{
   margin:0;
-  color:var(--gris);
+  color:var(--texto-secundario);
   line-height:1.6;
 }
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
 
 footer{
   text-align:center;
   padding:28px;
   border-top:1px solid var(--borde);
-  color:#7b8885;
+  color:#82798c;
+  font-size:14px;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:700px){
-  .estado{display:none}
-  .opciones{grid-template-columns:1fr}
-  .hero p{font-size:17px}
-  .info-box{align-items:flex-start}
+
+  header{
+    padding:20px;
+    flex-wrap:wrap;
+  }
+
+  .estado{
+    display:none;
+  }
+
+  .btn-mapa{
+    margin-left:auto;
+  }
+
+  .hero{
+    margin-top:25px;
+    padding:25px 20px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .opciones{
+    grid-template-columns:1fr;
+    margin-bottom:45px;
+  }
+
+  .card{
+    padding:30px;
+  }
+
+  .info-box{
+    align-items:flex-start;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="logo">
     <div class="logo-icon">🤝</div>
     <span>Alianzas Estratégicas</span>
   </div>
 
- <div class="estado">Plataforma de consulta</div>
-<a href="mapa.html" class="btn-mapa">🗺️ Ver mapa de alianzas</a>
+  <div class="estado">
+    Plataforma de consulta
+  </div>
+
+  <a href="mapa.html" class="btn-mapa">
+    🗺️ Ver mapa de alianzas
+  </a>
+
 </header>
 
 <main>
 
 <section class="hero">
 
-  <div class="etiqueta">INSTITUCIONES ALIADAS</div>
+  <div class="etiqueta">
+    INSTITUCIONES ALIADAS
+  </div>
 
-  <h1>Conectamos oportunidades</h1>
+  <h1>
+    Conectamos oportunidades
+  </h1>
 
   <p>
     Consulta las instituciones aliadas y conoce las oportunidades
@@ -222,13 +373,18 @@ footer{
 
 </section>
 
+
 <section class="opciones">
 
   <a href="alianzas.html" class="card">
 
-    <div class="icono">🏢</div>
+    <div class="icono">
+      🏢
+    </div>
 
-    <h2>Instituciones aliadas</h2>
+    <h2>
+      Instituciones aliadas
+    </h2>
 
     <p>
       Explora las instituciones registradas y consulta información
@@ -241,11 +397,16 @@ footer{
 
   </a>
 
+
   <a href="mapa.html" class="card">
 
-    <div class="icono">🗺️</div>
+    <div class="icono">
+      🗺️
+    </div>
 
-    <h2>Mapa de alianzas</h2>
+    <h2>
+      Mapa de alianzas
+    </h2>
 
     <p>
       Visualiza la distribución geográfica de las instituciones
@@ -260,19 +421,26 @@ footer{
 
 </section>
 
+
 <section class="info">
 
   <div class="info-box">
 
-    <div class="info-icon">💡</div>
+    <div class="info-icon">
+      💡
+    </div>
 
     <div>
-      <h3>Consulta rápida y sencilla</h3>
+
+      <h3>
+        Consulta rápida y sencilla
+      </h3>
 
       <p>
         Selecciona una opción para explorar las instituciones aliadas
         o visualizar su distribución en el mapa interactivo.
       </p>
+
     </div>
 
   </div>
@@ -280,6 +448,7 @@ footer{
 </section>
 
 </main>
+
 
 <footer>
   Alianzas Estratégicas · Plataforma de consulta
