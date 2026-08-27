@@ -1,2049 +1,1839 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mapa de Alianzas Estratégicas</title>
+<title>Mapa de Alianzas Estratégicas</title>
 
-  <style>
+<style>
 
-    /* ================================
-       PALETA GENERAL
-    ================================= */
+/* =========================================================
+   PALETA GENERAL
+========================================================= */
 
-    :root {
-      --purple-dark: #49346d;
-      --purple-main: #65458a;
-      --purple-medium: #8063a4;
-      --purple-soft: #a98cc9;
+:root {
+    --morado-principal: #5B4B7A;
+    --morado-profundo: #44385F;
 
-      --lavender: #cbb9dd;
-      --lavender-light: #e5dcef;
-      --lavender-pale: #f4f0f8;
+    --indigo: #536B8D;
+    --malva: #9A7197;
+    --lavanda: #B9AED0;
+    --lila-claro: #D9D2E8;
 
-      --background: #f8f6fa;
-      --white: #ffffff;
+    --salvia: #7C9688;
+    --salvia-claro: #DDE7E1;
 
-      --text-dark: #3d3049;
-      --text-medium: #71657c;
+    --fondo: #F7F6FA;
+    --fondo-secundario: #F0EDF5;
 
-      --border: #ddd2e8;
+    --texto: #344054;
+    --texto-secundario: #667085;
 
-      --shadow: 0 18px 45px rgba(73, 52, 109, 0.10);
-    }
+    --borde: #DDD7E7;
+    --blanco: #FFFFFF;
 
-
-    /* ================================
-       RESET
-    ================================= */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at top left,
-          rgba(221, 207, 237, 0.7),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at bottom right,
-          rgba(229, 220, 239, 0.8),
-          transparent 35%
-        ),
-        var(--background);
-
-      color: var(--text-dark);
-      min-height: 100vh;
-    }
+    --sombra: 0 15px 40px rgba(91, 75, 122, 0.12);
+}
 
 
-    /* ================================
-       HEADER
-    ================================= */
+/* =========================================================
+   GENERAL
+========================================================= */
 
-    header {
-      width: 100%;
+* {
+    box-sizing: border-box;
+}
 
-      background:
-        rgba(255, 255, 255, 0.88);
+html {
+    scroll-behavior: smooth;
+}
 
-      backdrop-filter:
-        blur(12px);
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(185,174,208,.20), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(124,150,136,.12), transparent 30%),
+        var(--fondo);
 
-      border-bottom:
-        1px solid var(--border);
-
-      padding:
-        18px 5%;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        space-between;
-    }
+    color: var(--texto);
+}
 
 
-    .brand {
-      display:
-        flex;
+/* =========================================================
+   HEADER
+========================================================= */
 
-      align-items:
-        center;
+header {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(10px);
 
-      gap:
-        14px;
-    }
+    border-bottom: 1px solid var(--borde);
 
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .logo-icon {
-      width:
-        58px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-      height:
-        58px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
 
-      border-radius:
-        18px;
+.brand-icon {
+    width: 56px;
+    height: 56px;
 
-      display:
-        flex;
+    border-radius: 18px;
 
-      align-items:
-        center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      justify-content:
-        center;
+    font-size: 28px;
 
-      font-size:
-        28px;
-
-      background:
+    background:
         linear-gradient(
-          135deg,
-          var(--lavender-light),
-          var(--lavender-pale)
+            135deg,
+            #EEE9F5,
+            var(--salvia-claro)
         );
 
-      box-shadow:
-        0 8px 20px rgba(73, 52, 109, 0.08);
-    }
+    border: 1px solid var(--borde);
+}
 
+.brand h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--morado-profundo);
+}
 
-    .brand h1 {
-      font-size:
-        26px;
+.brand p {
+    margin: 4px 0 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
 
-      color:
-        var(--purple-dark);
+.back-button {
+    text-decoration: none;
 
-      margin-bottom:
-        4px;
-    }
+    padding: 14px 22px;
 
+    border-radius: 14px;
 
-    .brand p {
-      color:
-        var(--text-medium);
-
-      font-size:
-        15px;
-    }
-
-
-    .back-button {
-      text-decoration:
-        none;
-
-      background:
+    background:
         linear-gradient(
-          135deg,
-          var(--purple-dark),
-          var(--purple-main)
+            135deg,
+            var(--morado-principal),
+            var(--indigo)
         );
 
-      color:
-        white;
+    color: white;
 
-      padding:
-        14px 22px;
+    font-weight: 700;
 
-      border-radius:
-        14px;
+    transition: .25s;
+}
 
-      font-weight:
-        bold;
+.back-button:hover {
+    transform: translateY(-2px);
 
-      transition:
-        0.25s;
+    box-shadow:
+        0 10px 25px rgba(91,75,122,.25);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    text-align: center;
+
+    padding: 42px 20px 30px;
+}
+
+.hero h2 {
+    margin: 0;
+
+    font-size: clamp(34px, 4vw, 52px);
+
+    color: var(--morado-profundo);
+}
+
+.hero p {
+    max-width: 760px;
+
+    margin: 14px auto 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: var(--texto-secundario);
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(360px, .85fr);
+
+    gap: 28px;
+}
+
+
+/* =========================================================
+   TARJETAS PRINCIPALES
+========================================================= */
+
+.map-panel,
+.info-panel {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(248,246,252,.96)
+        );
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 28px;
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =========================================================
+   PANEL DEL MAPA
+========================================================= */
+
+.map-panel {
+    padding: 26px;
+}
+
+.map-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.map-title h3 {
+    margin: 0;
+    font-size: 25px;
+
+    color: var(--morado-profundo);
+}
+
+.map-title span {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAPA
+========================================================= */
+
+.map-wrapper {
+
+    position: relative;
+
+    min-height: 680px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    border:
+        1px solid #D8D1E3;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(185,174,208,.30),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 70% 70%,
+            rgba(124,150,136,.13),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            145deg,
+            #F9F7FC,
+            #F2F4F5
+        );
+}
+
+
+/* SILUETA DECORATIVA */
+
+.peru-shape {
+
+    position: absolute;
+
+    width: 66%;
+    height: 80%;
+
+    left: 17%;
+    top: 8%;
+
+    opacity: .42;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--lavanda),
+            var(--salvia)
+        );
+
+    clip-path: polygon(
+        45% 0%,
+        58% 8%,
+        70% 17%,
+        64% 26%,
+        76% 35%,
+        70% 45%,
+        83% 54%,
+        75% 64%,
+        88% 73%,
+        78% 85%,
+        65% 100%,
+        48% 91%,
+        39% 81%,
+        25% 72%,
+        31% 61%,
+        17% 51%,
+        24% 39%,
+        11% 30%,
+        26% 20%,
+        34% 11%
+    );
+
+    filter:
+        drop-shadow(
+            0 20px 25px rgba(91,75,122,.12)
+        );
+}
+
+
+/* =========================================================
+   MARCADORES
+========================================================= */
+
+.marker {
+
+    position: absolute;
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    border:
+        4px solid white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(60,50,85,.25);
+
+    transition: .25s;
+
+    z-index: 10;
+}
+
+.marker:hover {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 16px 32px rgba(60,50,85,.32);
+}
+
+.marker-label {
+
+    position: absolute;
+
+    top: 76px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: var(--texto);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* COLORES DIFERENTES POR DEPARTAMENTO */
+
+.marker.lima {
+    background:
+        linear-gradient(
+            135deg,
+            var(--morado-profundo),
+            var(--morado-principal)
+        );
+}
+
+.marker.junin {
+    background:
+        linear-gradient(
+            135deg,
+            var(--indigo),
+            #6F87A5
+        );
+}
+
+.marker.cusco {
+    background:
+        linear-gradient(
+            135deg,
+            var(--malva),
+            #B88CB1
+        );
+}
+
+.marker.arequipa {
+    background:
+        linear-gradient(
+            135deg,
+            #766596,
+            var(--lavanda)
+        );
+}
+
+.marker.coming {
+    background:
+        linear-gradient(
+            135deg,
+            #B7A8CC,
+            #D3C8E3
+        );
+}
+
+
+/* =========================================================
+   UBICACIÓN DE LOS MARCADORES
+========================================================= */
+
+.marker.lima {
+    left: 34%;
+    top: 46%;
+}
+
+.marker.junin {
+    left: 53%;
+    top: 42%;
+}
+
+.marker.ica {
+    left: 37%;
+    top: 63%;
+}
+
+.marker.ayacucho {
+    left: 53%;
+    top: 63%;
+}
+
+.marker.cusco {
+    left: 68%;
+    top: 66%;
+}
+
+.marker.arequipa {
+    left: 53%;
+    top: 81%;
+}
+
+
+/* =========================================================
+   LEYENDA
+========================================================= */
+
+.legend {
+
+    position: absolute;
+
+    left: 22px;
+    bottom: 22px;
+
+    padding: 16px 18px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.90);
+
+    backdrop-filter:
+        blur(10px);
+
+    border:
+        1px solid var(--borde);
+
+    box-shadow:
+        0 10px 25px rgba(91,75,122,.08);
+
+    z-index: 20;
+}
+
+.legend h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.legend-item {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 7px 0;
+
+    font-size: 13px;
+}
+
+.dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+.dot.one {
+    background: var(--indigo);
+}
+
+.dot.two {
+    background: var(--morado-principal);
+}
+
+.dot.three {
+    background: var(--malva);
+}
+
+.dot.coming {
+    background: var(--lavanda);
+}
+
+
+/* =========================================================
+   PANEL DERECHO
+========================================================= */
+
+.info-panel {
+
+    padding: 28px;
+
+    min-height: 760px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.info-kicker {
+
+    margin: 0;
+
+    color: var(--morado-principal);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.department-title {
+
+    margin: 8px 0 6px;
+
+    font-size: 34px;
+
+    color: var(--morado-profundo);
+}
+
+.department-description {
+
+    margin: 0 0 24px;
+
+    color: var(--texto-secundario);
+
+    font-size: 16px;
+}
+
+.divider {
+
+    height: 1px;
+
+    background: var(--borde);
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.stat-box {
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F0ECF6,
+            #E7EAF0
+        );
+
+    border:
+        1px solid #E0DAEA;
+}
+
+.stat-box strong {
+
+    display: block;
+
+    font-size: 24px;
+
+    color: var(--morado-principal);
+}
+
+.stat-box span {
+
+    font-size: 12px;
+
+    color: var(--texto-secundario);
+}
+
+
+/* =========================================================
+   LISTA DE INSTITUCIONES
+========================================================= */
+
+.institutions-list {
+
+    overflow-y: auto;
+
+    max-height: 520px;
+
+    padding-right: 8px;
+}
+
+.institutions-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.institutions-list::-webkit-scrollbar-track {
+    background: #EEEAF3;
+    border-radius: 20px;
+}
+
+.institutions-list::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            var(--morado-principal),
+            var(--indigo)
+        );
+
+    border-radius: 20px;
+}
+
+
+.institution-card {
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #FFFFFF,
+            #F7F5FA
+        );
+
+    border:
+        1px solid var(--borde);
+
+    transition: .2s;
+}
+
+.institution-card:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--lavanda);
+
+    box-shadow:
+        0 10px 20px rgba(91,75,122,.08);
+}
+
+.institution-name {
+
+    margin: 0 0 12px;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    color: var(--texto);
+}
+
+
+/* =========================================================
+   ETIQUETAS
+========================================================= */
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.tag {
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    background: #F0EDF5;
+
+    border:
+        1px solid #DED7E8;
+
+    color: #5D5570;
+}
+
+.tag.location {
+
+    background: #F2EEF6;
+
+    color: var(--morado-principal);
+}
+
+.tag.location::before {
+    content: "📍 ";
+}
+
+.tag.vacancies {
+
+    background: #EEF3F0;
+
+    color: #506C5F;
+}
+
+
+/* =========================================================
+   PRÓXIMAMENTE
+========================================================= */
+
+.coming-soon {
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: var(--texto-secundario);
+}
+
+.coming-soon .icon {
+    font-size: 42px;
+}
+
+.coming-soon h4 {
+
+    margin: 12px 0 8px;
+
+    color: var(--morado-principal);
+}
+
+
+/* =========================================================
+   VOLVER
+========================================================= */
+
+.back-home {
+
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    border-top:
+        1px solid var(--borde);
+}
+
+.back-home a {
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    color: var(--morado-principal);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .container {
+        grid-template-columns: 1fr;
     }
-
-
-    .back-button:hover {
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 10px 22px rgba(73, 52, 109, 0.20);
-    }
-
-
-    /* ================================
-       HERO
-    ================================= */
-
-    .hero {
-      text-align:
-        center;
-
-      padding:
-        45px 20px 35px;
-    }
-
-
-    .hero h2 {
-      font-size:
-        clamp(32px, 4vw, 48px);
-
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        12px;
-    }
-
-
-    .hero p {
-      max-width:
-        760px;
-
-      margin:
-        auto;
-
-      color:
-        var(--text-medium);
-
-      font-size:
-        18px;
-
-      line-height:
-        1.6;
-    }
-
-
-    /* ================================
-       CONTENEDOR PRINCIPAL
-    ================================= */
-
-    .main-container {
-      width:
-        min(1200px, 92%);
-
-      margin:
-        0 auto 50px;
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1.55fr 0.9fr;
-
-      gap:
-        24px;
-    }
-
-
-    /* ================================
-       PANEL MAPA
-    ================================= */
-
-    .map-panel {
-      background:
-        rgba(255, 255, 255, 0.88);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        28px;
-
-      padding:
-        26px;
-
-      box-shadow:
-        var(--shadow);
-    }
-
-
-    .map-panel-header {
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      align-items:
-        center;
-
-      margin-bottom:
-        18px;
-    }
-
-
-    .map-panel-header h3 {
-      font-size:
-        25px;
-
-      color:
-        var(--purple-dark);
-    }
-
-
-    .map-panel-header span {
-      color:
-        var(--text-medium);
-
-      font-size:
-        14px;
-    }
-
-
-    /* ================================
-       MAPA
-    ================================= */
 
     .map-wrapper {
-      position:
-        relative;
-
-      width:
-        100%;
-
-      min-height:
-        650px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        24px;
-
-      overflow:
-        hidden;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f7f3fa,
-          #eee7f5
-        );
+        min-height: 600px;
     }
 
-
-    .map-wrapper img {
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        contain;
-
-      display:
-        block;
-
-      opacity:
-        0.58;
-
-      filter:
-        grayscale(15%);
+    header {
+        padding: 16px 5%;
     }
 
+    .brand h1 {
+        font-size: 19px;
+    }
+}
 
-    /* ================================
-       MARCADORES
-    ================================= */
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .map-panel,
+    .info-panel {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .map-wrapper {
+        min-height: 520px;
+    }
 
     .marker {
-      position:
-        absolute;
-
-      width:
-        64px;
-
-      height:
-        64px;
-
-      border-radius:
-        50%;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      color:
-        white;
-
-      font-size:
-        24px;
-
-      font-weight:
-        bold;
-
-      border:
-        4px solid white;
-
-      cursor:
-        pointer;
-
-      transform:
-        translate(-50%, -50%);
-
-      box-shadow:
-        0 10px 25px rgba(73, 52, 109, 0.22);
-
-      transition:
-        0.25s;
-
-      z-index:
-        5;
+        width: 58px;
+        height: 58px;
+        font-size: 20px;
     }
-
-
-    .marker:hover {
-      transform:
-        translate(-50%, -50%) scale(1.12);
-
-      box-shadow:
-        0 15px 30px rgba(73, 52, 109, 0.30);
-    }
-
-
-    /* 1–2 instituciones */
-
-    .marker-small {
-      background:
-        linear-gradient(
-          135deg,
-          #b7a0d1,
-          #a487c0
-        );
-    }
-
-
-    /* 3–5 instituciones */
-
-    .marker-medium {
-      background:
-        linear-gradient(
-          135deg,
-          #9374b5,
-          #74558f
-        );
-    }
-
-
-    /* 6 o más instituciones */
-
-    .marker-large {
-      background:
-        linear-gradient(
-          135deg,
-          #65458a,
-          #49346d
-        );
-    }
-
-
-    /* PRÓXIMAMENTE */
-
-    .marker-coming-soon {
-      background:
-        linear-gradient(
-          135deg,
-          #e1d6ec,
-          #c9b6da
-        );
-
-      border:
-        4px solid white;
-
-      color:
-        var(--purple-main);
-    }
-
-
-    /* ================================
-       NOMBRE DEPARTAMENTO
-    ================================= */
 
     .marker-label {
-      position:
-        absolute;
-
-      top:
-        74px;
-
-      left:
-        50%;
-
-      transform:
-        translateX(-50%);
-
-      white-space:
-        nowrap;
-
-      font-size:
-        14px;
-
-      font-weight:
-        bold;
-
-      color:
-        var(--purple-dark);
-
-      pointer-events:
-        none;
+        top: 65px;
     }
 
-
-    /* ================================
-       POSICIONES MAPA
-    ================================= */
-
-    #marker-lima {
-      left:
-        37%;
-
-      top:
-        48%;
+    .back-button {
+        padding: 12px;
+        font-size: 13px;
     }
 
+}
 
-    #marker-junin {
-      left:
-        56%;
-
-      top:
-        45%;
-    }
-
-
-    #marker-cusco {
-      left:
-        70%;
-
-      top:
-        69%;
-    }
-
-
-    #marker-arequipa {
-      left:
-        55%;
-
-      top:
-        85%;
-    }
-
-
-    #marker-ica {
-      left:
-        39%;
-
-      top:
-        66%;
-    }
-
-
-    #marker-ayacucho {
-      left:
-        55%;
-
-      top:
-        66%;
-    }
-
-
-    /* ================================
-       LEYENDA
-    ================================= */
-
-    .legend {
-      position:
-        absolute;
-
-      left:
-        22px;
-
-      bottom:
-        22px;
-
-      background:
-        rgba(255, 255, 255, 0.92);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        18px;
-
-      padding:
-        16px 18px;
-
-      box-shadow:
-        0 8px 20px rgba(73, 52, 109, 0.08);
-    }
-
-
-    .legend h4 {
-      margin-bottom:
-        10px;
-
-      color:
-        var(--purple-dark);
-    }
-
-
-    .legend-item {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        9px;
-
-      margin:
-        7px 0;
-
-      font-size:
-        13px;
-
-      color:
-        var(--text-medium);
-    }
-
-
-    .legend-dot {
-      width:
-        10px;
-
-      height:
-        10px;
-
-      border-radius:
-        50%;
-    }
-
-
-    .legend-small {
-      background:
-        #b7a0d1;
-    }
-
-
-    .legend-medium {
-      background:
-        #8063a4;
-    }
-
-
-    .legend-large {
-      background:
-        #593c7d;
-    }
-
-
-    .legend-coming {
-      background:
-        #d8c9e6;
-
-      border:
-        1px solid #8d6eaf;
-    }
-
-
-    /* ================================
-       PANEL DERECHO
-    ================================= */
-
-    .info-panel {
-      background:
-        rgba(255, 255, 255, 0.88);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        28px;
-
-      padding:
-        26px;
-
-      box-shadow:
-        var(--shadow);
-
-      min-height:
-        650px;
-    }
-
-
-    .info-eyebrow {
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        3px;
-
-      font-size:
-        12px;
-
-      font-weight:
-        bold;
-
-      color:
-        var(--purple-medium);
-
-      margin-bottom:
-        10px;
-    }
-
-
-    .info-panel h2 {
-      font-size:
-        36px;
-
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        8px;
-    }
-
-
-    .info-description {
-      color:
-        var(--text-medium);
-
-      font-size:
-        16px;
-
-      line-height:
-        1.5;
-
-      padding-bottom:
-        20px;
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-
-    /* ================================
-       ESTADÍSTICAS
-    ================================= */
-
-    .stats {
-      display:
-        grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:
-        12px;
-
-      margin:
-        20px 0;
-    }
-
-
-    .stat-card {
-      background:
-        linear-gradient(
-          135deg,
-          #f1ebf7,
-          #e3d8ee
-        );
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        18px;
-
-      padding:
-        16px;
-    }
-
-
-    .stat-number {
-      font-size:
-        24px;
-
-      font-weight:
-        bold;
-
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        5px;
-    }
-
-
-    .stat-label {
-      font-size:
-        12px;
-
-      color:
-        var(--text-medium);
-    }
-
-
-    /* ================================
-       LISTA
-    ================================= */
-
-    #institutions-list {
-      max-height:
-        390px;
-
-      overflow-y:
-        auto;
-
-      padding-right:
-        8px;
-    }
-
-
-    .institution-item {
-      background:
-        rgba(255, 255, 255, 0.95);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        18px;
-
-      padding:
-        16px;
-
-      margin-bottom:
-        12px;
-
-      transition:
-        0.25s;
-    }
-
-
-    .institution-item:hover {
-      border-color:
-        var(--purple-soft);
-
-      box-shadow:
-        0 8px 18px rgba(73, 52, 109, 0.08);
-    }
-
-
-    .institution-name {
-      font-size:
-        16px;
-
-      font-weight:
-        bold;
-
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        12px;
-
-      line-height:
-        1.4;
-    }
-
-
-    .tags {
-      display:
-        flex;
-
-      flex-wrap:
-        wrap;
-
-      gap:
-        7px;
-    }
-
-
-    .tag {
-      background:
-        var(--lavender-pale);
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        20px;
-
-      padding:
-        6px 10px;
-
-      font-size:
-        12px;
-
-      color:
-        var(--text-medium);
-    }
-
-
-    .location-tag {
-      background:
-        #f3edf8;
-
-      color:
-        var(--purple-main);
-    }
-
-
-    /* ================================
-       MENSAJE PRÓXIMAMENTE
-    ================================= */
-
-    .coming-soon {
-      text-align:
-        center;
-
-      padding:
-        60px 20px;
-
-      color:
-        var(--text-medium);
-    }
-
-
-    .coming-icon {
-      width:
-        65px;
-
-      height:
-        65px;
-
-      border-radius:
-        50%;
-
-      margin:
-        0 auto 18px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      font-size:
-        30px;
-
-      background:
-        var(--lavender-pale);
-    }
-
-
-    .coming-soon h3 {
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        10px;
-    }
-
-
-    /* ================================
-       VOLVER
-    ================================= */
-
-    .return-link {
-      display:
-        inline-block;
-
-      margin-top:
-        20px;
-
-      text-decoration:
-        none;
-
-      color:
-        var(--purple-main);
-
-      font-weight:
-        bold;
-    }
-
-
-    .return-link:hover {
-      color:
-        var(--purple-dark);
-    }
-
-
-    /* ================================
-       RESPONSIVE
-    ================================= */
-
-    @media (max-width: 900px) {
-
-      header {
-        flex-direction:
-          column;
-
-        gap:
-          18px;
-      }
-
-
-      .main-container {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .map-wrapper {
-        min-height:
-          550px;
-      }
-
-
-      .info-panel {
-        min-height:
-          auto;
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .brand h1 {
-        font-size:
-          21px;
-      }
-
-
-      .hero h2 {
-        font-size:
-          34px;
-      }
-
-
-      .map-wrapper {
-        min-height:
-          480px;
-      }
-
-
-      .marker {
-        width:
-          52px;
-
-        height:
-          52px;
-
-        font-size:
-          20px;
-      }
-
-
-      .marker-label {
-        top:
-          60px;
-
-        font-size:
-          12px;
-      }
-
-
-      .legend {
-        transform:
-          scale(0.85);
-
-        transform-origin:
-          bottom left;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ================================
-       HEADER
-  ================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <header>
+<header>
 
     <div class="brand">
 
-      <div class="logo-icon">
-        🤝
-      </div>
+        <div class="brand-icon">
+            🤝
+        </div>
 
-      <div>
+        <div>
 
-        <h1>
-          Alianzas Estratégicas
-        </h1>
+            <h1>Alianzas Estratégicas</h1>
 
-        <p>
-          Modalidad a distancia · Psicología
-        </p>
+            <p>
+                Modalidad a distancia · Psicología
+            </p>
 
-      </div>
+        </div>
 
     </div>
 
 
-    <a
-      href="index.html"
-      class="back-button"
-    >
-      ← Regresar al inicio
+    <a href="index.html" class="back-button">
+
+        ← Regresar al inicio
+
     </a>
 
-  </header>
+</header>
 
 
 
-  <!-- ================================
-       HERO
-  ================================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-  <section class="hero">
+<section class="hero">
 
     <h2>
-      Mapa de alianzas estratégicas
+        Mapa de alianzas estratégicas
     </h2>
 
     <p>
-      Explora la distribución geográfica de nuestras instituciones
-      aliadas y conoce las próximas zonas de expansión.
+        Explora la distribución geográfica de nuestras instituciones aliadas
+        y conoce las próximas zonas de expansión.
     </p>
 
-  </section>
+</section>
 
 
 
-  <!-- ================================
-       CONTENIDO
-  ================================= -->
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
 
-  <main class="main-container">
+<main class="container">
 
 
-    <!-- ================================
-         MAPA
-    ================================= -->
+<!-- =====================================================
+     MAPA
+===================================================== -->
 
-    <section class="map-panel">
+<section class="map-panel">
 
-      <div class="map-panel-header">
+    <div class="map-title">
 
         <h3>
-          🗺️ Perú
+            🗺️ Perú
         </h3>
 
         <span>
-          Haz clic en un marcador
+            Haz clic en un marcador
         </span>
 
-      </div>
+    </div>
 
 
-      <div class="map-wrapper">
+    <div class="map-wrapper">
 
-
-        <img
-          src="Blank_map_of_Peru.svg"
-          alt="Mapa del Perú"
-        >
+        <div class="peru-shape"></div>
 
 
         <!-- LIMA -->
 
-        <button
-          id="marker-lima"
-          class="marker marker-large"
-          onclick="showDepartment('Lima')"
+        <div
+            class="marker lima"
+            data-department="Lima"
         >
 
-          6
+            <span class="marker-number">
+                6
+            </span>
 
-          <span class="marker-label">
-            Lima
-          </span>
+            <span class="marker-label">
+                Lima
+            </span>
 
-        </button>
+        </div>
 
 
         <!-- JUNÍN -->
 
-        <button
-          id="marker-junin"
-          class="marker marker-medium"
-          onclick="showDepartment('Junín')"
+        <div
+            class="marker junin"
+            data-department="Junín"
         >
 
-          4
+            <span class="marker-number">
+                4
+            </span>
 
-          <span class="marker-label">
-            Junín
-          </span>
+            <span class="marker-label">
+                Junín
+            </span>
 
-        </button>
-
-
-        <!-- CUSCO -->
-
-        <button
-          id="marker-cusco"
-          class="marker marker-medium"
-          onclick="showDepartment('Cusco')"
-        >
-
-          5
-
-          <span class="marker-label">
-            Cusco
-          </span>
-
-        </button>
-
-
-        <!-- AREQUIPA -->
-
-        <button
-          id="marker-arequipa"
-          class="marker marker-medium"
-          onclick="showDepartment('Arequipa')"
-        >
-
-          3
-
-          <span class="marker-label">
-            Arequipa
-          </span>
-
-        </button>
+        </div>
 
 
         <!-- ICA -->
 
-        <button
-          id="marker-ica"
-          class="marker marker-coming-soon"
-          onclick="showComingSoon('Ica')"
+        <div
+            class="marker coming ica"
+            data-department="Ica"
         >
 
-          +
+            <span class="marker-number">
+                +
+            </span>
 
-          <span class="marker-label">
-            Ica
-          </span>
+            <span class="marker-label">
+                Ica
+            </span>
 
-        </button>
+        </div>
 
 
         <!-- AYACUCHO -->
 
-        <button
-          id="marker-ayacucho"
-          class="marker marker-coming-soon"
-          onclick="showComingSoon('Ayacucho')"
+        <div
+            class="marker coming ayacucho"
+            data-department="Ayacucho"
         >
 
-          +
+            <span class="marker-number">
+                +
+            </span>
 
-          <span class="marker-label">
-            Ayacucho
-          </span>
+            <span class="marker-label">
+                Ayacucho
+            </span>
 
-        </button>
+        </div>
+
+
+        <!-- CUSCO -->
+
+        <div
+            class="marker cusco"
+            data-department="Cusco"
+        >
+
+            <span class="marker-number">
+                5
+            </span>
+
+            <span class="marker-label">
+                Cusco
+            </span>
+
+        </div>
+
+
+        <!-- AREQUIPA -->
+
+        <div
+            class="marker arequipa"
+            data-department="Arequipa"
+        >
+
+            <span class="marker-number">
+                3
+            </span>
+
+            <span class="marker-label">
+                Arequipa
+            </span>
+
+        </div>
 
 
         <!-- LEYENDA -->
 
         <div class="legend">
 
-          <h4>
-            Distribución
-          </h4>
+            <h4>
+                Distribución
+            </h4>
 
 
-          <div class="legend-item">
+            <div class="legend-item">
 
-            <span
-              class="legend-dot legend-small"
-            ></span>
+                <span class="dot one"></span>
 
-            1–2 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-medium"
-            ></span>
-
-            3–5 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-large"
-            ></span>
-
-            6–8 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-coming"
-            ></span>
-
-            Próximamente
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         INFORMACIÓN
-    ================================= -->
-
-    <aside class="info-panel">
-
-      <div class="info-eyebrow">
-        Instituciones aliadas
-      </div>
-
-
-      <h2 id="department-name">
-        Lima
-      </h2>
-
-
-      <p
-        id="department-description"
-        class="info-description"
-      >
-        6 instituciones registradas en Lima.
-      </p>
-
-
-      <!-- ESTADÍSTICAS -->
-
-      <div class="stats">
-
-        <div class="stat-card">
-
-          <div
-            id="department-count"
-            class="stat-number"
-          >
-            6
-          </div>
-
-          <div class="stat-label">
-            Instituciones
-          </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-          <div
-            id="total-count"
-            class="stat-number"
-          >
-            18
-          </div>
-
-          <div class="stat-label">
-            Total registradas
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- LISTA -->
-
-      <div id="institutions-list">
-
-        Cargando instituciones...
-
-      </div>
-
-
-      <a
-        href="alianzas.html"
-        class="return-link"
-      >
-        ← Ver todas las instituciones
-      </a>
-
-    </aside>
-
-
-  </main>
-
-
-
-  <!-- ================================
-       JAVASCRIPT
-  ================================= -->
-
-  <script>
-
-
-    /* ================================
-       VARIABLES
-    ================================= */
-
-    let institutions = [];
-
-
-
-    /* ================================
-       CARGAR CSV
-    ================================= */
-
-    async function loadInstitutions() {
-
-      try {
-
-        const response =
-          await fetch("alianzas.csv");
-
-
-        const text =
-          await response.text();
-
-
-        institutions =
-          parseCSV(text);
-
-
-        updateMarkerNumbers();
-
-
-        showDepartment("Lima");
-
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Error cargando alianzas.csv:",
-          error
-        );
-
-
-        document
-          .getElementById(
-            "institutions-list"
-          )
-          .innerHTML =
-          `
-            <div class="coming-soon">
-
-              <div class="coming-icon">
-                ⚠️
-              </div>
-
-              <h3>
-                No se pudieron cargar los datos
-              </h3>
-
-              <p>
-                Verifica que el archivo
-                <strong>alianzas.csv</strong>
-                esté en la misma carpeta.
-              </p>
+                1–2 instituciones
 
             </div>
-          `;
 
-      }
+
+            <div class="legend-item">
+
+                <span class="dot two"></span>
+
+                3–5 instituciones
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="dot three"></span>
+
+                6–8 instituciones
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="dot coming"></span>
+
+                Próximamente
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMACIÓN DEL DEPARTAMENTO
+===================================================== -->
+
+<section class="info-panel">
+
+
+    <p class="info-kicker">
+        INSTITUCIONES ALIADAS
+    </p>
+
+
+    <h2
+        class="department-title"
+        id="department-title"
+    >
+        Lima
+    </h2>
+
+
+    <p
+        class="department-description"
+        id="department-description"
+    >
+        Cargando información...
+    </p>
+
+
+    <div class="divider"></div>
+
+
+    <div class="stats">
+
+        <div class="stat-box">
+
+            <strong id="department-count">
+                0
+            </strong>
+
+            <span>
+                Instituciones
+            </span>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <strong id="total-count">
+                0
+            </strong>
+
+            <span>
+                Total registradas
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="institutions-list"
+        id="institutions-list"
+    >
+    </div>
+
+
+    <div class="back-home">
+
+        <a href="index.html">
+
+            ← Volver al inicio
+
+        </a>
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let institutions = [];
+
+let totalInstitutions = 0;
+
+
+/* =========================================================
+   CARGAR CSV
+========================================================= */
+
+fetch("alianzas.csv")
+
+.then(response => {
+
+    if (!response.ok) {
+
+        throw new Error(
+            "No se pudo cargar alianzas.csv"
+        );
 
     }
 
+    return response.text();
+
+})
+
+.then(csvText => {
+
+    institutions = parseCSV(csvText);
+
+    totalInstitutions =
+        institutions.length;
 
 
-    /* ================================
-       PARSEAR CSV
-    ================================= */
-
-    function parseCSV(text) {
-
-      const rows = [];
-
-      let row = [];
-
-      let value = "";
-
-      let insideQuotes = false;
+    document
+        .getElementById("total-count")
+        .textContent =
+        totalInstitutions;
 
 
-      for (
-        let i = 0;
-        i < text.length;
-        i++
-      ) {
-
-        const char =
-          text[i];
+    updateMarkerNumbers();
 
 
-        if (
-          char === '"'
-        ) {
+    showDepartment("Lima");
 
-          insideQuotes =
-            !insideQuotes;
+})
+
+.catch(error => {
+
+    console.error(error);
+
+    document
+        .getElementById("institutions-list")
+        .innerHTML = `
+
+        <div class="coming-soon">
+
+            <div class="icon">
+                ⚠️
+            </div>
+
+            <h4>
+                Información no disponible
+            </h4>
+
+            <p>
+                No se pudo cargar el directorio
+                de alianzas.
+            </p>
+
+        </div>
+
+        `;
+
+});
+
+
+/* =========================================================
+   PARSEAR CSV
+========================================================= */
+
+function parseCSV(text) {
+
+    const rows = [];
+
+    let row = [];
+
+    let field = "";
+
+    let insideQuotes = false;
+
+
+    for (let i = 0; i < text.length; i++) {
+
+        const char = text[i];
+
+        const nextChar = text[i + 1];
+
+
+        if (char === '"') {
+
+            if (
+                insideQuotes &&
+                nextChar === '"'
+            ) {
+
+                field += '"';
+
+                i++;
+
+            } else {
+
+                insideQuotes =
+                    !insideQuotes;
+
+            }
 
         }
 
 
         else if (
-          char === "," &&
-          !insideQuotes
+            char === "," &&
+            !insideQuotes
         ) {
 
-          row.push(
-            value.trim()
-          );
+            row.push(field.trim());
 
-          value = "";
+            field = "";
 
         }
 
 
         else if (
-          (
-            char === "\n" ||
-            char === "\r"
-          ) &&
-          !insideQuotes
+            (
+                char === "\n" ||
+                char === "\r"
+            )
+            &&
+            !insideQuotes
         ) {
 
-          if (
-            value !== "" ||
-            row.length > 0
-          ) {
-
-            row.push(
-              value.trim()
-            );
+            if (
+                char === "\r" &&
+                nextChar === "\n"
+            ) {
+                i++;
+            }
 
 
-            rows.push(
-              row
-            );
+            row.push(field.trim());
+
+
+            if (
+                row.some(
+                    value => value !== ""
+                )
+            ) {
+                rows.push(row);
+            }
 
 
             row = [];
 
-            value = "";
-
-          }
+            field = "";
 
         }
 
 
         else {
 
-          value +=
-            char;
+            field += char;
 
         }
 
-      }
+    }
 
 
-      if (
-        value !== "" ||
+    if (
+        field !== "" ||
         row.length > 0
-      ) {
+    ) {
 
-        row.push(
-          value.trim()
-        );
+        row.push(field.trim());
 
+        rows.push(row);
 
-        rows.push(
-          row
-        );
-
-      }
+    }
 
 
-      const headers =
-        rows[0];
+    const headers = rows[0];
 
 
-      return rows
+    return rows
         .slice(1)
+
+        .filter(row => {
+
+            return row.length > 1;
+
+        })
+
         .map(row => {
 
-          const item = {};
+            const item = {};
 
+            headers.forEach(
+                (header, index) => {
 
-          headers.forEach(
-            (
-              header,
-              index
-            ) => {
+                    item[
+                        header.trim()
+                    ] =
+                    row[index] || "";
 
-              item[
-                header
-                  .replace(
-                    /^\uFEFF/,
-                    ""
-                  )
-                  .trim()
-              ] =
-                (
-                  row[index] || ""
-                )
-                .trim();
+                }
+            );
 
-            }
-          );
-
-
-          return item;
+            return item;
 
         });
 
-    }
+}
 
 
+/* =========================================================
+   ACTUALIZAR NÚMEROS DEL MAPA
+========================================================= */
 
-    /* ================================
-       ACTUALIZAR MARCADORES
-    ================================= */
+function updateMarkerNumbers() {
 
-    function updateMarkerNumbers() {
+    document
+        .querySelectorAll(
+            ".marker"
+        )
 
-      const departments = {
+        .forEach(marker => {
 
-        "Lima":
-          "marker-lima",
-
-        "Junín":
-          "marker-junin",
-
-        "Cusco":
-          "marker-cusco",
-
-        "Arequipa":
-          "marker-arequipa"
-
-      };
+            const department =
+                marker.dataset.department;
 
 
-      Object.keys(
-        departments
-      ).forEach(
-        department => {
-
-          const count =
-            institutions.filter(
-              institution =>
-                institution.departamento ===
-                department
-            ).length;
-
-
-          const marker =
-            document.getElementById(
-              departments[
-                department
-              ]
-            );
-
-
-          if (
-            marker
-          ) {
-
-            const label =
-              marker.querySelector(
-                ".marker-label"
-              );
-
-
-            marker.firstChild.nodeValue =
-              count;
+            const numberElement =
+                marker.querySelector(
+                    ".marker-number"
+                );
 
 
             if (
-              label
+                department === "Ica" ||
+                department === "Ayacucho"
             ) {
 
-              marker.appendChild(
-                label
-              );
+                numberElement.textContent = "+";
+
+                return;
 
             }
 
 
-            marker.classList.remove(
-              "marker-small",
-              "marker-medium",
-              "marker-large"
-            );
+            const count =
+                institutions.filter(
+                    institution =>
+                        normalize(
+                            institution.departamento
+                        )
+                        ===
+                        normalize(
+                            department
+                        )
+                )
+                .length;
 
 
-            if (
-              count <= 2
-            ) {
+            numberElement.textContent =
+                count;
 
-              marker.classList.add(
-                "marker-small"
-              );
+        });
 
-            }
+}
 
 
-            else if (
-              count <= 5
-            ) {
+/* =========================================================
+   MOSTRAR DEPARTAMENTO
+========================================================= */
 
-              marker.classList.add(
-                "marker-medium"
-              );
+function showDepartment(
+    department
+) {
 
-            }
-
-
-            else {
-
-              marker.classList.add(
-                "marker-large"
-              );
-
-            }
-
-          }
-
-        }
-      );
-
-    }
-
-
-
-    /* ================================
-       MOSTRAR DEPARTAMENTO
-    ================================= */
-
-    function showDepartment(
-      department
-    ) {
-
-      const departmentInstitutions =
-        institutions.filter(
-          institution =>
-            institution.departamento ===
-            department
-        );
-
-
-      document
-        .getElementById(
-          "department-name"
-        )
-        .textContent =
-        department;
-
-
-      document
-        .getElementById(
-          "department-description"
-        )
-        .textContent =
-        `${departmentInstitutions.length} instituciones registradas en ${department}.`;
-
-
-      document
-        .getElementById(
-          "department-count"
-        )
-        .textContent =
-        departmentInstitutions.length;
-
-
-      document
-        .getElementById(
-          "total-count"
-        )
-        .textContent =
-        institutions.length;
-
-
-      renderInstitutions(
-        departmentInstitutions
-      );
-
-    }
-
-
-
-    /* ================================
-       RENDER INSTITUCIONES
-    ================================= */
-
-    function renderInstitutions(
-      list
-    ) {
-
-      const container =
+    const title =
         document.getElementById(
-          "institutions-list"
+            "department-title"
+        );
+
+    const description =
+        document.getElementById(
+            "department-description"
+        );
+
+    const count =
+        document.getElementById(
+            "department-count"
+        );
+
+    const list =
+        document.getElementById(
+            "institutions-list"
         );
 
 
-      if (
-        list.length === 0
-      ) {
+    /* PRÓXIMAMENTE */
 
-        container.innerHTML =
-          `
-            <div class="coming-soon">
+    if (
+        department === "Ica" ||
+        department === "Ayacucho"
+    ) {
 
-              <div class="coming-icon">
-                📍
-              </div>
+        title.textContent =
+            department;
 
-              <h3>
-                Sin instituciones
-              </h3>
 
-              <p>
-                Actualmente no hay instituciones
-                registradas en este departamento.
-              </p>
+        description.textContent =
+            `Próximamente tendremos nuevas alianzas en ${department}.`;
 
+
+        count.textContent =
+            "—";
+
+
+        list.innerHTML = `
+
+        <div class="coming-soon">
+
+            <div class="icon">
+                ✨
             </div>
-          `;
 
+            <h4>
+                Próximamente
+            </h4>
+
+            <p>
+                Estamos trabajando para ampliar
+                nuestras alianzas estratégicas
+                en ${department}.
+            </p>
+
+        </div>
+
+        `;
 
         return;
 
-      }
+    }
 
 
-      container.innerHTML =
-        list
-          .map(
-            institution => {
+    /* FILTRAR POR DEPARTAMENTO */
+
+    const departmentInstitutions =
+        institutions.filter(
+            institution =>
+
+                normalize(
+                    institution.departamento
+                )
+
+                ===
+
+                normalize(
+                    department
+                )
+        );
 
 
-              const areas =
+    title.textContent =
+        department;
+
+
+    description.textContent =
+        `${departmentInstitutions.length} instituciones registradas en ${department}.`;
+
+
+    count.textContent =
+        departmentInstitutions.length;
+
+
+    /* MOSTRAR INSTITUCIONES */
+
+    if (
+        departmentInstitutions.length === 0
+    ) {
+
+        list.innerHTML = `
+
+        <div class="coming-soon">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <h4>
+                Información en actualización
+            </h4>
+
+            <p>
+                Actualmente no hay instituciones
+                registradas para este departamento.
+            </p>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        departmentInstitutions
+
+        .map(institution => {
+
+            const areas =
                 institution.area
-                  .split("/")
-                  .map(
-                    area =>
-                      area.trim()
-                  );
+                    .split("/")
+
+                    .map(
+                        area =>
+                            area.trim()
+                    );
 
 
-              return `
-
-                <article
-                  class="institution-item"
-                >
-
-                  <div
-                    class="institution-name"
-                  >
-                    ${institution.institucion}
-                  </div>
+            const city =
+                institution.provincia_ciudad ||
+                department;
 
 
-                  <div class="tags">
+            return `
+
+            <article class="institution-card">
+
+                <h4 class="institution-name">
+
+                    ${escapeHTML(
+                        institution.institucion
+                    )}
+
+                </h4>
 
 
-                    <span
-                      class="tag location-tag"
-                    >
-                      📍 ${institution.provincia_ciudad}
+                <div class="tags">
+
+
+                    <span class="tag location">
+
+                        ${escapeHTML(
+                            city
+                        )}
+
                     </span>
 
 
                     ${areas
-                      .map(
-                        area =>
-                          `
+
+                        .filter(
+                            area => area !== ""
+                        )
+
+                        .map(
+                            area => `
+
                             <span class="tag">
-                              ${area}
+
+                                ${escapeHTML(
+                                    area
+                                )}
+
                             </span>
-                          `
-                      )
-                      .join("")
+
+                            `
+                        )
+
+                        .join("")
                     }
 
 
-                    <span class="tag">
-                      ${institution.vacantes}
-                      vacantes
+                    <span class="tag vacancies">
+
+                        ${escapeHTML(
+                            institution.vacantes
+                        )} vacantes
+
                     </span>
 
 
-                  </div>
+                </div>
 
-                </article>
+            </article>
 
-              `;
+            `;
+
+        })
+
+        .join("");
+
+}
+
+
+/* =========================================================
+   CLICK EN MARCADORES
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".marker"
+    )
+
+    .forEach(marker => {
+
+        marker.addEventListener(
+            "click",
+
+            () => {
+
+                showDepartment(
+                    marker.dataset.department
+                );
 
             }
-          )
-          .join("");
 
-    }
+        );
+
+    });
 
 
+/* =========================================================
+   NORMALIZAR TEXTO
+========================================================= */
 
-    /* ================================
-       PRÓXIMAMENTE
-    ================================= */
+function normalize(text) {
 
-    function showComingSoon(
-      department
-    ) {
+    return String(text || "")
 
-      document
-        .getElementById(
-          "department-name"
+        .normalize("NFD")
+
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
         )
-        .textContent =
-        department;
+
+        .trim()
+
+        .toLowerCase();
+
+}
 
 
-      document
-        .getElementById(
-          "department-description"
+/* =========================================================
+   EVITAR PROBLEMAS CON HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text || "")
+
+        .replace(
+            /&/g,
+            "&amp;"
         )
-        .textContent =
-        `Próximamente tendremos nuevas alianzas estratégicas en ${department}.`;
 
-
-      document
-        .getElementById(
-          "department-count"
+        .replace(
+            /</g,
+            "&lt;"
         )
-        .textContent =
-        "+";
 
-
-      document
-        .getElementById(
-          "total-count"
+        .replace(
+            />/g,
+            "&gt;"
         )
-        .textContent =
-        institutions.length;
 
-
-      document
-        .getElementById(
-          "institutions-list"
+        .replace(
+            /"/g,
+            "&quot;"
         )
-        .innerHTML =
-        `
 
-          <div class="coming-soon">
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
-            <div class="coming-icon">
-              ✨
-            </div>
+}
 
-
-            <h3>
-              Próximamente
-            </h3>
-
-
-            <p>
-              Estamos trabajando para incorporar
-              nuevas instituciones aliadas en
-              ${department}.
-            </p>
-
-          </div>
-
-        `;
-
-    }
-
-
-
-    /* ================================
-       INICIAR
-    ================================= */
-
-    loadInstitutions();
-
-
-  </script>
+</script>
 
 
 </body>
