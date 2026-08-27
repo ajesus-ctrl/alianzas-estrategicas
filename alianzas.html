@@ -1,11 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Alianzas | Programa de Psicología</title>
+
+  <style>
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#f5f7fb;
+      color:#24324a;
+    }
+
+    header{
+      background:linear-gradient(135deg,#17365d,#255f88);
+      color:white;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .brand h1{
+      font-size:24px;
+      margin-bottom:5px;
+    }
+
+    .brand p{
+      font-size:14px;
+      opacity:.9;
+    }
+
+    .map-link{
+      text-decoration:none;
+      background:white;
+      color:#17365d;
+      padding:11px 18px;
+      border-radius:10px;
+      font-weight:bold;
+      transition:.2s;
+    }
+
+    .map-link:hover{
+      transform:translateY(-2px);
+    }
+
+    main{
+      width:min(1200px,90%);
+      margin:35px auto 60px;
+    }
+
+    .hero{
+      margin-bottom:25px;
+    }
+
+    .hero h2{
+      font-size:30px;
+      color:#17365d;
+      margin-bottom:10px;
+    }
+
+    .hero p{
+      color:#64748b;
+      line-height:1.6;
+      max-width:800px;
+    }
+
+    .filters{
+      background:white;
+      padding:22px;
+      border-radius:16px;
+      box-shadow:0 8px 25px rgba(0,0,0,.07);
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr auto;
+      gap:12px;
+      margin-bottom:20px;
+    }
+
+    input,
+    select,
+    button{
+      font:inherit;
+    }
+
+    input,
+    select{
+      width:100%;
+      border:1px solid #d9e1ea;
+      border-radius:10px;
+      padding:12px 14px;
+      outline:none;
+      background:white;
+      color:#334155;
+    }
+
+    input:focus,
+    select:focus{
+      border-color:#255f88;
+    }
+
+    #clear{
+      border:none;
+      background:#eaf0f6;
+      color:#17365d;
+      padding:12px 18px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    #clear:hover{
+      background:#dce7f1;
+    }
+
+    .results-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin:25px 0 18px;
+      gap:15px;
+    }
+
+    #count{
+      font-weight:bold;
+      color:#17365d;
+    }
+
+    .coming-soon{
+      font-size:14px;
+      color:#64748b;
+      text-align:right;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 8px 25px rgba(0,0,0,.07);
+      display:flex;
+      flex-direction:column;
+      transition:.2s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 30px rgba(0,0,0,.1);
+    }
+
+    .top{
+      display:flex;
+      gap:13px;
+      align-items:center;
+      margin-bottom:16px;
+    }
+
+    .logo{
+      width:52px;
+      height:52px;
+      min-width:52px;
+      border-radius:50%;
+      background:#e7f0f8;
+      color:#17365d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+      overflow:hidden;
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    h3{
+      font-size:17px;
+      line-height:1.35;
+      color:#1e293b;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-bottom:16px;
+    }
+
+    .tag{
+      background:#edf4f8;
+      color:#24577a;
+      padding:6px 9px;
+      border-radius:20px;
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    .info{
+      display:flex;
+      flex-direction:column;
+      gap:11px;
+      color:#64748b;
+      font-size:14px;
+      line-height:1.45;
+      flex:1;
+    }
+
+    .info strong{
+      color:#334155;
+    }
+
+    .more-button{
+      width:100%;
+      border:none;
+      background:#17365d;
+      color:white;
+      padding:11px;
+      border-radius:9px;
+      margin-top:20px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .more-button:hover{
+      background:#255f88;
+    }
+
+    .extra-info{
+      display:none;
+      margin-top:15px;
+    }
+
+    .extra-info.open{
+      display:block;
+    }
+
+    .review-box{
+      background:#f4f7fa;
+      border-radius:10px;
+      padding:15px;
+    }
+
+    .review-box h4{
+      margin-bottom:7px;
+      color:#17365d;
+    }
+
+    .review-box p{
+      color:#64748b;
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .empty{
+      grid-column:1/-1;
+      background:white;
+      padding:35px;
+      text-align:center;
+      border-radius:15px;
+      color:#64748b;
+      box-shadow:0 8px 25px rgba(0,0,0,.05);
+    }
+
+    .future-section{
+      margin-top:40px;
+      background:linear-gradient(135deg,#eef4f8,#f8fafc);
+      border-radius:16px;
+      padding:25px;
+    }
+
+    .future-section h3{
+      color:#17365d;
+      margin-bottom:8px;
+    }
+
+    .future-section p{
+      color:#64748b;
+      margin-bottom:18px;
+      line-height:1.5;
+    }
+
+    .future-regions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .future-region{
+      background:white;
+      padding:13px 18px;
+      border-radius:10px;
+      font-weight:bold;
+      color:#17365d;
+      box-shadow:0 4px 12px rgba(0,0,0,.05);
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      color:#64748b;
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+
+      .filters{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .cards{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      header{
+        padding:20px;
+      }
+
+      main{
+        width:92%;
+      }
+
+      .filters{
+        grid-template-columns:1fr;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .results-header{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .coming-soon{
+        text-align:left;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="brand">
+    <h1>Alianzas Institucionales</h1>
+    <p>Programa de Psicología</p>
+  </div>
+
+  <a
+    href="mapa.html"
+    class="map-link"
+  >
+    Ver mapa de alianzas
+  </a>
+
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <h2>Encuentra una institución</h2>
+
+    <p>
+      Explora las instituciones disponibles para el desarrollo
+      de prácticas y experiencias profesionales. Puedes buscar
+      por institución, ciudad, departamento o área.
+    </p>
+
+  </section>
+
+
+  <section class="filters">
+
+    <input
+      type="text"
+      id="q"
+      placeholder="Buscar institución, ciudad o palabra clave..."
+    >
+
+    <select id="d">
+      <option value="">
+        Todos los departamentos
+      </option>
+    </select>
+
+    <select id="a">
+      <option value="">
+        Todas las áreas
+      </option>
+    </select>
+
+    <button id="clear">
+      Limpiar
+    </button>
+
+  </section>
+
+
+  <section class="results-header">
+
+    <div id="count">
+      18 instituciones encontradas
+    </div>
+
+    <div class="coming-soon">
+      Próximamente: nuevas alianzas en Ica y Ayacucho
+    </div>
+
+  </section>
+
+
+  <section
+    class="cards"
+    id="cards"
+  ></section>
+
+
+  <section class="future-section">
+
+    <h3>Próximamente</h3>
+
+    <p>
+      Continuamos ampliando nuestra red de alianzas institucionales
+      para brindar nuevas oportunidades a nuestros estudiantes.
+    </p>
+
+    <div class="future-regions">
+
+      <div class="future-region">
+        📍 Ica — Próximamente
+      </div>
+
+      <div class="future-region">
+        📍 Ayacucho — Próximamente
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  Programa de Psicología · Directorio de Alianzas Institucionales
+</footer>
+
 
 <script>
 
 /* =====================================================
-   DATOS DE RESPALDO
+   DATOS DE LAS INSTITUCIONES
 ===================================================== */
 
-const fallbackData = [
+const data = [
 
   {
     institucion:"Asociación Educativa Harvard S.R.L.",
@@ -208,12 +686,6 @@ const fallbackData = [
 ];
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-let data = [...fallbackData];
-
 const $ = id => document.getElementById(id);
 
 
@@ -224,159 +696,11 @@ const $ = id => document.getElementById(id);
 function escapeHTML(value){
 
   return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-/* =====================================================
-   LECTOR DE CSV
-===================================================== */
-
-function parseCSVLine(line){
-
-  const result = [];
-
-  let current = "";
-  let insideQuotes = false;
-
-  for(let i = 0; i < line.length; i++){
-
-    const char = line[i];
-
-    if(char === '"'){
-
-      if(
-        insideQuotes &&
-        line[i + 1] === '"'
-      ){
-
-        current += '"';
-        i++;
-
-      }else{
-
-        insideQuotes = !insideQuotes;
-
-      }
-
-    }
-
-    else if(
-      char === "," &&
-      !insideQuotes
-    ){
-
-      result.push(current.trim());
-      current = "";
-
-    }
-
-    else{
-
-      current += char;
-
-    }
-
-  }
-
-  result.push(current.trim());
-
-  return result;
-
-}
-
-
-/* =====================================================
-   CARGAR CSV
-===================================================== */
-
-async function loadCSV(){
-
-  try{
-
-    const response = await fetch(
-      "alianzas.csv?nocache=" + Date.now(),
-      {
-        cache:"no-store"
-      }
-    );
-
-    if(!response.ok){
-
-      throw new Error("No se pudo cargar el CSV");
-
-    }
-
-    const text = await response.text();
-
-    const lines = text
-      .replace(/^\uFEFF/, "")
-      .split(/\r?\n/)
-      .filter(line => line.trim() !== "");
-
-    if(lines.length < 2){
-
-      throw new Error("El CSV está vacío");
-
-    }
-
-    const headers = parseCSVLine(lines[0])
-      .map(header => header.trim());
-
-    const parsedData = lines
-      .slice(1)
-      .map(line => {
-
-        const values = parseCSVLine(line);
-
-        const item = {};
-
-        headers.forEach((header, index) => {
-
-          item[header] = (
-            values[index] || ""
-          ).trim();
-
-        });
-
-        return item;
-
-      })
-      .filter(item => item.institucion);
-
-    /* Solo reemplazamos los datos si realmente
-       encontramos instituciones válidas */
-
-    if(parsedData.length > 0){
-
-      data = parsedData;
-
-    }else{
-
-      console.warn(
-        "El CSV no contiene instituciones válidas. Se mantienen los datos de respaldo."
-      );
-
-    }
-
-  }
-
-  catch(error){
-
-    console.warn(
-      "No se pudo cargar el CSV. Se usan los datos de respaldo.",
-      error
-    );
-
-  }
-
-  populateFilters();
-  render();
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -390,13 +714,11 @@ function populateFilters(){
   const departments = [
 
     ...new Set(
-      data
-        .map(item => item.departamento)
-        .filter(Boolean)
+      data.map(item => item.departamento)
     )
 
   ].sort(
-    (a,b) => a.localeCompare(b, "es")
+    (a,b) => a.localeCompare(b,"es")
   );
 
 
@@ -406,22 +728,22 @@ function populateFilters(){
 
       data.flatMap(item =>
 
-        String(item.area || "")
+        item.area
           .split("/")
           .map(area => area.trim())
-          .filter(Boolean)
 
       )
 
     )
 
   ].sort(
-    (a,b) => a.localeCompare(b, "es")
+    (a,b) => a.localeCompare(b,"es")
   );
 
 
   $("d").innerHTML =
     `<option value="">Todos los departamentos</option>` +
+
     departments.map(department =>
 
       `<option value="${escapeHTML(department)}">
@@ -433,6 +755,7 @@ function populateFilters(){
 
   $("a").innerHTML =
     `<option value="">Todas las áreas</option>` +
+
     areas.map(area =>
 
       `<option value="${escapeHTML(area)}">
@@ -451,7 +774,9 @@ function populateFilters(){
 function filtered(){
 
   const query =
-    $("q").value.trim().toLowerCase();
+    $("q").value
+      .trim()
+      .toLowerCase();
 
   const department =
     $("d").value;
@@ -479,7 +804,7 @@ function filtered(){
 
 
     const itemAreas =
-      String(item.area || "")
+      item.area
         .split("/")
         .map(value => value.trim());
 
@@ -506,7 +831,7 @@ function filtered(){
 
 function initials(name){
 
-  return String(name || "")
+  return name
     .split(/\s+/)
     .filter(Boolean)
     .slice(0,2)
@@ -518,26 +843,26 @@ function initials(name){
 
 
 /* =====================================================
-   RESEÑA AUTOMÁTICA
+   DESCRIPCIÓN
 ===================================================== */
 
 function getReview(item){
 
   return `Institución ubicada en ${
-    item.provincia_ciudad || item.departamento
+    item.provincia_ciudad
   }. Ofrece oportunidades en el área ${
-    item.area || "profesional"
+    item.area
   } y cuenta con ${
-    item.vacantes || "vacantes por confirmar"
+    item.vacantes
   } vacante${
-    String(item.vacantes) === "1" ? "" : "s"
+    item.vacantes === "1" ? "" : "s"
   } registradas en el directorio.`;
 
 }
 
 
 /* =====================================================
-   RENDERIZAR TARJETAS
+   MOSTRAR TARJETAS
 ===================================================== */
 
 function render(){
@@ -568,14 +893,12 @@ function render(){
 
 
   $("cards").innerHTML =
-    rows.map((item, index) => {
-
+    rows.map((item,index) => {
 
       const areas =
-        String(item.area || "")
+        item.area
           .split("/")
-          .map(area => area.trim())
-          .filter(Boolean);
+          .map(area => area.trim());
 
 
       let logoHTML =
@@ -584,10 +907,7 @@ function render(){
         );
 
 
-      if(
-        item.logo &&
-        String(item.logo).trim() !== ""
-      ){
+      if(item.logo){
 
         logoHTML = `
           <img
@@ -597,9 +917,6 @@ function render(){
         `;
 
       }
-
-
-      const review = getReview(item);
 
 
       return `
@@ -638,40 +955,26 @@ function render(){
 
             <div>
               <strong>📍 Ubicación:</strong>
-              ${escapeHTML(
-                item.provincia_ciudad ||
-                "No especificada"
-              )},
-              ${escapeHTML(
-                item.departamento || ""
-              )}
+              ${escapeHTML(item.provincia_ciudad)},
+              ${escapeHTML(item.departamento)}
             </div>
 
 
             <div>
               <strong>👥 Vacantes:</strong>
-              ${escapeHTML(
-                item.vacantes ||
-                "No especificado"
-              )}
+              ${escapeHTML(item.vacantes)}
             </div>
 
 
             <div>
               <strong>🏢 Dirección:</strong>
-              ${escapeHTML(
-                item.direccion ||
-                "No especificada"
-              )}
+              ${escapeHTML(item.direccion)}
             </div>
 
 
             <div>
               <strong>🕒 Horario:</strong>
-              ${escapeHTML(
-                item.horario ||
-                "No especificado"
-              )}
+              ${escapeHTML(item.horario)}
             </div>
 
           </div>
@@ -697,7 +1000,7 @@ function render(){
               </h4>
 
               <p>
-                ${escapeHTML(review)}
+                ${escapeHTML(getReview(item))}
               </p>
 
             </div>
@@ -784,13 +1087,10 @@ $("clear").addEventListener(
    INICIAR
 ===================================================== */
 
-/* Primero mostramos inmediatamente las 18 instituciones */
-
 populateFilters();
 render();
 
-/* Luego intentamos actualizar desde el CSV */
-
-loadCSV();
-
 </script>
+
+</body>
+</html>
