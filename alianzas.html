@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>Alianzas Estratégicas</title>
 
 <style>
+
+/* =========================================
+   COLORES GENERALES
+========================================= */
+
 :root{
   --green:#176b4a;
   --green2:#12563c;
@@ -14,7 +25,14 @@
   --muted:#647174;
   --line:#d6dddd;
   --bg:#f4f6f4;
+  --soft:#edf5f2;
+  --white:#ffffff;
 }
+
+
+/* =========================================
+   GENERAL
+========================================= */
 
 *{
   box-sizing:border-box;
@@ -26,43 +44,73 @@ html{
 
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   background:var(--bg);
+
   color:var(--text);
 }
+
 
 /* =========================================
    ENCABEZADO
 ========================================= */
 
 header{
+
   display:flex;
+
   align-items:center;
+
   gap:14px;
+
   padding:20px 6%;
+
   background:#fff;
-  border-bottom:1px solid #dce3e1;
+
+  border-bottom:
+    1px solid #dce3e1;
 }
 
+
 .mark{
+
   width:58px;
+
   height:58px;
+
   border-radius:18px;
+
   background:#e7f0ec;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   font-size:30px;
 }
 
+
 .brand h1{
+
   margin:0;
+
   font-size:25px;
 }
 
+
 .brand p{
+
   margin:5px 0 0;
+
   color:#647174;
+
   font-size:16px;
 }
 
@@ -72,28 +120,60 @@ header{
 ========================================= */
 
 .hero{
+
   text-align:center;
-  padding:55px 20px 40px;
+
+  padding:
+    55px
+    20px
+    40px;
+
   background:
-    radial-gradient(circle at top right,#dceae4 0%,transparent 30%),
-    linear-gradient(180deg,#edf5f2 0%,#f4f6f4 100%);
+
+    radial-gradient(
+      circle at top right,
+      #dceae4 0%,
+      transparent 30%
+    ),
+
+    linear-gradient(
+      180deg,
+      #edf5f2 0%,
+      #f4f6f4 100%
+    );
 }
 
+
 .hero-content{
-  width:min(1100px,94%);
+
+  width:min(
+    1100px,
+    94%
+  );
+
   margin:0 auto;
 }
 
+
 .hero h2{
+
   margin:0;
+
   font-size:48px;
 }
 
+
 .hero p{
+
   max-width:850px;
-  margin:12px auto 0;
+
+  margin:
+    12px auto 0;
+
   font-size:20px;
+
   line-height:1.4;
+
   color:#4f5d61;
 }
 
@@ -103,54 +183,99 @@ header{
 ========================================= */
 
 .map-access{
-  margin:30px auto 0;
+
+  margin:
+    30px auto 0;
+
   max-width:850px;
-  padding:20px 24px;
+
+  padding:
+    20px
+    24px;
+
   background:#ffffff;
-  border:1px solid #cfe0d9;
+
+  border:
+    1px solid #cfe0d9;
+
   border-radius:20px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
-  box-shadow:0 10px 25px rgba(20,50,40,.08);
+
+  box-shadow:
+    0 10px 25px
+    rgba(20,50,40,.08);
 }
 
+
 .map-access-text{
+
   text-align:left;
 }
 
+
 .map-access-text h3{
-  margin:0 0 5px;
+
+  margin:
+    0 0 5px;
+
   font-size:20px;
+
   color:var(--text);
 }
 
+
 .map-access-text p{
+
   margin:0;
+
   font-size:15px;
+
   color:var(--muted);
 }
 
+
 .map-button{
+
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
-  gap:8px;
+
   min-height:52px;
-  padding:0 24px;
+
+  padding:
+    0 24px;
+
   border-radius:14px;
+
   background:var(--green);
+
   color:#fff;
+
   text-decoration:none;
+
   font-weight:bold;
+
   white-space:nowrap;
+
   transition:.2s ease;
 }
 
+
 .map-button:hover{
+
   background:var(--green2);
-  transform:translateY(-1px);
+
+  transform:
+    translateY(-1px);
 }
 
 
@@ -159,8 +284,14 @@ header{
 ========================================= */
 
 .wrap{
-  width:min(1200px,94%);
-  margin:0 auto;
+
+  width:min(
+    1200px,
+    94%
+  );
+
+  margin:
+    0 auto 45px;
 }
 
 
@@ -169,49 +300,81 @@ header{
 ========================================= */
 
 .filters{
-  margin-top:20px;
-  padding:20px;
-  background:#fff;
-  border:1px solid #d8e0de;
-  border-radius:22px;
+
   display:grid;
-  grid-template-columns:1.4fr 1fr 1fr auto;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    auto;
+
   gap:12px;
-  box-shadow:0 10px 25px rgba(20,50,40,.06);
+
+  margin-top:30px;
 }
 
-input,
-select,
-button{
-  height:58px;
-  border-radius:14px;
-  font-size:17px;
+
+.filters input,
+.filters select,
+.filters button{
+
+  min-height:52px;
+
+  padding:
+    0 16px;
+
+  border-radius:13px;
+
+  font-size:15px;
+
+  font-family:inherit;
 }
 
-input,
-select{
-  width:100%;
-  padding:0 18px;
-  border:1px solid #cbd5d2;
+
+.filters input,
+.filters select{
+
+  border:
+    1px solid #d6e1dd;
+
   background:#fff;
+
+  color:var(--text);
+
   outline:none;
 }
 
-input:focus,
-select:focus{
-  border-color:var(--green);
+
+.filters input:focus,
+.filters select:focus{
+
+  border-color:#7fae9d;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(23,107,74,.10);
 }
 
-button{
+
+.filters button{
+
   border:none;
-  padding:0 35px;
+
   background:var(--green);
-  color:white;
+
+  color:#fff;
+
   font-weight:bold;
+
   cursor:pointer;
+
+  transition:.2s ease;
 }
 
-button:hover{
+
+.filters button:hover{
+
   background:var(--green2);
 }
 
@@ -221,11 +384,29 @@ button:hover{
 ========================================= */
 
 .summary{
+
+  margin:
+    22px 0;
+
   display:flex;
+
   justify-content:space-between;
-  margin:28px 0;
-  color:#526064;
-  font-size:17px;
+
+  align-items:center;
+
+  gap:15px;
+
+  color:var(--muted);
+
+  font-size:15px;
+}
+
+
+#count{
+
+  color:var(--text);
+
+  font-weight:bold;
 }
 
 
@@ -234,88 +415,380 @@ button:hover{
 ========================================= */
 
 #cards{
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(320px,1fr)
+    );
+
   gap:20px;
-  padding-bottom:45px;
 }
+
 
 .card{
+
   background:#fff;
-  border:1px solid #d8e0de;
-  border-radius:18px;
+
+  border:
+    1px solid #dbe4e1;
+
+  border-radius:20px;
+
   padding:22px;
-  box-shadow:0 8px 20px rgba(20,50,40,.05);
-  transition:.2s ease;
-}
 
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 14px 28px rgba(20,50,40,.10);
-}
+  box-shadow:
+    0 8px 22px
+    rgba(25,55,45,.06);
 
-.top{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-}
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
 
-.logo{
-  width:52px;
-  height:52px;
-  min-width:52px;
-  border-radius:14px;
-  background:#e7f0ec;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  color:var(--green);
   overflow:hidden;
 }
 
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
+
+.card:hover{
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 14px 30px
+    rgba(25,55,45,.10);
 }
+
+
+/* =========================================
+   PARTE SUPERIOR
+========================================= */
+
+.top{
+
+  display:flex;
+
+  gap:14px;
+
+  align-items:flex-start;
+}
+
+
+.logo{
+
+  width:58px;
+
+  height:58px;
+
+  min-width:58px;
+
+  border-radius:16px;
+
+  background:#e7f0ec;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:bold;
+
+  color:var(--green);
+
+  overflow:hidden;
+
+  font-size:18px;
+}
+
+
+.logo img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+
+  padding:4px;
+}
+
 
 .card h3{
-  margin:0;
+
+  margin:2px 0 0;
+
   font-size:19px;
+
+  line-height:1.35;
+
+  color:var(--text);
 }
 
+
+/* =========================================
+   ETIQUETAS
+========================================= */
+
 .tags{
-  margin:16px 0;
+
+  margin:
+    17px 0 16px;
+
   display:flex;
+
   flex-wrap:wrap;
+
   gap:7px;
 }
 
+
 .tag{
+
   background:#edf5f2;
-  color:#176b4a;
-  padding:6px 10px;
+
+  color:var(--green);
+
+  padding:
+    6px 10px;
+
   border-radius:20px;
+
   font-size:13px;
+
+  font-weight:500;
 }
 
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
 .info{
-  border-top:1px solid #e3e8e6;
+
+  border-top:
+    1px solid #e3e8e6;
+
   padding-top:14px;
+
   font-size:14px;
+
   line-height:1.7;
+
   color:#526064;
 }
 
+
+.info div{
+
+  margin-bottom:7px;
+}
+
+
 .info strong{
+
   color:#27393d;
 }
 
+
+/* =========================================
+   BOTÓN CONOCER MÁS
+========================================= */
+
+.more-button{
+
+  width:100%;
+
+  margin-top:17px;
+
+  min-height:48px;
+
+  border:
+    1px solid #cfe0d9;
+
+  border-radius:12px;
+
+  background:#f6faf8;
+
+  color:var(--green);
+
+  font-family:inherit;
+
+  font-size:15px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+
+.more-button:hover{
+
+  background:#e7f2ed;
+
+  border-color:#9fc5b6;
+}
+
+
+/* =========================================
+   PANEL DESPLEGABLE
+========================================= */
+
+.extra-info{
+
+  display:none;
+
+  margin-top:15px;
+
+  padding-top:17px;
+
+  border-top:
+    1px solid #e3e8e6;
+
+  animation:
+    reveal .25s ease;
+}
+
+
+.extra-info.open{
+
+  display:block;
+}
+
+
+@keyframes reveal{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(-5px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================================
+   FOTO
+========================================= */
+
+.institution-photo{
+
+  width:100%;
+
+  height:190px;
+
+  border-radius:14px;
+
+  overflow:hidden;
+
+  background:#edf3f1;
+
+  margin-bottom:17px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:#74817e;
+
+  font-size:14px;
+
+  text-align:center;
+
+  padding:20px;
+}
+
+
+.institution-photo img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+}
+
+
+/* =========================================
+   RESEÑA
+========================================= */
+
+.review-box{
+
+  background:#f6faf8;
+
+  border:
+    1px solid #dce9e4;
+
+  border-radius:14px;
+
+  padding:16px;
+}
+
+
+.review-box h4{
+
+  margin:
+    0 0 8px;
+
+  color:var(--green);
+
+  font-size:16px;
+}
+
+
+.review-box p{
+
+  margin:0;
+
+  color:#526064;
+
+  font-size:14px;
+
+  line-height:1.65;
+}
+
+
+/* =========================================
+   VACÍO
+========================================= */
+
 .empty{
+
   grid-column:1/-1;
-  font-size:18px;
-  padding:10px 0;
+
+  background:#fff;
+
+  border:
+    1px dashed #cbd8d4;
+
+  border-radius:18px;
+
+  padding:35px 20px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:16px;
 }
 
 
@@ -324,8 +797,12 @@ button:hover{
 ========================================= */
 
 footer{
+
   text-align:center;
-  padding:35px 20px;
+
+  padding:
+    35px 20px;
+
   color:#647174;
 }
 
@@ -337,63 +814,134 @@ footer{
 @media(max-width:850px){
 
   .filters{
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+      1fr 1fr;
   }
 
+
+  .filters button{
+
+    grid-column:
+      1 / -1;
+  }
+
+
   .hero h2{
+
     font-size:36px;
   }
 
+
   .map-access{
+
     flex-direction:column;
+
     align-items:stretch;
   }
 
+
   .map-access-text{
+
     text-align:center;
   }
 
+
   .map-button{
+
     width:100%;
   }
 
 }
 
+
 @media(max-width:550px){
 
   header{
-    padding:15px 5%;
+
+    padding:
+      15px 5%;
   }
 
+
   .brand h1{
+
     font-size:20px;
   }
 
-  .hero{
-    padding:40px 15px 30px;
+
+  .brand p{
+
+    font-size:14px;
   }
 
+
+  .mark{
+
+    width:50px;
+
+    height:50px;
+
+    font-size:25px;
+  }
+
+
+  .hero{
+
+    padding:
+      40px
+      15px
+      30px;
+  }
+
+
   .hero h2{
+
     font-size:30px;
   }
 
+
   .hero p{
+
     font-size:17px;
   }
 
+
   .filters{
-    grid-template-columns:1fr;
+
+    grid-template-columns:
+      1fr;
   }
 
+
+  .filters button{
+
+    grid-column:auto;
+  }
+
+
   .summary{
-    font-size:14px;
+
     flex-direction:column;
-    gap:8px;
+
+    align-items:flex-start;
+
+    font-size:14px;
+  }
+
+
+  #cards{
+
+    grid-template-columns:
+      1fr;
   }
 
 }
+
 </style>
+
 </head>
+
 
 <body id="inicio">
 
@@ -404,11 +952,20 @@ footer{
 
 <header>
 
-  <div class="mark">🤝</div>
+  <div class="mark">
+    🤝
+  </div>
 
   <div class="brand">
-    <h1>Alianzas Estratégicas</h1>
-    <p>Modalidad a distancia · Psicología</p>
+
+    <h1>
+      Alianzas Estratégicas
+    </h1>
+
+    <p>
+      Modalidad a distancia · Psicología
+    </p>
+
   </div>
 
 </header>
@@ -422,7 +979,9 @@ footer{
 
   <div class="hero-content">
 
-    <h2>Nuestras Alianzas Estratégicas</h2>
+    <h2>
+      Nuestras Alianzas Estratégicas
+    </h2>
 
     <p>
       Conoce las instituciones aliadas y consulta de manera rápida
@@ -436,7 +995,9 @@ footer{
 
       <div class="map-access-text">
 
-        <h3>🗺️ Explora nuestras alianzas en el mapa</h3>
+        <h3>
+          🗺️ Explora nuestras alianzas en el mapa
+        </h3>
 
         <p>
           Consulta la distribución geográfica de las instituciones
@@ -445,7 +1006,10 @@ footer{
 
       </div>
 
-      <a href="mapa.html" class="map-button">
+      <a
+        href="mapa.html"
+        class="map-button"
+      >
         Ver mapa de alianzas →
       </a>
 
@@ -473,16 +1037,29 @@ footer{
       placeholder="🔎 Buscar institución"
     >
 
+
     <select id="d">
-      <option value="">Todos los departamentos</option>
+
+      <option value="">
+        Todos los departamentos
+      </option>
+
     </select>
+
 
     <select id="a">
-      <option value="">Todas las áreas</option>
+
+      <option value="">
+        Todas las áreas
+      </option>
+
     </select>
 
+
     <button id="clear">
+
       Limpiar
+
     </button>
 
   </section>
@@ -505,7 +1082,10 @@ footer{
 
   <!-- TARJETAS -->
 
-  <section id="cards"></section>
+  <section id="cards">
+
+  </section>
+
 
 </main>
 
@@ -515,7 +1095,10 @@ footer{
 ========================================= -->
 
 <footer>
-  Directorio de Alianzas Estratégicas · Información basada en la matriz proporcionada.
+
+  Directorio de Alianzas Estratégicas ·
+  Información basada en la matriz proporcionada.
+
 </footer>
 
 
@@ -528,8 +1111,77 @@ footer{
 
 let data = [];
 
+
 const $ = id =>
   document.getElementById(id);
+
+
+
+/* =====================================================
+   ESCAPAR TEXTO
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(
+    value ?? ""
+  )
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+
+/* =====================================================
+   OBTENER INICIALES
+===================================================== */
+
+function initials(name){
+
+  return String(
+    name || ""
+  )
+
+  .split(/\s+/)
+
+  .filter(Boolean)
+
+  .slice(0,2)
+
+  .map(word =>
+    word.charAt(0)
+  )
+
+  .join("")
+
+  .toUpperCase();
+
+}
+
 
 
 /* =====================================================
@@ -546,33 +1198,50 @@ function parseCSVLine(line){
   let insideQuotes = false;
 
 
-  for(let i = 0; i < line.length; i++){
+  for(
+    let i = 0;
+    i < line.length;
+    i++
+  ){
 
-    const char = line[i];
+    const char =
+      line[i];
 
 
-    if(char === '"'){
+    if(
+      char === '"'
+    ){
 
       if(
+
         insideQuotes &&
+
         line[i + 1] === '"'
+
       ){
 
         current += '"';
 
         i++;
 
-      }else{
+      }
 
-        insideQuotes = !insideQuotes;
+      else{
+
+        insideQuotes =
+          !insideQuotes;
 
       }
 
     }
 
+
     else if(
+
       char === "," &&
+
       !insideQuotes
+
     ){
 
       result.push(
@@ -582,6 +1251,7 @@ function parseCSVLine(line){
       current = "";
 
     }
+
 
     else{
 
@@ -602,6 +1272,7 @@ function parseCSVLine(line){
 }
 
 
+
 /* =====================================================
    CARGAR ARCHIVO CSV
 ===================================================== */
@@ -610,18 +1281,22 @@ async function loadCSV(){
 
   try{
 
-    const response = await fetch(
+    const response =
+      await fetch(
 
-      "alianzas.csv?nocache=" + Date.now(),
+        "alianzas.csv?nocache=" +
+        Date.now(),
 
-      {
-        cache:"no-store"
-      }
+        {
+          cache:"no-store"
+        }
 
-    );
+      );
 
 
-    if(!response.ok){
+    if(
+      !response.ok
+    ){
 
       throw new Error(
         "No se pudo cargar alianzas.csv"
@@ -636,9 +1311,14 @@ async function loadCSV(){
 
     const lines = text
 
-      .replace(/^\uFEFF/,"")
+      .replace(
+        /^\uFEFF/,
+        ""
+      )
 
-      .split(/\r?\n/)
+      .split(
+        /\r?\n/
+      )
 
       .filter(
         line =>
@@ -646,7 +1326,9 @@ async function loadCSV(){
       );
 
 
-    if(lines.length < 2){
+    if(
+      lines.length < 2
+    ){
 
       throw new Error(
         "El CSV está vacío"
@@ -655,97 +1337,111 @@ async function loadCSV(){
     }
 
 
-    const headers = parseCSVLine(
+    const headers =
 
-      lines[0]
+      parseCSVLine(
+        lines[0]
+      )
 
-    ).map(
+      .map(
 
-      header =>
+        header =>
 
-        header
+          header
 
           .trim()
 
-          .replace(/^"|"$/g,"")
+          .replace(
+            /^"|"$/g,
+            ""
+          )
 
-    );
-
-
-    data = lines
-
-      .slice(1)
-
-      .map(line => {
-
-        const values =
-          parseCSVLine(line);
-
-        const item = {};
-
-
-        headers.forEach(
-
-          (header,index) => {
-
-            item[header] =
-              values[index] || "";
-
-          }
-
-        );
-
-
-        return item;
-
-      })
-
-      .filter(
-        item =>
-          item.institucion
       );
 
 
-    console.log(
-      "Instituciones cargadas:",
-      data.length
-    );
+    data =
+
+      lines
+
+      .slice(1)
+
+      .map(
+
+        line => {
+
+          const values =
+            parseCSVLine(line);
 
 
-  }catch(error){
+          const item = {};
 
-    console.error(
-      "Error cargando CSV:",
-      error
-    );
 
-    data = [];
+          headers.forEach(
+
+            (
+              header,
+              index
+            ) => {
+
+              item[header] =
+                values[index] || "";
+
+            }
+
+          );
+
+
+          return item;
+
+        }
+
+      );
+
+
+    populateFilters();
+
+
+    render();
 
   }
 
 
-  fill();
+  catch(error){
 
-  render();
+    console.error(
+      error
+    );
+
+
+    $("cards").innerHTML = `
+
+      <div class="empty">
+
+        No fue posible cargar la información
+        de las instituciones.
+
+      </div>
+
+    `;
+
+
+    $("count").textContent =
+      "0 instituciones encontradas";
+
+  }
 
 }
+
 
 
 /* =====================================================
    LLENAR FILTROS
 ===================================================== */
 
-function fill(){
-
-  $("d").innerHTML =
-    '<option value="">Todos los departamentos</option>';
+function populateFilters(){
 
 
-  $("a").innerHTML =
-    '<option value="">Todas las áreas</option>';
-
-
-  const departamentos =
+  const departments =
 
     [
 
@@ -753,44 +1449,18 @@ function fill(){
 
         data
 
-          .map(
-            x => x.departamento
-          )
+        .map(
+          item =>
+            item.departamento
+        )
 
-          .filter(Boolean)
+        .filter(Boolean)
 
       )
 
     ]
 
-    .sort(
-
-      (a,b) =>
-        a.localeCompare(
-          b,
-          "es"
-        )
-
-    );
-
-
-  departamentos.forEach(
-
-    departamento => {
-
-      $("d").insertAdjacentHTML(
-
-        "beforeend",
-
-        `<option value="${escapeHTML(departamento)}">
-          ${escapeHTML(departamento)}
-        </option>`
-
-      );
-
-    }
-
-  );
+    .sort();
 
 
   const areas =
@@ -801,77 +1471,113 @@ function fill(){
 
         data
 
-          .flatMap(
+        .flatMap(
 
-            x =>
+          item =>
 
-              String(
-                x.area || ""
-              )
+            String(
+              item.area || ""
+            )
 
-              .split("/")
+            .split("/")
 
-              .map(
-                area =>
-                  area.trim()
-              )
+            .map(
+              area =>
+                area.trim()
+            )
 
-          )
+            .filter(Boolean)
 
-          .filter(Boolean)
+        )
 
       )
 
     ]
 
-    .sort(
-
-      (a,b) =>
-        a.localeCompare(
-          b,
-          "es"
-        )
-
-    );
+    .sort();
 
 
-  areas.forEach(
 
-    area => {
+  $("d").innerHTML =
 
-      $("a").insertAdjacentHTML(
+    `
+      <option value="">
+        Todos los departamentos
+      </option>
+    `
 
-        "beforeend",
+    +
 
-        `<option value="${escapeHTML(area)}">
-          ${escapeHTML(area)}
-        </option>`
+    departments
 
-      );
+    .map(
 
-    }
+      department =>
 
-  );
+        `
+          <option
+            value="${escapeHTML(department)}"
+          >
+            ${escapeHTML(department)}
+          </option>
+        `
+
+    )
+
+    .join("");
+
+
+
+  $("a").innerHTML =
+
+    `
+      <option value="">
+        Todas las áreas
+      </option>
+    `
+
+    +
+
+    areas
+
+    .map(
+
+      area =>
+
+        `
+          <option
+            value="${escapeHTML(area)}"
+          >
+            ${escapeHTML(area)}
+          </option>
+        `
+
+    )
+
+    .join("");
 
 }
 
 
+
 /* =====================================================
-   FILTRAR
+   FILTRAR DATOS
 ===================================================== */
 
-function filtered(){
+function getFilteredData(){
 
   const query =
 
-    $("q").value
+    $("q")
 
-      .trim()
+    .value
 
-      .toLowerCase();
+    .trim()
+
+    .toLowerCase();
 
 
-  const departamento =
+  const department =
     $("d").value;
 
 
@@ -879,35 +1585,48 @@ function filtered(){
     $("a").value;
 
 
+
   return data.filter(
 
     item => {
 
 
-      const nombre =
+      const matchesQuery =
 
-        String(
-          item.institucion || ""
-        )
+        [
 
-        .toLowerCase();
+          item.institucion,
+
+          item.departamento,
+
+          item.provincia_ciudad,
+
+          item.area,
+
+          item.direccion
+
+        ]
+
+        .join(" ")
+
+        .toLowerCase()
+
+        .includes(
+          query
+        );
 
 
-      const coincideNombre =
 
-        !query ||
+      const matchesDepartment =
 
-        nombre.includes(query);
+        !department ||
 
-
-      const coincideDepartamento =
-
-        !departamento ||
-
-        item.departamento === departamento;
+        item.departamento ===
+        department;
 
 
-      const listaAreas =
+
+      const itemAreas =
 
         String(
           item.area || ""
@@ -916,27 +1635,28 @@ function filtered(){
         .split("/")
 
         .map(
-          x =>
-            x.trim()
+          value =>
+            value.trim()
         );
 
 
-      const coincideArea =
+      const matchesArea =
 
         !area ||
 
-        listaAreas.includes(area);
+        itemAreas.includes(
+          area
+        );
 
 
-      return (
 
-        coincideNombre &&
+      return
 
-        coincideDepartamento &&
+        matchesQuery &&
 
-        coincideArea
+        matchesDepartment &&
 
-      );
+        matchesArea;
 
     }
 
@@ -944,73 +1664,6 @@ function filtered(){
 
 }
 
-
-/* =====================================================
-   ESCAPAR TEXTO
-===================================================== */
-
-function escapeHTML(text){
-
-  return String(
-    text ?? ""
-  )
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-
-/* =====================================================
-   INICIALES
-===================================================== */
-
-function initials(name){
-
-  return String(
-    name || ""
-  )
-
-    .split(/\s+/)
-
-    .filter(Boolean)
-
-    .slice(0,2)
-
-    .map(
-
-      word =>
-        word.charAt(0)
-
-    )
-
-    .join("")
-
-    .toUpperCase();
-
-}
 
 
 /* =====================================================
@@ -1020,25 +1673,33 @@ function initials(name){
 function render(){
 
   const rows =
-    filtered();
+    getFilteredData();
 
 
   $("count").textContent =
 
-    `${rows.length} ${
+    `${rows.length} institución${
       rows.length === 1
-        ? "institución encontrada"
-        : "instituciones encontradas"
+        ? ""
+        : "es"
+    } encontrada${
+      rows.length === 1
+        ? ""
+        : "s"
     }`;
 
 
-  if(!rows.length){
+
+  if(
+    rows.length === 0
+  ){
 
     $("cards").innerHTML = `
 
       <div class="empty">
 
-        No encontramos resultados.
+        No encontramos instituciones
+        con esos criterios de búsqueda.
 
       </div>
 
@@ -1049,11 +1710,17 @@ function render(){
   }
 
 
+
   $("cards").innerHTML =
 
-    rows.map(
+    rows
 
-      item => {
+    .map(
+
+      (
+        item,
+        index
+      ) => {
 
 
         const areas =
@@ -1072,14 +1739,17 @@ function render(){
           .filter(Boolean);
 
 
+
+        /* ================================
+           LOGO
+        ================================= */
+
         let logoHTML =
 
           escapeHTML(
-
             initials(
               item.institucion
             )
-
           );
 
 
@@ -1089,7 +1759,9 @@ function render(){
 
           String(
             item.logo
-          ).trim() !== ""
+          )
+
+          .trim() !== ""
 
         ){
 
@@ -1097,15 +1769,22 @@ function render(){
 
             <img
 
-              src="${escapeHTML(item.logo)}"
+              src="${escapeHTML(
+                item.logo
+              )}"
 
-              alt="${escapeHTML(item.institucion)}"
+              alt="${escapeHTML(
+                item.institucion
+              )}"
 
-              onerror="this.parentElement.innerHTML='${escapeHTML(
-                initials(
-                  item.institucion
-                )
-              )}'"
+              onerror="
+                this.parentElement.innerHTML=
+                '${escapeHTML(
+                  initials(
+                    item.institucion
+                  )
+                )}'
+              "
 
             >
 
@@ -1114,10 +1793,96 @@ function render(){
         }
 
 
+
+        /* ================================
+           FOTO
+        ================================= */
+
+        let photoHTML = `
+
+          <div class="institution-photo">
+
+            Próximamente podrás conocer
+            la imagen de esta institución.
+
+          </div>
+
+        `;
+
+
+        if(
+
+          item.foto &&
+
+          String(
+            item.foto
+          )
+
+          .trim() !== ""
+
+        ){
+
+          photoHTML = `
+
+            <div class="institution-photo">
+
+              <img
+
+                src="${escapeHTML(
+                  item.foto
+                )}"
+
+                alt="Imagen de ${escapeHTML(
+                  item.institucion
+                )}"
+
+                onerror="
+                  this.parentElement.innerHTML=
+                  'Imagen no disponible'
+                "
+
+              >
+
+            </div>
+
+          `;
+
+        }
+
+
+
+        /* ================================
+           RESEÑA
+        ================================= */
+
+        const review =
+
+          item.resena &&
+
+          String(
+            item.resena
+          )
+
+          .trim() !== ""
+
+            ?
+
+            item.resena
+
+            :
+
+            "Información descriptiva de la institución próximamente.";
+
+
+
         return `
 
-          <article class="card">
+          <article
+            class="card"
+          >
 
+
+            <!-- ENCABEZADO -->
 
             <div class="top">
 
@@ -1145,46 +1910,67 @@ function render(){
             </div>
 
 
+
+            <!-- ÁREAS -->
+
             <div class="tags">
 
-              ${areas.map(
+              ${areas
 
-                area => `
+                .map(
 
-                  <span class="tag">
+                  area => `
 
-                    ${escapeHTML(area)}
+                    <span
+                      class="tag"
+                    >
 
-                  </span>
+                      ${escapeHTML(
+                        area
+                      )}
 
-                `
+                    </span>
 
-              ).join("")}
+                  `
+
+                )
+
+                .join("")}
 
             </div>
 
+
+
+            <!-- INFORMACIÓN ORIGINAL -->
 
             <div class="info">
 
 
               <div>
 
-                <strong>📍 Ubicación:</strong>
+                <strong>
+                  📍 Ubicación:
+                </strong>
 
                 ${escapeHTML(
-                  item.provincia_ciudad || ""
+                  item.provincia_ciudad ||
+                  ""
                 )},
 
                 ${escapeHTML(
-                  item.departamento || ""
+                  item.departamento ||
+                  ""
                 )}
 
               </div>
 
 
+
               <div>
 
-                <strong>👥 Vacantes:</strong>
+                <strong>
+                  👥 Vacantes:
+                </strong>
 
                 ${escapeHTML(
                   item.vacantes ||
@@ -1194,9 +1980,12 @@ function render(){
               </div>
 
 
+
               <div>
 
-                <strong>🏢 Dirección:</strong>
+                <strong>
+                  🏢 Dirección:
+                </strong>
 
                 ${escapeHTML(
                   item.direccion ||
@@ -1206,14 +1995,68 @@ function render(){
               </div>
 
 
+
               <div>
 
-                <strong>🕒 Horario:</strong>
+                <strong>
+                  🕒 Horario:
+                </strong>
 
                 ${escapeHTML(
                   item.horario ||
                   "No especificado"
                 )}
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- BOTÓN -->
+
+            <button
+
+              class="more-button"
+
+              data-extra="extra-${index}"
+
+            >
+
+              Conocer más
+
+            </button>
+
+
+
+            <!-- INFORMACIÓN DESPLEGABLE -->
+
+            <div
+
+              class="extra-info"
+
+              id="extra-${index}"
+
+            >
+
+
+              ${photoHTML}
+
+
+              <div class="review-box">
+
+                <h4>
+                  Sobre la institución
+                </h4>
+
+                <p>
+
+                  ${escapeHTML(
+                    review
+                  )}
+
+                </p>
 
               </div>
 
@@ -1227,13 +2070,81 @@ function render(){
 
       }
 
-    ).join("");
+    )
+
+    .join("");
+
+
+
+  /* =====================================
+     EVENTOS DE CONOCER MÁS
+  ===================================== */
+
+  document
+
+  .querySelectorAll(
+    ".more-button"
+  )
+
+  .forEach(
+
+    button => {
+
+
+      button.addEventListener(
+
+        "click",
+
+        () => {
+
+
+          const id =
+            button.dataset.extra;
+
+
+          const extra =
+            document.getElementById(
+              id
+            );
+
+
+          const isOpen =
+            extra.classList.contains(
+              "open"
+            );
+
+
+          extra.classList.toggle(
+            "open"
+          );
+
+
+          button.textContent =
+
+            isOpen
+
+              ?
+
+              "Conocer más"
+
+              :
+
+              "Ocultar información";
+
+        }
+
+      );
+
+    }
+
+  );
 
 }
 
 
+
 /* =====================================================
-   EVENTOS
+   EVENTOS DE FILTROS
 ===================================================== */
 
 $("q").addEventListener(
@@ -1263,17 +2174,26 @@ $("a").addEventListener(
 );
 
 
+
+/* =====================================================
+   LIMPIAR FILTROS
+===================================================== */
+
 $("clear").addEventListener(
 
   "click",
 
   () => {
 
+
     $("q").value = "";
+
 
     $("d").value = "";
 
+
     $("a").value = "";
+
 
     render();
 
@@ -1282,13 +2202,16 @@ $("clear").addEventListener(
 );
 
 
+
 /* =====================================================
    INICIAR
 ===================================================== */
 
 loadCSV();
 
+
 </script>
 
 </body>
+
 </html>
