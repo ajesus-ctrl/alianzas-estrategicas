@@ -1,1119 +1,870 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mapa de Alianzas Estratégicas</title>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Mapa de Alianzas Estratégicas</title>
+
+<style>
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+:root{
+  --purple-dark:#5d4b7a;
+  --purple:#78638f;
+  --purple-medium:#947eae;
+  --purple-soft:#eee9f4;
+  --purple-light:#f6f2fa;
+  --purple-border:#ddd3e8;
+  --text:#3f374b;
+  --text-soft:#6f6879;
+
+  --marker-light:#a68fbe;
+  --marker-medium:#80639f;
+  --marker-strong:#5d4b7a;
+  --marker-upcoming:#c1acd6;
+}
 
-  <style>
+*{
+  box-sizing:border-box;
+}
 
-    /* ================================
-       PALETA GENERAL
-    ================================= */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
 
-    :root {
-      --purple-dark: #49346d;
-      --purple-main: #65458a;
-      --purple-medium: #8063a4;
-      --purple-soft: #a98cc9;
+  background:
+    linear-gradient(
+      180deg,
+      #f8f6fa,
+      #f1edf5
+    );
+}
 
-      --lavender: #cbb9dd;
-      --lavender-light: #e5dcef;
-      --lavender-pale: #f4f0f8;
 
-      --background: #f8f6fa;
-      --white: #ffffff;
+/* =====================================================
+   ENCABEZADO
+===================================================== */
 
-      --text-dark: #3d3049;
-      --text-medium: #71657c;
+header{
+  background:#fff;
+  border-bottom:
+    1px solid var(--purple-border);
+}
 
-      --border: #ddd2e8;
+.header-inner{
+  width:min(1200px,94%);
+  min-height:88px;
+  margin:auto;
 
-      --shadow: 0 18px 45px rgba(73, 52, 109, 0.10);
-    }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
 
-    /* ================================
-       RESET
-    ================================= */
+.mark{
+  width:52px;
+  height:52px;
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  border-radius:16px;
 
-    body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  background:var(--purple-soft);
 
-      background:
-        radial-gradient(
-          circle at top left,
-          rgba(221, 207, 237, 0.7),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at bottom right,
-          rgba(229, 220, 239, 0.8),
-          transparent 35%
-        ),
-        var(--background);
+  display:grid;
+  place-items:center;
 
-      color: var(--text-dark);
-      min-height: 100vh;
-    }
+  font-size:27px;
+}
 
+.brand h1{
+  margin:0;
+  font-size:24px;
+  color:var(--text);
+}
 
-    /* ================================
-       HEADER
-    ================================= */
+.brand p{
+  margin:5px 0 0;
+  color:var(--text-soft);
+  font-size:14px;
+}
 
-    header {
-      width: 100%;
+.back-home{
+  background:var(--purple-dark);
+  color:#fff;
 
-      background:
-        rgba(255, 255, 255, 0.88);
+  text-decoration:none;
+  font-weight:bold;
 
-      backdrop-filter:
-        blur(12px);
+  padding:13px 20px;
 
-      border-bottom:
-        1px solid var(--border);
+  border-radius:12px;
 
-      padding:
-        18px 5%;
+  transition:.2s ease;
+}
 
-      display:
-        flex;
+.back-home:hover{
+  background:var(--purple);
+}
 
-      align-items:
-        center;
 
-      justify-content:
-        space-between;
-    }
+/* =====================================================
+   HERO
+===================================================== */
 
+.hero{
+  text-align:center;
+  padding:42px 20px 30px;
+}
 
-    .brand {
-      display:
-        flex;
+.hero h2{
+  margin:0;
+  font-size:38px;
+  color:var(--purple-dark);
+}
 
-      align-items:
-        center;
+.hero p{
+  max-width:760px;
 
-      gap:
-        14px;
-    }
+  margin:
+    12px auto 0;
 
+  color:var(--text-soft);
 
-    .logo-icon {
-      width:
-        58px;
+  line-height:1.5;
 
-      height:
-        58px;
+  font-size:17px;
+}
 
-      border-radius:
-        18px;
 
-      display:
-        flex;
+/* =====================================================
+   CONTENEDOR
+===================================================== */
 
-      align-items:
-        center;
+.wrap{
+  width:min(1200px,94%);
+  margin:
+    0 auto 45px;
+}
 
-      justify-content:
-        center;
+.map-layout{
 
-      font-size:
-        28px;
+  display:grid;
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--lavender-light),
-          var(--lavender-pale)
-        );
+  grid-template-columns:
+    1.45fr .85fr;
 
-      box-shadow:
-        0 8px 20px rgba(73, 52, 109, 0.08);
-    }
+  gap:24px;
 
+  align-items:stretch;
+}
 
-    .brand h1 {
-      font-size:
-        26px;
 
-      color:
-        var(--purple-dark);
+/* =====================================================
+   TARJETAS
+===================================================== */
 
-      margin-bottom:
-        4px;
-    }
+.map-card,
+.info-card{
 
+  background:
+    rgba(255,255,255,.90);
 
-    .brand p {
-      color:
-        var(--text-medium);
+  border:
+    1px solid var(--purple-border);
 
-      font-size:
-        15px;
-    }
+  border-radius:26px;
 
+  box-shadow:
+    0 18px 40px
+    rgba(93,75,122,.08);
+}
 
-    .back-button {
-      text-decoration:
-        none;
+.map-card{
+  padding:24px;
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--purple-dark),
-          var(--purple-main)
-        );
 
-      color:
-        white;
+/* =====================================================
+   ENCABEZADO DEL MAPA
+===================================================== */
 
-      padding:
-        14px 22px;
+.map-heading{
 
-      border-radius:
-        14px;
+  display:flex;
 
-      font-weight:
-        bold;
+  justify-content:space-between;
 
-      transition:
-        0.25s;
-    }
+  align-items:center;
 
+  gap:20px;
 
-    .back-button:hover {
-      transform:
-        translateY(-2px);
+  margin-bottom:15px;
+}
 
-      box-shadow:
-        0 10px 22px rgba(73, 52, 109, 0.20);
-    }
+.map-heading h3{
+  margin:0;
+  font-size:22px;
+  color:var(--text);
+}
 
+.map-heading span{
+  font-size:14px;
+  color:var(--text-soft);
+}
 
-    /* ================================
-       HERO
-    ================================= */
 
-    .hero {
-      text-align:
-        center;
+/* =====================================================
+   ÁREA DEL MAPA
+===================================================== */
 
-      padding:
-        45px 20px 35px;
-    }
+.map-area{
 
+  position:relative;
 
-    .hero h2 {
-      font-size:
-        clamp(32px, 4vw, 48px);
+  height:680px;
 
-      color:
-        var(--purple-dark);
+  overflow:hidden;
 
-      margin-bottom:
-        12px;
-    }
+  border-radius:22px;
 
+  border:
+    1px solid var(--purple-border);
 
-    .hero p {
-      max-width:
-        760px;
+  background:
 
-      margin:
-        auto;
+    radial-gradient(
+      circle at 50% 40%,
+      #eee8f4 0%,
+      #f5f1f8 48%,
+      #fbf9fc 100%
+    );
+}
 
-      color:
-        var(--text-medium);
 
-      font-size:
-        18px;
+/* =====================================================
+   MAPA DEL PERÚ
+===================================================== */
 
-      line-height:
-        1.6;
-    }
+.peru-map{
 
+  position:absolute;
 
-    /* ================================
-       CONTENEDOR PRINCIPAL
-    ================================= */
+  inset:
+    15px
+    20px
+    15px
+    20px;
 
-    .main-container {
-      width:
-        min(1200px, 92%);
+  display:flex;
 
-      margin:
-        0 auto 50px;
+  align-items:center;
 
-      display:
-        grid;
+  justify-content:center;
 
-      grid-template-columns:
-        1.55fr 0.9fr;
+  z-index:1;
 
-      gap:
-        24px;
-    }
+  pointer-events:none;
+}
 
+.peru-map-img{
 
-    /* ================================
-       PANEL MAPA
-    ================================= */
+  width:auto;
 
-    .map-panel {
-      background:
-        rgba(255, 255, 255, 0.88);
+  height:100%;
 
-      border:
-        1px solid var(--border);
+  max-width:100%;
 
-      border-radius:
-        28px;
+  object-fit:contain;
 
-      padding:
-        26px;
+  display:block;
 
-      box-shadow:
-        var(--shadow);
-    }
+  filter:
+    drop-shadow(
+      0 12px 18px
+      rgba(93,75,122,.12)
+    );
+}
 
 
-    .map-panel-header {
-      display:
-        flex;
+/* =====================================================
+   PUNTOS DEL MAPA
+===================================================== */
 
-      justify-content:
-        space-between;
+.map-point{
 
-      align-items:
-        center;
+  position:absolute;
 
-      margin-bottom:
-        18px;
-    }
+  transform:
+    translate(-50%,-50%);
 
+  z-index:5;
+}
 
-    .map-panel-header h3 {
-      font-size:
-        25px;
 
-      color:
-        var(--purple-dark);
-    }
+/* =====================================================
+   MARCADORES
+===================================================== */
 
+.marker{
 
-    .map-panel-header span {
-      color:
-        var(--text-medium);
+  position:relative;
 
-      font-size:
-        14px;
-    }
+  width:58px;
 
+  height:58px;
 
-    /* ================================
-       MAPA
-    ================================= */
+  border-radius:50%;
 
-    .map-wrapper {
-      position:
-        relative;
+  border:
+    4px solid white;
 
-      width:
-        100%;
+  color:white;
 
-      min-height:
-        650px;
+  font-size:24px;
 
-      border:
-        1px solid var(--border);
+  font-weight:700;
 
-      border-radius:
-        24px;
+  display:flex;
 
-      overflow:
-        hidden;
+  align-items:center;
 
-      background:
-        linear-gradient(
-          135deg,
-          #f7f3fa,
-          #eee7f5
-        );
-    }
+  justify-content:center;
 
+  cursor:pointer;
 
-    .map-wrapper img {
-      width:
-        100%;
+  box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.22);
 
-      height:
-        100%;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
 
-      object-fit:
-        contain;
+.marker:hover{
 
-      display:
-        block;
+  transform:
+    scale(1.08);
+}
 
-      opacity:
-        0.58;
+.marker.active{
 
-      filter:
-        grayscale(15%);
-    }
+  box-shadow:
 
+    0 0 0 6px
+    rgba(120,99,143,.18),
 
-    /* ================================
-       MARCADORES
-    ================================= */
+    0 15px 30px
+    rgba(0,0,0,.22);
+}
 
-    .marker {
-      position:
-        absolute;
 
-      width:
-        64px;
+/* =====================================================
+   COLORES DE LOS MARCADORES
+===================================================== */
 
-      height:
-        64px;
+.range-green{
+  background:var(--marker-light);
+}
 
-      border-radius:
-        50%;
+.range-blue{
+  background:var(--marker-medium);
+}
 
-      display:
-        flex;
+.range-orange{
+  background:var(--marker-strong);
+}
 
-      align-items:
-        center;
+.upcoming{
+  background:var(--marker-upcoming);
+}
 
-      justify-content:
-        center;
 
-      color:
-        white;
+/* =====================================================
+   NOMBRES
+===================================================== */
 
-      font-size:
-        24px;
+.map-label{
 
-      font-weight:
-        bold;
+  position:absolute;
 
-      border:
-        4px solid white;
+  top:calc(100% + 8px);
 
-      cursor:
-        pointer;
+  left:50%;
 
-      transform:
-        translate(-50%, -50%);
+  transform:
+    translateX(-50%);
 
-      box-shadow:
-        0 10px 25px rgba(73, 52, 109, 0.22);
+  white-space:nowrap;
 
-      transition:
-        0.25s;
+  font-size:14px;
 
-      z-index:
-        5;
-    }
+  font-weight:700;
 
+  color:var(--text);
 
-    .marker:hover {
-      transform:
-        translate(-50%, -50%) scale(1.12);
+  pointer-events:none;
 
-      box-shadow:
-        0 15px 30px rgba(73, 52, 109, 0.30);
-    }
+  text-align:center;
+}
 
 
-    /* 1–2 instituciones */
+/* =====================================================
+   POSICIONES GEOGRÁFICAS
+===================================================== */
 
-    .marker-small {
-      background:
-        linear-gradient(
-          135deg,
-          #b7a0d1,
-          #a487c0
-        );
-    }
+/* LIMA */
 
+.point-lima{
+  left:38%;
+  top:50%;
+}
 
-    /* 3–5 instituciones */
 
-    .marker-medium {
-      background:
-        linear-gradient(
-          135deg,
-          #9374b5,
-          #74558f
-        );
-    }
+/* JUNÍN */
 
+.point-junin{
+  left:55%;
+  top:47%;
+}
 
-    /* 6 o más instituciones */
 
-    .marker-large {
-      background:
-        linear-gradient(
-          135deg,
-          #65458a,
-          #49346d
-        );
-    }
+/* ICA */
 
+.point-ica{
+  left:40%;
+  top:65%;
+}
 
-    /* PRÓXIMAMENTE */
 
-    .marker-coming-soon {
-      background:
-        linear-gradient(
-          135deg,
-          #e1d6ec,
-          #c9b6da
-        );
+/* AYACUCHO */
 
-      border:
-        4px solid white;
+.point-ayacucho{
+  left:54%;
+  top:65%;
+}
 
-      color:
-        var(--purple-main);
-    }
 
+/* CUSCO */
 
-    /* ================================
-       NOMBRE DEPARTAMENTO
-    ================================= */
+.point-cusco{
+  left:68%;
+  top:67%;
+}
 
-    .marker-label {
-      position:
-        absolute;
 
-      top:
-        74px;
+/* AREQUIPA */
 
-      left:
-        50%;
+.point-arequipa{
+  left:54%;
+  top:81%;
+}
 
-      transform:
-        translateX(-50%);
 
-      white-space:
-        nowrap;
+/* =====================================================
+   LEYENDA
+===================================================== */
 
-      font-size:
-        14px;
+.legend{
 
-      font-weight:
-        bold;
+  position:absolute;
 
-      color:
-        var(--purple-dark);
+  left:22px;
 
-      pointer-events:
-        none;
-    }
+  bottom:22px;
 
+  z-index:6;
 
-    /* ================================
-       POSICIONES MAPA
-    ================================= */
+  background:
+    rgba(255,255,255,.94);
 
-    #marker-lima {
-      left:
-        37%;
+  border:
+    1px solid var(--purple-border);
 
-      top:
-        48%;
-    }
+  border-radius:17px;
 
+  padding:
+    14px 17px;
 
-    #marker-junin {
-      left:
-        56%;
+  box-shadow:
+    0 8px 25px
+    rgba(93,75,122,.08);
+}
 
-      top:
-        45%;
-    }
+.legend strong{
 
+  display:block;
 
-    #marker-cusco {
-      left:
-        70%;
+  margin-bottom:9px;
 
-      top:
-        69%;
-    }
+  color:var(--text);
+}
 
+.legend-row{
 
-    #marker-arequipa {
-      left:
-        55%;
+  display:flex;
 
-      top:
-        85%;
-    }
+  align-items:center;
 
+  gap:8px;
 
-    #marker-ica {
-      left:
-        39%;
+  font-size:13px;
 
-      top:
-        66%;
-    }
+  margin:6px 0;
+}
 
+.dot{
 
-    #marker-ayacucho {
-      left:
-        55%;
+  width:9px;
 
-      top:
-        66%;
-    }
+  height:9px;
 
+  border-radius:50%;
 
-    /* ================================
-       LEYENDA
-    ================================= */
+  display:inline-block;
+}
 
-    .legend {
-      position:
-        absolute;
+.dot.green{
+  background:var(--marker-light);
+}
 
-      left:
-        22px;
+.dot.blue{
+  background:var(--marker-medium);
+}
 
-      bottom:
-        22px;
+.dot.orange{
+  background:var(--marker-strong);
+}
 
-      background:
-        rgba(255, 255, 255, 0.92);
+.dot.purple{
+  background:var(--marker-upcoming);
+}
 
-      border:
-        1px solid var(--border);
 
-      border-radius:
-        18px;
+/* =====================================================
+   PANEL DE INFORMACIÓN
+===================================================== */
 
-      padding:
-        16px 18px;
+.info-card{
 
-      box-shadow:
-        0 8px 20px rgba(73, 52, 109, 0.08);
-    }
+  padding:26px;
 
+  display:flex;
 
-    .legend h4 {
-      margin-bottom:
-        10px;
+  flex-direction:column;
 
-      color:
-        var(--purple-dark);
-    }
+  min-height:680px;
+}
 
+.info-kicker{
 
-    .legend-item {
-      display:
-        flex;
+  margin:0;
 
-      align-items:
-        center;
+  font-size:12px;
 
-      gap:
-        9px;
+  letter-spacing:2px;
 
-      margin:
-        7px 0;
+  font-weight:800;
 
-      font-size:
-        13px;
+  color:var(--purple);
+}
 
-      color:
-        var(--text-medium);
-    }
+.info-title{
 
+  margin:
+    10px 0 8px;
 
-    .legend-dot {
-      width:
-        10px;
+  font-size:32px;
 
-      height:
-        10px;
+  color:var(--purple-dark);
+}
 
-      border-radius:
-        50%;
-    }
+.info-description{
 
+  margin:0;
 
-    .legend-small {
-      background:
-        #b7a0d1;
-    }
+  color:var(--text-soft);
 
+  line-height:1.5;
+}
 
-    .legend-medium {
-      background:
-        #8063a4;
-    }
+.info-line{
 
+  height:1px;
 
-    .legend-large {
-      background:
-        #593c7d;
-    }
+  background:var(--purple-border);
 
+  margin:20px 0;
+}
 
-    .legend-coming {
-      background:
-        #d8c9e6;
+.stats{
 
-      border:
-        1px solid #8d6eaf;
-    }
+  display:grid;
 
+  grid-template-columns:
+    1fr 1fr;
 
-    /* ================================
-       PANEL DERECHO
-    ================================= */
+  gap:12px;
 
-    .info-panel {
-      background:
-        rgba(255, 255, 255, 0.88);
+  margin-bottom:20px;
+}
 
-      border:
-        1px solid var(--border);
+.stat{
 
-      border-radius:
-        28px;
+  background:var(--purple-soft);
 
-      padding:
-        26px;
+  border-radius:17px;
 
-      box-shadow:
-        var(--shadow);
+  padding:15px;
+}
 
-      min-height:
-        650px;
-    }
+.stat strong{
 
+  display:block;
 
-    .info-eyebrow {
-      text-transform:
-        uppercase;
+  font-size:22px;
 
-      letter-spacing:
-        3px;
+  color:var(--purple-dark);
+}
 
-      font-size:
-        12px;
+.stat span{
 
-      font-weight:
-        bold;
+  font-size:12px;
 
-      color:
-        var(--purple-medium);
+  color:var(--text-soft);
+}
 
-      margin-bottom:
-        10px;
-    }
+.institutions{
 
+  flex:1;
 
-    .info-panel h2 {
-      font-size:
-        36px;
+  max-height:440px;
 
-      color:
-        var(--purple-dark);
+  overflow-y:auto;
+}
 
-      margin-bottom:
-        8px;
-    }
+.institution{
 
+  background:#fff;
 
-    .info-description {
-      color:
-        var(--text-medium);
+  border:
+    1px solid var(--purple-border);
 
-      font-size:
-        16px;
+  border-radius:17px;
 
-      line-height:
-        1.5;
+  padding:15px;
 
-      padding-bottom:
-        20px;
+  margin-bottom:11px;
+}
 
-      border-bottom:
-        1px solid var(--border);
-    }
+.institution h4{
 
+  margin:
+    0 0 10px;
 
-    /* ================================
-       ESTADÍSTICAS
-    ================================= */
+  font-size:15px;
 
-    .stats {
-      display:
-        grid;
+  line-height:1.35;
 
-      grid-template-columns:
-        1fr 1fr;
+  color:var(--text);
+}
 
-      gap:
-        12px;
+.tags{
 
-      margin:
-        20px 0;
-    }
+  display:flex;
 
+  flex-wrap:wrap;
 
-    .stat-card {
-      background:
-        linear-gradient(
-          135deg,
-          #f1ebf7,
-          #e3d8ee
-        );
+  gap:6px;
+}
 
-      border:
-        1px solid var(--border);
+.tag{
 
-      border-radius:
-        18px;
+  background:var(--purple-light);
 
-      padding:
-        16px;
-    }
+  color:var(--purple);
 
+  padding:
+    5px 8px;
 
-    .stat-number {
-      font-size:
-        24px;
+  border-radius:999px;
 
-      font-weight:
-        bold;
+  font-size:11px;
 
-      color:
-        var(--purple-dark);
+  border:
+    1px solid #e8e0ef;
+}
 
-      margin-bottom:
-        5px;
-    }
 
+/* =====================================================
+   PRÓXIMAMENTE
+===================================================== */
 
-    .stat-label {
-      font-size:
-        12px;
+.coming-soon{
 
-      color:
-        var(--text-medium);
-    }
+  margin-top:10px;
 
+  padding:
+    28px 18px;
 
-    /* ================================
-       LISTA
-    ================================= */
+  text-align:center;
 
-    #institutions-list {
-      max-height:
-        390px;
+  border:
+    2px dashed #c8b9da;
 
-      overflow-y:
-        auto;
+  border-radius:18px;
 
-      padding-right:
-        8px;
-    }
+  background:#faf8fc;
+}
 
+.coming-soon .icon{
+  font-size:38px;
+}
 
-    .institution-item {
-      background:
-        rgba(255, 255, 255, 0.95);
+.coming-soon h4{
 
-      border:
-        1px solid var(--border);
+  margin:
+    10px 0 6px;
 
-      border-radius:
-        18px;
+  color:var(--purple-dark);
 
-      padding:
-        16px;
+  font-size:18px;
+}
 
-      margin-bottom:
-        12px;
+.coming-soon p{
 
-      transition:
-        0.25s;
-    }
+  margin:0;
 
+  color:var(--text-soft);
 
-    .institution-item:hover {
-      border-color:
-        var(--purple-soft);
+  font-size:14px;
 
-      box-shadow:
-        0 8px 18px rgba(73, 52, 109, 0.08);
-    }
+  line-height:1.5;
+}
 
 
-    .institution-name {
-      font-size:
-        16px;
+/* =====================================================
+   VOLVER AL INICIO
+===================================================== */
 
-      font-weight:
-        bold;
+.back-bottom{
 
-      color:
-        var(--purple-dark);
+  margin-top:18px;
 
-      margin-bottom:
-        12px;
+  padding-top:18px;
 
-      line-height:
-        1.4;
-    }
+  border-top:
+    1px solid var(--purple-border);
+}
 
+.back-bottom a{
 
-    .tags {
-      display:
-        flex;
+  color:var(--purple-dark);
 
-      flex-wrap:
-        wrap;
+  text-decoration:none;
 
-      gap:
-        7px;
-    }
+  font-weight:800;
+}
 
 
-    .tag {
-      background:
-        var(--lavender-pale);
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-      border:
-        1px solid var(--border);
+@media(max-width:900px){
 
-      border-radius:
-        20px;
+  .map-layout{
+    grid-template-columns:1fr;
+  }
 
-      padding:
-        6px 10px;
+  .info-card{
+    min-height:500px;
+  }
 
-      font-size:
-        12px;
+}
 
-      color:
-        var(--text-medium);
-    }
 
+@media(max-width:600px){
 
-    .location-tag {
-      background:
-        #f3edf8;
+  .header-inner{
 
-      color:
-        var(--purple-main);
-    }
+    min-height:auto;
 
+    padding:15px 0;
 
-    /* ================================
-       MENSAJE PRÓXIMAMENTE
-    ================================= */
+    align-items:flex-start;
 
-    .coming-soon {
-      text-align:
-        center;
+    flex-direction:column;
+  }
 
-      padding:
-        60px 20px;
+  .back-home{
 
-      color:
-        var(--text-medium);
-    }
+    width:100%;
 
+    text-align:center;
+  }
 
-    .coming-icon {
-      width:
-        65px;
+  .hero h2{
+    font-size:30px;
+  }
 
-      height:
-        65px;
+  .map-card{
+    padding:14px;
+  }
 
-      border-radius:
-        50%;
+  .map-area{
+    height:620px;
+  }
 
-      margin:
-        0 auto 18px;
+  .marker{
 
-      display:
-        flex;
+    width:52px;
 
-      align-items:
-        center;
+    height:52px;
 
-      justify-content:
-        center;
+    font-size:20px;
+  }
 
-      font-size:
-        30px;
+  .map-label{
+    font-size:12px;
+  }
 
-      background:
-        var(--lavender-pale);
-    }
+}
 
+</style>
 
-    .coming-soon h3 {
-      color:
-        var(--purple-dark);
-
-      margin-bottom:
-        10px;
-    }
-
-
-    /* ================================
-       VOLVER
-    ================================= */
-
-    .return-link {
-      display:
-        inline-block;
-
-      margin-top:
-        20px;
-
-      text-decoration:
-        none;
-
-      color:
-        var(--purple-main);
-
-      font-weight:
-        bold;
-    }
-
-
-    .return-link:hover {
-      color:
-        var(--purple-dark);
-    }
-
-
-    /* ================================
-       RESPONSIVE
-    ================================= */
-
-    @media (max-width: 900px) {
-
-      header {
-        flex-direction:
-          column;
-
-        gap:
-          18px;
-      }
-
-
-      .main-container {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .map-wrapper {
-        min-height:
-          550px;
-      }
-
-
-      .info-panel {
-        min-height:
-          auto;
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .brand h1 {
-        font-size:
-          21px;
-      }
-
-
-      .hero h2 {
-        font-size:
-          34px;
-      }
-
-
-      .map-wrapper {
-        min-height:
-          480px;
-      }
-
-
-      .marker {
-        width:
-          52px;
-
-        height:
-          52px;
-
-        font-size:
-          20px;
-      }
-
-
-      .marker-label {
-        top:
-          60px;
-
-        font-size:
-          12px;
-      }
-
-
-      .legend {
-        transform:
-          scale(0.85);
-
-        transform-origin:
-          bottom left;
-      }
-
-    }
-
-  </style>
 </head>
-
 
 <body>
 
+<header>
 
-  <!-- ================================
-       HEADER
-  ================================= -->
-
-  <header>
+  <div class="header-inner">
 
     <div class="brand">
 
-      <div class="logo-icon">
+      <div class="mark">
         🤝
       </div>
 
@@ -1131,920 +882,670 @@
 
     </div>
 
-
     <a
       href="index.html"
-      class="back-button"
+      class="back-home"
     >
       ← Regresar al inicio
     </a>
 
-  </header>
+  </div>
+
+</header>
 
 
+<section class="hero">
 
-  <!-- ================================
-       HERO
-  ================================= -->
+  <h2>
+    Mapa de alianzas estratégicas
+  </h2>
 
-  <section class="hero">
+  <p>
+    Explora la distribución geográfica de nuestras
+    instituciones aliadas y conoce las próximas zonas
+    de expansión.
+  </p>
 
-    <h2>
-      Mapa de alianzas estratégicas
-    </h2>
-
-    <p>
-      Explora la distribución geográfica de nuestras instituciones
-      aliadas y conoce las próximas zonas de expansión.
-    </p>
-
-  </section>
+</section>
 
 
+<main class="wrap">
 
-  <!-- ================================
-       CONTENIDO
-  ================================= -->
-
-  <main class="main-container">
+<section class="map-layout">
 
 
-    <!-- ================================
-         MAPA
-    ================================= -->
+<section class="map-card">
 
-    <section class="map-panel">
+  <div class="map-heading">
 
-      <div class="map-panel-header">
+    <h3>
+      🗺️ Perú
+    </h3>
 
-        <h3>
-          🗺️ Perú
-        </h3>
+    <span>
+      Haz clic en un marcador
+    </span>
 
-        <span>
-          Haz clic en un marcador
-        </span>
+  </div>
+
+
+  <div class="map-area">
+
+    <div class="peru-map">
+
+      <img
+        src="Blank_map_of_Peru.svg"
+        alt="Mapa del Perú"
+        class="peru-map-img"
+      >
+
+    </div>
+
+
+    <div class="map-point point-lima">
+
+      <button
+        class="marker range-orange active"
+        data-department="Lima"
+      >
+        6
+      </button>
+
+      <div class="map-label">
+        Lima
+      </div>
+
+    </div>
+
+
+    <div class="map-point point-junin">
+
+      <button
+        class="marker range-blue"
+        data-department="Junín"
+      >
+        4
+      </button>
+
+      <div class="map-label">
+        Junín
+      </div>
+
+    </div>
+
+
+    <div class="map-point point-ica">
+
+      <button
+        class="marker upcoming"
+        data-department="Ica"
+      >
+        +
+      </button>
+
+      <div class="map-label">
+        Ica
+      </div>
+
+    </div>
+
+
+    <div class="map-point point-ayacucho">
+
+      <button
+        class="marker upcoming"
+        data-department="Ayacucho"
+      >
+        +
+      </button>
+
+      <div class="map-label">
+        Ayacucho
+      </div>
+
+    </div>
+
+
+    <div class="map-point point-cusco">
+
+      <button
+        class="marker range-blue"
+        data-department="Cusco"
+      >
+        5
+      </button>
+
+      <div class="map-label">
+        Cusco
+      </div>
+
+    </div>
+
+
+    <div class="map-point point-arequipa">
+
+      <button
+        class="marker range-blue"
+        data-department="Arequipa"
+      >
+        3
+      </button>
+
+      <div class="map-label">
+        Arequipa
+      </div>
+
+    </div>
+
+
+    <div class="legend">
+
+      <strong>
+        Distribución
+      </strong>
+
+      <div class="legend-row">
+        <span class="dot green"></span>
+        1–2 instituciones
+      </div>
+
+      <div class="legend-row">
+        <span class="dot blue"></span>
+        3–5 instituciones
+      </div>
+
+      <div class="legend-row">
+        <span class="dot orange"></span>
+        6–8 instituciones
+      </div>
+
+      <div class="legend-row">
+        <span class="dot purple"></span>
+        Próximamente
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<aside class="info-card">
+
+  <p class="info-kicker">
+    INSTITUCIONES ALIADAS
+  </p>
+
+  <h2
+    class="info-title"
+    id="department-title"
+  >
+    Lima
+  </h2>
+
+  <p
+    class="info-description"
+    id="department-description"
+  >
+    Cargando información de las instituciones...
+  </p>
+
+  <div class="info-line"></div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <strong
+        id="department-count"
+      >
+        6
+      </strong>
+
+      <span>
+        Instituciones
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong
+        id="total-count"
+      >
+        18
+      </strong>
+
+      <span>
+        Total registradas
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="institutions"
+    id="institutions-list"
+  >
+  </div>
+
+
+  <div class="back-bottom">
+
+    <a href="index.html">
+      ← Volver al inicio
+    </a>
+
+  </div>
+
+</aside>
+
+</section>
+
+</main>
+
+
+<script>
+
+let data = [];
+
+const $ = id =>
+  document.getElementById(id);
+
+
+/* LEER CSV */
+
+function parseCSVLine(line){
+
+  const result = [];
+  let current = "";
+  let insideQuotes = false;
+
+  for(let i = 0; i < line.length; i++){
+
+    const char = line[i];
+
+    if(char === '"'){
+
+      if(
+        insideQuotes &&
+        line[i + 1] === '"'
+      ){
+
+        current += '"';
+        i++;
+
+      }else{
+
+        insideQuotes = !insideQuotes;
+
+      }
+
+    }
+
+    else if(
+      char === "," &&
+      !insideQuotes
+    ){
+
+      result.push(current.trim());
+      current = "";
+
+    }
+
+    else{
+
+      current += char;
+
+    }
+
+  }
+
+  result.push(current.trim());
+
+  return result;
+
+}
+
+
+/* CARGAR CSV */
+
+async function loadCSV(){
+
+  try{
+
+    const response =
+      await fetch(
+        "alianzas.csv?nocache=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
+
+    if(!response.ok){
+
+      throw new Error(
+        "No se pudo cargar alianzas.csv"
+      );
+
+    }
+
+    const text =
+      await response.text();
+
+    const lines =
+      text
+      .replace(/^\uFEFF/,"")
+      .split(/\r?\n/)
+      .filter(
+        line =>
+          line.trim() !== ""
+      );
+
+    const headers =
+      parseCSVLine(lines[0])
+      .map(
+        header =>
+          header
+          .trim()
+          .replace(/^"|"$/g,"")
+      );
+
+    data =
+      lines
+      .slice(1)
+      .map(line => {
+
+        const values =
+          parseCSVLine(line);
+
+        const item = {};
+
+        headers.forEach(
+          (header,index) => {
+
+            item[header] =
+              values[index] || "";
+
+          }
+        );
+
+        return item;
+
+      })
+      .filter(
+        item =>
+          item.institucion
+      );
+
+  }
+
+  catch(error){
+
+    console.error(error);
+    data = [];
+
+  }
+
+  showDepartment("Lima");
+
+}
+
+
+/* OBTENER INSTITUCIONES */
+
+function getInstitutions(department){
+
+  return data.filter(
+    item =>
+
+      String(
+        item.departamento || ""
+      )
+      .trim()
+      .toLowerCase()
+
+      ===
+
+      department
+      .toLowerCase()
+
+  );
+
+}
+
+
+/* SEGURIDAD HTML */
+
+function escapeHTML(text){
+
+  return String(text ?? "")
+
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#039;");
+
+}
+
+
+/* MOSTRAR DEPARTAMENTO */
+
+function showDepartment(department){
+
+  const institutions =
+    getInstitutions(department);
+
+  const totalRegistered =
+    data.length;
+
+  $("department-title").textContent =
+    department;
+
+  $("total-count").textContent =
+    totalRegistered;
+
+
+  if(
+    department === "Ica" ||
+    department === "Ayacucho"
+  ){
+
+    $("department-description").textContent =
+      `Estamos preparando nuevas alianzas estratégicas en ${department}.`;
+
+    $("department-count").textContent =
+      "Próx.";
+
+    $("institutions-list").innerHTML = `
+
+      <div class="coming-soon">
+
+        <div class="icon">
+          🤝
+        </div>
+
+        <h4>
+          Próximamente
+        </h4>
+
+        <p>
+
+          Nuevas instituciones aliadas en
+
+          <strong>
+            ${escapeHTML(department)}
+          </strong>
+
+          serán incorporadas próximamente.
+
+        </p>
 
       </div>
 
+    `;
 
-      <div class="map-wrapper">
+    return;
 
-
-        <img
-          src="Blank_map_of_Peru.svg"
-          alt="Mapa del Perú"
-        >
+  }
 
 
-        <!-- LIMA -->
+  $("department-description").textContent =
 
-        <button
-          id="marker-lima"
-          class="marker marker-large"
-          onclick="showDepartment('Lima')"
-        >
+    institutions.length === 1
 
-          6
+    ?
 
-          <span class="marker-label">
-            Lima
-          </span>
+    `1 institución registrada en ${department}.`
 
-        </button>
+    :
+
+    `${institutions.length} instituciones registradas en ${department}.`;
 
 
-        <!-- JUNÍN -->
-
-        <button
-          id="marker-junin"
-          class="marker marker-medium"
-          onclick="showDepartment('Junín')"
-        >
-
-          4
-
-          <span class="marker-label">
-            Junín
-          </span>
-
-        </button>
+  $("department-count").textContent =
+    institutions.length;
 
 
-        <!-- CUSCO -->
+  if(!institutions.length){
 
-        <button
-          id="marker-cusco"
-          class="marker marker-medium"
-          onclick="showDepartment('Cusco')"
-        >
+    $("institutions-list").innerHTML = `
 
-          5
+      <div class="coming-soon">
 
-          <span class="marker-label">
-            Cusco
-          </span>
+        <div class="icon">
+          📍
+        </div>
 
-        </button>
+        <h4>
+          Información en actualización
+        </h4>
 
+        <p>
+          Actualmente no hay instituciones
+          registradas para este departamento.
+        </p>
 
-        <!-- AREQUIPA -->
+      </div>
 
-        <button
-          id="marker-arequipa"
-          class="marker marker-medium"
-          onclick="showDepartment('Arequipa')"
-        >
+    `;
 
-          3
+    return;
 
-          <span class="marker-label">
-            Arequipa
-          </span>
-
-        </button>
+  }
 
 
-        <!-- ICA -->
+  $("institutions-list").innerHTML =
 
-        <button
-          id="marker-ica"
-          class="marker marker-coming-soon"
-          onclick="showComingSoon('Ica')"
-        >
+    institutions
+    .map(item => {
 
-          +
+      const areas =
 
-          <span class="marker-label">
-            Ica
-          </span>
-
-        </button>
-
-
-        <!-- AYACUCHO -->
-
-        <button
-          id="marker-ayacucho"
-          class="marker marker-coming-soon"
-          onclick="showComingSoon('Ayacucho')"
-        >
-
-          +
-
-          <span class="marker-label">
-            Ayacucho
-          </span>
-
-        </button>
+        String(item.area || "")
+        .split("/")
+        .map(
+          area =>
+            area.trim()
+        )
+        .filter(Boolean);
 
 
-        <!-- LEYENDA -->
+      return `
 
-        <div class="legend">
+        <article class="institution">
 
           <h4>
-            Distribución
+            ${escapeHTML(item.institucion)}
           </h4>
 
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-small"
-            ></span>
-
-            1–2 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-medium"
-            ></span>
-
-            3–5 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-large"
-            ></span>
-
-            6–8 instituciones
-
-          </div>
-
-
-          <div class="legend-item">
-
-            <span
-              class="legend-dot legend-coming"
-            ></span>
-
-            Próximamente
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         INFORMACIÓN
-    ================================= -->
-
-    <aside class="info-panel">
-
-      <div class="info-eyebrow">
-        Instituciones aliadas
-      </div>
-
-
-      <h2 id="department-name">
-        Lima
-      </h2>
-
-
-      <p
-        id="department-description"
-        class="info-description"
-      >
-        6 instituciones registradas en Lima.
-      </p>
-
-
-      <!-- ESTADÍSTICAS -->
-
-      <div class="stats">
-
-        <div class="stat-card">
-
-          <div
-            id="department-count"
-            class="stat-number"
-          >
-            6
-          </div>
-
-          <div class="stat-label">
-            Instituciones
-          </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-          <div
-            id="total-count"
-            class="stat-number"
-          >
-            18
-          </div>
-
-          <div class="stat-label">
-            Total registradas
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- LISTA -->
-
-      <div id="institutions-list">
-
-        Cargando instituciones...
-
-      </div>
-
-
-      <a
-        href="alianzas.html"
-        class="return-link"
-      >
-        ← Ver todas las instituciones
-      </a>
-
-    </aside>
-
-
-  </main>
-
-
-
-  <!-- ================================
-       JAVASCRIPT
-  ================================= -->
-
-  <script>
-
-
-    /* ================================
-       VARIABLES
-    ================================= */
-
-    let institutions = [];
-
-
-
-    /* ================================
-       CARGAR CSV
-    ================================= */
-
-    async function loadInstitutions() {
-
-      try {
-
-        const response =
-          await fetch("alianzas.csv");
-
-
-        const text =
-          await response.text();
-
-
-        institutions =
-          parseCSV(text);
-
-
-        updateMarkerNumbers();
-
-
-        showDepartment("Lima");
-
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Error cargando alianzas.csv:",
-          error
-        );
-
-
-        document
-          .getElementById(
-            "institutions-list"
-          )
-          .innerHTML =
-          `
-            <div class="coming-soon">
-
-              <div class="coming-icon">
-                ⚠️
-              </div>
-
-              <h3>
-                No se pudieron cargar los datos
-              </h3>
-
-              <p>
-                Verifica que el archivo
-                <strong>alianzas.csv</strong>
-                esté en la misma carpeta.
-              </p>
-
-            </div>
-          `;
-
-      }
-
-    }
-
-
-
-    /* ================================
-       PARSEAR CSV
-    ================================= */
-
-    function parseCSV(text) {
-
-      const rows = [];
-
-      let row = [];
-
-      let value = "";
-
-      let insideQuotes = false;
-
-
-      for (
-        let i = 0;
-        i < text.length;
-        i++
-      ) {
-
-        const char =
-          text[i];
-
-
-        if (
-          char === '"'
-        ) {
-
-          insideQuotes =
-            !insideQuotes;
-
-        }
-
-
-        else if (
-          char === "," &&
-          !insideQuotes
-        ) {
-
-          row.push(
-            value.trim()
-          );
-
-          value = "";
-
-        }
-
-
-        else if (
-          (
-            char === "\n" ||
-            char === "\r"
-          ) &&
-          !insideQuotes
-        ) {
-
-          if (
-            value !== "" ||
-            row.length > 0
-          ) {
-
-            row.push(
-              value.trim()
-            );
-
-
-            rows.push(
-              row
-            );
-
-
-            row = [];
-
-            value = "";
-
-          }
-
-        }
-
-
-        else {
-
-          value +=
-            char;
-
-        }
-
-      }
-
-
-      if (
-        value !== "" ||
-        row.length > 0
-      ) {
-
-        row.push(
-          value.trim()
-        );
-
-
-        rows.push(
-          row
-        );
-
-      }
-
-
-      const headers =
-        rows[0];
-
-
-      return rows
-        .slice(1)
-        .map(row => {
-
-          const item = {};
-
-
-          headers.forEach(
-            (
-              header,
-              index
-            ) => {
-
-              item[
-                header
-                  .replace(
-                    /^\uFEFF/,
-                    ""
-                  )
-                  .trim()
-              ] =
-                (
-                  row[index] || ""
-                )
-                .trim();
-
-            }
-          );
-
-
-          return item;
-
-        });
-
-    }
-
-
-
-    /* ================================
-       ACTUALIZAR MARCADORES
-    ================================= */
-
-    function updateMarkerNumbers() {
-
-      const departments = {
-
-        "Lima":
-          "marker-lima",
-
-        "Junín":
-          "marker-junin",
-
-        "Cusco":
-          "marker-cusco",
-
-        "Arequipa":
-          "marker-arequipa"
-
-      };
-
-
-      Object.keys(
-        departments
-      ).forEach(
-        department => {
-
-          const count =
-            institutions.filter(
-              institution =>
-                institution.departamento ===
-                department
-            ).length;
-
-
-          const marker =
-            document.getElementById(
-              departments[
-                department
-              ]
-            );
-
-
-          if (
-            marker
-          ) {
-
-            const label =
-              marker.querySelector(
-                ".marker-label"
-              );
-
-
-            marker.firstChild.nodeValue =
-              count;
-
-
-            if (
-              label
-            ) {
-
-              marker.appendChild(
-                label
-              );
-
+          <div class="tags">
+
+            <span class="tag">
+              📍 ${escapeHTML(
+                item.provincia_ciudad ||
+                item.departamento ||
+                ""
+              )}
+            </span>
+
+            ${areas
+              .map(
+                area => `
+
+                  <span class="tag">
+                    ${escapeHTML(area)}
+                  </span>
+
+                `
+              )
+              .join("")
             }
 
+            <span class="tag">
 
-            marker.classList.remove(
-              "marker-small",
-              "marker-medium",
-              "marker-large"
-            );
+              ${escapeHTML(
+                item.vacantes ||
+                "Vacantes por confirmar"
+              )}
 
+              vacantes
 
-            if (
-              count <= 2
-            ) {
+            </span>
 
-              marker.classList.add(
-                "marker-small"
-              );
+          </div>
 
-            }
+        </article>
 
+      `;
 
-            else if (
-              count <= 5
-            ) {
+    })
+    .join("");
 
-              marker.classList.add(
-                "marker-medium"
-              );
-
-            }
+}
 
 
-            else {
+/* EVENTOS DE LOS MARCADORES */
 
-              marker.classList.add(
-                "marker-large"
-              );
+document
+.querySelectorAll(".marker")
+.forEach(marker => {
 
-            }
+  marker.addEventListener(
+    "click",
+    () => {
 
-          }
+      document
+      .querySelectorAll(".marker")
+      .forEach(
+        item =>
+          item.classList.remove("active")
+      );
 
-        }
+      marker.classList.add("active");
+
+      showDepartment(
+        marker.dataset.department
       );
 
     }
+  );
 
+});
 
 
-    /* ================================
-       MOSTRAR DEPARTAMENTO
-    ================================= */
+/* INICIAR */
 
-    function showDepartment(
-      department
-    ) {
+loadCSV();
 
-      const departmentInstitutions =
-        institutions.filter(
-          institution =>
-            institution.departamento ===
-            department
-        );
-
-
-      document
-        .getElementById(
-          "department-name"
-        )
-        .textContent =
-        department;
-
-
-      document
-        .getElementById(
-          "department-description"
-        )
-        .textContent =
-        `${departmentInstitutions.length} instituciones registradas en ${department}.`;
-
-
-      document
-        .getElementById(
-          "department-count"
-        )
-        .textContent =
-        departmentInstitutions.length;
-
-
-      document
-        .getElementById(
-          "total-count"
-        )
-        .textContent =
-        institutions.length;
-
-
-      renderInstitutions(
-        departmentInstitutions
-      );
-
-    }
-
-
-
-    /* ================================
-       RENDER INSTITUCIONES
-    ================================= */
-
-    function renderInstitutions(
-      list
-    ) {
-
-      const container =
-        document.getElementById(
-          "institutions-list"
-        );
-
-
-      if (
-        list.length === 0
-      ) {
-
-        container.innerHTML =
-          `
-            <div class="coming-soon">
-
-              <div class="coming-icon">
-                📍
-              </div>
-
-              <h3>
-                Sin instituciones
-              </h3>
-
-              <p>
-                Actualmente no hay instituciones
-                registradas en este departamento.
-              </p>
-
-            </div>
-          `;
-
-
-        return;
-
-      }
-
-
-      container.innerHTML =
-        list
-          .map(
-            institution => {
-
-
-              const areas =
-                institution.area
-                  .split("/")
-                  .map(
-                    area =>
-                      area.trim()
-                  );
-
-
-              return `
-
-                <article
-                  class="institution-item"
-                >
-
-                  <div
-                    class="institution-name"
-                  >
-                    ${institution.institucion}
-                  </div>
-
-
-                  <div class="tags">
-
-
-                    <span
-                      class="tag location-tag"
-                    >
-                      📍 ${institution.provincia_ciudad}
-                    </span>
-
-
-                    ${areas
-                      .map(
-                        area =>
-                          `
-                            <span class="tag">
-                              ${area}
-                            </span>
-                          `
-                      )
-                      .join("")
-                    }
-
-
-                    <span class="tag">
-                      ${institution.vacantes}
-                      vacantes
-                    </span>
-
-
-                  </div>
-
-                </article>
-
-              `;
-
-            }
-          )
-          .join("");
-
-    }
-
-
-
-    /* ================================
-       PRÓXIMAMENTE
-    ================================= */
-
-    function showComingSoon(
-      department
-    ) {
-
-      document
-        .getElementById(
-          "department-name"
-        )
-        .textContent =
-        department;
-
-
-      document
-        .getElementById(
-          "department-description"
-        )
-        .textContent =
-        `Próximamente tendremos nuevas alianzas estratégicas en ${department}.`;
-
-
-      document
-        .getElementById(
-          "department-count"
-        )
-        .textContent =
-        "+";
-
-
-      document
-        .getElementById(
-          "total-count"
-        )
-        .textContent =
-        institutions.length;
-
-
-      document
-        .getElementById(
-          "institutions-list"
-        )
-        .innerHTML =
-        `
-
-          <div class="coming-soon">
-
-            <div class="coming-icon">
-              ✨
-            </div>
-
-
-            <h3>
-              Próximamente
-            </h3>
-
-
-            <p>
-              Estamos trabajando para incorporar
-              nuevas instituciones aliadas en
-              ${department}.
-            </p>
-
-          </div>
-
-        `;
-
-    }
-
-
-
-    /* ================================
-       INICIAR
-    ================================= */
-
-    loadInstitutions();
-
-
-  </script>
-
+</script>
 
 </body>
 </html>
