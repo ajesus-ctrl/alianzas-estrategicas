@@ -1,864 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Alianzas Estratégicas</title>
-
-<style>
-
-/* =========================================
-   COLORES GENERALES
-========================================= */
-
-:root{
-  --green:#176b4a;
-  --green2:#12563c;
-  --text:#24363a;
-  --muted:#647174;
-  --line:#d6dddd;
-  --bg:#f4f6f4;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-
-/* =========================================
-   ENCABEZADO
-========================================= */
-
-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:20px 6%;
-  background:#fff;
-  border-bottom:1px solid #dce3e1;
-}
-
-.mark{
-  width:58px;
-  height:58px;
-  border-radius:18px;
-  background:#e7f0ec;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-}
-
-.brand h1{
-  margin:0;
-  font-size:25px;
-}
-
-.brand p{
-  margin:5px 0 0;
-  color:#647174;
-  font-size:16px;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero{
-  text-align:center;
-  padding:55px 20px 40px;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      #dceae4 0%,
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #edf5f2 0%,
-      #f4f6f4 100%
-    );
-}
-
-.hero-content{
-  width:min(1100px,94%);
-  margin:0 auto;
-}
-
-.hero h2{
-  margin:0;
-  font-size:48px;
-}
-
-.hero p{
-  max-width:850px;
-  margin:12px auto 0;
-  font-size:20px;
-  line-height:1.4;
-  color:#4f5d61;
-}
-
-
-/* =========================================
-   ACCESO AL MAPA
-========================================= */
-
-.map-access{
-  margin:30px auto 0;
-  max-width:850px;
-  padding:20px 24px;
-
-  background:#ffffff;
-
-  border:
-    1px solid #cfe0d9;
-
-  border-radius:20px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-
-  box-shadow:
-    0 10px 25px
-    rgba(20,50,40,.08);
-}
-
-.map-access-text{
-  text-align:left;
-}
-
-.map-access-text h3{
-  margin:0 0 5px;
-  font-size:20px;
-  color:var(--text);
-}
-
-.map-access-text p{
-  margin:0;
-  font-size:15px;
-  color:var(--muted);
-}
-
-.map-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  min-height:52px;
-  padding:0 24px;
-
-  border-radius:14px;
-
-  background:var(--green);
-  color:#fff;
-
-  text-decoration:none;
-  font-weight:bold;
-
-  white-space:nowrap;
-
-  transition:.2s ease;
-}
-
-.map-button:hover{
-  background:var(--green2);
-  transform:translateY(-1px);
-}
-
-
-/* =========================================
-   CONTENIDO
-========================================= */
-
-.wrap{
-  width:min(1100px,94%);
-  margin:0 auto;
-  padding:35px 0 20px;
-}
-
-
-/* =========================================
-   FILTROS
-========================================= */
-
-.filters{
-  display:grid;
-
-  grid-template-columns:
-    2fr 1fr 1fr auto;
-
-  gap:10px;
-
-  margin-bottom:18px;
-}
-
-.filters input,
-.filters select,
-.filters button{
-  min-height:48px;
-
-  border-radius:14px;
-
-  font-size:15px;
-}
-
-.filters input,
-.filters select{
-  width:100%;
-
-  padding:0 15px;
-
-  border:
-    1px solid #ccd7d4;
-
-  background:#fff;
-
-  color:var(--text);
-}
-
-.filters button{
-  border:none;
-
-  padding:0 22px;
-
-  background:var(--green);
-
-  color:#fff;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:.2s ease;
-}
-
-.filters button:hover{
-  background:var(--green2);
-}
-
-
-/* =========================================
-   RESUMEN
-========================================= */
-
-.summary{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:18px;
-
-  color:#647174;
-
-  font-size:14px;
-}
-
-.summary span:first-child{
-  color:var(--text);
-  font-weight:bold;
-}
-
-
-/* =========================================
-   TARJETAS
-========================================= */
-
-#cards{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(300px,1fr)
-    );
-
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-
-  border:
-    1px solid #d8e0de;
-
-  border-radius:18px;
-
-  padding:22px;
-
-  box-shadow:
-    0 8px 20px
-    rgba(20,50,40,.05);
-
-  transition:.2s ease;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 14px 28px
-    rgba(20,50,40,.10);
-}
-
-
-/* =========================================
-   PARTE SUPERIOR
-========================================= */
-
-.top{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-}
-
-.logo{
-  width:52px;
-  height:52px;
-  min-width:52px;
-
-  border-radius:14px;
-
-  background:#e7f0ec;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-weight:bold;
-
-  color:var(--green);
-
-  overflow:hidden;
-}
-
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.card h3{
-  margin:0;
-  font-size:19px;
-  line-height:1.35;
-}
-
-
-/* =========================================
-   ETIQUETAS
-========================================= */
-
-.tags{
-  margin:16px 0;
-
-  display:flex;
-  flex-wrap:wrap;
-
-  gap:7px;
-}
-
-.tag{
-  background:#edf5f2;
-
-  color:#176b4a;
-
-  padding:6px 10px;
-
-  border-radius:20px;
-
-  font-size:13px;
-}
-
-
-/* =========================================
-   INFORMACIÓN PRINCIPAL
-========================================= */
-
-.info{
-  border-top:
-    1px solid #e3e8e6;
-
-  padding-top:14px;
-
-  font-size:14px;
-
-  line-height:1.7;
-
-  color:#526064;
-}
-
-.info > div{
-  margin-bottom:8px;
-}
-
-.info strong{
-  color:#27393d;
-}
-
-
-/* =========================================
-   BOTÓN CONOCER MÁS
-========================================= */
-
-.more-button{
-  width:100%;
-
-  margin-top:18px;
-
-  padding:12px 16px;
-
-  border:
-    1px solid #b9d1c7;
-
-  border-radius:12px;
-
-  background:#f3f8f6;
-
-  color:var(--green);
-
-  font-size:15px;
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:.2s ease;
-}
-
-.more-button:hover{
-  background:#e7f2ed;
-
-  border-color:#9fc5b6;
-}
-
-
-/* =========================================
-   PANEL DESPLEGABLE
-========================================= */
-
-.extra-info{
-  display:none;
-
-  margin-top:15px;
-
-  padding-top:17px;
-
-  border-top:
-    1px solid #e3e8e6;
-
-  animation:
-    reveal .25s ease;
-}
-
-.extra-info.open{
-  display:block;
-}
-
-@keyframes reveal{
-
-  from{
-    opacity:0;
-
-    transform:
-      translateY(-5px);
-  }
-
-  to{
-    opacity:1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =========================================
-   FOTO
-========================================= */
-
-.institution-photo{
-  width:100%;
-
-  height:190px;
-
-  border-radius:14px;
-
-  overflow:hidden;
-
-  background:#edf3f1;
-
-  margin-bottom:17px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  color:#74817e;
-
-  font-size:14px;
-
-  text-align:center;
-
-  padding:20px;
-}
-
-.institution-photo img{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-}
-
-
-/* =========================================
-   RESEÑA
-========================================= */
-
-.review-box{
-  background:#f6faf8;
-
-  border:
-    1px solid #dce9e4;
-
-  border-radius:14px;
-
-  padding:16px;
-}
-
-.review-box h4{
-  margin:0 0 8px;
-
-  color:var(--green);
-
-  font-size:16px;
-}
-
-.review-box p{
-  margin:0;
-
-  color:#526064;
-
-  font-size:14px;
-
-  line-height:1.65;
-}
-
-
-/* =========================================
-   SIN RESULTADOS
-========================================= */
-
-.empty{
-  grid-column:1/-1;
-
-  background:#fff;
-
-  border:
-    1px dashed #cbd8d4;
-
-  border-radius:18px;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:var(--muted);
-
-  font-size:16px;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer{
-  text-align:center;
-
-  padding:35px 20px;
-
-  color:#647174;
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media(max-width:850px){
-
-  .filters{
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .filters button{
-    grid-column:
-      1 / -1;
-  }
-
-  .hero h2{
-    font-size:36px;
-  }
-
-  .map-access{
-    flex-direction:column;
-
-    align-items:stretch;
-  }
-
-  .map-access-text{
-    text-align:center;
-  }
-
-  .map-button{
-    width:100%;
-  }
-
-}
-
-
-@media(max-width:550px){
-
-  header{
-    padding:
-      15px 5%;
-  }
-
-  .brand h1{
-    font-size:20px;
-  }
-
-  .brand p{
-    font-size:14px;
-  }
-
-  .mark{
-    width:50px;
-    height:50px;
-
-    font-size:25px;
-  }
-
-  .hero{
-    padding:
-      40px 15px 30px;
-  }
-
-  .hero h2{
-    font-size:30px;
-  }
-
-  .hero p{
-    font-size:17px;
-  }
-
-  .filters{
-    grid-template-columns:
-      1fr;
-  }
-
-  .filters button{
-    grid-column:auto;
-  }
-
-  .summary{
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:8px;
-
-    font-size:14px;
-  }
-
-  #cards{
-    grid-template-columns:
-      1fr;
-  }
-
-}
-
-</style>
-
-</head>
-
-
-<body id="inicio">
-
-
-<!-- =========================================
-     ENCABEZADO
-========================================= -->
-
-<header>
-
-  <div class="mark">
-    🤝
-  </div>
-
-  <div class="brand">
-
-    <h1>
-      Alianzas Estratégicas
-    </h1>
-
-    <p>
-      Modalidad a distancia · Psicología
-    </p>
-
-  </div>
-
-</header>
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <h2>
-      Nuestras Alianzas Estratégicas
-    </h2>
-
-    <p>
-      Conoce las instituciones aliadas y consulta de manera rápida
-      su ubicación, área, vacantes y horarios.
-    </p>
-
-
-    <div class="map-access">
-
-      <div class="map-access-text">
-
-        <h3>
-          🗺️ Explora nuestras alianzas en el mapa
-        </h3>
-
-        <p>
-          Consulta la distribución geográfica de las instituciones
-          aliadas por departamento.
-        </p>
-
-      </div>
-
-
-      <a
-        href="mapa.html"
-        class="map-button"
-      >
-        Ver mapa de alianzas →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     CONTENIDO PRINCIPAL
-========================================= -->
-
-<main class="wrap">
-
-
-  <section class="filters">
-
-    <input
-      id="q"
-      type="text"
-      placeholder="🔎 Buscar institución"
-    >
-
-
-    <select id="d">
-
-      <option value="">
-        Todos los departamentos
-      </option>
-
-    </select>
-
-
-    <select id="a">
-
-      <option value="">
-        Todas las áreas
-      </option>
-
-    </select>
-
-
-    <button id="clear">
-      Limpiar
-    </button>
-
-  </section>
-
-
-  <section class="summary">
-
-    <span id="count">
-      0 instituciones encontradas
-    </span>
-
-    <span>
-      Directorio actualizado · 2026
-    </span>
-
-  </section>
-
-
-  <section id="cards">
-
-  </section>
-
-
-</main>
-
-
-<footer>
-
-  Directorio de Alianzas Estratégicas ·
-  Información basada en la matriz proporcionada.
-
-</footer>
-
 
 <script>
 
-
 /* =====================================================
    DATOS DE RESPALDO
-   Estas 18 instituciones se mostrarán incluso si
-   el CSV tarda en cargar.
 ===================================================== */
 
 const fallbackData = [
@@ -1070,9 +214,7 @@ const fallbackData = [
 
 let data = [...fallbackData];
 
-
-const $ = id =>
-  document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 
 /* =====================================================
@@ -1082,31 +224,11 @@ const $ = id =>
 function escapeHTML(value){
 
   return String(value ?? "")
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
@@ -1122,11 +244,9 @@ function parseCSVLine(line){
   let current = "";
   let insideQuotes = false;
 
-
   for(let i = 0; i < line.length; i++){
 
     const char = line[i];
-
 
     if(char === '"'){
 
@@ -1136,13 +256,11 @@ function parseCSVLine(line){
       ){
 
         current += '"';
-
         i++;
 
       }else{
 
-        insideQuotes =
-          !insideQuotes;
+        insideQuotes = !insideQuotes;
 
       }
 
@@ -1153,10 +271,7 @@ function parseCSVLine(line){
       !insideQuotes
     ){
 
-      result.push(
-        current.trim()
-      );
-
+      result.push(current.trim());
       current = "";
 
     }
@@ -1169,11 +284,7 @@ function parseCSVLine(line){
 
   }
 
-
-  result.push(
-    current.trim()
-  );
-
+  result.push(current.trim());
 
   return result;
 
@@ -1188,123 +299,68 @@ async function loadCSV(){
 
   try{
 
-    const response =
-      await fetch(
-
-        "alianzas.csv?nocache=" +
-        Date.now(),
-
-        {
-          cache:"no-store"
-        }
-
-      );
-
+    const response = await fetch(
+      "alianzas.csv?nocache=" + Date.now(),
+      {
+        cache:"no-store"
+      }
+    );
 
     if(!response.ok){
 
-      throw new Error(
-        "No se pudo cargar el CSV"
-      );
+      throw new Error("No se pudo cargar el CSV");
 
     }
 
+    const text = await response.text();
 
-    const text =
-      await response.text();
-
-
-    const lines =
-      text
-
-      .replace(
-        /^\uFEFF/,
-        ""
-      )
-
-      .split(
-        /\r?\n/
-      )
-
-      .filter(
-        line =>
-          line.trim() !== ""
-      );
-
+    const lines = text
+      .replace(/^\uFEFF/, "")
+      .split(/\r?\n/)
+      .filter(line => line.trim() !== "");
 
     if(lines.length < 2){
 
-      throw new Error(
-        "El CSV está vacío"
-      );
+      throw new Error("El CSV está vacío");
 
     }
 
+    const headers = parseCSVLine(lines[0])
+      .map(header => header.trim());
 
-    const headers =
-      parseCSVLine(
-        lines[0]
-      )
-
-      .map(
-        header =>
-          header
-          .trim()
-      );
-
-
-    const parsedData =
-      lines
-
+    const parsedData = lines
       .slice(1)
+      .map(line => {
 
-      .map(
-        line => {
+        const values = parseCSVLine(line);
 
-          const values =
-            parseCSVLine(
-              line
-            );
+        const item = {};
 
+        headers.forEach((header, index) => {
 
-          const item = {};
+          item[header] = (
+            values[index] || ""
+          ).trim();
 
+        });
 
-          headers.forEach(
+        return item;
 
-            (
-              header,
-              index
-            ) => {
+      })
+      .filter(item => item.institucion);
 
-              item[header] =
-                (
-                  values[index] ||
-                  ""
-                )
-                .trim();
-
-            }
-
-          );
-
-
-          return item;
-
-        }
-
-      )
-
-      .filter(
-        item =>
-          item.institucion
-      );
-
+    /* Solo reemplazamos los datos si realmente
+       encontramos instituciones válidas */
 
     if(parsedData.length > 0){
 
-      data =
-        parsedData;
+      data = parsedData;
+
+    }else{
+
+      console.warn(
+        "El CSV no contiene instituciones válidas. Se mantienen los datos de respaldo."
+      );
 
     }
 
@@ -1313,15 +369,13 @@ async function loadCSV(){
   catch(error){
 
     console.warn(
-      "Usando datos de respaldo:",
+      "No se pudo cargar el CSV. Se usan los datos de respaldo.",
       error
     );
 
   }
 
-
   populateFilters();
-
   render();
 
 }
@@ -1333,122 +387,59 @@ async function loadCSV(){
 
 function populateFilters(){
 
-  const departments =
+  const departments = [
 
-    [
-      ...new Set(
-
-        data
-
-        .map(
-          item =>
-            item.departamento
-        )
-
+    ...new Set(
+      data
+        .map(item => item.departamento)
         .filter(Boolean)
+    )
+
+  ].sort(
+    (a,b) => a.localeCompare(b, "es")
+  );
+
+
+  const areas = [
+
+    ...new Set(
+
+      data.flatMap(item =>
+
+        String(item.area || "")
+          .split("/")
+          .map(area => area.trim())
+          .filter(Boolean)
 
       )
-    ]
 
-    .sort(
-      (a,b) =>
-        a.localeCompare(
-          b,
-          "es"
-        )
-    );
+    )
 
-
-  const areas =
-
-    [
-      ...new Set(
-
-        data
-
-        .flatMap(
-
-          item =>
-
-            String(
-              item.area || ""
-            )
-
-            .split("/")
-
-            .map(
-              area =>
-                area.trim()
-            )
-
-            .filter(Boolean)
-
-        )
-
-      )
-    ]
-
-    .sort(
-      (a,b) =>
-        a.localeCompare(
-          b,
-          "es"
-        )
-    );
+  ].sort(
+    (a,b) => a.localeCompare(b, "es")
+  );
 
 
   $("d").innerHTML =
+    `<option value="">Todos los departamentos</option>` +
+    departments.map(department =>
 
-    `
-      <option value="">
-        Todos los departamentos
-      </option>
-    `
+      `<option value="${escapeHTML(department)}">
+        ${escapeHTML(department)}
+      </option>`
 
-    +
-
-    departments
-
-    .map(
-
-      department =>
-
-        `
-          <option value="${escapeHTML(department)}">
-            ${escapeHTML(department)}
-          </option>
-        `
-
-    )
-
-    .join("");
+    ).join("");
 
 
   $("a").innerHTML =
+    `<option value="">Todas las áreas</option>` +
+    areas.map(area =>
 
-    `
-      <option value="">
-        Todas las áreas
-      </option>
-    `
+      `<option value="${escapeHTML(area)}">
+        ${escapeHTML(area)}
+      </option>`
 
-    +
-
-    areas
-
-    .map(
-
-      area =>
-
-        `
-          <option value="${escapeHTML(area)}">
-            ${escapeHTML(area)}
-          </option>
-        `
-
-    )
-
-    .join("");
+    ).join("");
 
 }
 
@@ -1460,84 +451,51 @@ function populateFilters(){
 function filtered(){
 
   const query =
-    $("q")
-    .value
-    .trim()
-    .toLowerCase();
-
+    $("q").value.trim().toLowerCase();
 
   const department =
     $("d").value;
-
 
   const area =
     $("a").value;
 
 
-  return data.filter(
+  return data.filter(item => {
 
-    item => {
-
-      const searchable =
-        Object
-        .values(item)
+    const searchable =
+      Object.values(item)
         .join(" ")
         .toLowerCase();
 
 
-      const matchesQuery =
-
-        !query ||
-
-        searchable.includes(
-          query
-        );
+    const matchesQuery =
+      !query ||
+      searchable.includes(query);
 
 
-      const matchesDepartment =
-
-        !department ||
-
-        item.departamento ===
-        department;
+    const matchesDepartment =
+      !department ||
+      item.departamento === department;
 
 
-      const itemAreas =
-
-        String(
-          item.area || ""
-        )
-
+    const itemAreas =
+      String(item.area || "")
         .split("/")
-
-        .map(
-          value =>
-            value.trim()
-        );
+        .map(value => value.trim());
 
 
-      const matchesArea =
-
-        !area ||
-
-        itemAreas.includes(
-          area
-        );
+    const matchesArea =
+      !area ||
+      itemAreas.includes(area);
 
 
-      return (
+    return (
+      matchesQuery &&
+      matchesDepartment &&
+      matchesArea
+    );
 
-        matchesQuery &&
-
-        matchesDepartment &&
-
-        matchesArea
-
-      );
-
-    }
-
-  );
+  });
 
 }
 
@@ -1548,29 +506,13 @@ function filtered(){
 
 function initials(name){
 
-  return String(
-    name || ""
-  )
-
-  .split(
-    /\s+/
-  )
-
-  .filter(Boolean)
-
-  .slice(
-    0,
-    2
-  )
-
-  .map(
-    word =>
-      word.charAt(0)
-  )
-
-  .join("")
-
-  .toUpperCase();
+  return String(name || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0,2)
+    .map(word => word.charAt(0))
+    .join("")
+    .toUpperCase();
 
 }
 
@@ -1581,18 +523,15 @@ function initials(name){
 
 function getReview(item){
 
-  return `
-
-    Institución ubicada en
-    ${item.provincia_ciudad || item.departamento}.
-    Ofrece oportunidades en el área
-    ${item.area || "profesional"}
-    y cuenta con
-    ${item.vacantes || "vacantes por confirmar"}
-    vacante${String(item.vacantes) === "1" ? "" : "s"}
-    registradas en el directorio.
-
-  `;
+  return `Institución ubicada en ${
+    item.provincia_ciudad || item.departamento
+  }. Ofrece oportunidades en el área ${
+    item.area || "profesional"
+  } y cuenta con ${
+    item.vacantes || "vacantes por confirmar"
+  } vacante${
+    String(item.vacantes) === "1" ? "" : "s"
+  } registradas en el directorio.`;
 
 }
 
@@ -1603,12 +542,10 @@ function getReview(item){
 
 function render(){
 
-  const rows =
-    filtered();
+  const rows = filtered();
 
 
   $("count").textContent =
-
     `${rows.length} ${
       rows.length === 1
         ? "institución encontrada"
@@ -1618,16 +555,12 @@ function render(){
 
   if(!rows.length){
 
-    $("cards").innerHTML =
-
-      `
-        <div class="empty">
-
-          No encontramos instituciones
-          con esos criterios de búsqueda.
-
-        </div>
-      `;
+    $("cards").innerHTML = `
+      <div class="empty">
+        No encontramos instituciones
+        con esos criterios de búsqueda.
+      </div>
+    `;
 
     return;
 
@@ -1635,289 +568,178 @@ function render(){
 
 
   $("cards").innerHTML =
-
-    rows
-
-    .map(
-
-      (
-        item,
-        index
-      ) => {
+    rows.map((item, index) => {
 
 
-        const areas =
-
-          String(
-            item.area || ""
-          )
-
+      const areas =
+        String(item.area || "")
           .split("/")
-
-          .map(
-            area =>
-              area.trim()
-          )
-
+          .map(area => area.trim())
           .filter(Boolean);
 
 
-        let logoHTML =
-          escapeHTML(
-            initials(
-              item.institucion
-            )
-          );
-
-
-        if(
-
-          item.logo &&
-
-          String(
-            item.logo
-          ).trim() !== ""
-
-        ){
-
-          logoHTML =
-
-            `
-              <img
-                src="${escapeHTML(item.logo)}"
-                alt="${escapeHTML(item.institucion)}"
-              >
-            `;
-
-        }
-
-
-        const review =
-          getReview(
-            item
-          );
-
-
-        return `
-
-          <article class="card">
-
-
-            <div class="top">
-
-
-              <div class="logo">
-
-                ${logoHTML}
-
-              </div>
-
-
-              <div>
-
-                <h3>
-
-                  ${escapeHTML(
-                    item.institucion
-                  )}
-
-                </h3>
-
-              </div>
-
-
-            </div>
-
-
-            <div class="tags">
-
-              ${areas
-
-                .map(
-
-                  area =>
-
-                    `
-                      <span class="tag">
-
-                        ${escapeHTML(area)}
-
-                      </span>
-                    `
-
-                )
-
-                .join("")}
-
-            </div>
-
-
-            <div class="info">
-
-
-              <div>
-
-                <strong>
-                  📍 Ubicación:
-                </strong>
-
-                ${escapeHTML(
-                  item.provincia_ciudad ||
-                  "No especificada"
-                )},
-
-                ${escapeHTML(
-                  item.departamento ||
-                  ""
-                )}
-
-              </div>
-
-
-              <div>
-
-                <strong>
-                  👥 Vacantes:
-                </strong>
-
-                ${escapeHTML(
-                  item.vacantes ||
-                  "No especificado"
-                )}
-
-              </div>
-
-
-              <div>
-
-                <strong>
-                  🏢 Dirección:
-                </strong>
-
-                ${escapeHTML(
-                  item.direccion ||
-                  "No especificada"
-                )}
-
-              </div>
-
-
-              <div>
-
-                <strong>
-                  🕒 Horario:
-                </strong>
-
-                ${escapeHTML(
-                  item.horario ||
-                  "No especificado"
-                )}
-
-              </div>
-
-
-            </div>
-
-
-            <button
-              class="more-button"
-              data-extra="extra-${index}"
-            >
-
-              Conocer más
-
-            </button>
-
-
-            <div
-              class="extra-info"
-              id="extra-${index}"
-            >
-
-              <div class="review-box">
-
-                <h4>
-                  Sobre la institución
-                </h4>
-
-                <p>
-
-                  ${escapeHTML(
-                    review
-                  )}
-
-                </p>
-
-              </div>
-
-            </div>
-
-
-          </article>
-
+      let logoHTML =
+        escapeHTML(
+          initials(item.institucion)
+        );
+
+
+      if(
+        item.logo &&
+        String(item.logo).trim() !== ""
+      ){
+
+        logoHTML = `
+          <img
+            src="${escapeHTML(item.logo)}"
+            alt="${escapeHTML(item.institucion)}"
+          >
         `;
 
       }
 
-    )
 
-    .join("");
+      const review = getReview(item);
+
+
+      return `
+
+        <article class="card">
+
+          <div class="top">
+
+            <div class="logo">
+              ${logoHTML}
+            </div>
+
+            <div>
+              <h3>
+                ${escapeHTML(item.institucion)}
+              </h3>
+            </div>
+
+          </div>
+
+
+          <div class="tags">
+
+            ${areas.map(area => `
+
+              <span class="tag">
+                ${escapeHTML(area)}
+              </span>
+
+            `).join("")}
+
+          </div>
+
+
+          <div class="info">
+
+            <div>
+              <strong>📍 Ubicación:</strong>
+              ${escapeHTML(
+                item.provincia_ciudad ||
+                "No especificada"
+              )},
+              ${escapeHTML(
+                item.departamento || ""
+              )}
+            </div>
+
+
+            <div>
+              <strong>👥 Vacantes:</strong>
+              ${escapeHTML(
+                item.vacantes ||
+                "No especificado"
+              )}
+            </div>
+
+
+            <div>
+              <strong>🏢 Dirección:</strong>
+              ${escapeHTML(
+                item.direccion ||
+                "No especificada"
+              )}
+            </div>
+
+
+            <div>
+              <strong>🕒 Horario:</strong>
+              ${escapeHTML(
+                item.horario ||
+                "No especificado"
+              )}
+            </div>
+
+          </div>
+
+
+          <button
+            class="more-button"
+            data-extra="extra-${index}"
+          >
+            Conocer más
+          </button>
+
+
+          <div
+            class="extra-info"
+            id="extra-${index}"
+          >
+
+            <div class="review-box">
+
+              <h4>
+                Sobre la institución
+              </h4>
+
+              <p>
+                ${escapeHTML(review)}
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
 
 
   document
-
-  .querySelectorAll(
-    ".more-button"
-  )
-
-  .forEach(
-
-    button => {
+    .querySelectorAll(".more-button")
+    .forEach(button => {
 
       button.addEventListener(
-
         "click",
-
         () => {
 
           const extra =
-
             document.getElementById(
               button.dataset.extra
             );
 
-
           const isOpen =
-
-            extra.classList.contains(
-              "open"
-            );
+            extra.classList.contains("open");
 
 
-          extra.classList.toggle(
-            "open"
-          );
+          extra.classList.toggle("open");
 
 
           button.textContent =
-
             isOpen
-
-              ?
-
-              "Conocer más"
-
-              :
-
-              "Ocultar información";
+              ? "Conocer más"
+              : "Ocultar información";
 
         }
-
       );
 
-    }
-
-  );
+    });
 
 }
 
@@ -1927,48 +749,34 @@ function render(){
 ===================================================== */
 
 $("q").addEventListener(
-
   "input",
-
   render
-
 );
 
 
 $("d").addEventListener(
-
   "change",
-
   render
-
 );
 
 
 $("a").addEventListener(
-
   "change",
-
   render
-
 );
 
 
 $("clear").addEventListener(
-
   "click",
-
   () => {
 
     $("q").value = "";
-
     $("d").value = "";
-
     $("a").value = "";
 
     render();
 
   }
-
 );
 
 
@@ -1976,11 +784,13 @@ $("clear").addEventListener(
    INICIAR
 ===================================================== */
 
+/* Primero mostramos inmediatamente las 18 instituciones */
+
+populateFilters();
+render();
+
+/* Luego intentamos actualizar desde el CSV */
+
 loadCSV();
 
-
 </script>
-
-</body>
-
-</html>
