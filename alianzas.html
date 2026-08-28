@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,7 +14,6 @@
 :root{
   --purple-dark:#5d4b7a;
   --purple:#78638f;
-  --purple-medium:#947eae;
   --purple-soft:#eee9f4;
   --purple-light:#f6f2fa;
   --purple-border:#ddd3e8;
@@ -25,16 +25,15 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:linear-gradient(180deg,#f8f6fa,#f1edf5);
 }
+
+
+/* ENCABEZADO */
 
 header{
   background:#fff;
@@ -81,7 +80,6 @@ header{
 .header-actions{
   display:flex;
   gap:10px;
-  align-items:center;
 }
 
 .back-home,
@@ -90,16 +88,11 @@ header{
   font-weight:bold;
   padding:13px 18px;
   border-radius:12px;
-  transition:.2s ease;
 }
 
 .back-home{
   background:var(--purple-dark);
   color:#fff;
-}
-
-.back-home:hover{
-  background:var(--purple);
 }
 
 .map-button-top{
@@ -108,9 +101,8 @@ header{
   border:1px solid var(--purple-border);
 }
 
-.map-button-top:hover{
-  background:#e7dff0;
-}
+
+/* HERO */
 
 .hero{
   text-align:center;
@@ -136,6 +128,9 @@ header{
   font-size:17px;
 }
 
+
+/* MAPA */
+
 .map-access{
   max-width:850px;
   margin:28px auto 0;
@@ -148,35 +143,38 @@ header{
   justify-content:space-between;
   gap:20px;
   text-align:left;
-  box-shadow:0 10px 30px rgba(93,75,122,.07);
 }
 
 .map-access h3{
   margin:0;
   color:var(--purple-dark);
-  font-size:18px;
 }
 
 .map-access p{
   margin:7px 0 0;
   color:var(--text-soft);
-  line-height:1.45;
 }
 
 .map-button{
-  flex-shrink:0;
   background:var(--purple-dark);
   color:#fff;
   text-decoration:none;
   padding:13px 18px;
   border-radius:12px;
   font-weight:bold;
+  white-space:nowrap;
 }
+
+
+/* CONTENIDO */
 
 .wrap{
   width:min(1200px,94%);
   margin:0 auto 45px;
 }
+
+
+/* FILTROS */
 
 .filters{
   display:grid;
@@ -208,6 +206,9 @@ header{
   cursor:pointer;
 }
 
+
+/* RESUMEN */
+
 .summary{
   display:flex;
   justify-content:space-between;
@@ -220,6 +221,9 @@ header{
   color:var(--purple-dark);
   font-weight:bold;
 }
+
+
+/* TARJETAS */
 
 #cards{
   display:grid;
@@ -254,8 +258,8 @@ header{
   overflow:hidden;
   flex-shrink:0;
   color:var(--purple-dark);
-  font-weight:800;
-  font-size:18px;
+  font-weight:bold;
+  font-size:17px;
 }
 
 .logo img{
@@ -267,8 +271,8 @@ header{
 
 .card h3{
   margin:0;
-  font-size:17px;
-  line-height:1.35;
+  font-size:16px;
+  line-height:1.4;
 }
 
 .tags{
@@ -303,8 +307,8 @@ header{
   width:100%;
   margin-top:18px;
   border:0;
-  background:var(--purple-soft);
-  color:var(--purple-dark);
+  background:var(--purple-dark);
+  color:#fff;
   font-weight:bold;
   padding:12px;
   border-radius:12px;
@@ -340,6 +344,18 @@ header{
   font-size:14px;
 }
 
+.empty{
+  grid-column:1/-1;
+  background:#fff;
+  border:1px solid var(--purple-border);
+  border-radius:18px;
+  padding:30px;
+  text-align:center;
+}
+
+
+/* PRÓXIMAMENTE */
+
 .future-section{
   margin-top:35px;
   background:#fff;
@@ -359,7 +375,6 @@ header{
   color:var(--text-soft);
   max-width:700px;
   margin:10px auto 18px;
-  line-height:1.5;
 }
 
 .future-regions{
@@ -378,15 +393,8 @@ header{
   font-weight:bold;
 }
 
-.empty{
-  grid-column:1/-1;
-  background:#fff;
-  border:1px solid var(--purple-border);
-  border-radius:18px;
-  padding:30px;
-  text-align:center;
-  color:var(--text-soft);
-}
+
+/* FOOTER */
 
 footer{
   padding:25px 20px;
@@ -395,6 +403,9 @@ footer{
   border-top:1px solid var(--purple-border);
   background:#fff;
 }
+
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -427,7 +438,6 @@ footer{
   .back-home,
   .map-button-top{
     text-align:center;
-    width:100%;
   }
 
   .hero h2{
@@ -474,19 +484,13 @@ footer{
 
     <div class="brand-wrap">
 
-      <div class="mark">
-        🤝
-      </div>
+      <div class="mark">🤝</div>
 
       <div class="brand">
 
-        <h1>
-          Alianzas Estratégicas
-        </h1>
+        <h1>Alianzas Estratégicas</h1>
 
-        <p>
-          Modalidad a distancia · Psicología
-        </p>
+        <p>Modalidad a distancia · Psicología</p>
 
       </div>
 
@@ -495,17 +499,11 @@ footer{
 
     <div class="header-actions">
 
-      <a
-        href="mapa.html"
-        class="map-button-top"
-      >
+      <a href="mapa.html" class="map-button-top">
         🗺️ Ver mapa
       </a>
 
-      <a
-        href="index.html"
-        class="back-home"
-      >
+      <a href="index.html" class="back-home">
         ← Regresar al inicio
       </a>
 
@@ -520,9 +518,7 @@ footer{
 
   <div class="hero-content">
 
-    <h2>
-      Nuestras Alianzas Estratégicas
-    </h2>
+    <h2>Nuestras Alianzas Estratégicas</h2>
 
     <p>
       Conoce las instituciones aliadas y consulta de manera rápida
@@ -534,9 +530,7 @@ footer{
 
       <div>
 
-        <h3>
-          🗺️ Explora nuestras alianzas en el mapa
-        </h3>
+        <h3>🗺️ Explora nuestras alianzas en el mapa</h3>
 
         <p>
           Consulta la distribución geográfica de las instituciones
@@ -545,10 +539,7 @@ footer{
 
       </div>
 
-      <a
-        href="mapa.html"
-        class="map-button"
-      >
+      <a href="mapa.html" class="map-button">
         Ver mapa de alianzas →
       </a>
 
@@ -571,19 +562,11 @@ footer{
   >
 
   <select id="d">
-
-    <option value="">
-      Todos los departamentos
-    </option>
-
+    <option value="">Todos los departamentos</option>
   </select>
 
   <select id="a">
-
-    <option value="">
-      Todas las áreas
-    </option>
-
+    <option value="">Todas las áreas</option>
   </select>
 
   <button id="clear">
@@ -596,7 +579,7 @@ footer{
 <section class="summary">
 
   <span id="count">
-    0 instituciones encontradas
+    Cargando instituciones...
   </span>
 
   <span>
@@ -611,9 +594,7 @@ footer{
 
 <section class="future-section">
 
-  <h3>
-    Próximamente
-  </h3>
+  <h3>Próximamente</h3>
 
   <p>
     Continuamos ampliando nuestra red de alianzas institucionales
@@ -645,10 +626,211 @@ footer{
 
 <script>
 
-let data = [];
 
-const $ = id =>
-  document.getElementById(id);
+/* =====================================================
+   DATOS DE RESPALDO
+   SI EL CSV FALLA, ESTAS 17 INSTITUCIONES IGUAL APARECEN
+===================================================== */
+
+const fallbackData = [
+
+{
+institucion:"Asociación Educativa Harvard S.R.L.",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Educativa",
+vacantes:"2",
+direccion:"Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo.",
+horario:"Lunes a viernes, 7:45 a. m. – 2:30 p. m.",
+logo:""
+},
+
+{
+institucion:"NeuroPsico – Psicología Clínica Integral",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica",
+vacantes:"1",
+direccion:"Jr. Clorinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco.",
+horario:"Lunes a viernes, 2:00 p. m. – 8:00 p. m.; sábado 9:00 a. m. – 1:00 p. m.",
+logo:""
+},
+
+{
+institucion:"Centro Psicológico CRECETU S.A.C.",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Organizacional",
+vacantes:"5",
+direccion:"Sedes en Callao, Rímac y Pueblo Libre.",
+horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.",
+logo:""
+},
+
+{
+institucion:"CEBE Manuel Duato",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Educativa",
+vacantes:"3",
+direccion:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
+horario:"Lunes a viernes: turnos mañana y tarde.",
+logo:""
+},
+
+{
+institucion:"Centro Psicológico Vida y Ser",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Educativa / Comunitaria",
+vacantes:"1",
+direccion:"Av. Guillermo Billingurth 1141, San Juan de Miraflores, Lima.",
+horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.",
+logo:""
+},
+
+{
+institucion:"AKUNA – Centro de Desarrollo Psicológico",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica",
+vacantes:"4",
+direccion:"Urbanización La Melgariana E-16, José Luis Bustamante y Rivero.",
+horario:"Lunes a viernes, 9:00 a. m. – 1:00 p. m. y 4:00 p. m. – 8:00 p. m.",
+logo:""
+},
+
+{
+institucion:"Centro Psicológico Psicokhuyay",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica / Educativa / Organizacional",
+vacantes:"1",
+direccion:"Av. Los Incas 810, Edificio San Antonio, Wanchaq.",
+horario:"Lunes a sábado, 3:00 p. m. – 8:00 p. m.",
+logo:""
+},
+
+{
+institucion:"Escuela de Educación Superior Pedagógica Pública Santa Rosa",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Educativa",
+vacantes:"1",
+direccion:"Calle Carmen Kyjllo 265, Cusco.",
+horario:"Cantidad/horario por confirmar.",
+logo:""
+},
+
+{
+institucion:"CEPAB – Centro de Aprendizaje y Bienestar",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Organizacional",
+vacantes:"4",
+direccion:"Calle Los Halcones 287, Surquillo.",
+horario:"Lunes a viernes, 2:00 p. m. – 7:00 p. m.; sábado 8:00 a. m. – 1:00 p. m.",
+logo:""
+},
+
+{
+institucion:"POWER YOU – Consultora de Recursos Humanos",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Organizacional",
+vacantes:"2",
+direccion:"Av. Flor de Mayo Mza. G Lote 11, Urb. Primero de Mayo, Huancayo.",
+horario:"Lunes a sábado, horario indistinto.",
+logo:""
+},
+
+{
+institucion:"SENSES Psicólogos",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica / Educativa / Social - Comunitaria",
+vacantes:"10",
+direccion:"Calle Yapurá 212, Zamácola, Cerro Colorado.",
+horario:"Lunes a viernes, 8:00 a. m. – 2:00 p. m.; sábado 8:00 a. m. – 1:00 p. m.",
+logo:""
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Arequipa",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica",
+vacantes:"1",
+direccion:"Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero.",
+horario:"Lunes a sábado: mañana y tarde.",
+logo:""
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Lima",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica",
+vacantes:"3",
+direccion:"Av. Alfredo Mendiola 5988, Los Olivos.",
+horario:"Lunes a sábado: mañana y tarde.",
+logo:""
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Cusco",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica",
+vacantes:"2",
+direccion:"Av. La Cultura 604, Cusco.",
+horario:"Lunes a sábado: mañana y tarde.",
+logo:""
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Huancayo",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Clínica",
+vacantes:"2",
+direccion:"Av. San Carlos 1980, Urb. San Antonio.",
+horario:"Lunes a sábado: mañana y tarde.",
+logo:""
+},
+
+{
+institucion:"Centro Psicológico Comunitario de la UC",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Clínica / Educativa / Organizacional",
+vacantes:"6",
+direccion:"Jirón Dos de Mayo 570, El Tambo.",
+horario:"Lunes a viernes y sábado.",
+logo:""
+},
+
+{
+institucion:"I.E. Sagrado Corazón de Jesús – Espinar",
+departamento:"Cusco",
+provincia_ciudad:"Espinar",
+area:"Educativa",
+vacantes:"3",
+direccion:"Espinar, Cusco.",
+horario:"Lunes a viernes, 8:00 a. m. – 2:00 p. m.",
+logo:""
+}
+
+];
+
+
+/* =====================================================
+   DATOS ACTIVOS
+===================================================== */
+
+let data = [...fallbackData];
+
+const $ = id => document.getElementById(id);
 
 
 /* =====================================================
@@ -657,76 +839,53 @@ const $ = id =>
 
 const logos = {
 
-  "Asociación Educativa Harvard S.R.L.":
-  "https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
+"Asociación Educativa Harvard S.R.L.":
+"https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
 
-  "Centro Psicológico CRECETU S.A.C.":
-  "https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
+"Centro Psicológico CRECETU S.A.C.":
+"https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
 
-  "Centro Psicológico Vida y Ser":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TzRD2Sw6ySoQ7kNvwFeP_FS",
+"SENSES Psicólogos":
+"https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png",
 
-  "NeuroPsico – Psicología Clínica Integral":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg",
+"Escuela de Educación Superior Pedagógica Pública Santa Rosa":
+"https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
 
-  "CEBE Manuel Duato":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg",
-
-  "Centro Psicológico Psicokhuyay":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg",
-
-  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
-  "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
-
-  "CEPAB – Centro de Aprendizaje y Bienestar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg",
-
-  "AKUNA – Centro de Desarrollo Psicológico":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg",
-
-  "POWER YOU":
-  "https://www.poweryou.pe/img/Poweryou-consultora.png"
+"POWER YOU – Consultora de Recursos Humanos":
+"https://www.poweryou.pe/img/Poweryou-consultora.png"
 
 };
 
 
 /* =====================================================
-   INFORMACIÓN ADICIONAL
+   NORMALIZAR NOMBRES
 ===================================================== */
 
-const reviews = {
+function normalizeName(name){
 
-  "Asociación Educativa Harvard S.R.L.":
-  "Institución educativa ubicada en Huancayo que brinda un espacio de experiencia formativa en el ámbito educativo.",
+  return String(name || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[–—-]/g," ")
+    .replace(/[.,]/g,"")
+    .replace(/\s+/g," ")
+    .trim();
 
-  "NeuroPsico – Psicología Clínica Integral":
-  "Centro orientado a la atención psicológica clínica e integral, vinculado con experiencias de evaluación, orientación y atención psicológica.",
+}
 
-  "Centro Psicológico CRECETU S.A.C.":
-  "Centro psicológico con oportunidades relacionadas con las áreas clínica y organizacional y presencia en distintas zonas de Lima.",
 
-  "CEBE Manuel Duato":
-  "Institución educativa especializada que permite desarrollar experiencias vinculadas con el ámbito educativo.",
+function getLogo(name){
 
-  "Centro Psicológico Vida y Ser":
-  "Centro orientado al trabajo psicológico en diferentes contextos y áreas de intervención.",
+  const normalized = normalizeName(name);
 
-  "AKUNA – Centro de Desarrollo Psicológico":
-  "Institución orientada al desarrollo y bienestar psicológico mediante experiencias relacionadas con el área clínica.",
+  const found = Object.keys(logos).find(
+    key => normalizeName(key) === normalized
+  );
 
-  "Centro Psicológico Psicokhuyay":
-  "Centro psicológico con oportunidades de aprendizaje vinculadas a las áreas clínica, educativa y organizacional.",
+  return found ? logos[found] : "";
 
-  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
-  "Institución de educación superior pedagógica que brinda oportunidades de experiencia en el ámbito educativo.",
-
-  "CEPAB – Centro de Aprendizaje y Bienestar":
-  "Centro orientado al aprendizaje y bienestar, con experiencias relacionadas con el área clínica y organizacional.",
-
-  "POWER YOU":
-  "Institución orientada al desarrollo de personas y organizaciones mediante experiencias vinculadas al ámbito profesional."
-
-};
+}
 
 
 /* =====================================================
@@ -771,7 +930,6 @@ function parseCSVLine(line){
   const result = [];
 
   let current = "";
-
   let insideQuotes = false;
 
   for(let i = 0; i < line.length; i++){
@@ -837,138 +995,189 @@ async function loadCSV(){
     );
 
     if(!response.ok){
-
-      throw new Error(
-        "No se pudo cargar alianzas.csv"
-      );
-
+      throw new Error("No se pudo cargar alianzas.csv");
     }
 
     const text = await response.text();
 
-    const lines =
-      text
+    const lines = text
       .replace(/^\uFEFF/,"")
       .split(/\r?\n/)
       .filter(line => line.trim() !== "");
 
-    const headers =
-      parseCSVLine(lines[0])
-      .map(header =>
-        header
-        .trim()
-        .replace(/^"|"$/g,"")
-      );
+    if(lines.length < 2){
+      throw new Error("CSV vacío");
+    }
 
-    data =
-      lines
+    const headers = parseCSVLine(lines[0])
+      .map(header => header.trim());
+
+    const csvData = lines
       .slice(1)
       .map(line => {
 
-        const values =
-          parseCSVLine(line);
-
+        const values = parseCSVLine(line);
         const item = {};
 
-        headers.forEach(
-          (header,index) => {
-
-            item[header] =
-              values[index] || "";
-
-          }
-        );
+        headers.forEach((header,index) => {
+          item[header] = (values[index] || "").trim();
+        });
 
         return item;
 
       })
-      .filter(item => item.institucion)
-      .filter(item =>
-        item.institucion
-        .trim()
-        .toLowerCase() !== "aesi"
+      .filter(item => item.institucion);
+
+    if(csvData.length > 0){
+
+      data = csvData;
+
+      console.log(
+        "CSV cargado correctamente:",
+        data.length,
+        "instituciones"
       );
 
-    fillFilters();
-
-    render();
+    }
 
   }
 
   catch(error){
 
-    console.error(error);
-
-    $("cards").innerHTML = `
-      <div class="empty">
-        No se pudo cargar la información de las instituciones.
-      </div>
-    `;
+    console.warn(
+      "No se pudo cargar el CSV. Se usan los datos de respaldo.",
+      error
+    );
 
   }
+
+  populateFilters();
+  render();
 
 }
 
 
 /* =====================================================
-   LLENAR FILTROS
+   FILTROS
 ===================================================== */
 
-function fillFilters(){
+function populateFilters(){
 
-  const departments =
-    [...new Set(
+  const departments = [
+    ...new Set(
       data
-      .map(item => item.departamento)
-      .filter(Boolean)
-    )]
-    .sort();
-
-  const areas =
-    [...new Set(
-      data
-      .flatMap(item =>
-        String(item.area || "")
-        .split("/")
-        .map(area => area.trim())
+        .map(item => item.departamento)
         .filter(Boolean)
+    )
+  ].sort(
+    (a,b) => a.localeCompare(b,"es")
+  );
+
+  const areas = [
+    ...new Set(
+      data.flatMap(
+        item =>
+          String(item.area || "")
+            .split("/")
+            .map(area => area.trim())
+            .filter(Boolean)
       )
-    )]
-    .sort();
+    )
+  ].sort(
+    (a,b) => a.localeCompare(b,"es")
+  );
 
 
-  $("d").innerHTML = `
-    <option value="">
-      Todos los departamentos
-    </option>
-  `;
+  $("d").innerHTML =
+    `<option value="">Todos los departamentos</option>` +
+    departments.map(
+      department =>
+        `<option value="${escapeHTML(department)}">
+          ${escapeHTML(department)}
+        </option>`
+    ).join("");
 
-  departments.forEach(department => {
 
-    $("d").innerHTML += `
-      <option value="${escapeHTML(department)}">
-        ${escapeHTML(department)}
-      </option>
-    `;
+  $("a").innerHTML =
+    `<option value="">Todas las áreas</option>` +
+    areas.map(
+      area =>
+        `<option value="${escapeHTML(area)}">
+          ${escapeHTML(area)}
+        </option>`
+    ).join("");
+
+}
+
+
+/* =====================================================
+   FILTRAR
+===================================================== */
+
+function filtered(){
+
+  const query =
+    $("q").value
+      .trim()
+      .toLowerCase();
+
+  const department =
+    $("d").value;
+
+  const area =
+    $("a").value;
+
+
+  return data.filter(item => {
+
+    const searchable =
+      Object.values(item)
+        .join(" ")
+        .toLowerCase();
+
+    const matchesQuery =
+      !query ||
+      searchable.includes(query);
+
+    const matchesDepartment =
+      !department ||
+      item.departamento === department;
+
+    const itemAreas =
+      String(item.area || "")
+        .split("/")
+        .map(value => value.trim());
+
+    const matchesArea =
+      !area ||
+      itemAreas.includes(area);
+
+    return (
+      matchesQuery &&
+      matchesDepartment &&
+      matchesArea
+    );
 
   });
 
+}
 
-  $("a").innerHTML = `
-    <option value="">
-      Todas las áreas
-    </option>
-  `;
 
-  areas.forEach(area => {
+/* =====================================================
+   RESEÑA
+===================================================== */
 
-    $("a").innerHTML += `
-      <option value="${escapeHTML(area)}">
-        ${escapeHTML(area)}
-      </option>
-    `;
+function getReview(item){
 
-  });
+  return `Institución ubicada en ${
+    item.provincia_ciudad || item.departamento
+  }. Ofrece oportunidades vinculadas al área ${
+    item.area || "profesional"
+  } y cuenta con ${
+    item.vacantes || "vacantes por confirmar"
+  } vacante${
+    String(item.vacantes) === "1" ? "" : "s"
+  } registradas en el directorio.`;
 
 }
 
@@ -979,71 +1188,22 @@ function fillFilters(){
 
 function render(){
 
-  const query =
-    $("q").value
-    .trim()
-    .toLowerCase();
-
-  const department =
-    $("d").value;
-
-  const area =
-    $("a").value;
-
-
-  const rows =
-
-    data.filter(item => {
-
-      const searchable =
-
-        [
-          item.institucion,
-          item.departamento,
-          item.provincia_ciudad,
-          item.area
-        ]
-
-        .join(" ")
-        .toLowerCase();
-
-
-      const matchesQuery =
-        !query ||
-        searchable.includes(query);
-
-
-      const matchesDepartment =
-        !department ||
-        item.departamento === department;
-
-
-      const matchesArea =
-        !area ||
-        String(item.area || "")
-        .split("/")
-        .map(value => value.trim())
-        .includes(area);
-
-
-      return
-        matchesQuery &&
-        matchesDepartment &&
-        matchesArea;
-
-    });
-
+  const rows = filtered();
 
   $("count").textContent =
-
-    `${rows.length} institución${rows.length === 1 ? "" : "es"} encontrada${rows.length === 1 ? "" : "s"}`;
+    `${rows.length} ${
+      rows.length === 1
+        ? "institución encontrada"
+        : "instituciones encontradas"
+    }`;
 
 
   if(!rows.length){
 
     $("cards").innerHTML = `
       <div class="empty">
-        No encontramos instituciones con esos criterios.
+        No encontramos instituciones
+        con esos criterios de búsqueda.
       </div>
     `;
 
@@ -1053,44 +1213,35 @@ function render(){
 
 
   $("cards").innerHTML =
-
-    rows
-    .map((item,index) => {
+    rows.map((item,index) => {
 
       const areas =
-
         String(item.area || "")
-        .split("/")
-        .map(area => area.trim())
-        .filter(Boolean);
+          .split("/")
+          .map(area => area.trim())
+          .filter(Boolean);
 
 
       const logoURL =
-        logos[item.institucion] ||
+        getLogo(item.institucion) ||
         item.logo ||
         "";
 
 
       const logoHTML =
-
         logoURL
-
-        ?
-
-        `<img
-          src="${escapeHTML(logoURL)}"
-          alt="Logo de ${escapeHTML(item.institucion)}"
-          onerror="this.style.display='none';this.parentElement.textContent='${initials(item.institucion)}';"
-        >`
-
-        :
-
-        initials(item.institucion);
+          ? `
+            <img
+              src="${escapeHTML(logoURL)}"
+              alt="${escapeHTML(item.institucion)}"
+              onerror="this.style.display='none';this.parentElement.textContent='${initials(item.institucion)}';"
+            >
+          `
+          : escapeHTML(initials(item.institucion));
 
 
       const review =
-        reviews[item.institucion] ||
-        "Institución aliada disponible para el desarrollo de experiencias formativas y profesionales.";
+        getReview(item);
 
 
       return `
@@ -1100,15 +1251,11 @@ function render(){
           <div class="top">
 
             <div class="logo">
-
               ${logoHTML}
-
             </div>
 
             <h3>
-
               ${escapeHTML(item.institucion)}
-
             </h3>
 
           </div>
@@ -1116,14 +1263,13 @@ function render(){
 
           <div class="tags">
 
-            ${areas
-              .map(area => `
+            ${areas.map(
+              area => `
                 <span class="tag">
                   ${escapeHTML(area)}
                 </span>
-              `)
-              .join("")
-            }
+              `
+            ).join("")}
 
           </div>
 
@@ -1131,47 +1277,24 @@ function render(){
           <div class="info">
 
             <div>
-
-              <strong>
-                📍 Ubicación:
-              </strong>
-
-              ${escapeHTML(item.provincia_ciudad || "")},
-              ${escapeHTML(item.departamento || "")}
-
+              <strong>📍 Ubicación:</strong>
+              ${escapeHTML(item.provincia_ciudad)},
+              ${escapeHTML(item.departamento)}
             </div>
 
-
             <div>
-
-              <strong>
-                👥 Vacantes:
-              </strong>
-
-              ${escapeHTML(item.vacantes || "No especificado")}
-
+              <strong>👥 Vacantes:</strong>
+              ${escapeHTML(item.vacantes)}
             </div>
 
-
             <div>
-
-              <strong>
-                🏢 Dirección:
-              </strong>
-
-              ${escapeHTML(item.direccion || "No especificada")}
-
+              <strong>🏢 Dirección:</strong>
+              ${escapeHTML(item.direccion)}
             </div>
 
-
             <div>
-
-              <strong>
-                🕒 Horario:
-              </strong>
-
-              ${escapeHTML(item.horario || "No especificado")}
-
+              <strong>🕒 Horario:</strong>
+              ${escapeHTML(item.horario)}
             </div>
 
           </div>
@@ -1208,37 +1331,36 @@ function render(){
 
       `;
 
-    })
-    .join("");
+    }).join("");
 
 
   document
-  .querySelectorAll(".more-button")
-  .forEach(button => {
+    .querySelectorAll(".more-button")
+    .forEach(button => {
 
-    button.addEventListener(
-      "click",
-      () => {
+      button.addEventListener(
+        "click",
+        () => {
 
-        const extra =
-          document.getElementById(
-            button.dataset.extra
-          );
+          const extra =
+            document.getElementById(
+              button.dataset.extra
+            );
 
-        const isOpen =
-          extra.classList.contains("open");
+          const isOpen =
+            extra.classList.contains("open");
 
-        extra.classList.toggle("open");
+          extra.classList.toggle("open");
 
-        button.textContent =
-          isOpen
-          ? "Conocer más"
-          : "Ocultar información";
+          button.textContent =
+            isOpen
+              ? "Conocer más"
+              : "Ocultar información";
 
-      }
-    );
+        }
+      );
 
-  });
+    });
 
 }
 
