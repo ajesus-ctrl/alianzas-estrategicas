@@ -1,780 +1,462 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alianzas Institucionales</title>
-
+<title>Alianzas Estratégicas</title>
 
 <style>
 
-/* =====================================================
-   COLORES Y BASE
-===================================================== */
-
 :root{
-  --primary:#66547f;
-  --primary-dark:#514265;
-  --primary-soft:#eeeaf3;
-  --primary-light:#f7f5fa;
-
-  --text:#344054;
-  --text-soft:#667085;
-
-  --border:#ddd7e6;
-  --background:#f7f6f9;
-
-  --white:#ffffff;
+  --purple-dark:#5d4b7a;
+  --purple:#78638f;
+  --purple-medium:#947eae;
+  --purple-soft:#eee9f4;
+  --purple-light:#f6f2fa;
+  --purple-border:#ddd3e8;
+  --text:#3f374b;
+  --text-soft:#6f6879;
 }
 
 *{
   box-sizing:border-box;
 }
 
-body{
-  margin:0;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  color:var(--text);
-
-  background:
-    linear-gradient(
-      180deg,
-      #f8f7fa 0%,
-      #f3f1f6 100%
-    );
+html{
+  scroll-behavior:smooth;
 }
 
-
-/* =====================================================
-   ENCABEZADO
-===================================================== */
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#f8f6fa,#f1edf5);
+}
 
 header{
+  background:#fff;
+  border-bottom:1px solid var(--purple-border);
+}
 
-  width:min(1180px,92%);
-
+.header-inner{
+  width:min(1200px,94%);
+  min-height:88px;
   margin:auto;
-
-  min-height:90px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:20px;
 }
 
+.brand-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.mark{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:var(--purple-soft);
+  display:grid;
+  place-items:center;
+  font-size:27px;
+}
+
 .brand h1{
-
   margin:0;
-
   font-size:24px;
-
-  color:var(--text);
 }
 
 .brand p{
-
   margin:5px 0 0;
-
   color:var(--text-soft);
-
   font-size:14px;
 }
 
-.map-link{
+.header-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
 
-  color:var(--primary);
-
-  font-size:15px;
-
+.back-home,
+.map-button-top{
   text-decoration:none;
-
-  font-weight:600;
+  font-weight:bold;
+  padding:13px 18px;
+  border-radius:12px;
+  transition:.2s ease;
 }
 
-.map-link:hover{
-
-  text-decoration:underline;
+.back-home{
+  background:var(--purple-dark);
+  color:#fff;
 }
 
-
-/* =====================================================
-   CONTENIDO PRINCIPAL
-===================================================== */
-
-main{
-
-  width:min(1040px,92%);
-
-  margin:
-    35px auto
-    70px;
+.back-home:hover{
+  background:var(--purple);
 }
 
+.map-button-top{
+  background:var(--purple-soft);
+  color:var(--purple-dark);
+  border:1px solid var(--purple-border);
+}
 
-/* =====================================================
-   HERO
-===================================================== */
+.map-button-top:hover{
+  background:#e7dff0;
+}
 
 .hero{
-
   text-align:center;
+  padding:42px 20px 30px;
+}
 
-  margin-bottom:30px;
+.hero-content{
+  width:min(1000px,94%);
+  margin:auto;
 }
 
 .hero h2{
-
-  margin:0 0 12px;
-
-  font-size:42px;
-
-  letter-spacing:-1px;
-
-  color:var(--text);
+  margin:0;
+  font-size:38px;
+  color:var(--purple-dark);
 }
 
-.hero p{
-
-  max-width:720px;
-
-  margin:auto;
-
+.hero > .hero-content > p{
+  max-width:760px;
+  margin:12px auto 0;
   color:var(--text-soft);
-
-  line-height:1.65;
-
+  line-height:1.55;
   font-size:17px;
 }
 
+.map-access{
+  max-width:850px;
+  margin:28px auto 0;
+  padding:20px 22px;
+  background:#fff;
+  border:1px solid var(--purple-border);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  text-align:left;
+  box-shadow:0 10px 30px rgba(93,75,122,.07);
+}
 
-/* =====================================================
-   FILTROS
-===================================================== */
+.map-access h3{
+  margin:0;
+  color:var(--purple-dark);
+  font-size:18px;
+}
+
+.map-access p{
+  margin:7px 0 0;
+  color:var(--text-soft);
+  line-height:1.45;
+}
+
+.map-button{
+  flex-shrink:0;
+  background:var(--purple-dark);
+  color:#fff;
+  text-decoration:none;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.wrap{
+  width:min(1200px,94%);
+  margin:0 auto 45px;
+}
 
 .filters{
-
   display:grid;
+  grid-template-columns:2fr 1fr 1fr auto;
+  gap:12px;
+  margin-bottom:20px;
+}
 
-  grid-template-columns:
-    2fr
-    1fr
-    1fr
-    auto;
-
-  gap:10px;
-
-  background:
-    rgba(255,255,255,.88);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:18px;
-
-  padding:16px;
-
-  box-shadow:
-    0 10px 28px
-    rgba(72,58,92,.08);
+.filters input,
+.filters select,
+.filters button{
+  min-height:48px;
+  border-radius:12px;
+  border:1px solid var(--purple-border);
+  padding:0 14px;
+  font:inherit;
 }
 
 .filters input,
 .filters select{
-
-  width:100%;
-
-  min-height:44px;
-
-  padding:
-    0 14px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:10px;
-
   background:#fff;
-
   color:var(--text);
-
-  font-size:14px;
-
-  outline:none;
 }
-
-.filters input:focus,
-.filters select:focus{
-
-  border-color:
-    var(--primary);
-}
-
 
 .filters button{
-
-  border:none;
-
-  background:
-    var(--primary-soft);
-
-  color:
-    var(--primary-dark);
-
-  padding:
-    0 20px;
-
-  border-radius:10px;
-
-  font-weight:700;
-
+  background:var(--purple-dark);
+  color:#fff;
+  font-weight:bold;
   cursor:pointer;
-
-  transition:.2s ease;
 }
 
-.filters button:hover{
-
-  background:
-    #e3ddea;
-}
-
-
-/* =====================================================
-   ENCABEZADO DE RESULTADOS
-===================================================== */
-
-.results-header{
-
+.summary{
   display:flex;
-
   justify-content:space-between;
-
-  align-items:center;
-
-  gap:20px;
-
-  margin:
-    22px 0
-    14px;
-
-  font-size:14px;
+  gap:15px;
+  margin:18px 0;
+  color:var(--text-soft);
 }
 
 #count{
-
-  font-weight:700;
-
-  color:var(--text);
+  color:var(--purple-dark);
+  font-weight:bold;
 }
 
-.coming-soon{
-
-  color:var(--text-soft);
-
-  text-align:right;
-
-  font-size:13px;
-}
-
-
-/* =====================================================
-   TARJETAS
-===================================================== */
-
-.cards{
-
+#cards{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0,1fr)
-    );
-
+  grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
 .card{
-
-  background:
-    rgba(255,255,255,.94);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:18px;
-
-  padding:18px;
-
+  background:#fff;
+  border:1px solid var(--purple-border);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 12px 28px rgba(93,75,122,.07);
   display:flex;
-
   flex-direction:column;
-
-  box-shadow:
-    0 8px 24px
-    rgba(72,58,92,.06);
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
 }
-
-.card:hover{
-
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 14px 30px
-    rgba(72,58,92,.10);
-}
-
-
-/* =====================================================
-   PARTE SUPERIOR DE LA TARJETA
-===================================================== */
 
 .top{
-
   display:flex;
-
   align-items:center;
-
   gap:13px;
 }
 
 .logo{
-
-  width:58px;
-
-  height:58px;
-
-  flex:0 0 58px;
-
-  border-radius:14px;
-
-  background:
-    var(--primary-soft);
-
+  width:62px;
+  height:62px;
+  border-radius:16px;
+  background:var(--purple-light);
+  border:1px solid var(--purple-border);
   display:grid;
-
   place-items:center;
-
   overflow:hidden;
-
-  color:
-    var(--primary-dark);
-
-  font-weight:700;
-
-  font-size:17px;
-
-  border:
-    1px solid #e2dce9;
+  flex-shrink:0;
+  color:var(--purple-dark);
+  font-weight:800;
+  font-size:18px;
 }
 
 .logo img{
-
   width:100%;
-
   height:100%;
-
   object-fit:contain;
-
-  background:white;
-
-  padding:5px;
+  padding:4px;
 }
 
 .card h3{
-
   margin:0;
-
-  font-size:15px;
-
-  line-height:1.4;
-
-  color:var(--text);
+  font-size:17px;
+  line-height:1.35;
 }
 
-
-/* =====================================================
-   ETIQUETAS
-===================================================== */
-
 .tags{
-
-  margin:
-    15px 0
-    10px;
-
   display:flex;
-
   flex-wrap:wrap;
-
-  gap:5px;
+  gap:6px;
+  margin:16px 0;
 }
 
 .tag{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  padding:
-    5px 9px;
-
-  background:
-    var(--primary-light);
-
-  border:
-    1px solid #e5e0eb;
-
+  background:var(--purple-light);
+  color:var(--purple);
+  border:1px solid #e8e0ef;
+  padding:6px 9px;
   border-radius:999px;
-
-  color:
-    var(--primary-dark);
-
-  font-size:11px;
+  font-size:12px;
 }
-
-
-/* =====================================================
-   INFORMACIÓN
-===================================================== */
 
 .info{
-
-  color:
-    var(--text-soft);
-
-  font-size:12px;
-
+  color:var(--text-soft);
+  font-size:14px;
   line-height:1.55;
-}
-
-.info div{
-
-  margin-bottom:7px;
+  display:grid;
+  gap:9px;
 }
 
 .info strong{
-
-  color:
-    var(--text);
+  color:var(--text);
 }
-
-
-/* =====================================================
-   BOTÓN
-===================================================== */
 
 .more-button{
-
   width:100%;
-
-  border:none;
-
-  background:
-    var(--primary);
-
-  color:white;
-
-  padding:11px;
-
-  border-radius:9px;
-
-  margin-top:auto;
-
-  cursor:pointer;
-
+  margin-top:18px;
+  border:0;
+  background:var(--purple-soft);
+  color:var(--purple-dark);
   font-weight:bold;
-
-  transition:.2s ease;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
 }
-
-.more-button:hover{
-
-  background:
-    var(--primary-dark);
-}
-
-
-/* =====================================================
-   INFORMACIÓN DESPLEGABLE
-===================================================== */
 
 .extra-info{
-
   display:none;
-
-  margin-top:14px;
+  margin-top:15px;
+  border-top:1px solid var(--purple-border);
+  padding-top:15px;
 }
 
 .extra-info.open{
-
   display:block;
 }
 
-.institution-photo{
-
-  width:100%;
-
-  height:150px;
-
-  object-fit:cover;
-
-  border-radius:10px;
-
-  margin-bottom:12px;
-
-  border:
-    1px solid var(--border);
-}
-
 .review-box{
-
-  background:
-    var(--primary-light);
-
-  border-radius:10px;
-
+  background:var(--purple-light);
+  border-radius:14px;
   padding:14px;
-
-  border:
-    1px solid #e8e3ee;
 }
 
 .review-box h4{
-
-  margin:
-    0 0 7px;
-
-  color:
-    var(--primary-dark);
-
-  font-size:14px;
+  margin:0 0 7px;
+  color:var(--purple-dark);
 }
 
 .review-box p{
-
   margin:0;
-
-  color:
-    var(--text-soft);
-
-  font-size:13px;
-
-  line-height:1.6;
+  color:var(--text-soft);
+  line-height:1.5;
+  font-size:14px;
 }
-
-
-/* =====================================================
-   SIN RESULTADOS
-===================================================== */
-
-.empty{
-
-  grid-column:
-    1 / -1;
-
-  background:white;
-
-  padding:35px;
-
-  text-align:center;
-
-  border-radius:15px;
-
-  color:
-    var(--text-soft);
-
-  border:
-    1px solid var(--border);
-}
-
-
-/* =====================================================
-   PRÓXIMAMENTE
-===================================================== */
 
 .future-section{
-
-  margin-top:40px;
-
-  background:
-    rgba(255,255,255,.70);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:18px;
-
-  padding:24px;
+  margin-top:35px;
+  background:#fff;
+  border:1px solid var(--purple-border);
+  border-radius:22px;
+  padding:25px;
+  text-align:center;
 }
 
 .future-section h3{
-
-  margin:
-    0 0 8px;
-
-  color:
-    var(--text);
+  margin:0;
+  color:var(--purple-dark);
+  font-size:23px;
 }
 
 .future-section p{
-
-  margin:
-    0 0 18px;
-
-  color:
-    var(--text-soft);
-
-  line-height:1.6;
+  color:var(--text-soft);
+  max-width:700px;
+  margin:10px auto 18px;
+  line-height:1.5;
 }
 
 .future-regions{
-
   display:flex;
-
-  gap:10px;
-
+  justify-content:center;
+  gap:12px;
   flex-wrap:wrap;
 }
 
 .future-region{
-
-  background:white;
-
-  border:
-    1px solid var(--border);
-
-  padding:
-    11px 15px;
-
-  border-radius:10px;
-
-  color:
-    var(--primary-dark);
-
-  font-size:14px;
-
-  font-weight:600;
+  padding:11px 16px;
+  background:var(--purple-light);
+  border:1px dashed #c8b9da;
+  border-radius:12px;
+  color:var(--purple-dark);
+  font-weight:bold;
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
+.empty{
+  grid-column:1/-1;
+  background:#fff;
+  border:1px solid var(--purple-border);
+  border-radius:18px;
+  padding:30px;
+  text-align:center;
+  color:var(--text-soft);
+}
 
 footer{
-
+  padding:25px 20px;
   text-align:center;
-
-  padding:30px 20px;
-
-  color:
-    var(--text-soft);
-
-  font-size:13px;
-
-  border-top:
-    1px solid var(--border);
+  color:var(--text-soft);
+  border-top:1px solid var(--purple-border);
+  background:#fff;
 }
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
 
 @media(max-width:900px){
 
-  .filters{
+  #cards{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    grid-template-columns:
-      1fr 1fr;
+  .filters{
+    grid-template-columns:1fr 1fr;
   }
 
   .filters input{
-
-    grid-column:
-      1 / -1;
-  }
-
-  .cards{
-
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-column:1/-1;
   }
 
 }
 
-
 @media(max-width:600px){
 
-  header{
-
+  .header-inner{
+    padding:16px 0;
     flex-direction:column;
+    align-items:stretch;
+  }
 
-    align-items:flex-start;
+  .header-actions{
+    flex-direction:column;
+  }
 
-    padding:
-      20px 0;
+  .back-home,
+  .map-button-top{
+    text-align:center;
+    width:100%;
   }
 
   .hero h2{
+    font-size:30px;
+  }
 
-    font-size:32px;
+  .map-access{
+    flex-direction:column;
+  }
+
+  .map-button{
+    width:100%;
+    text-align:center;
   }
 
   .filters{
-
-    grid-template-columns:
-      1fr;
+    grid-template-columns:1fr;
   }
 
   .filters input{
-
     grid-column:auto;
   }
 
-  .filters button{
-
-    min-height:44px;
+  #cards{
+    grid-template-columns:1fr;
   }
 
-  .cards{
-
-    grid-template-columns:
-      1fr;
-  }
-
-  .results-header{
-
+  .summary{
     flex-direction:column;
-
-    align-items:flex-start;
-  }
-
-  .coming-soon{
-
-    text-align:left;
   }
 
 }
@@ -783,75 +465,110 @@ footer{
 
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-     ENCABEZADO
-===================================================== -->
-
 <header>
 
-  <div class="brand">
+  <div class="header-inner">
 
-    <h1>
-      Alianzas Institucionales
-    </h1>
+    <div class="brand-wrap">
 
-    <p>
-      Programa de Psicología
-    </p>
+      <div class="mark">
+        🤝
+      </div>
+
+      <div class="brand">
+
+        <h1>
+          Alianzas Estratégicas
+        </h1>
+
+        <p>
+          Modalidad a distancia · Psicología
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <a
+        href="mapa.html"
+        class="map-button-top"
+      >
+        🗺️ Ver mapa
+      </a>
+
+      <a
+        href="index.html"
+        class="back-home"
+      >
+        ← Regresar al inicio
+      </a>
+
+    </div>
 
   </div>
-
-
-  <a
-    href="mapa.html"
-    class="map-link"
-  >
-    🗺️ Ver mapa de alianzas
-  </a>
 
 </header>
 
 
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
 
-  <h2>
-    Encuentra una institución
-  </h2>
+  <div class="hero-content">
 
-  <p>
-    Explora las instituciones disponibles para el desarrollo
-    de prácticas y experiencias profesionales. Puedes buscar
-    por institución, ciudad, departamento o área.
-  </p>
+    <h2>
+      Nuestras Alianzas Estratégicas
+    </h2>
+
+    <p>
+      Conoce las instituciones aliadas y consulta de manera rápida
+      su ubicación, área, vacantes y horarios.
+    </p>
+
+
+    <div class="map-access">
+
+      <div>
+
+        <h3>
+          🗺️ Explora nuestras alianzas en el mapa
+        </h3>
+
+        <p>
+          Consulta la distribución geográfica de las instituciones
+          aliadas por departamento.
+        </p>
+
+      </div>
+
+      <a
+        href="mapa.html"
+        class="map-button"
+      >
+        Ver mapa de alianzas →
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
 
+<main class="wrap">
 
-<!-- =====================================================
-     FILTROS
-===================================================== -->
 
 <section class="filters">
 
   <input
-    type="text"
     id="q"
-    placeholder="Buscar institución, ciudad o palabra clave..."
+    type="text"
+    placeholder="🔎 Buscar institución, ciudad o palabra clave..."
   >
-
 
   <select id="d">
 
@@ -861,7 +578,6 @@ footer{
 
   </select>
 
-
   <select id="a">
 
     <option value="">
@@ -870,53 +586,28 @@ footer{
 
   </select>
 
-
   <button id="clear">
-
     Limpiar
-
   </button>
 
 </section>
 
 
+<section class="summary">
 
-<!-- =====================================================
-     RESULTADOS
-===================================================== -->
+  <span id="count">
+    0 instituciones encontradas
+  </span>
 
-<section class="results-header">
-
-  <div id="count">
-    18 instituciones encontradas
-  </div>
-
-
-  <div class="coming-soon">
-
-    Próximamente:
-    nuevas alianzas en Ica y Ayacucho
-
-  </div>
+  <span>
+    Directorio actualizado · 2026
+  </span>
 
 </section>
 
 
+<section id="cards"></section>
 
-<!-- =====================================================
-     TARJETAS
-===================================================== -->
-
-<section
-  class="cards"
-  id="cards"
-></section>
-
-
-
-<!-- =====================================================
-     PRÓXIMAMENTE
-===================================================== -->
 
 <section class="future-section">
 
@@ -928,7 +619,6 @@ footer{
     Continuamos ampliando nuestra red de alianzas institucionales
     para brindar nuevas oportunidades a nuestros estudiantes.
   </p>
-
 
   <div class="future-regions">
 
@@ -948,222 +638,99 @@ footer{
 </main>
 
 
-
 <footer>
-
-  Programa de Psicología ·
-  Directorio de Alianzas Institucionales
-
+  Directorio de Alianzas Estratégicas · Programa de Psicología
 </footer>
-
 
 
 <script>
 
-
-/* =====================================================
-   DATOS DE RESPALDO
-===================================================== */
-
-const fallbackData = [
-
-  {
-    institucion:"Asociación Educativa Harvard S.R.L.",
-    departamento:"Junín",
-    provincia_ciudad:"Huancayo",
-    area:"Educativa",
-    vacantes:"2",
-    direccion:"Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo.",
-    horario:"Lunes a viernes, 7:45 a. m. – 2:30 p. m."
-  },
-
-  {
-    institucion:"NeuroPsico – Psicología Clínica Integral",
-    departamento:"Cusco",
-    provincia_ciudad:"Cusco",
-    area:"Clínica",
-    vacantes:"1",
-    direccion:"Jr. Clorinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco.",
-    horario:"Lunes a viernes, 2:00 p. m. – 8:00 p. m.; sábado 9:00 a. m. – 1:00 p. m."
-  },
-
-  {
-    institucion:"Centro Psicológico CRECETU S.A.C.",
-    departamento:"Lima",
-    provincia_ciudad:"Lima",
-    area:"Clínica / Organizacional",
-    vacantes:"5",
-    direccion:"Sedes en Callao, Rímac y Pueblo Libre.",
-    horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m."
-  },
-
-  {
-    institucion:"CEBE Manuel Duato",
-    departamento:"Lima",
-    provincia_ciudad:"Lima",
-    area:"Educativa",
-    vacantes:"3",
-    direccion:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
-    horario:"Lunes a viernes: turnos mañana y tarde."
-  },
-
-  {
-    institucion:"Centro Psicológico Vida y Ser",
-    departamento:"Lima",
-    provincia_ciudad:"Lima",
-    area:"Clínica / Educativa / Comunitaria",
-    vacantes:"1",
-    direccion:"Av. Guillermo Billingurth 1141, San Juan de Miraflores, Lima.",
-    horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m."
-  },
-
-  {
-    institucion:"AKUNA – Centro de Desarrollo Psicológico",
-    departamento:"Arequipa",
-    provincia_ciudad:"Arequipa",
-    area:"Clínica",
-    vacantes:"4",
-    direccion:"Urbanización La Melgariana E-16, José Luis Bustamante y Rivero.",
-    horario:"Lunes a viernes, 9:00 a. m. – 1:00 p. m. y 4:00 p. m. – 8:00 p. m."
-  },
-
-  {
-    institucion:"Centro Psicológico Psicokhuyay",
-    departamento:"Cusco",
-    provincia_ciudad:"Cusco",
-    area:"Clínica / Educativa / Organizacional",
-    vacantes:"1",
-    direccion:"Av. Los Incas 810, Edificio San Antonio, Wanchaq.",
-    horario:"Lunes a sábado, 3:00 p. m. – 8:00 p. m."
-  },
-
-  {
-    institucion:"Escuela de Educación Superior Pedagógica Pública Santa Rosa",
-    departamento:"Cusco",
-    provincia_ciudad:"Cusco",
-    area:"Educativa",
-    vacantes:"1",
-    direccion:"Calle Carmen Kyjllo 265, Cusco.",
-    horario:"Cantidad/horario por confirmar."
-  },
-
-  {
-    institucion:"CEPAB – Centro de Aprendizaje y Bienestar",
-    departamento:"Lima",
-    provincia_ciudad:"Lima",
-    area:"Clínica / Organizacional",
-    vacantes:"4",
-    direccion:"Calle Los Halcones 287, Surquillo.",
-    horario:"Lunes a viernes, 2:00 p. m. – 7:00 p. m.; sábado 8:00 a. m. – 1:00 p. m."
-  },
-
-  {
-    institucion:"AESI",
-    departamento:"Lima",
-    provincia_ciudad:"Lima / Virtual",
-    area:"Organizacional",
-    vacantes:"10",
-    direccion:"Jr. Jorge Luis Borges N.° 171, Dpto. 4, Chorrillos; modalidad virtual.",
-    horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.; sábado 8:00 a. m. – 12:30 p. m."
-  },
-
-  {
-    institucion:"POWER YOU – Consultora de Recursos Humanos",
-    departamento:"Junín",
-    provincia_ciudad:"Huancayo",
-    area:"Organizacional",
-    vacantes:"2",
-    direccion:"Av. Flor de Mayo Mza. G Lote 11, Urb. Primero de Mayo, Huancayo.",
-    horario:"Lunes a sábado, horario indistinto."
-  },
-
-  {
-    institucion:"SENSES Psicólogos",
-    departamento:"Arequipa",
-    provincia_ciudad:"Arequipa",
-    area:"Clínica / Educativa / Social - Comunitaria",
-    vacantes:"10",
-    direccion:"Calle Yapurá 212, Zamácola, Cerro Colorado.",
-    horario:"Lunes a viernes, 8:00 a. m. – 2:00 p. m.; sábado 8:00 a. m. – 1:00 p. m."
-  },
-
-  {
-    institucion:"CAP – Centro de Atención Psicológica Arequipa",
-    departamento:"Arequipa",
-    provincia_ciudad:"Arequipa",
-    area:"Clínica",
-    vacantes:"1",
-    direccion:"Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero.",
-    horario:"Lunes a sábado: mañana y tarde."
-  },
-
-  {
-    institucion:"CAP – Centro de Atención Psicológica Lima",
-    departamento:"Lima",
-    provincia_ciudad:"Lima",
-    area:"Clínica",
-    vacantes:"3",
-    direccion:"Av. Alfredo Mendiola 5988, Los Olivos.",
-    horario:"Lunes a sábado: mañana y tarde."
-  },
-
-  {
-    institucion:"CAP – Centro de Atención Psicológica Cusco",
-    departamento:"Cusco",
-    provincia_ciudad:"Cusco",
-    area:"Clínica",
-    vacantes:"2",
-    direccion:"Av. La Cultura 604, Cusco.",
-    horario:"Lunes a sábado: mañana y tarde."
-  },
-
-  {
-    institucion:"CAP – Centro de Atención Psicológica Huancayo",
-    departamento:"Junín",
-    provincia_ciudad:"Huancayo",
-    area:"Clínica",
-    vacantes:"2",
-    direccion:"Av. San Carlos 1980, Urb. San Antonio.",
-    horario:"Lunes a sábado: mañana y tarde."
-  },
-
-  {
-    institucion:"Centro Psicológico Comunitario de la UC",
-    departamento:"Junín",
-    provincia_ciudad:"Huancayo",
-    area:"Clínica / Educativa / Organizacional",
-    vacantes:"6",
-    direccion:"Jirón Dos de Mayo 570, El Tambo.",
-    horario:"Lunes a viernes y sábado."
-  },
-
-  {
-    institucion:"I.E. Sagrado Corazón de Jesús – Espinar",
-    departamento:"Cusco",
-    provincia_ciudad:"Espinar",
-    area:"Educativa",
-    vacantes:"3",
-    direccion:"Espinar, Cusco.",
-    horario:"Lunes a viernes, 8:00 a. m. – 2:00 p. m."
-  }
-
-];
-
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-let data =
-  [...fallbackData];
-
+let data = [];
 
 const $ = id =>
   document.getElementById(id);
 
 
 /* =====================================================
-   ESCAPAR TEXTO
+   LOGOS
+===================================================== */
+
+const logos = {
+
+  "Asociación Educativa Harvard S.R.L.":
+  "https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
+
+  "Centro Psicológico CRECETU S.A.C.":
+  "https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
+
+  "Centro Psicológico Vida y Ser":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TzRD2Sw6ySoQ7kNvwFeP_FS",
+
+  "NeuroPsico – Psicología Clínica Integral":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg",
+
+  "CEBE Manuel Duato":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg",
+
+  "Centro Psicológico Psicokhuyay":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg",
+
+  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
+  "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
+
+  "CEPAB – Centro de Aprendizaje y Bienestar":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg",
+
+  "AKUNA – Centro de Desarrollo Psicológico":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg",
+
+  "POWER YOU":
+  "https://www.poweryou.pe/img/Poweryou-consultora.png"
+
+};
+
+
+/* =====================================================
+   INFORMACIÓN ADICIONAL
+===================================================== */
+
+const reviews = {
+
+  "Asociación Educativa Harvard S.R.L.":
+  "Institución educativa ubicada en Huancayo que brinda un espacio de experiencia formativa en el ámbito educativo.",
+
+  "NeuroPsico – Psicología Clínica Integral":
+  "Centro orientado a la atención psicológica clínica e integral, vinculado con experiencias de evaluación, orientación y atención psicológica.",
+
+  "Centro Psicológico CRECETU S.A.C.":
+  "Centro psicológico con oportunidades relacionadas con las áreas clínica y organizacional y presencia en distintas zonas de Lima.",
+
+  "CEBE Manuel Duato":
+  "Institución educativa especializada que permite desarrollar experiencias vinculadas con el ámbito educativo.",
+
+  "Centro Psicológico Vida y Ser":
+  "Centro orientado al trabajo psicológico en diferentes contextos y áreas de intervención.",
+
+  "AKUNA – Centro de Desarrollo Psicológico":
+  "Institución orientada al desarrollo y bienestar psicológico mediante experiencias relacionadas con el área clínica.",
+
+  "Centro Psicológico Psicokhuyay":
+  "Centro psicológico con oportunidades de aprendizaje vinculadas a las áreas clínica, educativa y organizacional.",
+
+  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
+  "Institución de educación superior pedagógica que brinda oportunidades de experiencia en el ámbito educativo.",
+
+  "CEPAB – Centro de Aprendizaje y Bienestar":
+  "Centro orientado al aprendizaje y bienestar, con experiencias relacionadas con el área clínica y organizacional.",
+
+  "POWER YOU":
+  "Institución orientada al desarrollo de personas y organizaciones mediante experiencias vinculadas al ámbito profesional."
+
+};
+
+
+/* =====================================================
+   ESCAPAR HTML
 ===================================================== */
 
 function escapeHTML(value){
@@ -1188,9 +755,7 @@ function initials(name){
     .split(/\s+/)
     .filter(Boolean)
     .slice(0,2)
-    .map(word =>
-      word.charAt(0)
-    )
+    .map(word => word.charAt(0))
     .join("")
     .toUpperCase();
 
@@ -1198,137 +763,149 @@ function initials(name){
 
 
 /* =====================================================
-   INFORMACIÓN ADICIONAL
+   LEER CSV
 ===================================================== */
 
-const institutionInfo = {
+function parseCSVLine(line){
 
-  "Asociación Educativa Harvard S.R.L.":{
-    logo:"https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
-    image:"images/harvard.jpg",
-    review:"Institución educativa ubicada en Huancayo que desarrolla sus actividades en el ámbito de la educación. Forma parte de las instituciones aliadas disponibles para el desarrollo de experiencias formativas y profesionales."
-  },
+  const result = [];
 
-  "NeuroPsico – Psicología Clínica Integral":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=dkUzR99fK1MQ7kNvwFtY-SM&_nc_oc=AdrEY3cCKWeymdJlVA0zltvutc8EzSJ-LKsfqINV1sPpbbCa2JHKwmY61YGmCz0ldBE&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=M0ApEXz9vbu2Zfb_oiyi4w&_nc_ss=79289&oh=00_AQEIiy7w_ZbRUBTItN02jz38q8dM3rZZNwYqBUaUuT6uhg&oe=6A976B2F",
-    image:"images/neuropsico.jpg",
-    review:"Centro orientado a la atención psicológica clínica e integral. Su participación permite vincular la formación profesional con experiencias relacionadas con la evaluación, orientación y atención psicológica."
-  },
+  let current = "";
 
- "Centro Psicológico CRECETU S.A.C.":{
-    logo:"https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
-    image:"images/crecetu.jpg",
-    review:"Centro psicológico con oportunidades vinculadas a las áreas clínica y organizacional."
-  },
+  let insideQuotes = false;
 
-  "CEBE Manuel Duato":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg?stp=dst-jpg_tt6&cstp=mx180x196&ctp=s180x196&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=XedluPYwr20Q7kNvwHL_dug&_nc_oc=AdoWb9hnyVG_B60jyKx1LKw3ohZqk5FcSK37_to1AzlWTj7D9-o41UZrwhWCvdUJoV0&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=tQvCzK8oqR5SDIzwIfuDCQ&_nc_ss=79289&oh=00_AQGVMmHj20kFrbu7w8JAN-942KT6Cjggl1xuPkjyQTHsUw&oe=6A9785E3",
-    image:"images/manuel-duato.jpg",
-    review:"Institución educativa especializada que desarrolla actividades en el ámbito de la educación y la atención a estudiantes con necesidades específicas."
-  },
+  for(let i = 0; i < line.length; i++){
 
-  "Centro Psicológico Vida y Ser":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TzRD2Sw6ySoQ7kNvwFeP_FS&_nc_oc=AdoBD6WIpVoNZ_-KMkvF1VRQJ6dKUye9wydvwOnOobYvIihZNzJOH5NAv7J1x5cpxhg&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=GDICZKlb3fshcdXC7wE6pw&_nc_ss=79289&oh=00_AQGTr0i_3ojmWSjqgwx-sOanMTXlozVU6ONdsPFQnzfoIA&oe=6A9781ED",
-    image:"images/vida-y-ser.jpg",
-    review:"Centro psicológico orientado a la atención y el acompañamiento en diferentes áreas de la psicología."
-  },
+    const char = line[i];
 
-  "AKUNA – Centro de Desarrollo Psicológico":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg?stp=dst-jpg_tt6&cstp=mx1778x1778&ctp=s1778x1778&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=h2VmMPRTEeAQ7kNvwEY3HXy&_nc_oc=AdrgfWnrVBnatFc59NR5pmGC50F6CZNdZ3_nqb6dnULrCOSyagDssdTu3qyV6Jhv9nk&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=uh7gnhUt3oT5DnOO1Awz8A&_nc_ss=79289&oh=00_AQHBdtGND1fD_ji2QLUmGXUNiTEmskwiXTgPY-7ZEmViKw&oe=6A97900C",
-    image:"images/akuna.jpg",
-    review:"Centro de desarrollo psicológico orientado al acompañamiento y atención en el ámbito psicológico."
-  },
+    if(char === '"'){
 
-  "Centro Psicológico Psicokhuyay":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1500&ctp=s1500x1500&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=0eF3yUiThtMQ7kNvwHQCxwz&_nc_oc=Adoy93l-sQBPzcxikBNfrWF5x8puXc1_60bZJxaYGYKcrcErnCiRVL76hJPubtaONds&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=O4B1bTeLsCqzu-YitH4dTA&_nc_ss=79289&oh=00_AQEXq2kBEtw_Ey2Ywz3XiJz3N9J58gX44LmbWBLftmCRjw&oe=6A976C55",
-    image:"images/psicokhuyay.jpg",
-    review:"Centro psicológico con oportunidades relacionadas con diferentes contextos de aplicación de la psicología."
-  },
+      if(
+        insideQuotes &&
+        line[i + 1] === '"'
+      ){
 
-  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":{
-    logo:"https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
-    image:"images/santa-rosa.jpg",
-    review:"Institución pública de educación superior pedagógica ubicada en Cusco, vinculada al ámbito educativo y académico."
-  },
+        current += '"';
+        i++;
 
-  "CEPAB – Centro de Aprendizaje y Bienestar":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg?stp=dst-jpg_tt6&cstp=mx625x625&ctp=s625x625&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MUodkYmmNiwQ7kNvwGAmjvW&_nc_oc=AdrkBZltQ-yj8XhC6Ka1NPuaCNasm0yP_-8IiwhunhjetuVzgwp0pxdzVFRVq1dYoWs&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=iwDCLTHc7Vp1HCkr4nOnsw&_nc_ss=79289&oh=00_AQE-nrJ3-emm5R630PSGjQGpCKVyG5Ihjca3mOKnysYRZw&oe=6A977CC2",
-    image:"images/cepab.jpg",
-    review:"Centro orientado al aprendizaje y al bienestar."
-  },
+      }else{
 
-  "POWER YOU – Consultora de Recursos Humanos":{
-    logo:"https://www.poweryou.pe/img/Poweryou-consultora.png",
-    image:"images/poweryou.jpg",
-    review:"Consultora especializada en recursos humanos, gestión del talento y desarrollo organizacional."
-  },
+        insideQuotes = !insideQuotes;
 
-  "SENSES Psicólogos":{
-    logo:"https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png",
-    image:"images/senses.jpg",
-    review:"Centro psicológico que brinda servicios de evaluación y atención psicológica."
-  },
+      }
 
-  "CAP – Centro de Atención Psicológica Arequipa":{
-    logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10",
-    image:"images/cap.jpg",
-    review:"Servicio de atención psicológica orientado al bienestar y acompañamiento de la comunidad."
-  },
+    }
 
-  "CAP – Centro de Atención Psicológica Lima":{
-    logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10",
-    image:"images/cap.jpg",
-    review:"Servicio de atención psicológica orientado al bienestar y acompañamiento de la comunidad."
-  },
+    else if(
+      char === "," &&
+      !insideQuotes
+    ){
 
-  "CAP – Centro de Atención Psicológica Cusco":{
-    logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10",
-    image:"images/cap.jpg",
-    review:"Servicio de atención psicológica orientado al bienestar y acompañamiento de la comunidad."
-  },
+      result.push(current.trim());
+      current = "";
 
-  "CAP – Centro de Atención Psicológica Huancayo":{
-    logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10",
-    image:"images/cap.jpg",
-    review:"Servicio de atención psicológica orientado al bienestar y acompañamiento de la comunidad."
-  },
+    }
 
-  "Centro Psicológico Comunitario de la UC":{
-    logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10",
-    image:"images/cpc-uc.jpg",
-    review:"Centro especializado en atención psicológica y actividades orientadas al bienestar y la comunidad."
-  },
+    else{
 
-  "I.E. Sagrado Corazón de Jesús – Espinar":{
-    logo:"https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00Q7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F",
-    image:"images/sagrado-corazon.jpg",
-    review:"Institución educativa ubicada en Espinar, vinculada al desarrollo y formación integral de sus estudiantes."
+      current += char;
+
+    }
+
   }
 
-};
+  result.push(current.trim());
+
+  return result;
+
+}
+
 
 /* =====================================================
-   OBTENER INFORMACIÓN DE LA INSTITUCIÓN
+   CARGAR CSV
 ===================================================== */
 
-function getInstitutionInfo(item){
+async function loadCSV(){
 
-  return institutionInfo[item.institucion] || {
+  try{
 
-    logo:"",
+    const response = await fetch(
+      "alianzas.csv?nocache=" + Date.now(),
+      {
+        cache:"no-store"
+      }
+    );
 
-    image:"",
+    if(!response.ok){
 
-    review:
-      `Institución ubicada en ${
-        item.provincia_ciudad ||
-        item.departamento
-      }, con oportunidades vinculadas al área ${
-        item.area ||
-        "profesional"
-      }.`
+      throw new Error(
+        "No se pudo cargar alianzas.csv"
+      );
 
-  };
+    }
+
+    const text = await response.text();
+
+    const lines =
+      text
+      .replace(/^\uFEFF/,"")
+      .split(/\r?\n/)
+      .filter(line => line.trim() !== "");
+
+    const headers =
+      parseCSVLine(lines[0])
+      .map(header =>
+        header
+        .trim()
+        .replace(/^"|"$/g,"")
+      );
+
+    data =
+      lines
+      .slice(1)
+      .map(line => {
+
+        const values =
+          parseCSVLine(line);
+
+        const item = {};
+
+        headers.forEach(
+          (header,index) => {
+
+            item[header] =
+              values[index] || "";
+
+          }
+        );
+
+        return item;
+
+      })
+      .filter(item => item.institucion)
+      .filter(item =>
+        item.institucion
+        .trim()
+        .toLowerCase() !== "aesi"
+      );
+
+    fillFilters();
+
+    render();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    $("cards").innerHTML = `
+      <div class="empty">
+        No se pudo cargar la información de las instituciones.
+      </div>
+    `;
+
+  }
 
 }
 
@@ -1337,188 +914,59 @@ function getInstitutionInfo(item){
    LLENAR FILTROS
 ===================================================== */
 
-function populateFilters(){
+function fillFilters(){
 
-  const departments = [
-
-    ...new Set(
-
+  const departments =
+    [...new Set(
       data
-        .map(
-          item =>
-            item.departamento
-        )
+      .map(item => item.departamento)
+      .filter(Boolean)
+    )]
+    .sort();
+
+  const areas =
+    [...new Set(
+      data
+      .flatMap(item =>
+        String(item.area || "")
+        .split("/")
+        .map(area => area.trim())
         .filter(Boolean)
-
-    )
-
-  ].sort(
-    (a,b) =>
-      a.localeCompare(
-        b,
-        "es"
       )
-  );
+    )]
+    .sort();
 
 
-  const areas = [
-
-    ...new Set(
-
-      data.flatMap(
-
-        item =>
-
-          String(
-            item.area || ""
-          )
-          .split("/")
-          .map(
-            area =>
-              area.trim()
-          )
-          .filter(Boolean)
-
-      )
-
-    )
-
-  ].sort(
-    (a,b) =>
-      a.localeCompare(
-        b,
-        "es"
-      )
-  );
-
-
-  $("d").innerHTML =
-
-    `<option value="">
+  $("d").innerHTML = `
+    <option value="">
       Todos los departamentos
-    </option>`
+    </option>
+  `;
 
-    +
+  departments.forEach(department => {
 
-    departments
-      .map(
-        department =>
+    $("d").innerHTML += `
+      <option value="${escapeHTML(department)}">
+        ${escapeHTML(department)}
+      </option>
+    `;
 
-          `<option value="${escapeHTML(department)}">
-            ${escapeHTML(department)}
-          </option>`
-
-      )
-      .join("");
+  });
 
 
-  $("a").innerHTML =
-
-    `<option value="">
+  $("a").innerHTML = `
+    <option value="">
       Todas las áreas
-    </option>`
+    </option>
+  `;
 
-    +
+  areas.forEach(area => {
 
-    areas
-      .map(
-        area =>
-
-          `<option value="${escapeHTML(area)}">
-            ${escapeHTML(area)}
-          </option>`
-
-      )
-      .join("");
-
-}
-
-
-/* =====================================================
-   FILTRAR
-===================================================== */
-
-function filtered(){
-
-  const query =
-    $("q")
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const department =
-    $("d").value;
-
-
-  const area =
-    $("a").value;
-
-
-  return data.filter(item => {
-
-    const searchable =
-
-      [
-        item.institucion,
-        item.departamento,
-        item.provincia_ciudad,
-        item.area,
-        item.direccion
-      ]
-
-      .join(" ")
-
-      .toLowerCase();
-
-
-    const matchesQuery =
-
-      !query ||
-
-      searchable.includes(
-        query
-      );
-
-
-    const matchesDepartment =
-
-      !department ||
-
-      item.departamento ===
-      department;
-
-
-    const itemAreas =
-
-      String(
-        item.area || ""
-      )
-
-      .split("/")
-
-      .map(
-        value =>
-          value.trim()
-      );
-
-
-    const matchesArea =
-
-      !area ||
-
-      itemAreas.includes(
-        area
-      );
-
-
-    return (
-
-      matchesQuery &&
-      matchesDepartment &&
-      matchesArea
-
-    );
+    $("a").innerHTML += `
+      <option value="${escapeHTML(area)}">
+        ${escapeHTML(area)}
+      </option>
+    `;
 
   });
 
@@ -1526,32 +974,78 @@ function filtered(){
 
 
 /* =====================================================
-   MOSTRAR TARJETAS
+   RENDERIZAR
 ===================================================== */
 
 function render(){
 
+  const query =
+    $("q").value
+    .trim()
+    .toLowerCase();
+
+  const department =
+    $("d").value;
+
+  const area =
+    $("a").value;
+
+
   const rows =
-    filtered();
+
+    data.filter(item => {
+
+      const searchable =
+
+        [
+          item.institucion,
+          item.departamento,
+          item.provincia_ciudad,
+          item.area
+        ]
+
+        .join(" ")
+        .toLowerCase();
+
+
+      const matchesQuery =
+        !query ||
+        searchable.includes(query);
+
+
+      const matchesDepartment =
+        !department ||
+        item.departamento === department;
+
+
+      const matchesArea =
+        !area ||
+        String(item.area || "")
+        .split("/")
+        .map(value => value.trim())
+        .includes(area);
+
+
+      return
+        matchesQuery &&
+        matchesDepartment &&
+        matchesArea;
+
+    });
 
 
   $("count").textContent =
 
-    `${rows.length} ${
-      rows.length === 1
-        ? "institución encontrada"
-        : "instituciones encontradas"
-    }`;
+    `${rows.length} institución${rows.length === 1 ? "" : "es"} encontrada${rows.length === 1 ? "" : "s"}`;
 
 
   if(!rows.length){
 
-    $("cards").innerHTML =
-
-      `<div class="empty">
-        No encontramos instituciones
-        con esos criterios de búsqueda.
-      </div>`;
+    $("cards").innerHTML = `
+      <div class="empty">
+        No encontramos instituciones con esos criterios.
+      </div>
+    `;
 
     return;
 
@@ -1561,294 +1055,190 @@ function render(){
   $("cards").innerHTML =
 
     rows
+    .map((item,index) => {
 
-      .map(
-        (item,index) => {
+      const areas =
 
+        String(item.area || "")
+        .split("/")
+        .map(area => area.trim())
+        .filter(Boolean);
 
-          const areas =
 
-            String(
-              item.area || ""
-            )
+      const logoURL =
+        logos[item.institucion] ||
+        item.logo ||
+        "";
 
-            .split("/")
 
-            .map(
-              area =>
-                area.trim()
-            )
+      const logoHTML =
 
-            .filter(Boolean);
+        logoURL
 
+        ?
 
-          const institution =
-            getInstitutionInfo(
-              item
-            );
+        `<img
+          src="${escapeHTML(logoURL)}"
+          alt="Logo de ${escapeHTML(item.institucion)}"
+          onerror="this.style.display='none';this.parentElement.textContent='${initials(item.institucion)}';"
+        >`
 
+        :
 
-          const fallbackInitials =
-            escapeHTML(
-              initials(
-                item.institucion
-              )
-            );
+        initials(item.institucion);
 
 
-          let logoHTML =
-            `<span>
-              ${fallbackInitials}
-            </span>`;
+      const review =
+        reviews[item.institucion] ||
+        "Institución aliada disponible para el desarrollo de experiencias formativas y profesionales.";
 
 
-          if(institution.logo){
+      return `
 
-            logoHTML =
+        <article class="card">
 
-              `<img
-                src="${escapeHTML(institution.logo)}"
-                alt="${escapeHTML(item.institucion)}"
-                onerror="this.style.display='none';this.parentElement.innerHTML='<span>${fallbackInitials}</span>'"
-              >`;
+          <div class="top">
 
-          }
+            <div class="logo">
 
+              ${logoHTML}
 
-          let photoHTML = "";
+            </div>
 
+            <h3>
 
-          if(institution.image){
+              ${escapeHTML(item.institucion)}
 
-            photoHTML =
+            </h3>
 
-              `<img
-                class="institution-photo"
-                src="${escapeHTML(institution.image)}"
-                alt="Imagen de ${escapeHTML(item.institucion)}"
-                onerror="this.style.display='none'"
-              >`;
+          </div>
 
-          }
 
+          <div class="tags">
 
-          return `
+            ${areas
+              .map(area => `
+                <span class="tag">
+                  ${escapeHTML(area)}
+                </span>
+              `)
+              .join("")
+            }
 
-            <article class="card">
+          </div>
 
 
-              <div class="top">
+          <div class="info">
 
+            <div>
 
-                <div class="logo">
+              <strong>
+                📍 Ubicación:
+              </strong>
 
-                  ${logoHTML}
+              ${escapeHTML(item.provincia_ciudad || "")},
+              ${escapeHTML(item.departamento || "")}
 
-                </div>
+            </div>
 
 
-                <div>
+            <div>
 
-                  <h3>
+              <strong>
+                👥 Vacantes:
+              </strong>
 
-                    ${escapeHTML(
-                      item.institucion
-                    )}
+              ${escapeHTML(item.vacantes || "No especificado")}
 
-                  </h3>
+            </div>
 
-                </div>
 
+            <div>
 
-              </div>
+              <strong>
+                🏢 Dirección:
+              </strong>
 
+              ${escapeHTML(item.direccion || "No especificada")}
 
+            </div>
 
-              <div class="tags">
 
-                ${areas
+            <div>
 
-                  .map(
-                    area =>
+              <strong>
+                🕒 Horario:
+              </strong>
 
-                      `<span class="tag">
+              ${escapeHTML(item.horario || "No especificado")}
 
-                        ${escapeHTML(area)}
+            </div>
 
-                      </span>`
+          </div>
 
-                  )
 
-                  .join("")}
+          <button
+            class="more-button"
+            data-extra="extra-${index}"
+          >
+            Conocer más
+          </button>
 
-              </div>
 
+          <div
+            class="extra-info"
+            id="extra-${index}"
+          >
 
+            <div class="review-box">
 
-              <div class="info">
+              <h4>
+                Sobre la institución
+              </h4>
 
+              <p>
+                ${escapeHTML(review)}
+              </p>
 
-                <div>
+            </div>
 
-                  <strong>
-                    📍 Ubicación:
-                  </strong>
+          </div>
 
-                  ${escapeHTML(
-                    item.provincia_ciudad
-                  )},
+        </article>
 
-                  ${escapeHTML(
-                    item.departamento
-                  )}
+      `;
 
-                </div>
-
-
-                <div>
-
-                  <strong>
-                    👥 Vacantes:
-                  </strong>
-
-                  ${escapeHTML(
-                    item.vacantes
-                  )}
-
-                </div>
-
-
-                <div>
-
-                  <strong>
-                    🏢 Dirección:
-                  </strong>
-
-                  ${escapeHTML(
-                    item.direccion
-                  )}
-
-                </div>
-
-
-                <div>
-
-                  <strong>
-                    🕒 Horario:
-                  </strong>
-
-                  ${escapeHTML(
-                    item.horario
-                  )}
-
-                </div>
-
-
-              </div>
-
-
-
-              <button
-                class="more-button"
-                data-extra="extra-${index}"
-              >
-
-                Conocer más
-
-              </button>
-
-
-
-              <div
-                class="extra-info"
-                id="extra-${index}"
-              >
-
-
-                ${photoHTML}
-
-
-                <div class="review-box">
-
-                  <h4>
-                    Sobre la institución
-                  </h4>
-
-                  <p>
-
-                    ${escapeHTML(
-                      institution.review
-                    )}
-
-                  </p>
-
-                </div>
-
-
-              </div>
-
-
-            </article>
-
-          `;
-
-        }
-      )
-
-      .join("");
-
+    })
+    .join("");
 
 
   document
+  .querySelectorAll(".more-button")
+  .forEach(button => {
 
-    .querySelectorAll(
-      ".more-button"
-    )
+    button.addEventListener(
+      "click",
+      () => {
 
-    .forEach(button => {
-
-      button.addEventListener(
-
-        "click",
-
-        () => {
-
-          const extra =
-
-            document.getElementById(
-              button.dataset.extra
-            );
-
-
-          const isOpen =
-
-            extra.classList.contains(
-              "open"
-            );
-
-
-          extra.classList.toggle(
-            "open"
+        const extra =
+          document.getElementById(
+            button.dataset.extra
           );
 
+        const isOpen =
+          extra.classList.contains("open");
 
-          button.textContent =
+        extra.classList.toggle("open");
 
-            isOpen
+        button.textContent =
+          isOpen
+          ? "Conocer más"
+          : "Ocultar información";
 
-              ?
+      }
+    );
 
-              "Conocer más"
-
-              :
-
-              "Ocultar información";
-
-        }
-
-      );
-
-    });
+  });
 
 }
 
@@ -1862,250 +1252,28 @@ $("q").addEventListener(
   render
 );
 
-
 $("d").addEventListener(
   "change",
   render
 );
-
 
 $("a").addEventListener(
   "change",
   render
 );
 
-
 $("clear").addEventListener(
-
   "click",
-
   () => {
 
     $("q").value = "";
-
     $("d").value = "";
-
     $("a").value = "";
 
     render();
 
   }
-
 );
-
-
-/* =====================================================
-   CARGAR CSV SI EXISTE
-===================================================== */
-
-function parseCSVLine(line){
-
-  const result = [];
-
-  let current = "";
-
-  let insideQuotes = false;
-
-
-  for(let i = 0; i < line.length; i++){
-
-    const char =
-      line[i];
-
-
-    if(char === '"'){
-
-      if(
-        insideQuotes &&
-        line[i + 1] === '"'
-      ){
-
-        current += '"';
-
-        i++;
-
-      }
-
-      else{
-
-        insideQuotes =
-          !insideQuotes;
-
-      }
-
-    }
-
-    else if(
-      char === "," &&
-      !insideQuotes
-    ){
-
-      result.push(
-        current.trim()
-      );
-
-      current = "";
-
-    }
-
-    else{
-
-      current += char;
-
-    }
-
-  }
-
-
-  result.push(
-    current.trim()
-  );
-
-
-  return result;
-
-}
-
-
-async function loadCSV(){
-
-  try{
-
-    const response =
-
-      await fetch(
-
-        "alianzas.csv?nocache=" +
-        Date.now(),
-
-        {
-          cache:"no-store"
-        }
-
-      );
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "No se pudo cargar el CSV"
-      );
-
-    }
-
-
-    const text =
-      await response.text();
-
-
-    const lines =
-
-      text
-
-        .replace(
-          /^\uFEFF/,
-          ""
-        )
-
-        .split(
-          /\r?\n/
-        )
-
-        .filter(
-          line =>
-            line.trim() !== ""
-        );
-
-
-    if(lines.length < 2){
-
-      throw new Error(
-        "CSV vacío"
-      );
-
-    }
-
-
-    const headers =
-
-      parseCSVLine(
-        lines[0]
-      )
-
-      .map(
-        header =>
-          header.trim()
-      );
-
-
-    const csvData =
-
-      lines
-
-        .slice(1)
-
-        .map(line => {
-
-          const values =
-            parseCSVLine(
-              line
-            );
-
-
-          const item = {};
-
-
-          headers.forEach(
-
-            (
-              header,
-              index
-            ) => {
-
-              item[header] =
-                values[index] || "";
-
-            }
-
-          );
-
-
-          return item;
-
-        })
-
-        .filter(
-          item =>
-            item.institucion
-        );
-
-
-    if(csvData.length){
-
-      data =
-        csvData;
-
-    }
-
-
-  }
-
-  catch(error){
-
-    console.log(
-
-      "Usando datos de respaldo"
-
-    );
-
-  }
-
-
-  populateFilters();
-
-  render();
-
-}
 
 
 /* =====================================================
@@ -2114,9 +1282,7 @@ async function loadCSV(){
 
 loadCSV();
 
-
 </script>
-
 
 </body>
 </html>
