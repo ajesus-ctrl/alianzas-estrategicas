@@ -14,10 +14,6 @@
 
 <style>
 
-/* =====================================================
-   COLORES
-===================================================== */
-
 :root{
   --purple-dark:#5d4b7a;
   --purple:#78638f;
@@ -55,13 +51,9 @@ body{
     );
 }
 
-
-/* =====================================================
-   ENCABEZADO
-===================================================== */
-
 header{
   background:#fff;
+
   border-bottom:
     1px solid var(--purple-border);
 }
@@ -127,11 +119,6 @@ header{
   background:var(--purple);
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
-
 .hero{
   text-align:center;
   padding:42px 20px 30px;
@@ -152,23 +139,17 @@ header{
   color:var(--text-soft);
 
   line-height:1.5;
-
   font-size:17px;
 }
 
-
-/* =====================================================
-   CONTENEDOR
-===================================================== */
-
 .wrap{
   width:min(1200px,94%);
+
   margin:
     0 auto 45px;
 }
 
 .map-layout{
-
   display:grid;
 
   grid-template-columns:
@@ -179,14 +160,8 @@ header{
   align-items:stretch;
 }
 
-
-/* =====================================================
-   TARJETAS
-===================================================== */
-
 .map-card,
 .info-card{
-
   background:
     rgba(255,255,255,.90);
 
@@ -204,13 +179,7 @@ header{
   padding:24px;
 }
 
-
-/* =====================================================
-   ENCABEZADO DEL MAPA
-===================================================== */
-
 .map-heading{
-
   display:flex;
 
   justify-content:space-between;
@@ -233,13 +202,7 @@ header{
   color:var(--text-soft);
 }
 
-
-/* =====================================================
-   ÁREA DEL MAPA
-===================================================== */
-
 .map-area{
-
   position:relative;
 
   height:680px;
@@ -252,7 +215,6 @@ header{
     1px solid var(--purple-border);
 
   background:
-
     radial-gradient(
       circle at 50% 40%,
       #eee8f4 0%,
@@ -261,13 +223,7 @@ header{
     );
 }
 
-
-/* =====================================================
-   MAPA DEL PERÚ
-===================================================== */
-
 .peru-map{
-
   position:absolute;
 
   inset:
@@ -288,11 +244,8 @@ header{
 }
 
 .peru-map-img{
-
   width:auto;
-
   height:100%;
-
   max-width:100%;
 
   object-fit:contain;
@@ -306,13 +259,7 @@ header{
     );
 }
 
-
-/* =====================================================
-   PUNTOS DEL MAPA
-===================================================== */
-
 .map-point{
-
   position:absolute;
 
   transform:
@@ -321,17 +268,10 @@ header{
   z-index:5;
 }
 
-
-/* =====================================================
-   MARCADORES
-===================================================== */
-
 .marker{
-
   position:relative;
 
   width:58px;
-
   height:58px;
 
   border-radius:50%;
@@ -342,7 +282,6 @@ header{
   color:white;
 
   font-size:24px;
-
   font-weight:700;
 
   display:flex;
@@ -363,26 +302,18 @@ header{
 }
 
 .marker:hover{
-
   transform:
     scale(1.08);
 }
 
 .marker.active{
-
   box-shadow:
-
     0 0 0 6px
     rgba(120,99,143,.18),
 
     0 15px 30px
     rgba(0,0,0,.22);
 }
-
-
-/* =====================================================
-   COLORES DE LOS MARCADORES
-===================================================== */
 
 .range-green{
   background:var(--marker-light);
@@ -400,13 +331,7 @@ header{
   background:var(--marker-upcoming);
 }
 
-
-/* =====================================================
-   NOMBRES
-===================================================== */
-
 .map-label{
-
   position:absolute;
 
   top:calc(100% + 8px);
@@ -419,7 +344,6 @@ header{
   white-space:nowrap;
 
   font-size:14px;
-
   font-weight:700;
 
   color:var(--text);
@@ -428,11 +352,6 @@ header{
 
   text-align:center;
 }
-
-
-/* =====================================================
-   POSICIONES GEOGRÁFICAS
-===================================================== */
 
 .point-lima{
   left:38%;
@@ -464,17 +383,10 @@ header{
   top:81%;
 }
 
-
-/* =====================================================
-   LEYENDA
-===================================================== */
-
 .legend{
-
   position:absolute;
 
   left:22px;
-
   bottom:22px;
 
   z-index:6;
@@ -496,7 +408,6 @@ header{
 }
 
 .legend strong{
-
   display:block;
 
   margin-bottom:9px;
@@ -505,7 +416,6 @@ header{
 }
 
 .legend-row{
-
   display:flex;
 
   align-items:center;
@@ -518,9 +428,7 @@ header{
 }
 
 .dot{
-
   width:9px;
-
   height:9px;
 
   border-radius:50%;
@@ -544,24 +452,16 @@ header{
   background:var(--marker-upcoming);
 }
 
-
-/* =====================================================
-   PANEL DE INFORMACIÓN
-===================================================== */
-
 .info-card{
-
   padding:26px;
 
   display:flex;
-
   flex-direction:column;
 
   min-height:680px;
 }
 
 .info-kicker{
-
   margin:0;
 
   font-size:12px;
@@ -574,7 +474,6 @@ header{
 }
 
 .info-title{
-
   margin:
     10px 0 8px;
 
@@ -584,7 +483,6 @@ header{
 }
 
 .info-description{
-
   margin:0;
 
   color:var(--text-soft);
@@ -593,7 +491,6 @@ header{
 }
 
 .info-line{
-
   height:1px;
 
   background:var(--purple-border);
@@ -602,7 +499,6 @@ header{
 }
 
 .stats{
-
   display:grid;
 
   grid-template-columns:
@@ -614,7 +510,6 @@ header{
 }
 
 .stat{
-
   background:var(--purple-soft);
 
   border-radius:17px;
@@ -623,7 +518,6 @@ header{
 }
 
 .stat strong{
-
   display:block;
 
   font-size:22px;
@@ -632,14 +526,12 @@ header{
 }
 
 .stat span{
-
   font-size:12px;
 
   color:var(--text-soft);
 }
 
 .institutions{
-
   flex:1;
 
   max-height:440px;
@@ -648,7 +540,6 @@ header{
 }
 
 .institution{
-
   background:#fff;
 
   border:
@@ -662,7 +553,6 @@ header{
 }
 
 .institution h4{
-
   margin:
     0 0 10px;
 
@@ -674,7 +564,6 @@ header{
 }
 
 .tags{
-
   display:flex;
 
   flex-wrap:wrap;
@@ -683,7 +572,6 @@ header{
 }
 
 .tag{
-
   background:var(--purple-light);
 
   color:var(--purple);
@@ -699,13 +587,7 @@ header{
     1px solid #e8e0ef;
 }
 
-
-/* =====================================================
-   PRÓXIMAMENTE
-===================================================== */
-
 .coming-soon{
-
   margin-top:10px;
 
   padding:
@@ -726,7 +608,6 @@ header{
 }
 
 .coming-soon h4{
-
   margin:
     10px 0 6px;
 
@@ -736,7 +617,6 @@ header{
 }
 
 .coming-soon p{
-
   margin:0;
 
   color:var(--text-soft);
@@ -746,13 +626,7 @@ header{
   line-height:1.5;
 }
 
-
-/* =====================================================
-   VOLVER AL INICIO
-===================================================== */
-
 .back-bottom{
-
   margin-top:18px;
 
   padding-top:18px;
@@ -762,18 +636,12 @@ header{
 }
 
 .back-bottom a{
-
   color:var(--purple-dark);
 
   text-decoration:none;
 
   font-weight:800;
 }
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
 
 @media(max-width:900px){
 
@@ -790,7 +658,6 @@ header{
 @media(max-width:600px){
 
   .header-inner{
-
     min-height:auto;
 
     padding:15px 0;
@@ -801,7 +668,6 @@ header{
   }
 
   .back-home{
-
     width:100%;
 
     text-align:center;
@@ -820,9 +686,7 @@ header{
   }
 
   .marker{
-
     width:52px;
-
     height:52px;
 
     font-size:20px;
@@ -858,7 +722,10 @@ header{
 
     </div>
 
-    <a href="index.html" class="back-home">
+    <a
+      href="index.html"
+      class="back-home"
+    >
       ← Regresar al inicio
     </a>
 
@@ -912,10 +779,10 @@ header{
     <div class="map-point point-lima">
 
       <button
-        class="marker range-orange active"
+        class="marker active"
         data-department="Lima"
       >
-        6
+        0
       </button>
 
       <div class="map-label">Lima</div>
@@ -926,10 +793,10 @@ header{
     <div class="map-point point-junin">
 
       <button
-        class="marker range-blue"
+        class="marker"
         data-department="Junín"
       >
-        4
+        0
       </button>
 
       <div class="map-label">Junín</div>
@@ -968,10 +835,10 @@ header{
     <div class="map-point point-cusco">
 
       <button
-        class="marker range-blue"
+        class="marker"
         data-department="Cusco"
       >
-        5
+        0
       </button>
 
       <div class="map-label">Cusco</div>
@@ -982,10 +849,10 @@ header{
     <div class="map-point point-arequipa">
 
       <button
-        class="marker range-blue"
+        class="marker"
         data-department="Arequipa"
       >
-        3
+        0
       </button>
 
       <div class="map-label">Arequipa</div>
@@ -1051,7 +918,7 @@ header{
 
     <div class="stat">
 
-      <strong id="department-count">6</strong>
+      <strong id="department-count">0</strong>
 
       <span>Instituciones</span>
 
@@ -1060,7 +927,7 @@ header{
 
     <div class="stat">
 
-      <strong id="total-count">18</strong>
+      <strong id="total-count">0</strong>
 
       <span>Total registradas</span>
 
@@ -1104,7 +971,9 @@ const $ = id =>
 function parseCSVLine(line){
 
   const result = [];
+
   let current = "";
+
   let insideQuotes = false;
 
   for(let i = 0; i < line.length; i++){
@@ -1230,10 +1099,15 @@ async function loadCSV(){
   catch(error){
 
     console.error(error);
+
     data = [];
 
   }
 
+  /* ACTUALIZAR NÚMEROS DEL MAPA */
+  updateMapMarkers();
+
+  /* MOSTRAR LIMA AL INICIAR */
   showDepartment("Lima");
 
 }
@@ -1277,6 +1151,77 @@ function escapeHTML(text){
 }
 
 
+/* =====================================================
+   ACTUALIZAR MARCADORES AUTOMÁTICAMENTE
+===================================================== */
+
+function getMarkerRangeClass(count){
+
+  if(count <= 2){
+    return "range-green";
+  }
+
+  if(count <= 5){
+    return "range-blue";
+  }
+
+  return "range-orange";
+
+}
+
+
+function updateMapMarkers(){
+
+  document
+  .querySelectorAll(
+    ".marker[data-department]"
+  )
+  .forEach(marker => {
+
+    const department =
+      marker.dataset.department;
+
+
+    /* Ica y Ayacucho son próximas zonas */
+
+    if(
+      department === "Ica" ||
+      department === "Ayacucho"
+    ){
+      return;
+    }
+
+
+    const count =
+      getInstitutions(department).length;
+
+
+    /* ACTUALIZAR NÚMERO */
+
+    marker.textContent =
+      count;
+
+
+    /* LIMPIAR COLOR ANTERIOR */
+
+    marker.classList.remove(
+      "range-green",
+      "range-blue",
+      "range-orange"
+    );
+
+
+    /* ASIGNAR COLOR SEGÚN CANTIDAD */
+
+    marker.classList.add(
+      getMarkerRangeClass(count)
+    );
+
+  });
+
+}
+
+
 /* MOSTRAR DEPARTAMENTO */
 
 function showDepartment(department){
@@ -1286,6 +1231,7 @@ function showDepartment(department){
 
   const totalRegistered =
     data.length;
+
 
   $("department-title").textContent =
     department;
@@ -1410,11 +1356,13 @@ function showDepartment(department){
           <div class="tags">
 
             <span class="tag">
+
               📍 ${escapeHTML(
                 item.provincia_ciudad ||
                 item.departamento ||
                 ""
               )}
+
             </span>
 
             ${areas
