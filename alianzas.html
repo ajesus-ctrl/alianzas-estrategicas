@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alianzas Estratégicas</title>
+<title>Alianzas Institucionales</title>
 
 <style>
 
@@ -312,15 +312,54 @@ header{
 }
 
 .review-box h4{
-  margin:0 0 7px;
+  margin:0 0 8px;
   color:var(--purple-dark);
 }
 
 .review-box p{
   margin:0;
   color:var(--text-soft);
-  line-height:1.5;
+  line-height:1.55;
   font-size:14px;
+}
+
+.links-title{
+  margin:17px 0 9px;
+  font-size:14px;
+  color:var(--purple-dark);
+  font-weight:bold;
+}
+
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.link-button{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:8px 10px;
+  border-radius:9px;
+  background:#fff;
+  border:1px solid var(--purple-border);
+  color:var(--purple-dark);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.contact-info{
+  margin-top:12px;
+  display:grid;
+  gap:6px;
+  font-size:13px;
+  color:var(--text-soft);
+}
+
+.contact-info strong{
+  color:var(--text);
 }
 
 .empty{
@@ -445,7 +484,7 @@ footer{
 
 </head>
 
-<body>
+<body id="inicio">
 
 <header>
 
@@ -481,6 +520,7 @@ footer{
 
 </header>
 
+
 <section class="hero">
 
   <div class="hero-content">
@@ -515,6 +555,7 @@ footer{
 
 </section>
 
+
 <main class="wrap">
 
 <section class="filters">
@@ -539,10 +580,11 @@ footer{
 
 </section>
 
+
 <section class="summary">
 
   <span id="count">
-    Cargando instituciones...
+    0 instituciones encontradas
   </span>
 
   <span>
@@ -551,7 +593,9 @@ footer{
 
 </section>
 
+
 <section id="cards"></section>
+
 
 <section class="future-section">
 
@@ -578,9 +622,11 @@ footer{
 
 </main>
 
+
 <footer>
   Directorio de Alianzas Estratégicas · Programa de Psicología
 </footer>
+
 
 <script>
 
@@ -619,7 +665,7 @@ provincia_ciudad:"Lima",
 area:"Clínica / Organizacional",
 vacantes:"5",
 direccion:"Sedes en Callao, Rímac y Pueblo Libre.",
-horario:"Lunes a viernes, 8:00 a. m. – 1:00 p. m. y 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -630,7 +676,7 @@ provincia_ciudad:"Lima",
 area:"Educativa",
 vacantes:"3",
 direccion:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
-horario:"Lunes a viernes: T1: 8:00 a. m. – 1:00 p. m. y T2: 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a viernes: turnos mañana y tarde.",
 logo:""
 },
 
@@ -641,7 +687,7 @@ provincia_ciudad:"Lima",
 area:"Clínica / Educativa / Comunitaria",
 vacantes:"1",
 direccion:"Av. Guillermo Billingurth 1141, San Juan de Miraflores, Lima.",
-horario:"Lunes a viernes, 8:00 a. m. – 1:00 p. m. y 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -718,7 +764,7 @@ provincia_ciudad:"Arequipa",
 area:"Clínica",
 vacantes:"1",
 direccion:"Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero.",
-horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a sábado: mañana y tarde.",
 logo:""
 },
 
@@ -729,7 +775,7 @@ provincia_ciudad:"Lima",
 area:"Clínica",
 vacantes:"3",
 direccion:"Av. Alfredo Mendiola 5988, Los Olivos.",
-horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a sábado: mañana y tarde.",
 logo:""
 },
 
@@ -740,7 +786,7 @@ provincia_ciudad:"Cusco",
 area:"Clínica",
 vacantes:"2",
 direccion:"Av. La Cultura 604, Cusco.",
-horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a sábado: mañana y tarde.",
 logo:""
 },
 
@@ -751,7 +797,7 @@ provincia_ciudad:"Huancayo",
 area:"Clínica",
 vacantes:"2",
 direccion:"Av. San Carlos 1980, Urb. San Antonio.",
-horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
+horario:"Lunes a sábado: mañana y tarde.",
 logo:""
 },
 
@@ -762,7 +808,7 @@ provincia_ciudad:"Huancayo",
 area:"Clínica / Educativa / Organizacional",
 vacantes:"6",
 direccion:"Jirón Dos de Mayo 570, El Tambo.",
-horario:"Lunes a viernes: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m., sábado 8:00 a. m. – 12:30 p. m.",
+horario:"Lunes a viernes y sábado.",
 logo:""
 },
 
@@ -797,28 +843,28 @@ const logos = {
   "https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
 
   "NeuroPsico – Psicología Clínica Integral":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=dkUzR99fK1MQ7kNvwFtY-SM&_nc_oc=AdrEY3cCKWeymdJlVA0zltvutc8EzSJ-LKsfqINV1sPpbbCa2JHKwmY61YGmCz0ldBE&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=M0ApEXz9vbu2Zfb_oiyi4w&_nc_ss=79289&oh=00_AQEIiy7w_ZbRUBTItN02jz38q8dM3rZZNwYqBUaUuT6uhg&oe=6A976B2F",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg",
 
   "Centro Psicológico CRECETU S.A.C.":
   "https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
 
   "CEBE Manuel Duato":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg?stp=dst-jpg_tt6&cstp=mx180x196&ctp=s180x196&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=XedluPYwr20Q7kNvwHL_dug&_nc_oc=AdoWb9hnyVG_B60jyKx1LKw3ohZqk5FcSK37_to1AzlWTj7D9-o41UZrwhWCvdUJoV0&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=tQvCzK8oqR5SDIzwIfuDCQ&_nc_ss=79289&oh=00_AQGVMmHj20kFrbu7w8JAN-942KT6Cjggl1xuPkjyQTHsUw&oe=6A9785E3",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg",
 
   "Centro Psicológico Vida y Ser":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TzRD2Sw6ySoQ7kNvwFeP_FS&_nc_oc=AdoBD6WIpVoNZ_-KMkvF1VRQJ6dKUye9wydvwOnOobYvIihZNzJOH5NAv7J1x5cpxhg&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=GDICZKlb3fshcdXC7wE6pw&_nc_ss=79289&oh=00_AQGTr0i_3ojmWSjqgwx-sOanMTXlozVU6ONdsPFQnzfoIA&oe=6A9781ED",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg",
 
   "AKUNA – Centro de Desarrollo Psicológico":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg?stp=dst-jpg_tt6&cstp=mx1778x1778&ctp=s1778x1778&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=h2VmMPRTEeAQ7kNvwEY3HXy&_nc_oc=AdrgfWnrVBnatFc59NR5pmGC50F6CZNdZ3_nqb6dnULrCOSyagDssdTu3qyV6Jhv9nk&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=uh7gnhUt3oT5DnOO1Awz8A&_nc_ss=79289&oh=00_AQHBdtGND1fD_ji2QLUmGXUNiTEmskwiXTgPY-7ZEmViKw&oe=6A97900C",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg",
 
   "Centro Psicológico Psicokhuyay":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1500&ctp=s1500x1500&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=0eF3yUiThtMQ7kNvwHQCxwz&_nc_oc=Adoy93l-sQBPzcxikBNfrWF5x8puXc1_60bZJxaYGYKcrcErnCiRVL76hJPubtaONds&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=O4B1bTeLsCqzu-YitH4dTA&_nc_ss=79289&oh=00_AQEXq2kBEtw_Ey2Ywz3XiJz3N9J58gX44LmbWBLftmCRjw&oe=6A976C55",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg",
 
   "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
   "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
 
   "CEPAB – Centro de Aprendizaje y Bienestar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg?stp=dst-jpg_tt6&cstp=mx625x625&ctp=s625x625&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MUodkYmmNiw7kNvwGAmjvW&_nc_oc=AdrkBZltQ-yj8XhC6Ka1NPuaCNasm0yP_-8IiwhunhjetuVzgwp0pxdzVFRVq1dYoWs&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=iwDCLTHc7Vp1HCkr4nOnsw&_nc_ss=79289&oh=00_AQE-nrJ3-emm5R630PSGjQGpCKVyG5Ihjca3mOKnysYRZw&oe=6A977CC2",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg",
 
   "POWER YOU – Consultora de Recursos Humanos":
   "https://www.poweryou.pe/img/Poweryou-consultora.png",
@@ -826,15 +872,152 @@ const logos = {
   "SENSES Psicólogos":
   "https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png",
 
-  "CAP – Centro de Atención Psicológica Arequipa": capLogo,
-  "CAP – Centro de Atención Psicológica Lima": capLogo,
-  "CAP – Centro de Atención Psicológica Cusco": capLogo,
-  "CAP – Centro de Atención Psicológica Huancayo": capLogo,
+  "CAP – Centro de Atención Psicológica Arequipa":capLogo,
+  "CAP – Centro de Atención Psicológica Lima":capLogo,
+  "CAP – Centro de Atención Psicológica Cusco":capLogo,
+  "CAP – Centro de Atención Psicológica Huancayo":capLogo,
 
-  "Centro Psicológico Comunitario de la UC": capLogo,
+  "Centro Psicológico Comunitario de la UC":capLogo,
 
   "I.E. Sagrado Corazón de Jesús – Espinar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00K7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg"
+
+};
+
+
+/* =====================================================
+   INFORMACIÓN INSTITUCIONAL
+===================================================== */
+
+const institutionalInfo = {
+
+  "Asociación Educativa Harvard S.R.L.":{
+    review:"Institución educativa orientada a la formación integral de niños y jóvenes, con un enfoque basado en principios y valores cristianos. Promueve el desarrollo de capacidades cognitivas, sociales, motrices y artísticas, buscando fortalecer la formación personal y social de sus estudiantes.",
+    web:"https://harvard.edu.pe/main/",
+    address:"Av. Julio Sumar 441 y Jr. Huayna Cápac 240, El Tambo.",
+    phone:"(064) 242194 / (064) 598820",
+    email:"harvardhyo@gmail.com"
+  },
+
+  "NeuroPsico – Psicología Clínica Integral":{
+    review:"Centro especializado en psicología clínica, con una atención basada en evidencia científica y un enfoque humano. Brinda atención a niños, adolescentes, adultos y sus familias, abordando las necesidades psicológicas de las personas en diferentes etapas de su desarrollo.",
+    facebook:"https://www.facebook.com/Neuropsico.Cusco/?locale=es_LA",
+    address:"Clorinda Matto de Turner 308, Magisterio, Cusco.",
+    phone:"967 398 936",
+    email:"neuropsico.cusco@gmail.com"
+  },
+
+  "Centro Psicológico CRECETU S.A.C.":{
+    review:"Centro psicológico que promueve el bienestar de las personas a lo largo de las diferentes etapas del ciclo vital, desde la infancia hasta la adultez y vejez, así como en organizaciones. Brinda servicios psicológicos y psicoterapéuticos orientados a la atención y desarrollo integral de sus usuarios, mediante atención presencial y virtual.",
+    web:"https://crecetu.pe/",
+    gallery:"https://crecetu.pe/projects/",
+    contact:"https://crecetu.pe/contact/",
+    address:"Av. Samuel Alcázar 755, Rímac; Av. Los Dominicos 303, Callao.",
+    phone:"(01) 606-2904 / 567-5376 / 980 830 379 / 991 879 131 / 982 569 564",
+    email:"crecetu@hotmail.com"
+  },
+
+  "CEBE Manuel Duato":{
+    review:"Institución de Educación Básica Especial dedicada a la atención de personas con necesidades educativas especiales y sus familias. Desarrolla una labor educativa orientada al acompañamiento y desarrollo de sus estudiantes, promoviendo su participación, autonomía y relación con su entorno.",
+    facebook:"https://www.facebook.com/cebe.manuelduato/?locale=es_LA",
+    address:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
+    phone:"404 5754",
+    hours:"Lunes a viernes, 9:00 a. m. – 5:00 p. m."
+  },
+
+  "Centro Psicológico Vida y Ser":{
+    review:"Consultorio psicológico que brinda un espacio seguro y de confianza para el bienestar emocional, mediante una atención personalizada. Cuenta con psicoterapeutas especializados en niños, adolescentes, adultos, parejas y familias, ofreciendo acompañamiento orientado al crecimiento personal y al equilibrio emocional.",
+    web:"https://consultoriopsicolo57.wixsite.com/consultoriovidayser",
+    facebook:"https://www.facebook.com/p/Centro-Psicol%C3%B3gico-Integral-Vida-y-Ser-100078399218689/",
+    address:"Avenida Miguel Iglesias 761, San Juan de Miraflores, Lima.",
+    email:"Centropsicologicovidayser@gmail.com"
+  },
+
+  "AKUNA – Centro de Desarrollo Psicológico":{
+    review:"Centro de desarrollo psicológico especializado en terapia cognitivo-conductual. Emplea técnicas psicológicas adaptadas a las necesidades particulares de cada caso, con un enfoque orientado a brindar atención especializada y favorecer el bienestar psicológico de sus pacientes.",
+    facebook:"https://www.facebook.com/CentroAkunaAQP/?locale=es_LA",
+    instagram:"https://www.instagram.com/akunapsicoterapia",
+    tiktok:"https://tiktok.com/@akuna_psicoterapia",
+    address:"Urbanización La Melgariana E-16, José Luis Bustamante y Rivero, Arequipa.",
+    phone:"+51 959 672 291",
+    email:"centroakuna@gmail.com"
+  },
+
+  "Centro Psicológico Psicokhuyay":{
+    review:"Centro psicológico ubicado en Cusco que brinda atención orientada al bienestar y la salud mental. Ofrece evaluación y atención psicológica para personas que presentan dificultades emocionales o psicológicas, acompañándolas en la comprensión de su situación y en el establecimiento de estrategias para generar cambios positivos.",
+    facebook:"https://www.facebook.com/meyssibriseth/",
+    instagram:"https://www.instagram.com/centropsicologicopsicokhuyay",
+    web:"https://consultorio-psicologico-psicokhuyay-cusco.ueniweb.com/",
+    address:"Av. Los Incas 1710, Cusco.",
+    phone:"991 129 656",
+    email:"centropsicologicopsicokhuyay@gmail.com"
+  },
+
+  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":{
+    review:"Institución de educación superior orientada a la formación docente y al desarrollo educativo, social y comunitario. Promueve una formación crítica y reflexiva, incorporando principios de inclusión, interculturalidad, innovación e investigación en el ámbito educativo.",
+    web:"https://www.eesppsantarosacusco.edu.pe/",
+    address:"San Andrés 470, Cusco 08002."
+  },
+
+  "CEPAB – Centro de Aprendizaje y Bienestar":{
+    review:"Centro especializado en terapias integrales orientadas al desarrollo infantil y adolescente. Su trabajo está orientado al acompañamiento de niños y adolescentes, brindando servicios relacionados con su desarrollo y bienestar psicológico mediante una atención especializada.",
+    facebook:"https://www.facebook.com/p/CEPAB-Centro-para-el-aprendizaje-y-bienestar-61551618363835/?locale=es_LA",
+    instagram:"https://www.instagram.com/cepab.peru",
+    linktree:"https://linktr.ee/cepab.info",
+    address:"Calle Los Halcones 287, Lima.",
+    phone:"936 636 047",
+    email:"info@cepabperu.com"
+  },
+
+  "POWER YOU – Consultora de Recursos Humanos":{
+    review:"Empresa especializada en asesoría y consultoría en Gestión del Talento Humano, además de servicios relacionados con el área Legal Laboral, Auditoría Contable y Seguridad y Salud en el Trabajo. Su enfoque busca desarrollar el talento de los colaboradores y brindar soluciones estratégicas e innovadoras adaptadas a las necesidades de las organizaciones.",
+    web:"https://www.poweryou.pe/",
+    address:"Av. Flor de Mayo Mza. G Lote 11, Urb. Primero de Mayo, Huancayo.",
+    phone:"+51 951 651 922",
+    email:"contacto@poweryou.pe"
+  },
+
+  "SENSES Psicólogos":{
+    review:"Centro de atención psicológica conformado por profesionales que brindan atención psicológica integral a personas y familias. Desarrolla servicios en los ámbitos clínico, educativo, social y comunitario, atendiendo diferentes etapas del desarrollo y trabajando también con instituciones educativas, organizaciones y entidades públicas.",
+    web:"https://sensespsicologos.com/",
+    address:"Calle Yapurá 212, Zamácola, Cerro Colorado, Arequipa."
+  },
+
+  "CAP – Centro de Atención Psicológica Arequipa":{
+    review:"Centro de atención psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada.",
+    web:"https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
+  },
+
+  "CAP – Centro de Atención Psicológica Lima":{
+    review:"Centro de atención psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada.",
+    web:"https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
+  },
+
+  "CAP – Centro de Atención Psicológica Cusco":{
+    review:"Centro de atención psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada.",
+    web:"https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
+  },
+
+  "CAP – Centro de Atención Psicológica Huancayo":{
+    review:"Centro de atención psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada.",
+    web:"https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
+  },
+
+  "Centro Psicológico Comunitario de la UC":{
+    review:"Unidad especializada de la EAP de Psicología de la Universidad Continental que brinda atención psicológica gratuita a la comunidad. Cuenta con profesionales comprometidos con el cuidado de la salud mental y desarrolla acciones orientadas a la promoción y prevención, con una atención ética, científica e integral.",
+    web:"https://ucontinental.edu.pe/centro-psicologico/",
+    address:"Jr. 2 de Mayo 570, 3.er piso (Policlínico Continental), El Tambo.",
+    phone:"(+51) 914 712 865",
+    hours:"Lunes a viernes, 8:00 a. m. – 6:00 p. m.; sábados, 8:00 a. m. – 12:30 p. m."
+  },
+
+  "I.E. Sagrado Corazón de Jesús – Espinar":{
+    review:"Institución educativa pública e inclusiva que brinda formación en los niveles de primaria y secundaria. Su labor está orientada a la formación integral de sus estudiantes y al desarrollo de una educación que responda a las necesidades de la comunidad educativa.",
+    facebook:"https://www.facebook.com/SagradoEspinar/",
+    address:"Calle San Pedro, Espinar, Cusco.",
+    phone:"(084) 622374",
+    email:"info@sagradoespinar.edu.pe"
+  }
 
 };
 
@@ -856,15 +1039,39 @@ function normalizeName(name){
 
 }
 
+
 function getLogo(name){
 
-  const normalized = normalizeName(name);
+  const normalized =
+    normalizeName(name);
 
-  const found = Object.keys(logos).find(
-    key => normalizeName(key) === normalized
-  );
+  const found =
+    Object.keys(logos).find(
+      key =>
+        normalizeName(key) === normalized
+    );
 
-  return found ? logos[found] : "";
+  return found
+    ? logos[found]
+    : "";
+
+}
+
+
+function getInstitutionInfo(name){
+
+  const normalized =
+    normalizeName(name);
+
+  const found =
+    Object.keys(institutionalInfo).find(
+      key =>
+        normalizeName(key) === normalized
+    );
+
+  return found
+    ? institutionalInfo[found]
+    : null;
 
 }
 
@@ -903,7 +1110,7 @@ function initials(name){
 
 
 /* =====================================================
-   LEER CSV
+   CSV
 ===================================================== */
 
 function parseCSVLine(line){
@@ -913,7 +1120,7 @@ function parseCSVLine(line){
   let current = "";
   let insideQuotes = false;
 
-  for(let i = 0; i < line.length; i++){
+  for(let i=0;i<line.length;i++){
 
     const char = line[i];
 
@@ -921,7 +1128,7 @@ function parseCSVLine(line){
 
       if(
         insideQuotes &&
-        line[i + 1] === '"'
+        line[i+1] === '"'
       ){
 
         current += '"';
@@ -929,7 +1136,8 @@ function parseCSVLine(line){
 
       }else{
 
-        insideQuotes = !insideQuotes;
+        insideQuotes =
+          !insideQuotes;
 
       }
 
@@ -940,7 +1148,10 @@ function parseCSVLine(line){
       !insideQuotes
     ){
 
-      result.push(current.trim());
+      result.push(
+        current.trim()
+      );
+
       current = "";
 
     }
@@ -953,7 +1164,9 @@ function parseCSVLine(line){
 
   }
 
-  result.push(current.trim());
+  result.push(
+    current.trim()
+  );
 
   return result;
 
@@ -968,46 +1181,78 @@ async function loadCSV(){
 
   try{
 
-    const response = await fetch(
-      "alianzas.csv?nocache=" + Date.now(),
-      {
-        cache:"no-store"
-      }
-    );
+    const response =
+      await fetch(
+        "alianzas.csv?nocache=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
 
     if(!response.ok){
-      throw new Error("No se pudo cargar alianzas.csv");
+
+      throw new Error(
+        "No se pudo cargar alianzas.csv"
+      );
+
     }
 
-    const text = await response.text();
+    const text =
+      await response.text();
 
-    const lines = text
-      .replace(/^\uFEFF/,"")
-      .split(/\r?\n/)
-      .filter(line => line.trim() !== "");
+    const lines =
+      text
+        .replace(/^\uFEFF/,"")
+        .split(/\r?\n/)
+        .filter(
+          line =>
+            line.trim() !== ""
+        );
 
     if(lines.length < 2){
-      throw new Error("CSV vacío");
+
+      throw new Error(
+        "CSV vacío"
+      );
+
     }
 
-    const headers = parseCSVLine(lines[0])
-      .map(header => header.trim());
+    const headers =
+      parseCSVLine(lines[0])
+        .map(
+          header =>
+            header.trim()
+        );
 
-    const csvData = lines
-      .slice(1)
-      .map(line => {
+    const csvData =
+      lines
+        .slice(1)
+        .map(line => {
 
-        const values = parseCSVLine(line);
-        const item = {};
+          const values =
+            parseCSVLine(line);
 
-        headers.forEach((header,index) => {
-          item[header] = (values[index] || "").trim();
-        });
+          const item = {};
 
-        return item;
+          headers.forEach(
+            (header,index) => {
 
-      })
-      .filter(item => item.institucion);
+              item[header] =
+                (
+                  values[index] || ""
+                ).trim();
+
+            }
+          );
+
+          return item;
+
+        })
+        .filter(
+          item =>
+            item.institucion
+        );
 
     if(csvData.length > 0){
 
@@ -1033,6 +1278,7 @@ async function loadCSV(){
   }
 
   populateFilters();
+
   render();
 
 }
@@ -1047,44 +1293,73 @@ function populateFilters(){
   const departments = [
     ...new Set(
       data
-        .map(item => item.departamento)
+        .map(
+          item =>
+            item.departamento
+        )
         .filter(Boolean)
     )
   ].sort(
-    (a,b) => a.localeCompare(b,"es")
+    (a,b) =>
+      a.localeCompare(
+        b,
+        "es"
+      )
   );
+
 
   const areas = [
     ...new Set(
       data.flatMap(
         item =>
-          String(item.area || "")
-            .split("/")
-            .map(area => area.trim())
-            .filter(Boolean)
+          String(
+            item.area || ""
+          )
+          .split("/")
+          .map(
+            area =>
+              area.trim()
+          )
+          .filter(Boolean)
       )
     )
   ].sort(
-    (a,b) => a.localeCompare(b,"es")
+    (a,b) =>
+      a.localeCompare(
+        b,
+        "es"
+      )
   );
 
 
   $("d").innerHTML =
-    `<option value="">Todos los departamentos</option>` +
+    `<option value="">
+      Todos los departamentos
+    </option>` +
     departments.map(
       department =>
-        `<option value="${escapeHTML(department)}">
-          ${escapeHTML(department)}
+        `<option value="${
+          escapeHTML(department)
+        }">
+          ${
+            escapeHTML(department)
+          }
         </option>`
     ).join("");
 
 
   $("a").innerHTML =
-    `<option value="">Todas las áreas</option>` +
+    `<option value="">
+      Todas las áreas
+    </option>` +
     areas.map(
       area =>
-        `<option value="${escapeHTML(area)}">
-          ${escapeHTML(area)}
+        `<option value="${
+          escapeHTML(area)
+        }">
+          ${
+            escapeHTML(area)
+          }
         </option>`
     ).join("");
 
@@ -1109,182 +1384,229 @@ function filtered(){
     $("a").value;
 
 
-  return data.filter(item => {
+  return data.filter(
+    item => {
 
-    const searchable =
-      Object.values(item)
-        .join(" ")
-        .toLowerCase();
+      const searchable =
+        Object.values(item)
+          .join(" ")
+          .toLowerCase();
 
-    const matchesQuery =
-      !query ||
-      searchable.includes(query);
 
-    const matchesDepartment =
-      !department ||
-      item.departamento === department;
+      const matchesQuery =
+        !query ||
+        searchable.includes(
+          query
+        );
 
-    const itemAreas =
-      String(item.area || "")
+
+      const matchesDepartment =
+        !department ||
+        item.departamento ===
+        department;
+
+
+      const itemAreas =
+        String(
+          item.area || ""
+        )
         .split("/")
-        .map(value => value.trim());
+        .map(
+          value =>
+            value.trim()
+        );
 
-    const matchesArea =
-      !area ||
-      itemAreas.includes(area);
 
-    return (
-      matchesQuery &&
-      matchesDepartment &&
-      matchesArea
-    );
+      const matchesArea =
+        !area ||
+        itemAreas.includes(
+          area
+        );
 
-  });
+
+      return (
+        matchesQuery &&
+        matchesDepartment &&
+        matchesArea
+      );
+
+    }
+  );
 
 }
 
 
 /* =====================================================
-   RESEÑAS INSTITUCIONALES
+   BOTONES DE INFORMACIÓN
 ===================================================== */
 
-const reviews = {
+function createLinks(info){
 
-  "Asociación Educativa Harvard S.R.L.": `
-    Institución educativa orientada a la formación integral de niños y jóvenes,
-    con un enfoque basado en principios y valores cristianos. Promueve el
-    desarrollo de capacidades cognitivas, sociales, motrices y artísticas,
-    buscando fortalecer la formación personal y social de sus estudiantes.
-  `,
+  const links = [];
 
-  "NeuroPsico – Psicología Clínica Integral": `
-    Centro especializado en psicología clínica, con una atención basada en
-    evidencia científica y un enfoque humano. Brinda atención a niños,
-    adolescentes, adultos y sus familias, abordando las necesidades
-    psicológicas de las personas en diferentes etapas de su desarrollo.
-  `,
+  if(info.web){
 
-  "Centro Psicológico CRECETU S.A.C.": `
-    Centro psicológico que brinda atención profesional a niños, adolescentes,
-    adultos, parejas y familias. Ofrece servicios psicológicos y psicoterapéuticos
-    orientados al bienestar de las personas a lo largo de las diferentes etapas
-    del ciclo vital, mediante atención presencial y virtual.
-  `,
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.web)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🌐 Sitio web
+      </a>
+    `);
 
-  "CEBE Manuel Duato": `
-    Institución de Educación Básica Especial dedicada a la atención de niños y
-    jóvenes con discapacidad, incluyendo autismo, discapacidad intelectual,
-    motriz y sordera. Su trabajo promueve el desarrollo de habilidades de
-    comunicación, socialización y autovalimiento, e incorpora acciones de
-    acompañamiento e inclusión familiar.
-  `,
+  }
 
-  "Centro Psicológico Vida y Ser": `
-    Centro psicológico especializado en atención psicoterapéutica para niños,
-    adolescentes, adultos, parejas y familias. Cuenta con especialistas
-    orientados al acompañamiento psicológico de personas y grupos familiares,
-    atendiendo diversas necesidades relacionadas con el bienestar y la salud mental.
-  `,
+  if(info.facebook){
 
-  "AKUNA – Centro de Desarrollo Psicológico": `
-    Centro de desarrollo psicológico especializado en terapia cognitivo-conductual.
-    Emplea técnicas psicológicas adaptadas a las necesidades particulares de cada
-    caso, con un enfoque orientado a brindar una atención especializada y favorecer
-    el bienestar psicológico de sus pacientes.
-  `,
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.facebook)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📘 Facebook
+      </a>
+    `);
 
-  "Centro Psicológico Psicokhuyay": `
-    Centro psicológico que brinda atención a niños, adolescentes, jóvenes, adultos
-    y adultos mayores, además de parejas, familias y organizaciones. Ofrece servicios
-    de evaluación psicológica, terapia y orientación familiar, así como programas
-    de capacitación y bienestar dirigidos al ámbito organizacional.
-  `,
+  }
 
-  "Escuela de Educación Superior Pedagógica Pública Santa Rosa": `
-    Institución de educación superior orientada a la formación docente, que también
-    contribuye al desarrollo educativo, social y comunitario. Promueve una formación
-    crítica y reflexiva, incorporando principios de inclusión, interculturalidad,
-    innovación e investigación en el ámbito educativo.
-  `,
+  if(info.instagram){
 
-  "CEPAB – Centro de Aprendizaje y Bienestar": `
-    Centro especializado en terapias integrales orientadas al desarrollo infantil
-    y adolescente. Su atención se enfoca en acompañar el bienestar y desarrollo de
-    niños y adolescentes mediante servicios especializados relacionados con sus
-    necesidades psicológicas y de desarrollo.
-  `,
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.instagram)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📸 Instagram
+      </a>
+    `);
 
-  "POWER YOU – Consultora de Recursos Humanos": `
-    Empresa especializada en asesoría y consultoría en Gestión del Talento Humano,
-    así como en áreas vinculadas a la gestión laboral, auditoría contable y seguridad
-    y salud en el trabajo. Promueve el desarrollo del talento de los colaboradores y
-    soluciones orientadas a las necesidades de las organizaciones.
-  `,
+  }
 
-  "SENSES Psicólogos": `
-    Centro de atención psicológica que desarrolla servicios en los ámbitos clínico,
-    educativo, social y comunitario. Atiende a niños, adolescentes y adultos,
-    ofreciendo servicios de evaluación, intervención y orientación psicológica,
-    además de desarrollar acciones dirigidas a instituciones educativas,
-    municipalidades y organizaciones.
-  `,
+  if(info.tiktok){
 
-  "CAP – Centro de Atención Psicológica Arequipa": `
-    Centro de atención psicológica orientado a brindar servicios especializados
-    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
-    atención psicológica y el acompañamiento de personas que requieren orientación
-    y atención profesional.
-  `,
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.tiktok)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🎵 TikTok
+      </a>
+    `);
 
-  "CAP – Centro de Atención Psicológica Lima": `
-    Centro de atención psicológica orientado a brindar servicios especializados
-    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
-    atención psicológica y el acompañamiento de personas que requieren orientación
-    y atención profesional.
-  `,
+  }
 
-  "CAP – Centro de Atención Psicológica Cusco": `
-    Centro de atención psicológica orientado a brindar servicios especializados
-    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
-    atención psicológica y el acompañamiento de personas que requieren orientación
-    y atención profesional.
-  `,
+  if(info.gallery){
 
-  "CAP – Centro de Atención Psicológica Huancayo": `
-    Centro de atención psicológica orientado a brindar servicios especializados
-    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
-    atención psicológica y el acompañamiento de personas que requieren orientación
-    y atención profesional.
-  `,
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.gallery)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📷 Galería
+      </a>
+    `);
 
-  "Centro Psicológico Comunitario de la UC": `
-    Unidad especializada de la EAP de Psicología que brinda atención psicológica
-    gratuita y desarrolla acciones orientadas a la promoción y prevención de la
-    salud mental comunitaria. Cuenta con profesionales especializados y promueve
-    una atención ética, científica e integral, vinculada al bienestar de la comunidad.
-  `,
+  }
 
-  "I.E. Sagrado Corazón de Jesús – Espinar": `
-    Institución educativa pública e inclusiva que brinda formación en los niveles
-    de primaria y secundaria. Su labor está orientada a la formación integral de
-    sus estudiantes, atendiendo las necesidades propias de la comunidad educativa
-    en el ámbito escolar.
-  `
+  if(info.contact){
 
-};
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.contact)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📩 Contacto
+      </a>
+    `);
+
+  }
+
+  if(info.linktree){
+
+    links.push(`
+      <a
+        class="link-button"
+        href="${escapeHTML(info.linktree)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🔗 Más enlaces
+      </a>
+    `);
+
+  }
+
+  return links.join("");
+
+}
 
 
 /* =====================================================
-   OBTENER RESEÑA
+   CONTACTO
 ===================================================== */
 
-function getReview(item){
+function createContact(info){
 
-  const name =
-    String(item.institucion || "").trim();
+  const content = [];
 
-  return reviews[name] ||
-    "Institución que desarrolla actividades vinculadas al ámbito de la Psicología.";
+  if(info.address){
+
+    content.push(`
+      <div>
+        <strong>📍 Dirección:</strong>
+        ${escapeHTML(info.address)}
+      </div>
+    `);
+
+  }
+
+  if(info.phone){
+
+    content.push(`
+      <div>
+        <strong>📞 Teléfono:</strong>
+        ${escapeHTML(info.phone)}
+      </div>
+    `);
+
+  }
+
+  if(info.email){
+
+    content.push(`
+      <div>
+        <strong>✉️ Correo:</strong>
+        ${escapeHTML(info.email)}
+      </div>
+    `);
+
+  }
+
+  if(info.hours){
+
+    content.push(`
+      <div>
+        <strong>🕐 Horario:</strong>
+        ${escapeHTML(info.hours)}
+      </div>
+    `);
+
+  }
+
+  return content.join("");
 
 }
 
@@ -1295,7 +1617,9 @@ function getReview(item){
 
 function render(){
 
-  const rows = filtered();
+  const rows =
+    filtered();
+
 
   $("count").textContent =
     `${rows.length} ${
@@ -1320,154 +1644,245 @@ function render(){
 
 
   $("cards").innerHTML =
-    rows.map((item,index) => {
+    rows.map(
+      (item,index) => {
 
-      const areas =
-        String(item.area || "")
+        const areas =
+          String(
+            item.area || ""
+          )
           .split("/")
-          .map(area => area.trim())
+          .map(
+            area =>
+              area.trim()
+          )
           .filter(Boolean);
 
 
-      const logoURL =
-        getLogo(item.institucion) ||
-        item.logo ||
-        "";
+        const logoURL =
+          getLogo(
+            item.institucion
+          ) ||
+          item.logo ||
+          "";
 
 
-      const logoHTML =
-        logoURL
+        const logoHTML =
+          logoURL
           ? `
             <img
               src="${escapeHTML(logoURL)}"
               alt="${escapeHTML(item.institucion)}"
-              onerror="this.style.display='none';this.parentElement.textContent='${initials(item.institucion)}';"
+              onerror="
+                this.style.display='none';
+                this.parentElement.textContent='${initials(item.institucion)}';
+              "
             >
           `
-          : escapeHTML(initials(item.institucion));
+          : escapeHTML(
+              initials(
+                item.institucion
+              )
+            );
 
 
-      const review =
-        getReview(item);
+        const info =
+          getInstitutionInfo(
+            item.institucion
+          );
 
 
-      return `
-
-        <article class="card">
-
-          <div class="top">
-
-            <div class="logo">
-              ${logoHTML}
-            </div>
-
-            <h3>
-              ${escapeHTML(item.institucion)}
-            </h3>
-
-          </div>
+        const review =
+          info?.review ||
+          "Información institucional en actualización.";
 
 
-          <div class="tags">
-
-            ${areas.map(
-              area => `
-                <span class="tag">
-                  ${escapeHTML(area)}
-                </span>
-              `
-            ).join("")}
-
-          </div>
+        const links =
+          info
+          ? createLinks(info)
+          : "";
 
 
-          <div class="info">
-
-            <div>
-              <strong>📍 Ubicación:</strong>
-              ${escapeHTML(item.provincia_ciudad)},
-              ${escapeHTML(item.departamento)}
-            </div>
-
-            <div>
-              <strong>👥 Vacantes:</strong>
-              ${escapeHTML(item.vacantes)}
-            </div>
-
-            <div>
-              <strong>🏢 Dirección:</strong>
-              ${escapeHTML(item.direccion)}
-            </div>
-
-            <div>
-              <strong>🕒 Horario:</strong>
-              ${escapeHTML(item.horario)}
-            </div>
-
-          </div>
+        const contact =
+          info
+          ? createContact(info)
+          : "";
 
 
-          <button
-            class="more-button"
-            data-extra="extra-${index}"
-          >
-            Conocer más
-          </button>
+        return `
 
+          <article class="card">
 
-          <div
-            class="extra-info"
-            id="extra-${index}"
-          >
+            <div class="top">
 
-            <div class="review-box">
+              <div class="logo">
+                ${logoHTML}
+              </div>
 
-              <h4>
-                Sobre la institución
-              </h4>
-
-              <p>
-                ${escapeHTML(review)}
-              </p>
+              <h3>
+                ${escapeHTML(
+                  item.institucion
+                )}
+              </h3>
 
             </div>
 
-          </div>
 
-        </article>
+            <div class="tags">
 
-      `;
+              ${areas.map(
+                area =>
+                  `
+                  <span class="tag">
+                    ${escapeHTML(area)}
+                  </span>
+                  `
+              ).join("")}
 
-    }).join("");
+            </div>
+
+
+            <div class="info">
+
+              <div>
+                <strong>📍 Ubicación:</strong>
+                ${escapeHTML(
+                  item.provincia_ciudad
+                )},
+                ${escapeHTML(
+                  item.departamento
+                )}
+              </div>
+
+              <div>
+                <strong>👥 Vacantes:</strong>
+                ${escapeHTML(
+                  item.vacantes
+                )}
+              </div>
+
+              <div>
+                <strong>🏢 Dirección:</strong>
+                ${escapeHTML(
+                  item.direccion
+                )}
+              </div>
+
+              <div>
+                <strong>🕒 Horario:</strong>
+                ${escapeHTML(
+                  item.horario
+                )}
+              </div>
+
+            </div>
+
+
+            <button
+              class="more-button"
+              data-extra="extra-${index}"
+            >
+              Conocer más
+            </button>
+
+
+            <div
+              class="extra-info"
+              id="extra-${index}"
+            >
+
+              <div class="review-box">
+
+                <h4>
+                  Sobre la institución
+                </h4>
+
+                <p>
+                  ${escapeHTML(
+                    review
+                  )}
+                </p>
+
+
+                ${
+                  links
+                  ? `
+                    <div class="links-title">
+                      Enlaces y redes
+                    </div>
+
+                    <div class="links">
+                      ${links}
+                    </div>
+                  `
+                  : ""
+                }
+
+
+                ${
+                  contact
+                  ? `
+                    <div class="links-title">
+                      Contacto
+                    </div>
+
+                    <div class="contact-info">
+                      ${contact}
+                    </div>
+                  `
+                  : ""
+                }
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }
+    ).join("");
 
 
   document
-    .querySelectorAll(".more-button")
-    .forEach(button => {
+    .querySelectorAll(
+      ".more-button"
+    )
+    .forEach(
+      button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+        button.addEventListener(
+          "click",
+          () => {
 
-          const extra =
-            document.getElementById(
-              button.dataset.extra
+            const extra =
+              document.getElementById(
+                button.dataset.extra
+              );
+
+
+            const isOpen =
+              extra.classList.contains(
+                "open"
+              );
+
+
+            extra.classList.toggle(
+              "open"
             );
 
-          const isOpen =
-            extra.classList.contains("open");
 
-          extra.classList.toggle("open");
+            button.textContent =
+              isOpen
+                ? "Conocer más"
+                : "Ocultar información";
 
-          button.textContent =
-            isOpen
-              ? "Conocer más"
-              : "Ocultar información";
+          }
+        );
 
-        }
-      );
-
-    });
+      }
+    );
 
 }
 
