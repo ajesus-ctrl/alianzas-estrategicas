@@ -32,9 +32,6 @@ body{
   background:linear-gradient(180deg,#f8f6fa,#f1edf5);
 }
 
-
-/* ENCABEZADO */
-
 header{
   background:#fff;
   border-bottom:1px solid var(--purple-border);
@@ -101,9 +98,6 @@ header{
   border:1px solid var(--purple-border);
 }
 
-
-/* HERO */
-
 .hero{
   text-align:center;
   padding:42px 20px 30px;
@@ -127,9 +121,6 @@ header{
   line-height:1.55;
   font-size:17px;
 }
-
-
-/* MAPA */
 
 .map-access{
   max-width:850px;
@@ -165,16 +156,10 @@ header{
   white-space:nowrap;
 }
 
-
-/* CONTENIDO */
-
 .wrap{
   width:min(1200px,94%);
   margin:0 auto 45px;
 }
-
-
-/* FILTROS */
 
 .filters{
   display:grid;
@@ -206,9 +191,6 @@ header{
   cursor:pointer;
 }
 
-
-/* RESUMEN */
-
 .summary{
   display:flex;
   justify-content:space-between;
@@ -221,9 +203,6 @@ header{
   color:var(--purple-dark);
   font-weight:bold;
 }
-
-
-/* TARJETAS */
 
 #cards{
   display:grid;
@@ -353,9 +332,6 @@ header{
   text-align:center;
 }
 
-
-/* PRÓXIMAMENTE */
-
 .future-section{
   margin-top:35px;
   background:#fff;
@@ -393,9 +369,6 @@ header{
   font-weight:bold;
 }
 
-
-/* FOOTER */
-
 footer{
   padding:25px 20px;
   text-align:center;
@@ -403,9 +376,6 @@ footer{
   border-top:1px solid var(--purple-border);
   background:#fff;
 }
-
-
-/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -477,7 +447,6 @@ footer{
 
 <body>
 
-
 <header>
 
   <div class="header-inner">
@@ -496,7 +465,6 @@ footer{
 
     </div>
 
-
     <div class="header-actions">
 
       <a href="mapa.html" class="map-button-top">
@@ -513,7 +481,6 @@ footer{
 
 </header>
 
-
 <section class="hero">
 
   <div class="hero-content">
@@ -524,7 +491,6 @@ footer{
       Conoce las instituciones aliadas y consulta de manera rápida
       su ubicación, área, vacantes y horarios.
     </p>
-
 
     <div class="map-access">
 
@@ -549,9 +515,7 @@ footer{
 
 </section>
 
-
 <main class="wrap">
-
 
 <section class="filters">
 
@@ -575,7 +539,6 @@ footer{
 
 </section>
 
-
 <section class="summary">
 
   <span id="count">
@@ -588,9 +551,7 @@ footer{
 
 </section>
 
-
 <section id="cards"></section>
-
 
 <section class="future-section">
 
@@ -615,21 +576,16 @@ footer{
 
 </section>
 
-
 </main>
-
 
 <footer>
   Directorio de Alianzas Estratégicas · Programa de Psicología
 </footer>
 
-
 <script>
-
 
 /* =====================================================
    DATOS DE RESPALDO
-   SI EL CSV FALLA, ESTAS 17 INSTITUCIONES IGUAL APARECEN
 ===================================================== */
 
 const fallbackData = [
@@ -663,7 +619,7 @@ provincia_ciudad:"Lima",
 area:"Clínica / Organizacional",
 vacantes:"5",
 direccion:"Sedes en Callao, Rímac y Pueblo Libre.",
-horario:"Lunes a viernes, 8:00 a. m. – 1:00 p.m y 1:00 p.m. - 6:00 p. m.",
+horario:"Lunes a viernes, 8:00 a. m. – 1:00 p. m. y 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -674,7 +630,7 @@ provincia_ciudad:"Lima",
 area:"Educativa",
 vacantes:"3",
 direccion:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
-horario:"Lunes a viernes: T1: 8:00 a.m. - 1:00 p.m. y T2: 1:00 p.m - 6:00 p.m.",
+horario:"Lunes a viernes: T1: 8:00 a. m. – 1:00 p. m. y T2: 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -685,7 +641,7 @@ provincia_ciudad:"Lima",
 area:"Clínica / Educativa / Comunitaria",
 vacantes:"1",
 direccion:"Av. Guillermo Billingurth 1141, San Juan de Miraflores, Lima.",
-horario:"Lunes a viernes, 8:00 a. m. – 1:00 p.m. y 1:00 p.m. - 6:00 p. m.",
+horario:"Lunes a viernes, 8:00 a. m. – 1:00 p. m. y 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -762,7 +718,7 @@ provincia_ciudad:"Arequipa",
 area:"Clínica",
 vacantes:"1",
 direccion:"Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero.",
-horario:"Lunes a sábado: Mañana: 8:00 a.m. - 1:00 p.m. y Tarde: 1:00 p.m. - 6:00 p.m.",
+horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -773,7 +729,7 @@ provincia_ciudad:"Lima",
 area:"Clínica",
 vacantes:"3",
 direccion:"Av. Alfredo Mendiola 5988, Los Olivos.",
-horario:"Lunes a sábado: Mañana: 8:00 a.m. - 1:00 p.m. y Tarde: 1:00 p.m. - 6:00 p.m.",
+horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -784,7 +740,7 @@ provincia_ciudad:"Cusco",
 area:"Clínica",
 vacantes:"2",
 direccion:"Av. La Cultura 604, Cusco.",
-horario:"Lunes a sábado: Mañana: 8:00 a.m. - 1:00 p.m. y Tarde: 1:00 p.m. - 6:00 p.m.",
+horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -795,7 +751,7 @@ provincia_ciudad:"Huancayo",
 area:"Clínica",
 vacantes:"2",
 direccion:"Av. San Carlos 1980, Urb. San Antonio.",
-horario:"Lunes a sábado: Mañana: 8:00 a.m. - 1:00 p.m. y Tarde: 1:00 p.m. - 6:00 p.m.",
+horario:"Lunes a sábado: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m.",
 logo:""
 },
 
@@ -806,7 +762,7 @@ provincia_ciudad:"Huancayo",
 area:"Clínica / Educativa / Organizacional",
 vacantes:"6",
 direccion:"Jirón Dos de Mayo 570, El Tambo.",
-horario:"Lunes a viernes: Mañana: 8:00 a.m. - 1:00 p.m. y Tarde: 1:00 p.m. - 6:00 p.m., sábado 8:00 a. m. – 12:30 p. m.",
+horario:"Lunes a viernes: Mañana: 8:00 a. m. – 1:00 p. m. y Tarde: 1:00 p. m. – 6:00 p. m., sábado 8:00 a. m. – 12:30 p. m.",
 logo:""
 },
 
@@ -822,11 +778,6 @@ logo:""
 }
 
 ];
-
-
-/* =====================================================
-   DATOS ACTIVOS
-===================================================== */
 
 let data = [...fallbackData];
 
@@ -867,7 +818,7 @@ const logos = {
   "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
 
   "CEPAB – Centro de Aprendizaje y Bienestar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg?stp=dst-jpg_tt6&cstp=mx625x625&ctp=s625x625&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MUodkYmmNiwQ7kNvwGAmjvW&_nc_oc=AdrkBZltQ-yj8XhC6Ka1NPuaCNasm0yP_-8IiwhunhjetuVzgwp0pxdzVFRVq1dYoWs&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=iwDCLTHc7Vp1HCkr4nOnsw&_nc_ss=79289&oh=00_AQE-nrJ3-emm5R630PSGjQGpCKVyG5Ihjca3mOKnysYRZw&oe=6A977CC2",
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg?stp=dst-jpg_tt6&cstp=mx625x625&ctp=s625x625&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MUodkYmmNiw7kNvwGAmjvW&_nc_oc=AdrkBZltQ-yj8XhC6Ka1NPuaCNasm0yP_-8IiwhunhjetuVzgwp0pxdzVFRVq1dYoWs&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=iwDCLTHc7Vp1HCkr4nOnsw&_nc_ss=79289&oh=00_AQE-nrJ3-emm5R630PSGjQGpCKVyG5Ihjca3mOKnysYRZw&oe=6A977CC2",
 
   "POWER YOU – Consultora de Recursos Humanos":
   "https://www.poweryou.pe/img/Poweryou-consultora.png",
@@ -883,9 +834,10 @@ const logos = {
   "Centro Psicológico Comunitario de la UC": capLogo,
 
   "I.E. Sagrado Corazón de Jesús – Espinar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00Q7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00K7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
 
 };
+
 
 /* =====================================================
    NORMALIZAR NOMBRES
@@ -903,7 +855,6 @@ function normalizeName(name){
     .trim();
 
 }
-
 
 function getLogo(name){
 
@@ -1194,20 +1145,146 @@ function filtered(){
 
 
 /* =====================================================
-   RESEÑA
+   RESEÑAS INSTITUCIONALES
+===================================================== */
+
+const reviews = {
+
+  "Asociación Educativa Harvard S.R.L.": `
+    Institución educativa orientada a la formación integral de niños y jóvenes,
+    con un enfoque basado en principios y valores cristianos. Promueve el
+    desarrollo de capacidades cognitivas, sociales, motrices y artísticas,
+    buscando fortalecer la formación personal y social de sus estudiantes.
+  `,
+
+  "NeuroPsico – Psicología Clínica Integral": `
+    Centro especializado en psicología clínica, con una atención basada en
+    evidencia científica y un enfoque humano. Brinda atención a niños,
+    adolescentes, adultos y sus familias, abordando las necesidades
+    psicológicas de las personas en diferentes etapas de su desarrollo.
+  `,
+
+  "Centro Psicológico CRECETU S.A.C.": `
+    Centro psicológico que brinda atención profesional a niños, adolescentes,
+    adultos, parejas y familias. Ofrece servicios psicológicos y psicoterapéuticos
+    orientados al bienestar de las personas a lo largo de las diferentes etapas
+    del ciclo vital, mediante atención presencial y virtual.
+  `,
+
+  "CEBE Manuel Duato": `
+    Institución de Educación Básica Especial dedicada a la atención de niños y
+    jóvenes con discapacidad, incluyendo autismo, discapacidad intelectual,
+    motriz y sordera. Su trabajo promueve el desarrollo de habilidades de
+    comunicación, socialización y autovalimiento, e incorpora acciones de
+    acompañamiento e inclusión familiar.
+  `,
+
+  "Centro Psicológico Vida y Ser": `
+    Centro psicológico especializado en atención psicoterapéutica para niños,
+    adolescentes, adultos, parejas y familias. Cuenta con especialistas
+    orientados al acompañamiento psicológico de personas y grupos familiares,
+    atendiendo diversas necesidades relacionadas con el bienestar y la salud mental.
+  `,
+
+  "AKUNA – Centro de Desarrollo Psicológico": `
+    Centro de desarrollo psicológico especializado en terapia cognitivo-conductual.
+    Emplea técnicas psicológicas adaptadas a las necesidades particulares de cada
+    caso, con un enfoque orientado a brindar una atención especializada y favorecer
+    el bienestar psicológico de sus pacientes.
+  `,
+
+  "Centro Psicológico Psicokhuyay": `
+    Centro psicológico que brinda atención a niños, adolescentes, jóvenes, adultos
+    y adultos mayores, además de parejas, familias y organizaciones. Ofrece servicios
+    de evaluación psicológica, terapia y orientación familiar, así como programas
+    de capacitación y bienestar dirigidos al ámbito organizacional.
+  `,
+
+  "Escuela de Educación Superior Pedagógica Pública Santa Rosa": `
+    Institución de educación superior orientada a la formación docente, que también
+    contribuye al desarrollo educativo, social y comunitario. Promueve una formación
+    crítica y reflexiva, incorporando principios de inclusión, interculturalidad,
+    innovación e investigación en el ámbito educativo.
+  `,
+
+  "CEPAB – Centro de Aprendizaje y Bienestar": `
+    Centro especializado en terapias integrales orientadas al desarrollo infantil
+    y adolescente. Su atención se enfoca en acompañar el bienestar y desarrollo de
+    niños y adolescentes mediante servicios especializados relacionados con sus
+    necesidades psicológicas y de desarrollo.
+  `,
+
+  "POWER YOU – Consultora de Recursos Humanos": `
+    Empresa especializada en asesoría y consultoría en Gestión del Talento Humano,
+    así como en áreas vinculadas a la gestión laboral, auditoría contable y seguridad
+    y salud en el trabajo. Promueve el desarrollo del talento de los colaboradores y
+    soluciones orientadas a las necesidades de las organizaciones.
+  `,
+
+  "SENSES Psicólogos": `
+    Centro de atención psicológica que desarrolla servicios en los ámbitos clínico,
+    educativo, social y comunitario. Atiende a niños, adolescentes y adultos,
+    ofreciendo servicios de evaluación, intervención y orientación psicológica,
+    además de desarrollar acciones dirigidas a instituciones educativas,
+    municipalidades y organizaciones.
+  `,
+
+  "CAP – Centro de Atención Psicológica Arequipa": `
+    Centro de atención psicológica orientado a brindar servicios especializados
+    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
+    atención psicológica y el acompañamiento de personas que requieren orientación
+    y atención profesional.
+  `,
+
+  "CAP – Centro de Atención Psicológica Lima": `
+    Centro de atención psicológica orientado a brindar servicios especializados
+    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
+    atención psicológica y el acompañamiento de personas que requieren orientación
+    y atención profesional.
+  `,
+
+  "CAP – Centro de Atención Psicológica Cusco": `
+    Centro de atención psicológica orientado a brindar servicios especializados
+    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
+    atención psicológica y el acompañamiento de personas que requieren orientación
+    y atención profesional.
+  `,
+
+  "CAP – Centro de Atención Psicológica Huancayo": `
+    Centro de atención psicológica orientado a brindar servicios especializados
+    en el ámbito de la salud mental. Su labor se desarrolla en el campo de la
+    atención psicológica y el acompañamiento de personas que requieren orientación
+    y atención profesional.
+  `,
+
+  "Centro Psicológico Comunitario de la UC": `
+    Unidad especializada de la EAP de Psicología que brinda atención psicológica
+    gratuita y desarrolla acciones orientadas a la promoción y prevención de la
+    salud mental comunitaria. Cuenta con profesionales especializados y promueve
+    una atención ética, científica e integral, vinculada al bienestar de la comunidad.
+  `,
+
+  "I.E. Sagrado Corazón de Jesús – Espinar": `
+    Institución educativa pública e inclusiva que brinda formación en los niveles
+    de primaria y secundaria. Su labor está orientada a la formación integral de
+    sus estudiantes, atendiendo las necesidades propias de la comunidad educativa
+    en el ámbito escolar.
+  `
+
+};
+
+
+/* =====================================================
+   OBTENER RESEÑA
 ===================================================== */
 
 function getReview(item){
 
-  return `Institución ubicada en ${
-    item.provincia_ciudad || item.departamento
-  }. Ofrece oportunidades vinculadas al área ${
-    item.area || "profesional"
-  } y cuenta con ${
-    item.vacantes || "vacantes por confirmar"
-  } vacante${
-    String(item.vacantes) === "1" ? "" : "s"
-  } registradas en el directorio.`;
+  const name =
+    String(item.institucion || "").trim();
+
+  return reviews[name] ||
+    "Institución que desarrolla actividades vinculadas al ámbito de la Psicología.";
 
 }
 
