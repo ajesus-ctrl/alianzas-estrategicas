@@ -49,7 +49,7 @@ body{
   display:flex;
   align-items:center;
 
-  gap:20px;
+  gap:25px;
 
   padding:18px 0;
 
@@ -59,18 +59,20 @@ body{
 .institucional-logo{
   width:180px;
   height:auto;
+
+  /* Ayuda a que el fondo blanco del logo se integre */
   mix-blend-mode:multiply;
 }
 
 .institucional-texto{
   border-left:1px solid var(--borde);
-  padding-left:20px;
+  padding-left:25px;
 }
 
 .institucional-texto h2{
   margin:0;
 
-  font-size:18px;
+  font-size:22px;
 
   color:var(--morado-oscuro);
 
@@ -79,12 +81,16 @@ body{
   letter-spacing:.4px;
 }
 
-.institucional-texto p{
-  margin:5px 0 0;
+.institucional-texto .modalidad{
+  margin:6px 0 0;
 
-  font-size:13px;
+  font-size:15px;
 
   color:var(--texto-secundario);
+
+  font-weight:500;
+
+  letter-spacing:.2px;
 }
 
 
@@ -96,9 +102,11 @@ header{
   max-width:1150px;
   margin:auto;
   padding:28px 30px;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   gap:25px;
 }
 
@@ -106,48 +114,66 @@ header{
   display:flex;
   align-items:center;
   gap:12px;
+
   font-size:19px;
   font-weight:700;
+
   color:var(--morado-oscuro);
 }
 
 .logo-icon{
   width:44px;
   height:44px;
+
   border-radius:13px;
+
   background:linear-gradient(
     135deg,
     var(--morado-oscuro),
     var(--morado-principal)
   );
+
   display:grid;
   place-items:center;
+
   color:white;
   font-size:22px;
+
   box-shadow:0 8px 20px rgba(79,61,102,.16);
 }
 
 .estado{
   background:var(--morado-suave);
+
   color:var(--morado-principal);
+
   padding:10px 20px;
+
   border-radius:30px;
+
   font-size:14px;
   font-weight:bold;
+
   letter-spacing:.2px;
 }
 
 .btn-mapa{
   color:var(--morado-principal);
+
   font-weight:600;
+
   text-decoration:none;
+
   padding:10px 16px;
+
   border-radius:10px;
+
   transition:.25s;
 }
 
 .btn-mapa:hover{
   background:var(--morado-suave);
+
   color:var(--morado-oscuro);
 }
 
@@ -158,34 +184,51 @@ header{
 
 .hero{
   max-width:950px;
+
   margin:50px auto 25px;
+
   padding:30px;
+
   text-align:center;
 }
 
 .etiqueta{
   display:inline-block;
+
   padding:9px 18px;
+
   border-radius:30px;
+
   background:var(--morado-suave);
+
   color:var(--morado-principal);
+
   font-size:13px;
+
   font-weight:bold;
+
   letter-spacing:1px;
 }
 
 h1{
   margin:22px 0 18px;
+
   font-size:clamp(40px,6vw,68px);
+
   letter-spacing:-2px;
+
   color:var(--texto);
 }
 
 .hero p{
   max-width:720px;
+
   margin:auto;
+
   font-size:20px;
+
   line-height:1.6;
+
   color:var(--texto-secundario);
 }
 
@@ -196,90 +239,136 @@ h1{
 
 .opciones{
   max-width:1000px;
+
   margin:35px auto 70px;
+
   padding:0 25px;
+
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
+
   gap:28px;
 }
 
 .card{
   position:relative;
+
   overflow:hidden;
+
   text-decoration:none;
+
   color:inherit;
+
   background:rgba(255,255,255,.88);
+
   border:1px solid var(--borde);
+
   border-radius:28px;
+
   padding:40px;
+
   box-shadow:0 12px 35px rgba(79,61,102,.08);
+
   transition:.25s;
 }
 
 .card::after{
   content:"";
+
   position:absolute;
+
   width:180px;
   height:180px;
+
   border-radius:50%;
+
   background:rgba(137,117,159,.05);
+
   right:-70px;
   top:-70px;
 }
 
 .card:hover{
   transform:translateY(-7px);
+
   border-color:rgba(102,82,127,.35);
+
   box-shadow:0 20px 45px rgba(79,61,102,.14);
 }
 
 .icono{
   position:relative;
+
   z-index:1;
+
   width:70px;
   height:70px;
+
   border-radius:20px;
+
   background:linear-gradient(
     135deg,
     var(--morado-suave),
     #e9e2ef
   );
+
   display:grid;
+
   place-items:center;
+
   font-size:32px;
+
   margin-bottom:25px;
 }
 
 .card h2{
   position:relative;
+
   z-index:1;
+
   font-size:27px;
+
   margin:0 0 14px;
+
   color:var(--texto);
 }
 
 .card p{
   position:relative;
+
   z-index:1;
+
   color:var(--texto-secundario);
+
   line-height:1.7;
+
   margin:0;
 }
 
 .boton{
   position:relative;
+
   z-index:1;
+
   display:inline-block;
+
   margin-top:28px;
+
   padding:14px 22px;
+
   background:linear-gradient(
     135deg,
     var(--morado-oscuro),
     var(--morado-principal)
   );
+
   color:white;
+
   border-radius:12px;
+
   font-weight:bold;
+
   transition:.25s;
 }
 
@@ -294,44 +383,62 @@ h1{
 
 .info{
   max-width:1000px;
+
   margin:0 auto 70px;
+
   padding:0 25px;
 }
 
 .info-box{
   display:flex;
+
   gap:18px;
+
   align-items:center;
+
   padding:28px;
+
   background:linear-gradient(
     135deg,
     #faf8fc,
     var(--morado-claro)
   );
+
   border:1px solid var(--borde);
+
   border-radius:22px;
+
   box-shadow:0 10px 30px rgba(79,61,102,.05);
 }
 
 .info-icon{
   width:55px;
   height:55px;
+
   border-radius:16px;
+
   background:var(--morado-suave);
+
   display:grid;
+
   place-items:center;
+
   font-size:26px;
+
   flex-shrink:0;
 }
 
 .info h3{
   margin:0 0 8px;
+
   color:var(--morado-oscuro);
 }
 
 .info p{
   margin:0;
+
   color:var(--texto-secundario);
+
   line-height:1.6;
 }
 
@@ -342,9 +449,13 @@ h1{
 
 footer{
   text-align:center;
+
   padding:28px;
+
   border-top:1px solid var(--borde);
+
   color:#82798c;
+
   font-size:14px;
 }
 
@@ -357,25 +468,43 @@ footer{
 
   .institucional{
     flex-direction:column;
+
     align-items:flex-start;
-    gap:12px;
+
+    gap:15px;
+
+    padding:20px 0;
   }
 
   .institucional-logo{
     width:190px;
+
     max-width:70%;
   }
 
   .institucional-texto{
     border-left:0;
+
     border-top:1px solid var(--borde);
+
     padding-left:0;
-    padding-top:10px;
+
+    padding-top:12px;
+
     width:100%;
+  }
+
+  .institucional-texto h2{
+    font-size:19px;
+  }
+
+  .institucional-texto .modalidad{
+    font-size:14px;
   }
 
   header{
     padding:20px;
+
     flex-wrap:wrap;
   }
 
@@ -389,6 +518,7 @@ footer{
 
   .hero{
     margin-top:25px;
+
     padding:25px 20px;
   }
 
@@ -398,6 +528,7 @@ footer{
 
   .opciones{
     grid-template-columns:1fr;
+
     margin-bottom:45px;
   }
 
@@ -423,19 +554,21 @@ footer{
 ===================================================== -->
 
 <div class="institucional">
-<img
-  class="institucional-logo"
-  src="./logo-continental.png"
-  alt="Universidad Continental"
->
+
+  <img
+    class="institucional-logo"
+    src="./logo-continental.png"
+    alt="Universidad Continental"
+  >
+
   <div class="institucional-texto">
 
     <h2>
       FACULTAD DE PSICOLOGÍA
     </h2>
 
-    <p>
-      Universidad Continental
+    <p class="modalidad">
+      Modalidad a distancia
     </p>
 
   </div>
