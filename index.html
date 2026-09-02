@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alianzas Estratégicas</title>
+<title>Alianzas Estratégicas | Facultad de Psicología</title>
 
 <style>
+
 :root{
   --morado-principal:#66527f;
   --morado-oscuro:#4f3d66;
@@ -32,6 +34,60 @@ body{
     radial-gradient(circle at 85% 70%, rgba(102,82,127,.08), transparent 30%),
     linear-gradient(180deg,#f7f5f9 0%,#fbfafc 50%,#ffffff 100%);
 }
+
+
+/* =========================================================
+   ENCABEZADO INSTITUCIONAL
+========================================================= */
+
+.institucional{
+  width:min(1150px,94%);
+  margin:auto;
+
+  min-height:82px;
+
+  display:flex;
+  align-items:center;
+
+  gap:20px;
+
+  padding:18px 0;
+
+  border-bottom:1px solid var(--borde);
+}
+
+.institucional-logo{
+  width:210px;
+  max-width:45%;
+  height:auto;
+  object-fit:contain;
+}
+
+.institucional-texto{
+  border-left:1px solid var(--borde);
+  padding-left:20px;
+}
+
+.institucional-texto h2{
+  margin:0;
+
+  font-size:18px;
+
+  color:var(--morado-oscuro);
+
+  font-weight:700;
+
+  letter-spacing:.4px;
+}
+
+.institucional-texto p{
+  margin:5px 0 0;
+
+  font-size:13px;
+
+  color:var(--texto-secundario);
+}
+
 
 /* =========================
    ENCABEZADO
@@ -96,6 +152,7 @@ header{
   color:var(--morado-oscuro);
 }
 
+
 /* =========================
    HERO
 ========================= */
@@ -133,6 +190,7 @@ h1{
   color:var(--texto-secundario);
 }
 
+
 /* =========================
    OPCIONES
 ========================= */
@@ -159,7 +217,6 @@ h1{
   transition:.25s;
 }
 
-/* Detalle abstracto discreto */
 .card::after{
   content:"";
   position:absolute;
@@ -231,6 +288,7 @@ h1{
   transform:translateX(4px);
 }
 
+
 /* =========================
    INFORMACIÓN
 ========================= */
@@ -278,6 +336,7 @@ h1{
   line-height:1.6;
 }
 
+
 /* =========================
    PIE DE PÁGINA
 ========================= */
@@ -290,11 +349,31 @@ footer{
   font-size:14px;
 }
 
+
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media(max-width:700px){
+
+  .institucional{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .institucional-logo{
+    width:190px;
+    max-width:70%;
+  }
+
+  .institucional-texto{
+    border-left:0;
+    border-top:1px solid var(--borde);
+    padding-left:0;
+    padding-top:10px;
+    width:100%;
+  }
 
   header{
     padding:20px;
@@ -330,31 +409,79 @@ footer{
   .info-box{
     align-items:flex-start;
   }
+
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     ENCABEZADO INSTITUCIONAL
+===================================================== -->
+
+<div class="institucional">
+
+  <img
+    class="institucional-logo"
+    src="https://ucontinental.edu.pe/wp-content/uploads/2023/07/logo-continental.png"
+    alt="Universidad Continental"
+  >
+
+  <div class="institucional-texto">
+
+    <h2>
+      FACULTAD DE PSICOLOGÍA
+    </h2>
+
+    <p>
+      Universidad Continental
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     ENCABEZADO ORIGINAL
+===================================================== -->
 
 <header>
 
   <div class="logo">
-    <div class="logo-icon">🤝</div>
-    <span>Alianzas Estratégicas</span>
+
+    <div class="logo-icon">
+      🤝
+    </div>
+
+    <span>
+      Alianzas Estratégicas
+    </span>
+
   </div>
+
 
   <div class="estado">
     Plataforma de consulta
   </div>
 
-  <a href="mapa.html" class="btn-mapa">
+
+  <a
+    href="mapa.html"
+    class="btn-mapa"
+  >
     🗺️ Ver mapa de alianzas
   </a>
 
 </header>
 
+
 <main>
+
 
 <section class="hero">
 
@@ -362,9 +489,11 @@ footer{
     INSTITUCIONES ALIADAS
   </div>
 
+
   <h1>
     Conectamos oportunidades
   </h1>
+
 
   <p>
     Consulta las instituciones aliadas y conoce las oportunidades
@@ -374,22 +503,30 @@ footer{
 </section>
 
 
+
 <section class="opciones">
 
-  <a href="alianzas.html" class="card">
+
+  <a
+    href="alianzas.html"
+    class="card"
+  >
 
     <div class="icono">
       🏢
     </div>
 
+
     <h2>
       Instituciones aliadas
     </h2>
+
 
     <p>
       Explora las instituciones registradas y consulta información
       sobre ubicación, áreas, vacantes y horarios disponibles.
     </p>
+
 
     <div class="boton">
       Ver instituciones →
@@ -398,20 +535,27 @@ footer{
   </a>
 
 
-  <a href="mapa.html" class="card">
+
+  <a
+    href="mapa.html"
+    class="card"
+  >
 
     <div class="icono">
       🗺️
     </div>
 
+
     <h2>
       Mapa de alianzas
     </h2>
+
 
     <p>
       Visualiza la distribución geográfica de las instituciones
       aliadas y consulta su presencia por departamento.
     </p>
+
 
     <div class="boton">
       Explorar el mapa →
@@ -419,22 +563,28 @@ footer{
 
   </a>
 
+
 </section>
+
 
 
 <section class="info">
 
+
   <div class="info-box">
+
 
     <div class="info-icon">
       💡
     </div>
+
 
     <div>
 
       <h3>
         Consulta rápida y sencilla
       </h3>
+
 
       <p>
         Selecciona una opción para explorar las instituciones aliadas
@@ -443,16 +593,23 @@ footer{
 
     </div>
 
+
   </div>
 
+
 </section>
+
 
 </main>
 
 
+
 <footer>
+
   Alianzas Estratégicas · Plataforma de consulta
+
 </footer>
+
 
 </body>
 </html>
