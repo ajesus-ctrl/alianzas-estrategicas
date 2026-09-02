@@ -1,601 +1,1096 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alianzas Estratégicas - Psicología</title>
+
+<title>Alianzas Estratégicas</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+/* =====================================================
+   PALETA
+===================================================== */
+
+:root{
+  --purple:#654b83;
+  --purple-dark:#44335d;
+  --purple-light:#f0ebf6;
+  --purple-border:#ddd4e8;
+
+  --text:#30394d;
+  --text-soft:#667085;
+
+  --white:#ffffff;
+  --background:#f8f7fb;
+
+  --shadow:0 12px 35px rgba(91,75,122,.10);
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f8f7fb;
-  color: #293247;
+*{
+  box-sizing:border-box;
 }
 
-/* =========================
-   PORTADA
-========================= */
-
-.header-principal {
-  background: #ffffff;
-  width: 100%;
+html{
+  scroll-behavior:smooth;
 }
 
-.logo-uc {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  padding-left: 28px;
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(185,174,208,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(124,150,136,.10),
+      transparent 30%
+    ),
+    var(--background);
+
+  color:var(--text);
 }
 
-.logo-uc img {
-  width: 205px;
-  height: auto;
-  object-fit: contain;
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+header{
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(10px);
+
+  border-bottom:1px solid var(--purple-border);
+
+  padding:20px 5%;
+
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
-/* Franja de Psicología */
-.banner-psicologia {
-  background: #7200d6;
-  height: 137px;
-  display: flex;
-  align-items: center;
-  padding-left: 28px;
+.header-inner{
+  width:min(1180px,94%);
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
 }
 
-.banner-psicologia h1 {
-  color: white;
-  font-size: 62px;
-  font-weight: 800;
-  letter-spacing: -2px;
+.brand-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-/* =========================
-   CABECERA ALIANZAS
-========================= */
+.mark{
+  width:52px;
+  height:52px;
 
-.contenedor {
-  width: 92%;
-  max-width: 1200px;
-  margin: 0 auto;
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #654b83,
+      #765b93
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:26px;
 }
 
-.barra-superior {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0;
+.brand h1{
+  margin:0;
+
+  color:var(--purple-dark);
+
+  font-size:22px;
 }
 
-.titulo-alianzas {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #4f3970;
-  font-size: 20px;
-  font-weight: bold;
+.brand p{
+  margin:4px 0 0;
+
+  color:var(--text-soft);
+
+  font-size:14px;
 }
 
-.icono-mano {
-  width: 44px;
-  height: 44px;
-  border-radius: 13px;
-  background: #624b7d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
+
+/* =====================================================
+   ACCIONES DEL HEADER
+===================================================== */
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.boton-plataforma {
-  background: #f0ebf5;
-  color: #624b7d;
-  padding: 11px 24px;
-  border-radius: 25px;
-  font-weight: bold;
+.map-button-top,
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:11px 16px;
+
+  border-radius:12px;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  transition:.2s ease;
 }
 
-.mapa-link {
-  color: #4f3970;
-  font-weight: bold;
-  text-decoration: none;
+.map-button-top{
+  background:var(--purple-light);
+  color:var(--purple);
 }
 
-/* =========================
-   PRESENTACIÓN
-========================= */
-
-.etiqueta {
-  width: fit-content;
-  margin: 0 auto 25px;
-  background: #f0ebf5;
-  color: #624b7d;
-  padding: 9px 20px;
-  border-radius: 22px;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.back-home{
+  background:var(--purple);
+  color:white;
 }
 
-.presentacion {
-  text-align: center;
-  padding: 5px 0 60px;
+.map-button-top:hover,
+.back-home:hover{
+  transform:translateY(-2px);
 }
 
-.presentacion h2 {
-  font-size: 58px;
-  line-height: 1.1;
-  color: #293247;
-  margin-bottom: 20px;
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  text-align:center;
+
+  padding:
+    58px
+    20px
+    42px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(185,174,208,.24),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #f1edf6 0%,
+      #f8f7fb 100%
+    );
 }
 
-.presentacion p {
-  max-width: 720px;
-  margin: auto;
-  font-size: 19px;
-  line-height: 1.6;
-  color: #55708f;
+.hero-content{
+  width:min(1100px,94%);
+  margin:auto;
 }
 
-/* =========================
+.hero h2{
+  margin:0;
+
+  font-size:
+    clamp(36px,5vw,60px);
+
+  color:var(--text);
+}
+
+.hero p{
+  max-width:850px;
+
+  margin:
+    15px
+    auto
+    0;
+
+  color:#52627c;
+
+  font-size:19px;
+
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   ACCESO AL MAPA
+===================================================== */
+
+.map-access{
+  max-width:850px;
+
+  margin:32px auto 0;
+
+  padding:20px 24px;
+
+  background:white;
+
+  border:
+    1px solid var(--purple-border);
+
+  border-radius:20px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  box-shadow:var(--shadow);
+}
+
+.map-access-text{
+  text-align:left;
+}
+
+.map-access-text h3{
+  margin:0 0 6px;
+
+  color:var(--purple-dark);
+
+  font-size:20px;
+}
+
+.map-access-text p{
+  margin:0;
+
+  color:var(--text-soft);
+
+  font-size:14px;
+}
+
+.map-button{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  min-height:48px;
+
+  padding:0 22px;
+
+  border-radius:13px;
+
+  background:var(--purple);
+
+  color:white;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  white-space:nowrap;
+
+  transition:.2s ease;
+}
+
+.map-button:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(101,75,131,.22);
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.wrap{
+  width:min(1180px,94%);
+
+  margin:auto;
+
+  padding:
+    0
+    0
+    55px;
+}
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+.filters{
+  margin-top:-18px;
+
+  background:white;
+
+  border:
+    1px solid var(--purple-border);
+
+  border-radius:17px;
+
+  padding:16px;
+
+  display:grid;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    auto;
+
+  gap:10px;
+
+  box-shadow:var(--shadow);
+}
+
+.filters input,
+.filters select{
+  width:100%;
+
+  padding:13px;
+
+  border:
+    1px solid #d8d1e1;
+
+  border-radius:11px;
+
+  font-size:14px;
+
+  background:white;
+
+  color:var(--text);
+
+  outline:none;
+}
+
+.filters input:focus,
+.filters select:focus{
+  border-color:var(--purple);
+}
+
+.filters button{
+  border:0;
+
+  border-radius:11px;
+
+  padding:
+    12px
+    18px;
+
+  background:var(--purple);
+
+  color:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+.filters button:hover{
+  transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   RESUMEN
+===================================================== */
+
+.summary{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin:
+    25px
+    0
+    15px;
+
+  color:var(--text-soft);
+
+  font-size:14px;
+}
+
+
+/* =====================================================
    TARJETAS
-========================= */
+===================================================== */
 
-.tarjetas-principales {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin-bottom: 70px;
+#cards{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:18px;
 }
 
-.tarjeta-principal {
-  background: white;
-  border: 1px solid #ddd4e8;
-  border-radius: 28px;
-  padding: 42px;
-  box-shadow: 0 8px 25px rgba(74, 50, 100, 0.04);
+.card{
+  background:white;
+
+  border:
+    1px solid var(--purple-border);
+
+  border-radius:19px;
+
+  padding:19px;
+
+  box-shadow:
+    0 6px 22px
+    rgba(91,75,122,.07);
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:285px;
+
+  transition:.2s ease;
 }
 
-.icono-tarjeta {
-  width: 70px;
-  height: 70px;
-  border-radius: 20px;
-  background: #f0ebf5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  margin-bottom: 25px;
+.card:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 14px 30px
+    rgba(91,75,122,.12);
 }
 
-.tarjeta-principal h3 {
-  font-size: 29px;
-  margin-bottom: 15px;
-  color: #25334d;
+.top{
+  display:flex;
+
+  gap:13px;
+
+  align-items:center;
 }
 
-.tarjeta-principal p {
-  color: #55708f;
-  line-height: 1.7;
-  font-size: 17px;
-  margin-bottom: 25px;
+.logo{
+  width:65px;
+  height:65px;
+
+  border-radius:16px;
+
+  background:#f4f0f8;
+
+  border:
+    1px solid var(--purple-border);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex:0 0 65px;
+
+  overflow:hidden;
+
+  font-weight:700;
+
+  color:var(--purple);
 }
 
-.boton {
-  display: inline-block;
-  background: #624b7d;
-  color: white;
-  padding: 13px 23px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+.logo img{
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  padding:5px;
 }
 
-/* =========================
-   INSTITUCIONES
-========================= */
+.card h3{
+  margin:0;
 
-#instituciones {
-  padding-bottom: 80px;
+  color:var(--purple-dark);
+
+  font-size:17px;
+
+  line-height:1.3;
 }
 
-.titulo-seccion {
-  text-align: center;
-  margin-bottom: 40px;
+.tags{
+  margin:
+    14px
+    0
+    4px;
 }
 
-.titulo-seccion h2 {
-  font-size: 42px;
-  color: #293247;
-  margin-bottom: 12px;
+.tag{
+  display:inline-block;
+
+  background:var(--purple-light);
+
+  color:var(--purple);
+
+  padding:
+    5px
+    9px;
+
+  border-radius:999px;
+
+  font-size:11px;
+
+  margin:2px;
 }
 
-.titulo-seccion p {
-  color: #55708f;
-  font-size: 17px;
+.meta{
+  color:#596579;
+
+  font-size:13px;
+
+  line-height:1.55;
+
+  margin-top:7px;
 }
 
-.grid-instituciones {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+.vac{
+  margin-top:auto;
+
+  background:#f5f1f8;
+
+  border-radius:11px;
+
+  padding:10px;
+
+  font-weight:700;
+
+  color:var(--purple);
+
+  font-size:13px;
 }
 
-.institucion {
-  background: white;
-  border: 1px solid #ddd4e8;
-  border-radius: 22px;
-  padding: 24px;
-  transition: .2s;
+.more{
+  margin-top:10px;
+
+  width:100%;
+
+  background:white;
+
+  color:var(--purple);
+
+  border:
+    1px solid #cdbfdb;
+
+  border-radius:10px;
+
+  padding:10px;
+
+  cursor:pointer;
+
+  font-weight:700;
 }
 
-.institucion:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(70, 45, 100, .10);
+
+/* =====================================================
+   PRÓXIMAMENTE
+===================================================== */
+
+.future-section{
+  margin-top:35px;
+
+  padding:30px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #faf8fc,
+      #f3eef7
+    );
+
+  border:
+    1px solid var(--purple-border);
+
+  border-radius:20px;
 }
 
-.logo-institucion {
-  width: 75px;
-  height: 75px;
-  border-radius: 18px;
-  border: 1px solid #e5deec;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-  overflow: hidden;
+.future-section h3{
+  margin:
+    0
+    0
+    8px;
+
+  color:var(--purple-dark);
+
+  font-size:22px;
 }
 
-.logo-institucion img {
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
+.future-section p{
+  margin:0 auto;
+
+  max-width:700px;
+
+  color:var(--text-soft);
+
+  line-height:1.5;
 }
 
-.institucion h3 {
-  font-size: 19px;
-  color: #293247;
-  margin-bottom: 9px;
+.future-regions{
+  display:flex;
+
+  justify-content:center;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+
+  margin-top:18px;
 }
 
-.tipo {
-  display: inline-block;
-  font-size: 12px;
-  color: #624b7d;
-  background: #f0ebf5;
-  border-radius: 20px;
-  padding: 6px 11px;
-  margin-bottom: 13px;
+.future-region{
+  padding:
+    11px
+    16px;
+
+  background:var(--purple-light);
+
+  border:
+    1px dashed #c8b9da;
+
+  border-radius:12px;
+
+  color:var(--purple-dark);
+
+  font-weight:700;
 }
 
-.institucion p {
-  color: #63758c;
-  line-height: 1.5;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
 
-/* =========================
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(27, 22, 35, .55);
-  padding: 30px;
-  overflow-y: auto;
+#modal{
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(25,20,35,.65);
+
+  z-index:200;
+
+  padding:20px;
+
+  align-items:center;
+
+  justify-content:center;
 }
 
-.modal.activo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dialog{
+  background:white;
+
+  max-width:680px;
+
+  width:100%;
+
+  max-height:90vh;
+
+  overflow:auto;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.20);
 }
 
-.modal-contenido {
-  width: 100%;
-  max-width: 680px;
-  background: white;
-  border-radius: 25px;
-  padding: 35px;
-  position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
+.close{
+  float:right;
+
+  border:0;
+
+  background:var(--purple-light);
+
+  color:var(--purple-dark);
+
+  border-radius:9px;
+
+  padding:
+    8px
+    12px;
+
+  cursor:pointer;
+
+  font-weight:700;
 }
 
-.cerrar {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 28px;
-  border: none;
-  background: none;
-  color: #624b7d;
-  cursor: pointer;
+.detailgrid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:12px;
+
+  margin-top:18px;
 }
 
-.modal-logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  margin-bottom: 15px;
+.item{
+  border:
+    1px solid var(--purple-border);
+
+  border-radius:12px;
+
+  padding:12px;
 }
 
-.modal-contenido h2 {
-  color: #293247;
-  margin-bottom: 8px;
+.item strong{
+  display:block;
+
+  font-size:12px;
+
+  color:var(--text-soft);
+
+  margin-bottom:4px;
 }
 
-.modal-contenido h4 {
-  color: #624b7d;
-  margin-top: 22px;
-  margin-bottom: 8px;
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  text-align:center;
+
+  padding:
+    30px
+    20px;
+
+  color:var(--text-soft);
+
+  border-top:
+    1px solid var(--purple-border);
+
+  background:white;
+
+  font-size:13px;
 }
 
-.modal-contenido p {
-  color: #5f7088;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
 
-.modal-enlace {
-  display: inline-block;
-  margin-top: 20px;
-  background: #624b7d;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* =========================
+/* =====================================================
    RESPONSIVE
-========================= */
+===================================================== */
 
-@media (max-width: 850px) {
+@media(max-width:900px){
 
-  .banner-psicologia {
-    height: 110px;
+  #cards{
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
-  .banner-psicologia h1 {
-    font-size: 44px;
+  .filters{
+    grid-template-columns:
+      1fr 1fr;
   }
 
-  .presentacion h2 {
-    font-size: 42px;
+  .filters input{
+    grid-column:1/-1;
   }
 
-  .grid-instituciones {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-  .logo-uc {
-    padding-left: 18px;
+  .header-inner{
+    flex-direction:column;
+
+    align-items:stretch;
   }
 
-  .logo-uc img {
-    width: 180px;
+  .header-actions{
+    flex-direction:column;
   }
 
-  .banner-psicologia {
-    height: 95px;
-    padding-left: 20px;
+  .map-button-top,
+  .back-home{
+    width:100%;
+
+    text-align:center;
   }
 
-  .banner-psicologia h1 {
-    font-size: 35px;
+  .hero h2{
+    font-size:32px;
   }
 
-  .barra-superior {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
+  .hero p{
+    font-size:17px;
   }
 
-  .tarjetas-principales,
-  .grid-instituciones {
-    grid-template-columns: 1fr;
+  .map-access{
+    flex-direction:column;
+
+    align-items:stretch;
   }
 
-  .presentacion h2 {
-    font-size: 35px;
+  .map-access-text{
+    text-align:center;
   }
 
-  .tarjeta-principal {
-    padding: 28px;
+  .map-button{
+    width:100%;
   }
+
+  .filters{
+    grid-template-columns:1fr;
+  }
+
+  .filters input{
+    grid-column:auto;
+  }
+
+  #cards{
+    grid-template-columns:1fr;
+  }
+
+  .summary{
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
+  }
+
+  .detailgrid{
+    grid-template-columns:1fr;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <!-- =====================================================
-     PORTADA
-     SOLO AQUÍ SE USA EL LOGO DE UNIVERSIDAD CONTINENTAL
-====================================================== -->
+     ENCABEZADO
+     NO SE MODIFICA CON EL ENCABEZADO DE LA PORTADA
+===================================================== -->
 
-<header class="header-principal">
+<header>
 
-  <div class="logo-uc">
-    <img
-      src="https://univerperu.com/wp-content/uploads/2023/07/Universidad-Continental-UCONTINENTAL-300x143.png"
-      alt="Universidad Continental - Modalidad A Distancia">
-  </div>
+  <div class="header-inner">
 
-  <div class="banner-psicologia">
-    <h1>PSICOLOGÍA</h1>
+    <div class="brand-wrap">
+
+      <div class="mark">
+        🤝
+      </div>
+
+      <div class="brand">
+
+        <h1>
+          Alianzas Estratégicas
+        </h1>
+
+        <p>
+          Modalidad a distancia · Psicología
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <a
+        href="mapa.html"
+        class="map-button-top"
+      >
+        🗺️ Ver mapa de alianzas
+      </a>
+
+      <a
+        href="index.html"
+        class="back-home"
+      >
+        ← Regresar al inicio
+      </a>
+
+    </div>
+
   </div>
 
 </header>
 
 
 <!-- =====================================================
-     ALIANZAS
-====================================================== -->
+     HERO
+===================================================== -->
 
-<main>
+<section class="hero">
 
-<div class="contenedor">
+  <div class="hero-content">
 
-  <div class="barra-superior">
-
-    <div class="titulo-alianzas">
-      <div class="icono-mano">🤝</div>
-      Alianzas Estratégicas
-    </div>
-
-    <div class="boton-plataforma">
-      Plataforma de consulta
-    </div>
-
-    <a class="mapa-link" href="#mapa">
-      🗺️ Ver mapa de alianzas
-    </a>
-
-  </div>
-
-
-  <section class="presentacion">
-
-    <div class="etiqueta">
-      INSTITUCIONES ALIADAS
-    </div>
-
-    <h2>Conectamos oportunidades</h2>
+    <h2>
+      Nuestras Alianzas Estratégicas
+    </h2>
 
     <p>
-      Consulta las instituciones aliadas y conoce las oportunidades
-      disponibles a través de nuestra plataforma de consulta.
+      Conoce las instituciones aliadas y consulta de manera rápida
+      su ubicación, área, vacantes y horarios.
     </p>
 
-  </section>
+
+    <div class="map-access">
+
+      <div class="map-access-text">
+
+        <h3>
+          🗺️ Explora nuestras alianzas en el mapa
+        </h3>
+
+        <p>
+          Consulta la distribución geográfica de las instituciones
+          aliadas por departamento.
+        </p>
+
+      </div>
 
 
-  <!-- TARJETAS PRINCIPALES -->
-
-  <section class="tarjetas-principales">
-
-    <div class="tarjeta-principal">
-
-      <div class="icono-tarjeta">🏢</div>
-
-      <h3>Instituciones aliadas</h3>
-
-      <p>
-        Explora las instituciones registradas y consulta información
-        sobre ubicación, áreas, vacantes y horarios disponibles.
-      </p>
-
-      <a href="#instituciones" class="boton">
-        Ver instituciones →
+      <a
+        href="mapa.html"
+        class="map-button"
+      >
+        Ver mapa de alianzas →
       </a>
 
     </div>
 
+  </div>
 
-    <div class="tarjeta-principal" id="mapa">
+</section>
 
-      <div class="icono-tarjeta">🗺️</div>
 
-      <h3>Mapa de alianzas</h3>
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
 
-      <p>
-        Visualiza la distribución geográfica de las instituciones
-        aliadas y consulta su presencia por departamento.
-      </p>
+<main class="wrap">
 
-      <button class="boton" onclick="mostrarMapa()">
-        Explorar el mapa →
-      </button>
 
+<section class="filters">
+
+  <input
+    id="q"
+    type="text"
+    placeholder="🔎 Buscar institución, ciudad o palabra clave..."
+  >
+
+
+  <select id="d">
+
+    <option value="">
+      Todos los departamentos
+    </option>
+
+  </select>
+
+
+  <select id="a">
+
+    <option value="">
+      Todas las áreas
+    </option>
+
+  </select>
+
+
+  <button id="clear">
+    Limpiar
+  </button>
+
+</section>
+
+
+<section class="summary">
+
+  <span id="count">
+    Cargando instituciones...
+  </span>
+
+  <span>
+    Directorio actualizado · 2026
+  </span>
+
+</section>
+
+
+<section id="cards"></section>
+
+
+<section class="future-section">
+
+  <h3>
+    Próximamente
+  </h3>
+
+  <p>
+    Continuamos ampliando nuestra red de alianzas institucionales
+    para brindar nuevas oportunidades a nuestros estudiantes.
+  </p>
+
+  <div class="future-regions">
+
+    <div class="future-region">
+      📍 Ica — Próximamente
     </div>
 
-  </section>
-
-
-  <!-- =====================================================
-       INSTITUCIONES
-  ====================================================== -->
-
-  <section id="instituciones">
-
-    <div class="titulo-seccion">
-
-      <div class="etiqueta">
-        RED DE ALIANZAS
-      </div>
-
-      <h2>Instituciones aliadas</h2>
-
-      <p>
-        Conoce las instituciones que forman parte de nuestra red.
-      </p>
-
+    <div class="future-region">
+      📍 Ayacucho — Próximamente
     </div>
 
-    <div class="grid-instituciones" id="gridInstituciones"></div>
+  </div>
 
-  </section>
+</section>
 
-</div>
 
 </main>
 
 
+<footer>
+  Directorio de Alianzas Estratégicas · Programa de Psicología
+</footer>
+
+
 <!-- =====================================================
      MODAL
-====================================================== -->
+===================================================== -->
 
-<div class="modal" id="modal">
+<div id="modal">
 
-  <div class="modal-contenido">
+  <div class="dialog">
 
-    <button class="cerrar" onclick="cerrarModal()">×</button>
+    <button
+      class="close"
+      id="close"
+    >
+      Cerrar
+    </button>
 
-    <img id="modalLogo" class="modal-logo" src="" alt="">
-
-    <h2 id="modalNombre"></h2>
-
-    <span id="modalTipo" class="tipo"></span>
-
-    <h4>📍 Ubicación</h4>
-    <p id="modalUbicacion"></p>
-
-    <h4>🏢 Dirección</h4>
-    <p id="modalDireccion"></p>
-
-    <h4>🕐 Horario</h4>
-    <p id="modalHorario"></p>
-
-    <h4>Sobre la institución</h4>
-    <p id="modalDescripcion"></p>
-
-    <a
-      id="modalEnlace"
-      class="modal-enlace"
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer">
-      Visitar sitio web →
-    </a>
+    <div id="detail"></div>
 
   </div>
 
@@ -605,12 +1100,191 @@ body {
 <script>
 
 /* =====================================================
+   DATOS
+===================================================== */
+
+const fallbackData = [
+
+{
+institucion:"Asociación Educativa Harvard S.R.L.",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Educativa",
+vacantes:"2",
+direccion:"Jr. Julio Sumar Nro. 441 / Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo.",
+horario:"Lunes a viernes, 7:45 a. m. – 2:30 p. m."
+},
+
+{
+institucion:"NeuroPsico – Psicología Clínica Integral",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica",
+vacantes:"1",
+direccion:"Jr. Clorinda Matto de Turner Nro. 308, Urb. Magisterio, Cusco.",
+horario:"Lunes a viernes, 2:00 p. m. – 8:00 p. m.; sábado 9:00 a. m. – 1:00 p. m."
+},
+
+{
+institucion:"Centro Psicológico CRECETU S.A.C.",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Organizacional",
+vacantes:"5",
+direccion:"Sedes en Callao, Rímac y Pueblo Libre.",
+horario:"Lunes a viernes, 8:00 a. m. – 6:00 p. m."
+},
+
+{
+institucion:"CEBE Manuel Duato",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Educativa",
+vacantes:"3",
+direccion:"Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
+horario:"Lunes a viernes: turnos mañana y tarde."
+},
+
+{
+institucion:"Centro Psicológico Vida y Ser",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Educativa / Comunitaria",
+vacantes:"1",
+direccion:"Av. Miguel Iglesias 761, San Juan de Miraflores, Lima.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"AKUNA – Centro de Desarrollo Psicológico",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica",
+vacantes:"4",
+direccion:"Urbanización La Melgariana E-16, José Luis Bustamante y Rivero.",
+horario:"Lunes a viernes, 9:00 a. m. – 1:00 p. m. y 4:00 p. m. – 8:00 p. m."
+},
+
+{
+institucion:"Centro Psicológico Psicokhuyay",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica / Educativa / Organizacional",
+vacantes:"1",
+direccion:"Av. Los Incas 1710, Cusco.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"Escuela de Educación Superior Pedagógica Pública Santa Rosa",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Educativa",
+vacantes:"1",
+direccion:"San Andrés 470, Cusco.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"CEPAB – Centro de Aprendizaje y Bienestar",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica / Organizacional",
+vacantes:"4",
+direccion:"Calle Los Halcones 287, Lima.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"POWER YOU – Consultora de Recursos Humanos",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Organizacional",
+vacantes:"2",
+direccion:"Huancayo, Junín.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"SENSES Psicólogos",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica / Educativa / Social - Comunitaria",
+vacantes:"10",
+direccion:"Calle Yapurá 212, Zamácola, Cerro Colorado, Arequipa.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Arequipa",
+departamento:"Arequipa",
+provincia_ciudad:"Arequipa",
+area:"Clínica",
+vacantes:"1",
+direccion:"Sede Arequipa.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Lima",
+departamento:"Lima",
+provincia_ciudad:"Lima",
+area:"Clínica",
+vacantes:"3",
+direccion:"Sede Lima.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Cusco",
+departamento:"Cusco",
+provincia_ciudad:"Cusco",
+area:"Clínica",
+vacantes:"2",
+direccion:"Sede Cusco.",
+horario:"Por confirmar."
+},
+
+{
+institucion:"CAP – Centro de Atención Psicológica Huancayo",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Clínica",
+vacantes:"2",
+direccion:"Jr. 2 de Mayo 570, El Tambo, Huancayo.",
+horario:"Lunes a viernes 8:00 a. m. – 6:00 p. m.; sábados 8:00 a. m. – 12:30 p. m."
+},
+
+{
+institucion:"Centro Psicológico Comunitario de la UC",
+departamento:"Junín",
+provincia_ciudad:"Huancayo",
+area:"Clínica / Educativa / Organizacional",
+vacantes:"6",
+direccion:"Jr. 2 de Mayo 570, 3.er piso, Policlínico Continental, El Tambo.",
+horario:"Lunes a viernes 8:00 a. m. – 6:00 p. m.; sábados 8:00 a. m. – 12:30 p. m."
+},
+
+{
+institucion:"I.E. Sagrado Corazón de Jesús – Espinar",
+departamento:"Cusco",
+provincia_ciudad:"Espinar",
+area:"Educativa",
+vacantes:"3",
+direccion:"Calle San Pedro, Espinar, Cusco.",
+horario:"Por confirmar."
+}
+
+];
+
+
+/* =====================================================
    LOGOS
-   SE MANTIENEN LOS ENLACES QUE TÚ PROPORCIONASTE
-====================================================== */
+===================================================== */
 
 const capLogo =
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10";
+
 
 const logos = {
 
@@ -663,304 +1337,509 @@ const logos = {
   capLogo,
 
   "I.E. Sagrado Corazón de Jesús – Espinar":
-  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00Q7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00QkNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
 
 };
 
 
 /* =====================================================
-   INFORMACIÓN DE LAS INSTITUCIONES
-====================================================== */
+   ELEMENTOS
+===================================================== */
 
-const instituciones = [
+const cards =
+  document.getElementById("cards");
 
-{
-  nombre: "Asociación Educativa Harvard S.R.L.",
-  tipo: "Educativa",
-  ubicacion: "Huancayo, Junín",
-  direccion: "Av. Julio Sumar 441 y Jr. Huayna Cápac 240, El Tambo, Huancayo.",
-  horario: "Lunes a viernes, 7:45 a. m. – 2:30 p. m.",
-  descripcion: "Institución educativa ubicada en Huancayo que desarrolla actividades en el ámbito de la educación y la formación. Promueve espacios y experiencias formativas y profesionales.",
-  enlace: "https://harvard.edu.pe/main/"
-},
+const modal =
+  document.getElementById("modal");
 
-{
-  nombre: "NeuroPsico – Psicología Clínica Integral",
-  tipo: "Clínica",
-  ubicacion: "Cusco, Cusco",
-  direccion: "Jr. Clorinda Matto de Turner N.° 308, Urb. Magisterio, Cusco.",
-  horario: "Lunes a viernes, 2:00 p. m. – 8:00 p. m.; sábado, 9:00 a. m. – 1:00 p. m.",
-  descripcion: "Centro especializado en servicios de psicología clínica integral, orientado a la atención y bienestar psicológico.",
-  enlace: "https://www.facebook.com/Neuropsico.Cusco/?locale=es_LA"
-},
+const detail =
+  document.getElementById("detail");
 
-{
-  nombre: "Centro Psicológico CRECETU S.A.C.",
-  tipo: "Psicológica",
-  ubicacion: "Rímac y Callao, Lima",
-  direccion: "Av. Samuel Alcázar 755, Rímac; Av. Los Dominicos 303, Callao.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Clínica psicológica que brinda servicios psicológicos y psicoterapéuticos a lo largo del ciclo vital, incluyendo infancia, adolescencia, juventud, adultez y vejez, así como servicios para organizaciones.",
-  enlace: "https://crecetu.pe/"
-},
+const close =
+  document.getElementById("close");
 
-{
-  nombre: "CEBE Manuel Duato",
-  tipo: "Educativa",
-  ubicacion: "Los Olivos, Lima",
-  direccion: "Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos.",
-  horario: "Lunes a viernes, 9:00 a. m. – 5:00 p. m.",
-  descripcion: "Institución dedicada a la atención de personas con necesidades educativas especiales y sus familias.",
-  enlace: "https://www.facebook.com/cebe.manuelduato/?locale=es_LA"
-},
+const q =
+  document.getElementById("q");
 
-{
-  nombre: "Centro Psicológico Vida y Ser",
-  tipo: "Psicológica",
-  ubicacion: "San Juan de Miraflores, Lima",
-  direccion: "Avenida Miguel Iglesias 761, San Juan de Miraflores.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Consultorio psicológico que brinda un espacio seguro y de confianza para el bienestar emocional, con atención para niños, adolescentes, adultos, parejas y familias.",
-  enlace: "https://consultoriopsicolo57.wixsite.com/consultoriovidayser"
-},
+const d =
+  document.getElementById("d");
 
-{
-  nombre: "AKUNA – Centro de Desarrollo Psicológico",
-  tipo: "Psicológica",
-  ubicacion: "José Luis Bustamante y Rivero, Arequipa",
-  direccion: "Urbanización La Melgariana E-16.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Centro especializado en terapia cognitivo-conductual, utilizando técnicas psicológicas apropiadas para cada caso.",
-  enlace: "https://www.facebook.com/CentroAkunaAQP/?locale=es_LA"
-},
+const a =
+  document.getElementById("a");
 
-{
-  nombre: "Centro Psicológico Psicokhuyay",
-  tipo: "Psicológica",
-  ubicacion: "Cusco, Cusco",
-  direccion: "Av. Los Incas 1710, Cusco.",
-  horario: "Atención permanente según información proporcionada.",
-  descripcion: "Espacio orientado al bienestar psicológico que brinda atención y acompañamiento para personas que atraviesan dificultades emocionales o psicológicas.",
-  enlace: "https://consultorio-psicologico-psicokhuyay-cusco.ueniweb.com/"
-},
+const clear =
+  document.getElementById("clear");
 
-{
-  nombre: "Escuela de Educación Superior Pedagógica Pública Santa Rosa",
-  tipo: "Educativa",
-  ubicacion: "Cusco, Cusco",
-  direccion: "San Andrés 470, Cusco 08002.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Institución de educación superior pedagógica orientada a la formación inicial docente y formación continua, promoviendo la investigación, innovación, interculturalidad y sostenibilidad.",
-  enlace: "https://www.eesppsantarosacusco.edu.pe/"
-},
-
-{
-  nombre: "CEPAB – Centro de Aprendizaje y Bienestar",
-  tipo: "Psicológica",
-  ubicacion: "Lima",
-  direccion: "Calle Los Halcones 287, Lima.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Centro especializado en terapias integrales para el desarrollo infantil y adolescente.",
-  enlace: "https://www.facebook.com/p/CEPAB-Centro-para-el-aprendizaje-y-bienestar-61551618363835/?locale=es_LA"
-},
-
-{
-  nombre: "POWER YOU – Consultora de Recursos Humanos",
-  tipo: "Consultoría",
-  ubicacion: "Perú",
-  direccion: "Consultar directamente con la institución.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Consultora orientada a brindar soluciones relacionadas con la gestión y desarrollo de recursos humanos.",
-  enlace: "https://www.poweryou.pe/"
-},
-
-{
-  nombre: "SENSES Psicólogos",
-  tipo: "Psicológica",
-  ubicacion: "Zamácola, Cerro Colorado, Arequipa",
-  direccion: "Calle Yapurá 212, Zamácola, Cerro Colorado.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Equipo profesional que brinda atención psicológica integral y servicios dirigidos a familias, niños, adolescentes y adultos.",
-  enlace: "https://sensespsicologos.com/"
-},
-
-{
-  nombre: "CAP – Centro de Atención Psicológica Arequipa",
-  tipo: "CAP",
-  ubicacion: "Arequipa",
-  direccion: "Consultar directamente con la institución.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Centro de atención psicológica orientado a brindar servicios de atención psicológica.",
-  enlace: "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
-},
-
-{
-  nombre: "CAP – Centro de Atención Psicológica Lima",
-  tipo: "CAP",
-  ubicacion: "Lima",
-  direccion: "Consultar directamente con la institución.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Centro de atención psicológica orientado a brindar servicios de atención y acompañamiento psicológico.",
-  enlace: "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
-},
-
-{
-  nombre: "CAP – Centro de Atención Psicológica Cusco",
-  tipo: "CAP",
-  ubicacion: "Cusco",
-  direccion: "Consultar directamente con la institución.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Centro de atención psicológica orientado a brindar servicios de atención y acompañamiento psicológico.",
-  enlace: "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
-},
-
-{
-  nombre: "CAP – Centro de Atención Psicológica Huancayo",
-  tipo: "CAP",
-  ubicacion: "Huancayo, Junín",
-  direccion: "Jr. 2 de Mayo 570, 3.er piso, Policlínico Continental – El Tambo.",
-  horario: "Lunes a viernes, 8:00 a. m. – 6:00 p. m.; sábados, 8:00 a. m. – 12:30 p. m.",
-  descripcion: "Centro de atención psicológica que brinda atención inmediata y servicios orientados al bienestar psicológico.",
-  enlace: "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/"
-},
-
-{
-  nombre: "Centro Psicológico Comunitario de la UC",
-  tipo: "Psicológica",
-  ubicacion: "El Tambo, Huancayo",
-  direccion: "Jr. 2 de Mayo 570, 3.er piso, Policlínico Continental – El Tambo.",
-  horario: "Lunes a viernes, 8:00 a. m. – 6:00 p. m.; sábados, 8:00 a. m. – 12:30 p. m.",
-  descripcion: "Unidad especializada de la EAP Psicología de la Universidad Continental que brinda atención psicológica gratuita y fortalece las competencias de futuros profesionales de psicología.",
-  enlace: "https://ucontinental.edu.pe/centro-psicologico/"
-},
-
-{
-  nombre: "I.E. Sagrado Corazón de Jesús – Espinar",
-  tipo: "Educativa",
-  ubicacion: "Espinar, Cusco",
-  direccion: "Calle San Pedro, Espinar, Cusco.",
-  horario: "Consultar directamente con la institución.",
-  descripcion: "Institución educativa pública, líder e inclusiva, que atiende los niveles de primaria y secundaria.",
-  enlace: "https://www.facebook.com/SagradoEspinar/"
-}
-
-];
+const count =
+  document.getElementById("count");
 
 
 /* =====================================================
-   CREAR TARJETAS
-====================================================== */
+   INICIA DATOS
+===================================================== */
 
-const contenedor = document.getElementById("gridInstituciones");
+let data = fallbackData;
 
-instituciones.forEach((inst, index) => {
 
-  const tarjeta = document.createElement("div");
+/* =====================================================
+   INICIA FILTROS
+===================================================== */
 
-  tarjeta.className = "institucion";
+function initFilters(){
 
-  tarjeta.innerHTML = `
+  const departments =
+    [...new Set(
+      data.map(x => x.departamento)
+    )].sort();
 
-    <div class="logo-institucion">
+  const areas =
+    [...new Set(
+      data.flatMap(x =>
+        x.area
+          .split("/")
+          .map(y => y.trim())
+      )
+    )].sort();
 
-      <img
-        src="${logos[inst.nombre] || capLogo}"
-        alt="${inst.nombre}"
-        onerror="this.src='${capLogo}'">
+
+  departments.forEach(x => {
+
+    const option =
+      document.createElement("option");
+
+    option.value = x;
+
+    option.textContent = x;
+
+    d.appendChild(option);
+
+  });
+
+
+  areas.forEach(x => {
+
+    const option =
+      document.createElement("option");
+
+    option.value = x;
+
+    option.textContent = x;
+
+    a.appendChild(option);
+
+  });
+
+}
+
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escapeHTML(text){
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   INICIALES
+===================================================== */
+
+function initials(name){
+
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0,2)
+    .map(x => x[0])
+    .join("")
+    .toUpperCase();
+
+}
+
+
+/* =====================================================
+   RENDERIZAR
+===================================================== */
+
+function render(){
+
+  const query =
+    q.value
+      .toLowerCase()
+      .trim();
+
+  const department =
+    d.value;
+
+  const area =
+    a.value;
+
+
+  const filtered =
+    data.filter(item => {
+
+      const text = [
+
+        item.institucion,
+
+        item.departamento,
+
+        item.provincia_ciudad,
+
+        item.area,
+
+        item.direccion
+
+      ]
+      .join(" ")
+      .toLowerCase();
+
+
+      return (
+
+        text.includes(query)
+
+        &&
+
+        (
+          !department
+          ||
+          item.departamento === department
+        )
+
+        &&
+
+        (
+          !area
+          ||
+          item.area.includes(area)
+        )
+
+      );
+
+    });
+
+
+  count.textContent =
+    filtered.length +
+    " institución(es) encontradas";
+
+
+  cards.innerHTML =
+    filtered.map(item => {
+
+      const logo =
+        logos[item.institucion];
+
+
+      return `
+
+        <article class="card">
+
+          <div class="top">
+
+            <div class="logo">
+
+              ${
+                logo
+
+                ?
+
+                `<img
+                  src="${logo}"
+                  alt="Logo de ${escapeHTML(item.institucion)}"
+                  onerror="this.style.display='none';this.parentElement.innerHTML='<strong>${initials(item.institucion)}</strong>';"
+                >`
+
+                :
+
+                `<strong>
+                  ${initials(item.institucion)}
+                </strong>`
+              }
+
+            </div>
+
+
+            <h3>
+              ${escapeHTML(item.institucion)}
+            </h3>
+
+          </div>
+
+
+          <div class="tags">
+
+            <span class="tag">
+              ${escapeHTML(item.area)}
+            </span>
+
+          </div>
+
+
+          <div class="meta">
+
+            📍 <b>Ubicación:</b>
+            ${escapeHTML(item.provincia_ciudad)},
+            ${escapeHTML(item.departamento)}
+
+            <br><br>
+
+            🏢 <b>Dirección:</b>
+            ${escapeHTML(item.direccion)}
+
+          </div>
+
+
+          <div class="vac">
+
+            👥 Vacantes:
+            ${escapeHTML(item.vacantes)}
+
+            <br>
+
+            🕐 Horario:
+            ${escapeHTML(item.horario)}
+
+          </div>
+
+
+          <button
+            class="more"
+            onclick="showDetail(${data.indexOf(item)})"
+          >
+            Conocer más
+          </button>
+
+        </article>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =====================================================
+   DETALLE
+===================================================== */
+
+function showDetail(index){
+
+  const item =
+    data[index];
+
+  if(!item) return;
+
+
+  const logo =
+    logos[item.institucion];
+
+
+  detail.innerHTML = `
+
+    <div style="text-align:center;padding-top:10px">
+
+      <div
+        style="
+          width:90px;
+          height:90px;
+          margin:0 auto 15px;
+          border-radius:20px;
+          background:#f4f0f8;
+          border:1px solid #ddd4e8;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          overflow:hidden;
+        "
+      >
+
+        ${
+          logo
+
+          ?
+
+          `<img
+            src="${logo}"
+            alt="Logo"
+            style="
+              width:100%;
+              height:100%;
+              object-fit:contain;
+              padding:7px;
+            "
+          >`
+
+          :
+
+          `<strong
+            style="
+              font-size:24px;
+              color:#654b83;
+            "
+          >
+            ${initials(item.institucion)}
+          </strong>`
+        }
+
+      </div>
+
+
+      <h2
+        style="
+          color:#44335d;
+          margin:0 0 8px;
+        "
+      >
+        ${escapeHTML(item.institucion)}
+      </h2>
+
+
+      <span
+        class="tag"
+      >
+        ${escapeHTML(item.area)}
+      </span>
 
     </div>
 
-    <span class="tipo">
-      ${inst.tipo}
-    </span>
 
-    <h3>${inst.nombre}</h3>
+    <div class="detailgrid">
 
-    <p>
-      📍 ${inst.ubicacion}
-    </p>
+      <div class="item">
 
-    <button
-      class="boton"
-      onclick="abrirModal(${index})">
-      Conocer más
-    </button>
+        <strong>
+          UBICACIÓN
+        </strong>
+
+        ${escapeHTML(item.provincia_ciudad)},
+        ${escapeHTML(item.departamento)}
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          VACANTES
+        </strong>
+
+        ${escapeHTML(item.vacantes)}
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          DIRECCIÓN
+        </strong>
+
+        ${escapeHTML(item.direccion)}
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          HORARIO
+        </strong>
+
+        ${escapeHTML(item.horario)}
+
+      </div>
+
+    </div>
 
   `;
 
-  contenedor.appendChild(tarjeta);
 
-});
+  modal.style.display =
+    "flex";
+
+}
 
 
 /* =====================================================
-   MODAL
-====================================================== */
+   CERRAR MODAL
+===================================================== */
 
-function abrirModal(index) {
+close.onclick = () => {
 
-  const inst = instituciones[index];
+  modal.style.display =
+    "none";
 
-  document.getElementById("modalLogo").src =
-    logos[inst.nombre] || capLogo;
-
-  document.getElementById("modalNombre").textContent =
-    inst.nombre;
-
-  document.getElementById("modalTipo").textContent =
-    inst.tipo;
-
-  document.getElementById("modalUbicacion").textContent =
-    inst.ubicacion;
-
-  document.getElementById("modalDireccion").textContent =
-    inst.direccion;
-
-  document.getElementById("modalHorario").textContent =
-    inst.horario;
-
-  document.getElementById("modalDescripcion").textContent =
-    inst.descripcion;
-
-  document.getElementById("modalEnlace").href =
-    inst.enlace;
-
-  document.getElementById("modal").classList.add("activo");
-
-}
+};
 
 
-function cerrarModal() {
+modal.onclick = event => {
 
-  document.getElementById("modal").classList.remove("activo");
+  if(event.target === modal){
 
-}
+    modal.style.display =
+      "none";
 
-
-/* Cerrar haciendo clic fuera */
-
-document.getElementById("modal").addEventListener("click", function(e) {
-
-  if (e.target === this) {
-    cerrarModal();
   }
 
-});
+};
 
 
 /* =====================================================
-   MAPA
-====================================================== */
+   FILTROS
+===================================================== */
 
-function mostrarMapa() {
+q.addEventListener(
+  "input",
+  render
+);
 
-  alert(
-    "El mapa de alianzas se encuentra disponible en la sección correspondiente."
-  );
+d.addEventListener(
+  "change",
+  render
+);
 
-}
+a.addEventListener(
+  "change",
+  render
+);
+
+
+clear.addEventListener(
+  "click",
+  () => {
+
+    q.value = "";
+
+    d.value = "";
+
+    a.value = "";
+
+    render();
+
+  }
+);
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+initFilters();
+
+render();
 
 </script>
 
 </body>
+
 </html>
