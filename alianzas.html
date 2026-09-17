@@ -1,1099 +1,4 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Alianzas Estratégicas | Facultad de Psicología</title>
-
-<style>
-
-:root{
-  --morado-principal:#66527f;
-  --morado-oscuro:#4f3d66;
-  --morado-medio:#89759f;
-  --morado-suave:#f1edf5;
-  --morado-claro:#f8f6fa;
-
-  --texto:#303747;
-  --texto-secundario:#667080;
-  --borde:#ded7e6;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:var(--texto);
-  background:
-    radial-gradient(circle at 15% 15%, rgba(137,117,159,.10), transparent 28%),
-    radial-gradient(circle at 85% 70%, rgba(102,82,127,.08), transparent 30%),
-    linear-gradient(180deg,#f7f5f9 0%,#fbfafc 50%,#ffffff 100%);
-}
-
-
-/* =========================================================
-   ENCABEZADO INSTITUCIONAL
-========================================================= */
-
-.institucional{
-  width:min(1150px,94%);
-  margin:auto;
-
-  min-height:82px;
-
-  display:flex;
-  align-items:center;
-
-  gap:25px;
-
-  padding:18px 0;
-
-  border-bottom:1px solid var(--borde);
-}
-
-.institucional-logo{
-  width:180px;
-  height:auto;
-
-  /* Ayuda a que el fondo blanco del logo se integre */
-  mix-blend-mode:multiply;
-}
-
-.institucional-texto{
-  border-left:1px solid var(--borde);
-  padding-left:25px;
-}
-
-.institucional-texto h2{
-  margin:0;
-
-  font-size:22px;
-
-  color:var(--morado-oscuro);
-
-  font-weight:700;
-
-  letter-spacing:.4px;
-}
-
-.institucional-texto .modalidad{
-  margin:6px 0 0;
-
-  font-size:15px;
-
-  color:var(--texto-secundario);
-
-  font-weight:500;
-
-  letter-spacing:.2px;
-}
-
-
-/* =========================
-   ENCABEZADO
-========================= */
-
-header{
-  max-width:1150px;
-  margin:auto;
-  padding:28px 30px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  gap:25px;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  font-size:19px;
-  font-weight:700;
-
-  color:var(--morado-oscuro);
-}
-
-.logo-icon{
-  width:44px;
-  height:44px;
-
-  border-radius:13px;
-
-  background:linear-gradient(
-    135deg,
-    var(--morado-oscuro),
-    var(--morado-principal)
-  );
-
-  display:grid;
-  place-items:center;
-
-  color:white;
-  font-size:22px;
-
-  box-shadow:0 8px 20px rgba(79,61,102,.16);
-}
-
-.estado{
-  background:var(--morado-suave);
-
-  color:var(--morado-principal);
-
-  padding:10px 20px;
-
-  border-radius:30px;
-
-  font-size:14px;
-  font-weight:bold;
-
-  letter-spacing:.2px;
-}
-
-.btn-mapa{
-  color:var(--morado-principal);
-
-  font-weight:600;
-
-  text-decoration:none;
-
-  padding:10px 16px;
-
-  border-radius:10px;
-
-  transition:.25s;
-}
-
-.btn-mapa:hover{
-  background:var(--morado-suave);
-
-  color:var(--morado-oscuro);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  max-width:950px;
-
-  margin:50px auto 25px;
-
-  padding:30px;
-
-  text-align:center;
-}
-
-.etiqueta{
-  display:inline-block;
-
-  padding:9px 18px;
-
-  border-radius:30px;
-
-  background:var(--morado-suave);
-
-  color:var(--morado-principal);
-
-  font-size:13px;
-
-  font-weight:bold;
-
-  letter-spacing:1px;
-}
-
-h1{
-  margin:22px 0 18px;
-
-  font-size:clamp(40px,6vw,68px);
-
-  letter-spacing:-2px;
-
-  color:var(--texto);
-}
-
-.hero p{
-  max-width:720px;
-
-  margin:auto;
-
-  font-size:20px;
-
-  line-height:1.6;
-
-  color:var(--texto-secundario);
-}
-
-
-/* =========================
-   OPCIONES
-========================= */
-
-.opciones{
-  max-width:1000px;
-
-  margin:35px auto 70px;
-
-  padding:0 25px;
-
-  display:grid;
-
-  grid-template-columns:repeat(2,1fr);
-
-  gap:28px;
-}
-
-.card{
-  position:relative;
-
-  overflow:hidden;
-
-  text-decoration:none;
-
-  color:inherit;
-
-  background:rgba(255,255,255,.88);
-
-  border:1px solid var(--borde);
-
-  border-radius:28px;
-
-  padding:40px;
-
-  box-shadow:0 12px 35px rgba(79,61,102,.08);
-
-  transition:.25s;
-}
-
-.card::after{
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  background:rgba(137,117,159,.05);
-
-  right:-70px;
-  top:-70px;
-}
-
-.card:hover{
-  transform:translateY(-7px);
-
-  border-color:rgba(102,82,127,.35);
-
-  box-shadow:0 20px 45px rgba(79,61,102,.14);
-}
-
-.icono{
-  position:relative;
-
-  z-index:1;
-
-  width:70px;
-  height:70px;
-
-  border-radius:20px;
-
-  background:linear-gradient(
-    135deg,
-    var(--morado-suave),
-    #e9e2ef
-  );
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:32px;
-
-  margin-bottom:25px;
-}
-
-.card h2{
-  position:relative;
-
-  z-index:1;
-
-  font-size:27px;
-
-  margin:0 0 14px;
-
-  color:var(--texto);
-}
-
-.card p{
-  position:relative;
-
-  z-index:1;
-
-  color:var(--texto-secundario);
-
-  line-height:1.7;
-
-  margin:0;
-}
-
-.boton{
-  position:relative;
-
-  z-index:1;
-
-  display:inline-block;
-
-  margin-top:28px;
-
-  padding:14px 22px;
-
-  background:linear-gradient(
-    135deg,
-    var(--morado-oscuro),
-    var(--morado-principal)
-  );
-
-  color:white;
-
-  border-radius:12px;
-
-  font-weight:bold;
-
-  transition:.25s;
-}
-
-.card:hover .boton{
-  transform:translateX(4px);
-}
-
-
-/* =========================
-   INFORMACIÓN
-========================= */
-
-.info{
-  max-width:1000px;
-
-  margin:0 auto 70px;
-
-  padding:0 25px;
-}
-
-.info-box{
-  display:flex;
-
-  gap:18px;
-
-  align-items:center;
-
-  padding:28px;
-
-  background:linear-gradient(
-    135deg,
-    #faf8fc,
-    var(--morado-claro)
-  );
-
-  border:1px solid var(--borde);
-
-  border-radius:22px;
-
-  box-shadow:0 10px 30px rgba(79,61,102,.05);
-}
-
-.info-icon{
-  width:55px;
-  height:55px;
-
-  border-radius:16px;
-
-  background:var(--morado-suave);
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:26px;
-
-  flex-shrink:0;
-}
-
-.info h3{
-  margin:0 0 8px;
-
-  color:var(--morado-oscuro);
-}
-
-.info p{
-  margin:0;
-
-  color:var(--texto-secundario);
-
-  line-height:1.6;
-}
-
-
-/* =========================
-   PIE DE PÁGINA
-========================= */
-
-footer{
-  text-align:center;
-
-  padding:28px;
-
-  border-top:1px solid var(--borde);
-
-  color:#82798c;
-
-  font-size:14px;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:700px){
-
-  .institucional{
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:15px;
-
-    padding:20px 0;
-  }
-
-  .institucional-logo{
-    width:190px;
-
-    max-width:70%;
-  }
-
-  .institucional-texto{
-    border-left:0;
-
-    border-top:1px solid var(--borde);
-
-    padding-left:0;
-
-    padding-top:12px;
-
-    width:100%;
-  }
-
-  .institucional-texto h2{
-    font-size:19px;
-  }
-
-  .institucional-texto .modalidad{
-    font-size:14px;
-  }
-
-  header{
-    padding:20px;
-
-    flex-wrap:wrap;
-  }
-
-  .estado{
-    display:none;
-  }
-
-  .btn-mapa{
-    margin-left:auto;
-  }
-
-  .hero{
-    margin-top:25px;
-
-    padding:25px 20px;
-  }
-
-  .hero p{
-    font-size:17px;
-  }
-
-  .opciones{
-    grid-template-columns:1fr;
-
-    margin-bottom:45px;
-  }
-
-  .card{
-    padding:30px;
-  }
-
-  .info-box{
-    align-items:flex-start;
-  }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
-     ENCABEZADO INSTITUCIONAL
-===================================================== -->
-
-<div class="institucional">
-
-  <img
-    class="institucional-logo"
-    src="./logo-continental.png"
-    alt="Universidad Continental"
-  >
-
-  <div class="institucional-texto">
-
-    <h2>
-      FACULTAD DE PSICOLOGÍA
-    </h2>
-
-    <p class="modalidad">
-      Modalidad a distancia
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     ENCABEZADO ORIGINAL
-===================================================== -->
-
-<header>
-
-  <div class="logo">
-
-    <div class="logo-icon">
-      🤝
-    </div>
-
-    <span>
-      Alianzas Estratégicas
-    </span>
-
-  </div>
-
-
-  <div class="estado">
-    Plataforma de consulta
-  </div>
-
-
-  <a
-    href="mapa.html"
-    class="btn-mapa"
-  >
-    🗺️ Ver mapa de alianzas
-  </a>
-
-</header>
-
-
-<main>
-
-
-<section class="hero">
-
-  <div class="etiqueta">
-    INSTITUCIONES ALIADAS
-  </div>
-
-
-  <h1>
-    Conectamos oportunidades
-  </h1>
-
-
-  <p>
-    Consulta las instituciones aliadas y conoce las oportunidades
-    disponibles a través de nuestra plataforma de consulta.
-  </p>
-
-</section>
-
-
-
-<section class="opciones">
-
-
-  <a
-    href="alianzas.html"
-    class="card"
-  >
-
-    <div class="icono">
-      🏢
-    </div>
-
-
-    <h2>
-      Instituciones aliadas
-    </h2>
-
-
-    <p>
-      Explora las instituciones registradas y consulta información
-      sobre ubicación, áreas, vacantes y horarios disponibles.
-    </p>
-
-
-    <div class="boton">
-      Ver instituciones →
-    </div>
-
-  </a>
-
-
-
-  <a
-    href="mapa.html"
-    class="card"
-  >
-
-    <div class="icono">
-      🗺️
-    </div>
-
-
-    <h2>
-      Mapa de alianzas
-    </h2>
-
-
-    <p>
-      Visualiza la distribución geográfica de las instituciones
-      aliadas y consulta su presencia por departamento.
-    </p>
-
-
-    <div class="boton">
-      Explorar el mapa →
-    </div>
-
-  </a>
-
-
-</section>
-
-
-
-<section class="info">
-
-
-  <div class="info-box">
-
-
-    <div class="info-icon">
-      💡
-    </div>
-
-
-    <div>
-
-      <h3>
-        Consulta rápida y sencilla
-      </h3>
-
-
-      <p>
-        Selecciona una opción para explorar las instituciones aliadas
-        o visualizar su distribución en el mapa interactivo.
-      </p>
-
-    </div>
-
-
-  </div>
-
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-  Alianzas Estratégicas · Plataforma de consulta
-
-</footer>
-
-
-</body>
-</html>
-
-logo-continental.png
-
-mapa-peru.png
-
-
-mapa.html
-Archivo
-
-Markdown(2).md pegado
-Archivo
-
-Perfecto. Ahora sí ya veo la estructura real con la que estás trabajando, y no conviene empezar de cero. Lo que ya tienes en GitHub sirve como base; solo debemos ordenarlo para que la actualización 2027 no termine duplicando información en varios archivos.
-
-Tu index.html que me acabas de pasar está bien como página principal. No lo tocaría todavía. El cambio de las tres tarjetas —Instituciones aliadas, Mapa de alianzas y Otras opciones de internado— lo hacemos al final, cuando terminemos primero las alianzas 2027.
-
-El procedimiento que te recomiendo es este:
-
-Primero cerramos la información de las alianzas 2027. Vamos a comparar el Excel 2027 con tu alianzas.csv y con lo que actualmente aparece en alianzas.html. Aquí revisaremos institución por institución: nombre, departamento, ciudad, área, vacantes 2027, dirección, horario, reseña, teléfono, correo, web/redes y logo. Ahí mismo te diré exactamente: “de esta falta dirección”, “de esta falta logo”, “de esta falta reseña”, etc.
-
-No utilizaría el CSV actual como única base todavía. El archivo que me pasaste tiene campos como institución, departamento, ciudad, área, vacantes, dirección y horario, pero las tarjetas de tu página también utilizan reseña, teléfono, correo, web, Facebook, Instagram, etc. Además, el CSV es más delicado cuando tenemos textos largos con comas. Lo más limpio sería crear un archivo central nuevo, por ejemplo:
-
-datos-alianzas.js
-y guardar allí toda la información 2027:
-
-const instituciones = [
-    {
-        nombre: "Nombre institución",
-        departamento: "Lima",
-        ciudad: "Lima",
-        area: ["Clínica", "Educativa"],
-        vacantes2027: 5,
-        direccion: "...",
-        horario: "...",
-        review: "...",
-        telefono: "...",
-        correo: "...",
-        web: "...",
-        facebook: "...",
-        instagram: "...",
-        logo: "...",
-        lat: -12.0000,
-        lng: -77.0000
-    }
-];
-Después hacemos que alianzas.html use solamente esa base. Así conservamos exactamente el diseño que ya tienes —buscador, filtros, tarjetas, logos, botón “Conocer más”—, pero ya no tendremos que editar manualmente cada institución dentro del HTML. También cambiaremos “Vacantes” por “Vacantes 2027”.
-
-Luego hacemos que mapa.html utilice el mismo datos-alianzas.js. Esto es clave: ya no habría una información para las tarjetas y otra distinta para el mapa. Si añadimos una institución en Lima, automáticamente se actualiza el listado y también el contador de Lima en el mapa.
-
-Después modificamos index.html. Ahí incorporamos el diseño que hicimos con las tres tarjetas. La tercera será “Otras opciones de internado” y enlazará a una página nueva, por ejemplo opciones.html.
-
-Finalmente hacemos las instituciones sin alianza. Esas irán en otro archivo separado, por ejemplo datos-opciones.js, para evitar cualquier confusión entre una alianza vigente y una alternativa de internado.
-
-La estructura final podría quedar muy ordenada así:
-
-alianzas-estrategicas/
-│
-├── index.html
-├── alianzas.html
-├── mapa.html
-├── opciones.html
-│
-├── datos-alianzas.js
-├── datos-opciones.js
-│
-├── alianzas.csv
-│
-├── logo-continental.png
-├── Blank_map_of_Peru.svg
-└── mapa-peru.png
-Y hay algo importante que ya detecté en el CSV que me enviaste: no necesitamos que me vuelvas a pasar las ubicaciones de las 17 actuales indiscriminadamente. Varias ya tienen direcciones bastante completas. Primero hacemos la comparación y solo te pediré las que realmente falten o sean demasiado generales. Eso te va a ahorrar bastante trabajo.
-
-Lo único que necesito ahora
-Ya tengo tu index.html, el Excel 2027, el CSV y el SVG del mapa.
-
-Ahora pásame, en código completo como hiciste con index.html:
-
-alianzas.html actual y después mapa.html actual.
-
-Con esos dos termino de cruzar todo y el siguiente resultado que te doy será directamente una tabla tipo:
-
-Institución	Vacantes 2027	Horario	Dirección	Reseña	Contacto	Logo	Web/redes	Qué falta
-Ahí recién sabremos exactamente cuáles instituciones tenemos que completar, incluidas las 3 nuevas, antes de empezar a cambiar el código.
-
-
-191b4f07-cc23-4f58-a97b-9271b11b6dd7.png
-El horario toma de esto y Harvard si cumple 
-
-a3a344cb-4196-4e38-9dc0-c0de5c80db8e.png
-exacto ya entonces dentro de la base que ya tenemos estaríamos añadiendoa estos 3 , y en caso de los demás nos tocaría actualizar información 
-
-
-Pasted text(1).txt
-Documento
-esta es su script
-
-307845563_611485320674495_4121721025558991333_n.jpg
-ya empieso con mucavaCORPORACION PSICOLOGICA Y SALUD INTEGRAL MUCAVA S.A.C.
-Dirección: Pedro Bertonelli 983, San Juan de Miraflores 15801, Lima, Perú.
-Centro Psicológico Especializado MUCAVA
-
-“Comprometidos en cuidar la salud psicológica de usted y su familia”
-
-Jr. Pedro Bertonelli 983, San Juan de Miraflores948638479/930 137 827 / (01) 4079048 / centropsicologicomucava@gmail.com
-https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2FPSICOMUCAVA&sa=D&sntz=1&usg=AOvVaw1FDhZGFbkd1hwJRZWJTPLO
-
-NUMEROS:
-930 137 827
-
-(01) 4079048
-
-CORREO:
-
-centropsicologicomucava@gmail.com
-Centro
-
-Psicológico Especializado
-
-MUCAVA
-
-“Comprometidos en cuidar la salud psicológica de usted y su familia”
-MISIÓN
-
-Nuestro Centro Psicológico Especializado MUCAVA, brinda servicios de atención psicológica y Neuropsicológica de calidad, para contribuir de manera eficaz a mejorar la salud mental de nuestros pacientes, mediante la promoción, prevención y tratamiento psicológico y neuropsicológico integral; en niños, adolescentes, jóvenes, adultos y/o adultos mayores con problemas psicológicos o Neuropsicológicos. Lo cual le permitirá el adecuado desarrollo de competencias y adaptación a la sociedad.
-Así mismo la formación integral, humanizada a nuestros estudiantes que llevan sus prácticas pre profesionales en nuestro Centro, cuya formación en el conocimiento de la psicología contribuirá en el desarrollo y bienestar biopsicosocial de nuestra población.
-
-VISIÓN
-
-Convertirnos en un referente en la salud psicológica y neuropsicológica del país. Así como seguir inspirando a nuestros internos y pacientes con atención de calidad y humanizada.
-
-
-leveris-logo.png
-https://leveris.com.pe/nosotros/
-
-leveris-nosotros-PEQUEÑA
-
-Misión:
-Estamos comprometidos con la gestión del talento humano y brindamos asesoramiento empresarial a través de una división especializada en selección y reclutamiento, intermediación laboral y evaluación de personal, con un enfoque de inclusión de personas con discapacidad y diversidad funcional, en las empresas clientes, mediante un servicio integral, flexible y de calidad.
-
-leveris-nosotros-PEQUEÑA
-
-Misión:
-Visión:
-Convertirnos en socios estratégicos de las empresas brindando servicios de recursos humanos a las organizaciones con un enfoque de inclusión en igualdad de derechos de todas las personas, siendo reconocidos dentro del rubro por la excelencia de nuestros servicios, entre nuestros clientes y colaboradores
-
-Teléfono: 982 705 914
-Dirección: Calle Mártir José Olaya 129, Miraflores.
-Perfil de LEVERIS
-
-linkedin.com/in/leveris-consulting-9454221a6
-
-svg
-
-Teléfono
-
-982705914 (trabajo)
-
-svg
-
-Dirección
-
-Jr. Venus 1015. Urb. La Luz. Lima. Lima. Lima. Perú
-
-svg
-
-Email
-
-administracion@leverisconsulting.com
-
-
-MAKARENKO SCHOOL.jpg
-https://www.facebook.com/colegiomakarenko/?locale=es_LA
-
-Detalles
-Somos Colegio Makarenko. Educando en valores con alto nivel académico.
-
-image
-Página · Educación
-image
-Calle Maquinarias 351 Urb. Industrial Flores 81 San Juan de Lurigancho, San Juan de Lurigancho, Peru
-image
-informes@antonmakarenko.edu.pe
-image
-makarenko.school.oficial
-image
-makarenkoschooloficial
-
-67b4e6f7-207a-4159-988e-8107f6c3fbb3.png
-por si acaso te mando los numeros de whatsapp a
-
-
-creo que debemos mejorar el logo de leveris porque sale color negro
-
-Sí, de acuerdo. LÉVERIS no está mal, pero visualmente sí conviene mejorarlo para que no se vea tan oscuro o “apagado”.
-
-Como el problema es solo del logo de LÉVERIS, no hace falta que reemplaces todo el archivo otra vez. Lo más práctico es hacer un ajuste puntual para que:
-
-el contenedor del logo sea más ancho;
-
-tenga fondo blanco limpio;
-
-el logo se vea más grande;
-
-y no se vea “aplastado” ni demasiado negro visualmente.
-
-Opción recomendada: pegar este ajuste
-Pega este bloque antes de </script> dentro de tu alianzas.html actual:
-
-<script>
-/* =========================================================
-   AJUSTE ESPECIAL PARA EL LOGO DE LÉVERIS
-========================================================= */
-
-(function () {
-
-  function mejorarLogoLeveris() {
-    const tarjetas = document.querySelectorAll(".card");
-
-    tarjetas.forEach(tarjeta => {
-      const titulo = tarjeta.querySelector("h3");
-      const logo = tarjeta.querySelector(".logo");
-      const img = tarjeta.querySelector(".logo img");
-
-      if (!titulo || !logo || !img) return;
-
-      const nombre = titulo.textContent.trim();
-
-      if (nombre === "LÉVERIS CONSULTING") {
-        logo.style.width = "108px";
-        logo.style.height = "68px";
-        logo.style.flexBasis = "108px";
-        logo.style.background = "#ffffff";
-        logo.style.padding = "6px";
-        logo.style.borderRadius = "14px";
-        logo.style.border = "1px solid #ddd3e6";
-        logo.style.display = "flex";
-        logo.style.alignItems = "center";
-        logo.style.justifyContent = "center";
-        logo.style.overflow = "hidden";
-
-        img.style.width = "100%";
-        img.style.height = "auto";
-        img.style.maxWidth = "none";
-        img.style.maxHeight = "none";
-        img.style.objectFit = "contain";
-        img.style.objectPosition = "center";
-        img.style.transform = "scale(1.18)";
-        img.style.filter = "brightness(1.02) contrast(1.08)";
-        img.style.borderRadius = "8px";
-      }
-    });
-  }
-
-  mejorarLogoLeveris();
-
-  const cards = document.getElementById("cards");
-  if (cards) {
-    const observer = new MutationObserver(() => {
-      mejorarLogoLeveris();
-    });
-
-    observer.observe(cards, {
-      childList: true,
-      subtree: true
-    });
-  }
-
-})();
-</script>
-¿Qué hace esto?
-Con este ajuste:
-
-LÉVERIS se verá más ancho, que es lo correcto para ese tipo de logo horizontal;
-
-el fondo quedará blanco y limpio;
-
-el logo se verá más grande;
-
-y tendrá un pequeño ajuste de brightness/contrast para que no se vea tan “negro pesado”.
-
-Si quieres dejarlo todavía más simple
-Si prefieres tocar solo esta línea:
-
-const W=new Set(["Centro Psicológico CRECETU S.A.C.","LÉVERIS CONSULTING"]);
-eso hace que el contenedor de LÉVERIS también sea ancho, pero no corrige del todo la apariencia.
-Por eso la mejor opción es el bloque completo de arriba.
-
-Mi recomendación
-Haz esto en este orden:
-
-No reemplaces todo otra vez.
-
-Pega el bloque que te pasé.
-
-Guarda y prueba.
-
-Si aún se ve muy oscuro, ahí sí te preparo una versión mejorada del logo de LÉVERIS para sustituirla directamente.
-
-Si quieres, en el siguiente mensaje te puedo pasar solo el fragmento exacto de LÉVERIS dentro del script ya corregido para copiar y pegar más fácil.
-
-
-si mejor ya entonces pasame de nuevo el scrpt
-
-Sí. Ya te preparé de nuevo el script completo, pero esta vez con el logo de LÉVERIS mejorado para que se vea más limpio, más ancho y sin ese efecto oscuro.
-
-Puedes usar cualquiera de estos dos:
-
-Descargar HTML completo actualizado
-
-Descargar TXT para copiar y pegar
-
-Para hacerlo como tú quieres: abre el TXT, Ctrl + A → Ctrl + C, luego en GitHub abre alianzas.html, borra todo y Ctrl + V. Después haces Commit changes.
-
-Esta versión ya conserva:
-
-datos 2027 actualizados;
-
-las 20 instituciones;
-
-MUCAVA;
-
-LÉVERIS;
-
-MAKARENKO;
-
-logos;
-
-vacantes 2027;
-
-horarios;
-
-contactos;
-
-redes;
-
-y el logo de LÉVERIS ajustado. 
-
-
-
-alianzas_2027_logo_leveris_mejorado.html
-HTML
-
-
-alianzas_2027_logo_leveris_mejorado.txt
-Documento
-
-
-alianzas_2027_logo_leveris_mejorado.txt
-
-
-<!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Alianzas Estratégicas</title><style>
 :root{--m:#6f5a86;--mo:#59466e;--mc:#f1edf5;--b:#ddd3e6;--t:#403847;--g:#746d7d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f5f8;color:var(--t)}header{background:#fff;border-bottom:1px solid var(--b)}.hi{width:min(1200px,94%);min-height:85px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px}.bi{width:52px;height:52px;border-radius:15px;background:var(--mc);display:grid;place-items:center;font-size:26px}.brand h1{margin:0;font-size:24px;color:var(--mo)}.brand p{margin:5px 0 0;font-size:14px;color:var(--g)}.hb{display:flex;gap:10px}.hb a{text-decoration:none;padding:12px 17px;border-radius:11px;font-weight:700}.bm{color:var(--mo);background:var(--mc);border:1px solid var(--b)}.bh{color:#fff;background:var(--mo)}.hero{text-align:center;padding:42px 20px 30px}.hero h2{margin:0;color:var(--mo);font-size:36px}.hero>p{max-width:750px;margin:12px auto;color:var(--g);line-height:1.6}.mb{width:min(850px,94%);margin:28px auto 0;padding:20px;background:#fff;border:1px solid var(--b);border-radius:19px;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left}.mb h3{margin:0;color:var(--mo)}.mb p{margin:7px 0 0;color:var(--g)}.ml{background:var(--mo);color:#fff;text-decoration:none;padding:13px 18px;border-radius:11px;font-weight:700;white-space:nowrap}.container{width:min(1200px,94%);margin:0 auto 50px}.filters{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-bottom:20px}.filters input,.filters select,.filters button{height:48px;border-radius:11px;border:1px solid var(--b);padding:0 14px;font-size:14px}.filters input,.filters select{background:#fff;color:var(--t)}.filters button{background:var(--mo);color:#fff;cursor:pointer;font-weight:700}.counter{margin:15px 0;color:var(--g)}.counter strong{color:var(--mo)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{background:#fff;border:1px solid var(--b);border-radius:20px;padding:20px;box-shadow:0 8px 24px #46325a0f;min-width:0}.ct{display:flex;align-items:center;gap:13px;min-width:0}.card h3{margin:0;font-size:16px;line-height:1.4;overflow-wrap:anywhere}.logo{width:68px;height:68px;flex:0 0 68px;border-radius:15px;background:#fff;border:1px solid var(--b);display:grid;place-items:center;overflow:hidden;padding:4px;color:var(--mo);font-weight:700}.logo.w{width:100px;flex-basis:100px}.logo img{width:100%;height:100%;object-fit:contain;display:block}.logo.w img{height:auto;max-height:100%}.tags{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}.tag{background:var(--mc);border:1px solid #e6ddec;color:var(--m);border-radius:20px;padding:6px 9px;font-size:12px}.info{display:grid;gap:9px;color:var(--g);font-size:13px;line-height:1.5}.info strong{color:var(--t)}.more{width:100%;margin-top:17px;border:0;background:var(--mo);color:#fff;padding:12px;border-radius:10px;cursor:pointer;font-weight:700}.details{display:none;margin-top:15px;padding-top:15px;border-top:1px solid var(--b)}.details.open{display:block}.review{background:var(--mc);padding:14px;border-radius:13px}.review h4{margin:0 0 8px;color:var(--mo)}.review p{margin:0;color:var(--g);font-size:13px;line-height:1.6}.lt{margin:15px 0 8px;color:var(--mo);font-size:13px;font-weight:700}.links{display:flex;flex-wrap:wrap;gap:7px}.link{text-decoration:none;color:var(--mo);border:1px solid var(--b);background:#fff;padding:7px 9px;border-radius:8px;font-size:12px;font-weight:700}.contact{display:grid;gap:6px;color:var(--g);font-size:12px;line-height:1.5}.empty{grid-column:1/-1;background:#fff;padding:30px;border:1px solid var(--b);border-radius:17px;text-align:center;color:var(--g)}.future{margin-top:35px;background:#fff;border:1px solid var(--b);border-radius:20px;padding:25px;text-align:center}.future h3{margin:0;color:var(--mo)}.future p{color:var(--g)}.fi{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.fit{background:var(--mc);border:1px dashed #c9bad7;padding:10px 15px;border-radius:10px;color:var(--mo);font-weight:700}footer{background:#fff;border-top:1px solid var(--b);text-align:center;padding:25px;color:var(--g);font-size:13px}@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}}@media(max-width:600px){.hi{padding:15px 0;flex-direction:column;align-items:stretch}.hb{flex-direction:column}.hb a{text-align:center}.hero h2{font-size:29px}.mb{flex-direction:column}.ml{width:100%;text-align:center}.filters{grid-template-columns:1fr}.filters input{grid-column:auto}.cards{grid-template-columns:1fr}}
 
@@ -1116,3 +21,278 @@ alianzas_2027_logo_leveris_mejorado.txt
 
 </style></head><body><header><div class="hi"><div class="brand"><div class="bi">🤝</div><div><h1>Alianzas Estratégicas</h1><p>Modalidad a distancia · Psicología</p></div></div><div class="hb"><a href="mapa.html" class="bm">🗺️ Ver mapa</a><a href="index.html" class="bh">← Inicio</a></div></div></header><section class="hero"><h2>Nuestras Alianzas Estratégicas</h2><p>Conoce las instituciones aliadas de nuestro programa de Psicología, sus vacantes 2027, horarios, ubicación y medios de contacto.</p><div class="mb"><div><h3>🗺️ Explora nuestras alianzas</h3><p>Consulta la ubicación de las instituciones en nuestro mapa.</p></div><a href="mapa.html" class="ml">Ver mapa →</a></div></section><main class="container"><div class="filters"><input id="search" placeholder="🔎 Buscar institución, ciudad o área..."><select id="department"><option value="">Todos los departamentos</option></select><select id="area"><option value="">Todas las áreas</option></select><button id="clear">Limpiar</button></div><div class="counter"><strong id="count">0</strong> instituciones encontradas</div><section class="cards" id="cards"></section><section class="future"><h3>Próximamente</h3><p>Nuestra red de alianzas continúa creciendo para brindar mayores oportunidades a nuestros estudiantes.</p><div class="fi"><div class="fit">📍 Ica — Próximamente</div><div class="fit">📍 Ayacucho — Próximamente</div></div></section></main><footer>Directorio de Alianzas Estratégicas · Programa de Psicología</footer><script>
 const logos={"Asociación Educativa Harvard S.R.L.":"https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png","NeuroPsico – Psicología Clínica Integral":"data:image/webp;base64,UklGRlAEAABXRUJQVlA4IEQEAAAQFQCdASpgAGAAPrlSok0nJKMiKPgLEOAXCWIA1LxL0RJXIRu2x54/ox/Rr9SX0APBm+Fj/H1vrwn8UfuuUTSr/s+FX3oppblZVs3dPsX3N5owZBtvSp5jc1RDwY71PVdy/XN7EuTdgCgRRu90maqCSIkPOmLOZj43P06W33Cr6JlDiTtqImDcYjBORCK2FIznzr2fLWxYIQOrFXEVZFFy6Q1p3P912zZuh53qvyOYxWAA/vj0QAp4pwyFqWnABJb0nX9dmmi2MA/zx6l17/Z811iXrrmMjk/2dp1lZEA6oKOBuv1qE1dYfjYEf/9XL3kE8dLmmujJXXpG4L6ndaKuS4Kuh1fbao+Z25cJzmtj+bWYelFaS4Uf5FBJOEhnu7SyT+GO4Lnv7VRiRlPYUiaz6Drvo+6SYpgFF4Xhn9a2fgOUdCUktz9EahhKytNS1sFtAvA96Hqav5A8jOElnQXm3igP01EvsCUiwVTeP0pPTnlXoc5IpvlF9v8DQFaVgn43oAyzrAAw1iyoYccZU6JsFYlni4qs2k8BukXzVFZYah3U3L96cCu1qFODrBJJkEyB3krDyFq4C/Ns85ecBuh4it8j/nQM92FeWFH9sN7ILhr6RPUEp5qOV/75z07rhL69uH+e33/E74WDUXce9SPQQawLJeF8fgMqL7RYvPjlDMy1zZKwBXE4ctl7cg7JyyWXeToNL2zQwviS7RtPAeDoGwYGryIFuExdnXN5V8IM7FAkr+SGB3oRKUvuicmgPFgBvEHRCk5WVN3Ht4iOGPEWUMeh+hiEx/5XF+VnazeZgkeOKU/m1m+zb6FBvYhczn0tFa7nU639wCnPtryvJxebqKa4lG1+0FBpWeGu3h6QYKZdkMcWIyuQ/HuIBHpBmSxJRsjF88xxcClulLxuvPXaKfVhC6Scv+e0kwxJHpg5wamom5qxCSpAGEE7R/yw51xU6DYGlVPakOGTQNygtcoAItcybH+4B5kl/7awnfvuIinbVnAOTMzDBEDIGWSIYMxp2/SIrLOMge07x0gyRQNhCQ+aXq3+UAqxBIAyALiMS5TBofH0gXf8m1hxliFeZLAaBGeOlxamNXO5E75yyCkF+6Uapm8fEbPYc3EvY9N6RU6ufvrAMd8AmgqdmoLNFjvHLnl4cCotU3xIS25zlSc8/wEOWTd4eMMkyCIG7ncbt/M/ZEpuPqb7BnEx9+5avc3q1EKx29QUI44lchfD6cd8U9WgfBfvStefVxN4tzp38cSVGURH89/y+VLUYgOIgm1L5p0ZcPviXTJnvHiix5SX7PHwwpshkHBs/TMYWEICeJ811E7vJbI1UVKeBmqK5Te0rk+b6lR+tv0Btx7OtEpi/yvFoZ50hDSwZVmxubPqtOv0T9Con5gq3zKuinrNVYzjH9QEngrMV8DQU4wxXiFds1wkDuZ4B5IK7zN5yA6wZXAAAAA=","Centro Psicológico CRECETU S.A.C.":"data:image/webp;base64,UklGRkYDAABXRUJQVlA4IDoDAABQEACdASpgACQAPrlOnkqnJCKhrjgMAOAXCWwAxJSKScBYOJxituf5gOhzvEvoAdLv/nKBfzgMvMQHLEceuLFSbeetFPAebPjD95lrTE4f54h9fCIzNhidOMxGdVrD+VMNqDdceTruj7e6FD1CNwcuvAznxVA5JGMnD8qCIEW3cro4emCrDtqekxZgAP76rIXG3f3vIDqYFNGO+dKt00tfWtrRVsuewKgxKT/+tynCQGjdgQCdyHARdgE9RRiUHBlI1p2Cem90N0w2h9/R9MBGhN1NcKfJXO5p1IsE/z5CN7T5qWpnPra4nuDvgMiGMsztjgTLtIUAHDZCtD6BYu75t1bNQ0C96HtLD7gs7Pf4dbru2tLO5d+6wBXLkqD7hF0S+xoceb1Z6Dfzuk9teL8l3r3YJgWaXylNTzJfzjR1pN2QnsWG4zbD+x/KA3OvyqY9DE0G8Fj8YsZGf2PeWtlFN323NfV4y6C+F9KL4Ie/OAHbH9iBt6e7zITBbccfZmjqBXJgLkotc+jErZ/5gYAJxXoxrAFjH++agjzoeYtEyHDolnAkn1aVQgO7f41GVuMO/VF02TPQX/N2U9yL496YXDcTrJ/wBL4qgx42mrd6pDMesDq2Z78+7jThiO8A5IPXSv7gMiJdeu/Z1u9gEvEFluaC4vEGNn91cgPs6yIa+At9N6nBjuRNfg7rzQrDDDbiTXEoIeTf8HYCbY5TIkL9op559c68Y19BPiEHVvd6/nYCbv0AmSLRt9NtDhdhcM/IiuE1puUdbuU/p+R+dAzLeTpSn1P8HcTL9eIlcghHlNN8iQanB8vvCR31qa3Vd9q26as7BT+rzkNLCh5/2T0umvkVNdwrmw+r5SOf+03jXj9a0mY5RWePjo3pndzpc2dZ5KLiKhVWV3G721EbSHvSvoBj9cR9KAuRrHyAcxPlKJPI7rlfrB1Ze/AaF7QZki28+Ad5OV6FHEh/DG0GVZGK5lj1XP602W0ZfXfTGCzvtHuoKEqVTEVQi6DvEBoFuT9vqgNRmztN/RJ9NR0oLG5hWlJsKwSbC1HJmBNSMPKCBal8cxGe2oSaQnPhzex8ACCT3CrQIjHxAAAA","CEBE Manuel Duato":"data:image/webp;base64,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","Centro Psicológico Vida y Ser":"data:image/webp;base64,UklGRmQFAABXRUJQVlA4IFgFAADwGgCdASpbAGAAPrVMoUonJKOhrjcMyOAWiWoA0bSYj+/KcjJxJ4kPLt3fMV+0Hqx+h3/K+kl1JfoQdLTXplJHiWWEyuPynmppcdADio6hR/38HhFPFNBjTMSD09GTs0q/6UmE5uai5G422ug9zsqEvEL0hGXZVIagOU8UC9/Zhpq1V9fDU+HP+vW9F2VHuG9QThugJ5ZcXgtbOAUWP3LNb9jlW0t3V7ZW2Y/cHsWXbWktROCQdC8KjcWxa+NHzj6aMGyV3ytpG38WKUjlvmkv2p4wAB1atlbnq9CnCKWQAAD+/HdlFRn7Xu+l3rGIjNFCfETCA3VzEEEcrFnjRhiurBTML5+ASme+kYj4q3Hj/jkJE1DaM6dbxKqKXUmd9sxnjum1nT7GVG7w7eW0j/zO50fiHB7o+RFV+WksxVy5NKlWyhW/lJbw9eXv0Fiet0+dQ4SRwn2TtSmIQENB35UBR6kH/IdaFcGGsn7fv3fz/BqXn04yWb2HrFTe3Iu86zwiZRF5ZpzgdmEeRLN1LKoIGee64lIewk5INmEAQ3oUBPr6kLNQMDXPXiqlc/CyRqawWrp+vx/5RG+lJMQaYAMRXr0no1z848R/XxGjZJIZUmA+eiHKqVRNVyTui1Ft5oDXKILaRYCYY5y+5DUJ/g30BapnmKrhTXQdyczIqkiKrRHC1k9EWOsVtHf/FSx6fm7GQ2AY/KMnXXzb7jRiLEOfCWp0rI4atKEfvOpfZA/geWzA/9mxzOdqD+UADImdEOOxKDaPTQb8nr/hRENE+wloAIyrTrE7nh9u9db/EzezJesalPllUv8qDu70DsXTw01c8cmKLJ88Ee1l/kc5wU0LDDJwTiT3pd+1N1XAl2A71KLgrVpS5Bw+N4d4WlBsdVAdM5AdmQujpUqJRH5d3y3OsriZDURzZ6H6KxrmLwf1C+8aAihRN5eZvDpQQZSshiWmRfKQcXbTejGnPWv/b/hY4nTkoLoFmVooEtXGiXGhDirzo4C34MzUGCsByAuGVV+h1yO+TOO2eKlpUZB/ZRzCTo5Fx+wINvTjw3Ri9rKnIitUk1bFkDj6ldk9tqdfiluP8XKiW2Jo02UljR1dCxFyNcxZfwxFApKlKD61TmM78DcjhkmSz1JEIbX2AgZXf66k8kT6MlMQqnqgY76b4y0wBpxSOFJEmPvekJJBG9aVrJjUUwrtFSSEDnFBrHiMKg1sSMhtbNfNdv7l2VhcLXs//3zN2fLZ0PgapLr6AnICPOqqp6ZTs1JUd6geiYXgx+rci2g0tZv1/vw9MRaRmYuSXXwzeJ3OMt0TjlJEpoXjfTnKAUGHNr8n0kMDMKLmoKxoPywfSW0PXkC9M8Wy+seG503H58bAK5t2y103yxdPtrYvMVwPErOW8XmZLfPuSeqzbhj3HzlOBGa8QBPocCBlZrjiGFd3nXc0GdFvsZ8dUeWlmx5wMvqReNZLRslbyxqKaOo/SQZH1oUqjVZ+mA0W68aOBlz0xZHHLSWz9BwoxzMA/aETpN1P6ExHURR7dv3mKJSwG4Sgaa8HmOGLJinrFUGUuUomjwrGAj3OmF/yVjqz9OLhXxIMXYkzmSHBMUzmjwUX52/+CeJYIX/BjmtXAKeGVC0vx+uHg8+MO2iRqr0szzMrGskl8MzgqDnJgqWvdZ/IfQth3ZCbpS8C2BEA4RhX3aREp2tfGx5SNAqjvX+1kp2IuwQHC/l4nyQKNkKyg+DKTEIXQXZHXFVd06JfTiG/dTD6eY1hhbfyIb5FtOUd4nP6p8fibnD4EtPFlScPVFH/Kb1ZAqSmgB5yCK70CT2NGkAAAAA=","AKUNA – Centro de Desarrollo Psicológico":"data:image/webp;base64,UklGRu4CAABXRUJQVlA4IOICAABwDwCdASpgAGAAPrlaqk4nJSQiJlSZYOAXCWIA0tunLNhhdZj1Af6fnjvVb5gPNe/yvqM3gr0JelG/zFa3rpqxVB4ke06CIiIKhWZy2ECmITpmbw8SgAq3iCqSyx6vsTw/eyENwgZKYetyu7WJFgyJABdRmfdXAXDFxMfArZFD+zadAAAA/ofX/+ai/6Uf6Uesv//qsX/6rF/+qxfiRs0D0IIvEq8coNdj1dnLnhqnAWuwn+CE1TvFKtCNmPMOhfyd6LwVvtEzKwzQjibkfwShlevmNoywkQ1We0I8RRGkKaRlTA4L8LQBHVxGW1qNdG+TX6mZUl5oLHHNCuOq18ipER22Ak9XPe7H7aJ2fZOPqlOnX8sEDk5llRBb3AqQ5waN/hb4QSCQqm9MRVUit13YUY0B//eyhJipwKDSzj5zPio4+5EAkJOQm8jUDPo1SkhzZCnk/DgCZZwFDTlsmeva6OO3QPdemBctVv73h0zKbtUY2ChS8Ie9sJAdocE3HmP5rExrJnof1F6DzowoUCOb6EyvwK5N4XuUp9v5p/PdMhAsa4VNgmNt4iVL4p3ZtMNR4Lku75nLnyLYgv/Cz/4o770LBfnD62IR8wQ1GRrh8zE+bx5JyW/49MvICdIa7CWMU6Aqg1M0NT1LRO+nWEqz9ReYCc7s8AKwr/aq7NXWG2JZtJRG9RqDPW8iwf8IpxcfNIS9wWAeu/ihA4ubxIXEyo/De50uA5xc9QIuJFbMqg1/gq7TU0Y9b/WRBzHnU43P4oSXW6SntCtR2nshbCEeJv3WPeN48OVwN29NZfQ6FraQeKGXZz4ER+W12gAKXChdbgf1C6aQhdh8nLxQcYACYSf4Zhf7cxsX/REUzDEkr04P6ug3fD/XQMcOj+889pO/C+T16toEeo/+Mjx2SebD+R8gfwVTCAeVdTA0Vo8Zk/GIadBg9amR8OqnwjhUp+aoJctO33xH39pnbAKUR9iAAAA=","Centro Psicológico Psicokhuyay":"data:image/webp;base64,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","CEPAB – Centro de Aprendizaje y Bienestar":"data:image/webp;base64,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","I.E. Sagrado Corazón de Jesús – Espinar":"data:image/webp;base64,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","Escuela de Educación Superior Pedagógica Pública Santa Rosa":"https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png","POWER YOU – Consultora de Recursos Humanos":"https://www.poweryou.pe/img/Poweryou-consultora.png","SENSES Psicólogos":"https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png","CAP – Centro de Atención Psicológica Arequipa":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10","CAP – Centro de Atención Psicológica Lima":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10","CAP – Centro de Atención Psicológica Cusco":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10","CAP – Centro de Atención Psicológica Huancayo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10","Centro Psicológico Comunitario de la UC":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10","Corporación Psicológica y Salud Integral MUCAVA S.A.C.":"data:image/webp;base64,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","LÉVERIS CONSULTING":"data:image/webp;base64,UklGRtAEAABXRUJQVlA4IMQEAABwHwCdASrNACsAPlkmj0UjoiGWnH+kOAWEsoCDAMpsnf5AcOEZDV3P5ziAP4B/Kf6h/M/ej547rIPQA/Y70xf2A+Eb9tf1V9obVV/Hf9N7bNYc/ldZY+d4X5Sbzv+m+hHcV+fv+N8NigB/Hf776pv9j/3f775nfzH/O+wd+tHpgey79tPZm/Y5Sn7+oW+DEMBqh7Qv5OM4pftic0Eqq9MurMUFZ+MSL6nJxA1n+iIweqG8oeHjkWLRnQ3IKCn86UqstZL14++EyUA4K0jC+qSDDCNCPRcSH8LQQGGjf1FcGpcAjOCpPipymAPthCFU68TezHgZ+44RvbKyVu3B+fegEGExgAD++Wso+UpuiOiMUSwyvQZ4wPH2bmjabVROPyJ53JKMRUPO1rtzhFxfyAbmKa6z9hvT//MYl+7F7tHrt2SjJxlUz+BXP2PbE8FxWdvfXoZ7zP4oFysoZUO6E/JRQxtanJbP7/YNQVHRGoJ1OKzsMVTu1SQNqPDbSLxi5aS7EFmvYojetIAqXlHY1Gj93OVOuJASyX4/d/thynsSui4R+uw2rRoXebLcQ5QywYtLiw37rJpq06yGRyp//rgK9p/d3ArE0zegT3lHxhi8vBLNG57ullQb092TvWWZgN8VEvPWGeHV+WWvBsAG7EBGg/AFgTfeti++iw8VmRDF5uM8JiH7gwJEdMX+nzznFwhDqiknTnIZ0pc7k65vN16N4G7pI2SwmCtOu99Nl608hFcZ1f227p0/x0pws8P8fH/97+g1dUSRO3C+P7ZsyRMVkzkA+XlJuJPu/Pe7/pPKl0woBB70T1OzftxcWMdL7Lc3zLl5RlKZBtpbb1rW50B1URe4PPhmITTO6XUL9/T2LoDxiYFwWRrqarYBIkDtZH5U+cyYofWZ9uV1Lno82eQGuNXhjAUP/m2d5LwMtaUsIhjnRZ8rHfXK6Qe6GUL0mZuWInrmn9gsjo+fDQHEs1Z0YZGmpfTNUqJ9KptpEXYeLh9DRcpJSzP8NB2/OwtfRax8VhxYEFOlDoYDyr5B76JUp1I6m7haOqkAa6H4MmkPuqtKLcQXuXM7Apq05YYb8RejFZcO3K0csDh2pOzeehCPtoGz+lebu8JZ4VyeR+SCpaRmKHGG7Pq2cKmEkHGsboCVmAA6l0z8HRF+AOXgJdwXuNoQMQpKQuBsWtDsMmaGaCjXfZZVm0L7K1rP0CId9EcUiK1jcbkiIqO7mF/DjNdT1gzdI2j0YHBlPIVb5qJOf+yw+KIzfAZ78+TZI8igqm8lLeAOX+VZKTedyD0/uawkr4eoX87MC8X9yh5Zf5Hk/8QFhU7XmyxFljKZE2Ba77QtEwDB3f8aWX5z4XK2wHpuYTtRJ/D4WxdDfBtnIpitPDjjJUlGszI6KupOxF3JRCqIlx4lvftLw8x4C39HSyjvbCdAE2gEX4cbXkOc0KeZKxXXAz5FHqV1fJXom+8LqcvavOqhcpRDNMjCtU+8nkBGNc9kBtADrdGFrzGMGtBCNh7j5i1piNgty7SXUQ9X9VW92saHlLQBgHwMEt29/UbCcdPO6bHkzSTNaAyu/ACCntKNnXKu28eHRiiPiduv01mHZBFgVOlv1yNCVJh65Cn1C9AAAA==","MAKARENKO SCHOOL":"data:image/webp;base64,UklGRsYvAABXRUJQVlA4ILovAABwrgCdASpoAWgBPmEwlEakIyIhJfZKWIAMCU3eU+O/zVcdP+Z7A2S/Hv5n+wftd/dP3C+Xy0/5v+2+dTsD7I8uDnL/q/4j93P+R82P8v+zX9z+EX6O/8P+Q+AX9T/1v/zPtj/sr7qvMJ+yX7v+8n/1/WH/hf+B7AH9V/zX/o7E392fYL/c704P3R+GP+w/9D94/gZ/a7/4ewB///bs6QfqF/ZfSH4J/d/7v+4v9k8jX0v95/LflvxR/kv2q/af2z2s/x3+/8G/lxqEfjX8n/vH5jf3zh0N08wL2q+hf5z/A/lR6kmo14X/5/uA/l5xu34r/wewJ/N/7v/6/7r7tf9d/+P8R57v0T/Q//D/UfAh/M/7n/2v8P7a///91X70eziUttzs69jbc7OvY23Ozr2Ntzs69jbc7OvY23Ozr2Ntzs69jbc7OvY23H+39+VRfsOsYvihxMGWLc78JMAr38zpmtSJAXP9P8jLJf+4jJg77mGee4sH+pNj0la6H/OL5U77iSy3zXr30KJNvl9jIUX7pRN6zExIxs5oOvY23OyfXdiWbQ8hNDdykqP/6Upi1syJGEPU5bMLc/At+tSccJWUHohTZDgMXGkoyZAIqw3AIM5VP/xm3OyibM/aC6OPEqNadocKj7eZgq87VC5rwLmaKA5Eg0Brjs0+1ujbHaHYTWwwhe8BtfAwt2CkM2n/GZV0/fLV0AwX5lvWxXjM2XOJqZ4GKDuh2eyDAWU97vdEdR5mxlDNp/xmVipjOfh8et1mEnOX484q16cDInYQDtqe14N3+upgMqtGoU9m12wzcVfDGu5KAdaIGw25feaZXjdGB1ZQ+osbgr0Men1IoOL/3C6Ms7wFSuTpEZgLlBxI81z/LDf971g83PB7icyNGJxfQzp2q2p886dMx/N9HDrsG6skQmxm1hRZ6MG2v0EO44B8Vgplz2WB2WF5mqU6WOtbt1LkeMbus5xnNGnyLbBfOzpF+ey2Z3DVc340MykBHgYtQe52kwfKbqbrvcjFiWqo79/8fj/169oFEQenJJJEVZhHftBZEx183uI8hhBLQfGBk1dp30UcvdUNgHvXIr18nXnSMAeYfX5YyEETjt1VrnXYi6HjmfLJfrULUAPSztfIRu7Os4CMHM248qq/FmyyOtxsObbFq2BjX7EuD2SazXcT06zHx4Tr/pN8+Qr70AYZmdZWDEhW9LULFt8XVX79IR/V0CWWaV4vXZ5L0ZV3jZWmyiBIH9q1YH+mShPPAuUtFmm4htxRqmNnMKAjFycJ5lNIZDyp1bRZVgNmHddLs49+YWlVBeIJwRQx9ZhqGYmIKeiXLFaTc+BUPRIYG9L3GiEgzRW/C4/eJqn3ycrAyTW0/eSRdGYW6I8zmLk8gca02dGD4QT/ErxutW5SAI0Z8S1TlgS+5P2w6OIV56z2Q3h0ViRdlgfj6ijD//EnKPvYOGEqSdBcpxuqEsI0Mp9CFu/ny6IEpqTqeRVJoHjNr9oYWl2C0hFMrEQ5xSrHdX9VDfBI8yKuJh78ICT3nKmCpa1w1o776mFsjhz1vFfpWuLWKurB+qFvJAHqbwQPpuDsIeJAAR6D3qw0VAz9bbDgNAOPHXRrUe2O0SxngpIj3Vh6X+UCIgeszobRDhMgpVOsYEpzzVF26zyP/vkN3kPBD/9+5eu3PDAb+5NVL+Iz3tQTZ+DMM+uhpXCV5Gbc7OvZCTNYXQdIDy4tOljiEdAKUCGJtx0cIw7dMPYaCkbkotw+P/wPvRUQaZmP/zM/pkEusTPDcgKeza9jkHUqkJTVkyMeETK+YOrSNzePpDkGKBd3OdnXsbbnZ17G4V9p/xm3Ozr2Ntzs69jbc7OvY23Ozr2Ntzs69jbc5QAA/v+VAAAAAAAROxP+sGFhMWZLmBXlSZv2rZ/c79TYYMGfj6to1d6Dj1K9CTMxD1J5EPMGp4qeSzXpGfj2i/2K/NeRBOEGDAt56XFmc/LPh5knteGrAc9JLcSTpKNamJKhN9S5LMCLd7gJdv7jLEMyVx3Nncy097blUeUOlx2G+3sIcVRq1V22EhtTfmWlt695MpmDzonrHhcr2Kawi2k2fST/P7mDLHjY/mfvfwjmBIT6VGVUp3DFq3B/ieyehcK+MjzOtYORBfEk+Ko27kZGhc3iTTlBtPKNkIw/+hBElmtihfol/fEVz7Mv6xS2wLpdhRSV6FRwXI9HAmeze1jVY+7VRonwyrhtG2TS9uwBGLwa9noYE49iUuZ5yWGLIT/z0pPSU2JsV0VTl80E22hDS1stUkcwEvfNm5Ez8iFAAN6VLlykCcrk2oXk8cZV6jlbSAVgNp8qzcK/c9bdcZdAwnQio1MOsa940y49YLwc8MAztxeYZcKZDYumS5Kk2SYuFdl/bAynTsJSaK8uy1tuEW2ju2gDmbULq5asm4gZOW3jIUQhNE5tvJmkb/spSo833wf2qB2F5b6n3AUuR+BjwVLSNmcW4WS522VMj2NqGEstl9mNywtuwx5nrAbR+vLiPJQ9n1qCbe/O+u/mea+nyKti+7gO+cBbCyTYFMrnBG0oO+KVhYGm7xt+PyvQIww7s2yjI05GnaVcRrydCfWvp8grzf7so4Vg4w5jKv6CJW4YsWCwkZ2hGfcF3UwrBBZzAouYGnJp1R/jGVUluSXv9KcNk4YLnJZKFgfzilK9iiNFXYpCyg/u36a3GYP2SdTuq/oJckK+37c6SyAvaQwYjPQwJxHUP0IOqv6IF4Ti4a+MSZ4dIgDH2hGrrELVCWI5rfHLbizivt+T/fDLE0OaJ1GrjgwnNbWPFPV1U6k2OewHg+A9oW5SDIUmM4LH5QnlLSCgxcsEhRQoKKxWg6K6/BmyeQVTa5zDzFFLd1ZEp4GdePq3HXKTerg7+amwdQJZmMYDnJRPUKtPtm4Tg07DbhC/B+YOvjV3PH1hb+sGsy+oFW8emXkndudG1omhFefYVyF4gp5FTIxte5gshA3a9nxSQd5cC5EUhBqXtUuxm4Lt5H9gsRAC5+tCe/QQYjJvPM6ravBVQ9gd4CfE7JgJFnNk0goKTpa713ASidInUGk1638CWCq96rus67338nw0tCmQRT7M5XPqVqWNj6+F6QqZL/ph1xiZ7e+pxVP9xSqx/xPEpxo8lV0azWhxs0o5k4E6D7nJ+3z9OYMBmYL1uEEIs+vF/S885YBja7Eu/rPnk4ObDE0rLyrKAoz2DblOx1Mx9O3pz+cSKm+sqH8Bo5x1XvmeUm+mRx9F9SYvBK4zxydAKACfNQm86YtExcQKeEup9j1TjRhnSSb6c6+xRSqCYqj52SGBY2g815ITGpr6p2i1MUpPVP2iwRTWct+RnYC3QOMLfjrCwj2gFvxL27oUXkL4e3uO9t+pAXhaAuRYHsQxCUn+LU1+zitN6OF9Jg5bwm2VZri+5VbTGqFECu4UCfzD6YHJ18bg9OVop3vAV7bMqbkXxMBbDyqbEf5UDGu/++ILjimXdpSTGUo3vFEhH59nudmhVr03xCaXDA1NG82jEeFILnBiM7G56VA9HGDrnFAH+Bz93Y0Ao+oFcPNlI71s6MPqepsQLCmSlYVMlTYQ0x0BCOxT/tVLGiqoseW92dsQ8V1SgU/CvBHdkebB3zM8fz79YQsg4KSoj8H//7hOnkq9M7fUGxbOdiSWcaIcl6xBu2qHtqiDAGPA6Qn5T/jdhYNKjCI5qDKz81J1aLbfJybay6iGiakUQqfOwQnClcX8FyxJBNU0KNC8SIlMwGVz9Pceoc7VxcixfxFEw74HWkbWNAc/f0HD/pYYiCap/pB3Qn8XLOUq/J0QuFSIu5gyAuvoKhaVjpOwaA2a8zSj4ingked3H8cOkcCNpnYJ7cCDsCt0D8rT+uu/MK/WgnHAmtk829YpPSGZQJw+ZeIqO37vnHLx/+j122U8PNYtpXf8zQz3/NE3pLPEPETPBlA/1e5Ge8FlSyVVi3CyzI+L77TTc6EosedS4bPFOyEW+nALsWVs3FgSub+UsFebkFpFM6+vZNGb48mAgn9cKCVzudDU4YTgkozVakk66r/HhPovECIK3IwkT2Oz5eWgNZp+xN7VNFufTJxAzD0d8ptsGUP1ajCIJKQKepGjsDr2wDfl1mRGgfinCSWGbZ24/IOch6TLOpCtc6+fIS4qgn+RLsumzp9/UgTKrWThAH6fg+E6jAhSVcUjGPdWFy2DrXCNsCB96YUp936d6X5PmhF3833rdhYImVmoPKER1gqXOaqOgN2nZcYnwrBSyBZxD8j7K+B5OToAg0IGM3k5mHW8psiR80vngKTtZe2kXu1QNr3P7etfmaC8zoAesxMqOtVP+1nAEKyGl6YDQaFpBPg5V1HhmjeE6PLDAKlPP1ENyOcVdKmysV/aUUsHmBPAjut8WnEKTnyv7FglzY7v1PeQ8neIlofgkEx1ViRIuQtmuvfWg4BmcGBxFvAEChkFY9gDznYhSB/0xMbeu1cIyeMshuxC6tMI+ojtrlZU/eUFAZPCTCc3V11rCl7v9zJFS5ZS2o71O8nn7EHQ26/gn1DO/jka6HoepN1FXtYAGM5dRER+UTht49Kv+7ELRQPXQA15R6e1TRedOsc+7GKzyuAQj64zClbtgKNy28BOLNpTDGTzLQZ4JQIjSX/09j6OegaIPJ30I1JDjSdehVfLVy8qT7/igLTtIAtGtR9oKnSf1MlhFIPklnlSySaVyWtf9dFM7IBoG3bUhCgBBcA1GUaTF5gxL/y2k/0PzUBBlXlROehE96A1njX/l8Od3vb0m0MwomoFgjn1iOvI6rapZgRUH/nFDxF8Pac0IVEg47eb0DOvTjeRjnlBTme8z73bwTMMtRIt42DLzGm5ZKldoz4z+kPxk0UOPzQx/DSEmvnXdOMhq5wgR/kr/wJFEGM9cYEs0DJYddcZsglUeD8OeXhy+8vE+S7gnFu32z42AXiHFOFOMNRanhjSkhq8/4ATdjHBOo1+RKnWl996jklplpzv/OYpDZmxSXQK3xPjPm3LAem6fZyj4AIqXvmFWH02QbBSEEyOl5nGJ3OPxKHGDabLtU8rhOMcwRq8A6+7H56hyEBADWgy2EZnnJ5ptq9PSA77EgWdbJdUXySMZZli5lNH0IARfB9Ner0oIV2D6uN5Pnun+J7n0/GG5ykEQlq/vg3qHvKhPTrOzUuOsYBQDhyad4JKI5YhyNrEB5Z3W2h3/5GaeNykXzwl35qNUcJaqdXuDmDIdDXIgeuPJcK9RTn7F7yIomgLw3Nkfe+215YcJe5KvCQ5VRPUFDYH/iJVZjhkTaLAcXrWgFwUVvww4JUgzyKgoiQsxGxLay2H6swZqMJfcKQBhhlfQQovrn8f1cnL1W+fALy+799uW2QW6q2Z8OvfupIV5QSi7hYh8OG6nyUgDt05z/hfGxaUytMoSksQtr+1n/1cpaRlcH9gD9E7z/deTQfMNUuoO1Hh+4MGDvDAX/0+ZekoJumc1Hrt5e38jt7V2I97HjlPc3Fb4UiVmATo9z8pcV2goWEGP26Cu7oepBD7pnqHehya5q47/eV9/UZOE3wlASU+RwhEHO2wKdh0g8NCCfC+QRBjRElG2abdwCLeCkM+Pvwd0waJU5h+8Z6RzVQTTq/+8AQtYbN2OOkF6FrfmQu/WisiMyydtE9/N0gpaxYoQcawMejwiVn7MswufakC/hSXao1u+oySUGlUfrND4G9Qsatdw6RV4AwxDfYoTR7I/MKAM9A2qIp73dtujZ5mydIrf88zwfryskUB8qb9YJbuz/mvcc17FZMfX7MinjjSkfovC42Cl2rPRCD0b2TJuV6QNleO/oNJrfBHm26hhHfMyrbX4p9QwedNuzr9eo5MTAcMloVHOZ/dJeKdIYCv4Np8pexmyuTIT7fiO8vGllMKdMxiMnZ/4ihL5NwLDrAxZk+0mWQI7oseIBHL+TxFfMPdgfQQ0P7NhdSPv6q0wx5VbvO2/XXAyLQBF599RN12oRYWROQCOPG71nNPurIxpVL4l+YCEh9BIZJl/fzmoIY9/sJMcMrru/CD6maEocr8j5Ev268dfLlntevevHG8vPn/A6S0+HennYx82FgzEUBc+H31gaIfPehzZP2F/0wXXV4sg604vQeLnYcGHOSwsMndj4baBQKTYrCYw0Vzol5CVWBm56zu516IF5seBSn8dLz1bWiEdnNZBwYXOGrgJ7hZww7ZxPqUUT5X7V/yrenyclUnomJPOvsPHRB81Zp9kFoCn9zrVsslGLB9Rryii2DlL15TRb/tdUu8scgJxQInC7vqUH4VMf8AkhEAObDn39NLvMOVOPzapXBibNxn3lrbERaAswo0oO52kX4ql8jkyGl49d+bSH0ZMqNbX3lOSChni3oUTxuM2vGYGU+Md/PI6LFhkYdS2BBYSo8fGDPbFlLT17PBszANEqjI+BTqxWUaGLbfGbGKzk0uCrfFAZ94DpaXeg1IZbueYpmkcrdWUTkGD/PKKahI9KKAmb1psGC4KHGapAKbRasfgv0AJ53RzfVDM28LfSADqfvy4+0/fx3azDlTbqUact7AC8W7m8YP+/+sp3aPrbwNYXA9UHteftixuokbyFBeLd2SU0lW5Gp/7E7Fc+Rqn6D24IcPSQTrhotKJZ1Mr4SYklyW/tLmf5nyR/mkTuaMb1LD8ZhGx/As+eLB4cv/uPByxixmRM6hrKPcoffoIGtJmuqjGn0ZpXlAALx79kiVC/1kLx8S2QU5OhXyvsmriz55AvRu6m5ivjNeK2eKh4OIYXy2iv1+MIIGo7eQyhkt7FSwozld7z6DBVVFaQEt5SFfVhAFauRE1VW1mi9XOM9Z0/IPhgVQyq5a7FnASJ0hkuFBYMz4lCXsTZBrB2Th0d2BRgkB/pc/wT7JG926mX1HArAZaCwC1MX+FCTjKTin8ogNixxPu/4NfKUWJDW60ak4JrVN52zP09k5Chky23dmHbGOa/8NfmsSF91GcBT6mpylfwAMv40oFAXeBPDP6Okbn0UZrzGC/QeUosgYlnZ//159gXZwYBPMIHNHno9N8MLLVbVZNqr1c50Xw8MjGTK11aPk4/CA4Nu8WOs2o7b2W6VaWdy5MrNdZsBPAMlR19wnUgQqetc1ox9Vdp8FXl4WUOEMco9kLUOh8Evsup8ZlYtKYeFB7iuREocrtErlOXsLjdFmADOldPRUG8qa+2eNSF+v9dFR7O0X0WVS1MhHN/9vjjqV+hd66LYhOjTb/gxZKS96TizbqFNsdk+ODz/2pbPblo2NBsMAgvUck+dj77y/K7uvbB8aU8bAQw3mPFVHIJuj639Ssb263/IX4ChqEPvmzvBvZj749VtNXbG2OLnT9a8U8g5jw5g/mvMkzhPs8rBetu7H61pivYrLcJK+pqrrJpOu07DjcU5TGI+9nBh5RyRVsuXOsm7czaSCy1vFi5wQL/xBJLOQ4ICtfGc3+cribpOIaxII1NagCSOxDAmzGnKFpwzHoSYCL9y4l5HnJu+LdlX0xSsDqhtNeSbU/9YDqoMD6FsHcfWp2dXxZtQtJSvbn/5UMvezMLwKd7s4eXnIz+j+lv8L0WCV9tELUIQqUpWMtgStXAvvc3NSb7sbnCp1OiSXxlKUablVMZedF81FUKnY4+7Fk0QBrEuMkGyHnpufKI1kv8bmKmJ7Iue7istTioqM1NuoR1dTSpB3Hj5PBiLKTi52SsMIE7y64JR/WYO0MEf3bjf03+Sor5Qo/nE3gxknyElF0lKR7YOOFwFyYVZR+dkDlMhIn7xp0VIOZH9tfaRwjbbexHGh4ONuyWAFPou60zMxmMm4ZxmRHXzIwaWeBUZTawJqbynVbREPPb+COlM6BsHNyNlPQwLkXbAZMu/jpbvJnZjXz0wZPOWYviKA+qLE5Tl6rncVB6BfqHtSBabFOiPXcu14oR8ftOLATd0rPfOurJ3HReVD86JriFwZLwS60pgv1iY8k5iIvaPM42p69607DtUCmFOs/oEbZ8m7XeBNvc0Clfm5zLL8BjKDUDGk2sQg08XyQ2d1vNBIlWIxbBCHeIPAU4fupoaR+PQRgfaXyS1NeSw/rSDl1pq1hdn2xsZe+CDjnlIWx7dDUelgBb8It3qqwWX0mgYNwqb+BM0Md/tJ7Q3x7M1vNv4qEPRfy58lsnRAVMhNQI4X8LzQpNETwjG5ZYZ77pE/G5zMkBV5m/LL8qTk9AETLNlF196GFttm+BtE/EqmMY/1qM15kj8crmxpavOUi1TMevAXOrCuz8A4AzV58SLC2su/wGWhR/r4qv5sV6gCqkaMns563+JTRvpuJETYeMM49OHfqeCSa0Ta5/HnIvGkOOPsUZG02LctRq0OhCqERWNotYAKLv3OfE1wPIdlBbRk2R/qdBgvaX3eklFnZX+EbqLzkwEgmWPAUEgvg1FHFh+EdTK/HRnJnE0QPHKpnCQ3McxFT+nXZr/ddpKJ4Q9He8XyGEzOR6fTusMFxK+RE/QFJjiGw9TxO5W/ALJDLNkdSPWnzA5glzUo1CGUtUOW8z9a+VZrAsL8sbFRKxw6Q/wDEmP9xXlMt/aPfT+lmzK64IjrTc4k4JIyu62rqY5dtikhbt5CUF6Qf9WGeSwA5uE7FalptFn0NW809CrUgKzF5l6oksircNkmGP5U3zL57c7U1eqm0rEUP50j9tAjgOn3qww4U5H6VEwiZ47Dop4JB8yuZLXdYcb8AVhG5j+vX8nEN3rrWTm6L/6ga9ObdOBlJ0H+xIUjZDctv6uccTUSmxydTQo657UUGAnL0Wl4wEKU/k8EfeLb1oh/kAaUCWIi5xaCB/ngP+3M0F80bGfEzfZlzwlvJCW/JN8Vzf9zwxRiJmKvUJ2u2ssWFZSu1j0Sn11McB7BLyOpA+QpTIDOkIdZZ6HjCqEoQv1+eTrOKsjxGK5LMZxGMHoJ6UTQKSgViKjw62A2UmTLuU7ceKJtQVYrnVTJW9txng17E0xnyVWEplpqq6zcLJf2eQvdZnK9SiLa+pEuQk6Oo9ZFqnAwOLQsJlRD2g1EYjenvNeDDfU1coBsD6/+Ulor+hMtNIbv6kFDWYhvme0yXq+R8Kv3rY5u7LZjVWrHwDDqoYnBxxhL5cz4N9HMAzIaHY0+4k1LgwHg+lKHW71PEJWZ70yIw1XMaF1GzXd8UqAlhTCfzk5jLItDNt+knCVCaUGlRDY/AIEWsl8Bh0IbISFa6R3e1f463lJ93uvYjWicZRXgrUg91jNilXxeWd8a1lqIIMNtrbf92n6BWLZl/Gz5nn5a72loA9PINxRx0Mb1P/WtrnqRmpsRpi3psqUQfzEHJQDDoC3CaLXGN/km4VQkyqR5o4+GkG22YfXeDlAsmF36nhCIn8ec+N8N2lpfp775pb/CHVlM3cslGmbvKY1Amv8PK52we1RpI4T0xMs7k1oduc+ryHQ5T9dxUUH+jX4vsGUVoD0fM71+8GHjeS7pQPaIAVPeSLD4JyzG78nsLh7MD+fDMjmZWn/8Oo5YR7AN+t7cX/7F+ixoCdz+VD6YzW2VvonfwhZDAFuu1YRoHOSJrrJ7+hi+vP5UzgpjKxrA3SVfk8KLKf6USSCqREnz//fCmcgnQnZl8MG4Fq8Mq0x4tAZXhzwFIt8VP3E4vFQnVeAICrBj3iYqtBQglVvFwIdc2ef23faW/J6kGL2Jlqf/AL97SoAVOSst8QJU2YJ4mFm/TMz8dObCKiyNbvQOkyUkghOZIeJohOEuTD4DoARZqHI0XEWHrSOt1jz8cnfp242HCAfTnbI9N7q8uRNQDexxrH6mnL/d5xWP5e5Ws7SncZOmKNBOxYVJ/IPJX6GQwM38/TfSHPylG4lsvrkA6LBXdNU3nu8BOGVBVIyTeWfo9245fjIMW/lnWbvLcA3WNT45O9EWHo15d38DkGdFy9iPnIe5wVz3eytBRVqwBC/GBlf8VsgxEF+x3OwvE/AgzunKxtbdBNKxm7yb98GVe5v+tOkfQRNtRvyivOdWob6ring4Rw6MzY4sbIVgcZURAPtq93f6Ljo2S+qErAKcShjTDiH5DDMvcpdpT3psYuUH2abVNB7c8c1NRCcJBWUBKh90PiP3gRvIWVDM+tfWLOrz2Wk1Bsvdzn7nd8MSM7aKOi4+6KuoNK/AZQVD+18UTBJ+MgVq+Xg5MyNcrnceTqdjaE68YaYyk404Agzp6mCa1zRP3vzFxNwGkH+tomUOxwiKkG0z6N/NY8Zz4rKiX3XyrZ3m241mgifn+Qv/OE5keTQ7gm3ulevUlzf3GswQNzK7Z+XQSX228rnL7gou1EW8fiokm9oFoQdyD5eOz/raTJGrrvN2r7kiSKKf7nw9F97nMkdvRX0k0Bagp/uDzgbIL9pFUykZy1bJN1wFQXm4x5ifx5aCq+ATudnVaB3AOpT3gbsY+o6sgKaZu9LgoA+kmQ32/cxj3cwcoc4Tngt6FnIEn6Cp8Iy/jlR5EPRBp8xDu+1w2d4YIEGnF9ayzejx5mkrp+cc/4NvXcHEo94oNhFb/joCS0XwJdzaBdhkmWh5o64fOeAbkyCLJJ8QuD/ks9Ky2PpHqXO0jizlTGU34BcL5iHuL2tmaMadRRnonVNmQZOmB7n1ym/xKB0AseG/gm7okxXyKlwhPYCr6P1+FWYJFBwcYT0Qn+Cr+o1bjofoXV2PK0cBrcbuBoc3yqlO/srYMZ9GVib8NtA8EgNmNp3hlLGEJCZp//IrAtZqV5+dIIJz+8kYC97Terwemef+1uKBTmFTUD4CT2szJEwtFwi3g5npsAiwBFewkejy0EcauBzdt5Ibk6e4k2fHHlsjlq4hwbWvkvRgTUnQDe6W2v/sBg0+ch1ZrYGvQBFe3C4GXmW2bwEpF2gtVrPNB6hUXwg3SefIVoA/Vcp/pKAimSyNAnw+97xVGjzLaMOOjWZ3ynMWBzaMOWpk3iOH17QDwnxUuF0eNasedvzTJusECijg+qV77XMu2smqZxKQGvph5FPwcfWodT0iz9no0Ld5QCTqe/Q/j/nixnrnVLPzmYIyPik4Dk6WB0sW18ttfN6M6MhKDxe5VecEUHiDNGA/437fqI6ZNcND9c1MXU8xoqtybi89i062pGW61Tzptn6oIn2HkaAp+bg6mtQpRib0SVXFXHynWe4ErXBipK3AYSWZuk3agsmpXwqsxH7PTbULOlEoDZB5FqiRGogRXqxTCIK8joFpA87M3+EDmxHmGulBwOKog7qqwqLN5rnZ0ScxxFU20x1mO6/0+yfBDdJYLgbiRTic0imLGahggj1vrJeiGOnmo5prv4anKyhgEQocFFiFHs4nQApT+NQPT7wNnG3xG3nbaBPaLaFpLCr4xgRwuWVtnUqlYcKCLaLZWd5yBtYrbgc+Bp0GAr+oHZkPv+ZsJFqk9lblO6cadGSGAxmKy/6IGb1V9lr/BclKjuIcwbi5CLpA1Qh1b/sHWIc+fQWfZKgwC+VBWMphC8Sb9Bn2GyaUc3D1NnMHDgMhb20DSngH/2ImEWLqFO/5jJ/b3K+wJCAfD62lykxn9xWCk66SPDIFHvxt0bfgkTMov5O/bHbg7bRuovYDFUkyjBfYAGodx3EbTbW1vAQ8FGxSfkXXyk/sIeTg3bfrnZ9ncY2X6brutueddpzs5CYkX3i6GrX9BPYcP78/y18a6WJdgOOCvW1t+2AWBEE6hoOBKuR3Qly2aemG5CwMFePu5oWCcD+5i7DatfxTIA7npA6A7CgyFhb+p4SheDb5FuYnjwX1Cq6Xwx0o8z++9ect8nfmAFpyBHnCryJ+zJj7hKQkAX3GmbR+h+CMLBP26KuFbfCOEDBBw7sG40bL97VLroDnShVjIG2hJPReXJ25yHyQGc5fjkPwEvo5kHwkHAlZoZRqWbcmCa7B5Or8Zm6aTrGYRynbxub6WQy7cH66JVG0BPWgTKfQK1chPl/5gAQJRRizzhfMmONaBjZ70IV0kCOsoSyiqfcvuRVsgsRac97bve5ecrPWrfCFd/hRqz0BL4d9wzePmVXsPL3zhlcV2enHVkMWPoIGNyiRwGiVks8k5MDweECJ6LTVK9bhPVSvv/jCw1JefjMg9xsOFQxJWx7lXAqKzZwZFLQE4MWJf495WLOXmMiXKE3VFY/PLVTW6RNjKwlGiPMA8g4bLNV/owKL8Hld+LmoNwn3/n7RB9j/S2sTogf7+4RUe3OOfHxu76q3DgMdI19ur/yoZqwhLgpmAFAKqZrdyr/lcadpCyWJXJ9Ou2uxdv59rtCSp1e4Xp4LXYrNrTLkOB5kKGRQM6puwzqogpljUA/zfKO1OW9pwjxrt68rUnSUSqdzqaJZEKZm2sM3x8vV7iYGtP8UCbn8hybDbdSULWjAjGcGEcX7B6hyys+heET1hJeahDoZezMHwfj2dSNvFJjZ5NypnldxbnPWjQJIkG5Xt1Q26pTYGumhzSk/w00yXMfwwocpsitu07wxAjOh4pwgG6AZI9TjURQo6bhxBj+hNhVgswVVVP4iKFrWlLjRQsQugcdROJQUmnj9cZtbh7yEf4p90Qq4Gs3XoEsvgeWkbtZ0Eg9lMlow9D2jjv1c6tju0DU86tHfm8FxfKCd8nnzygkjBL/mBvPbcqbDOEiq2cXSQk7SEK91S1NG3YiC+dL/Wp//XoHEtyzhOfE7PjCXjwU0H0qQVGJlpIe+lIkGKRe4HzKnlOk+GwaF2oiu5VP8l66rsvE3ad1JjIA4vKUAsFFgMal6kH/LO7XLMwWFa+L30d5kewv0GVQn6eS0cxd7foG6EJmgpaaMmu0l0sqiBoRl7idwCU9AMXV021eaPhf4xHyd70ydor/8QNPQ5Wj5jNO54S3CP7zyQhdmFBqybIGR4Y3qJSUsEjwJqflSOt8sX5sHSmQfPgFtK53MahzioKjkB6C2dj6YGl/bpIKdBLuPgFCWeY5ArNUypiSa4AwxNvzLcDgw4zWuvxYMROB98WRdr/OAkkn4oJ9oqBrznuA5xiH411rIhrY9xbvQuRhvB55AA9J3/PMfl+t5uCJ4R4gADGGJJ2CIz7bPy+ICrH6ZWX/+PiIYvP1FmHtjvrFETSgjKJzzzpAS3VkLzZxYIYk76c9T8osai5hYUlcLPHRC+428nzK3ek7fVDYg3OZZmf2GWKwnIq4rRm0DpPPWFGNS68vost5gWTW7vALC5wtEnc1peaqcTEsjIAjNDO1pLA2KS6Kcbqj4HdhsR7ZUHyoaI3QEnMIQT3+2zQmm8k5iH/dYmrDbkCF0qM2gIsCkHr8Fs52UOFvLWD8B7hZu2TzfG7aGAUkUOpTTErsZ6UHkv7Eyr2+hCJsDMZGD7sj7WFC7cVQt2Ql68hOFI24EqgqAC6b/FvSmKxl3+BKSRdrULAbdErIRM9Zs90iaA4+6rPacSe92Bf45m5EoojvTXAJMgOGS5bskwtWqoa9hUKSSIxfoPBqvwiN9x1bE8pdX5w+Jfv65SYqjuMJpkVLHIqa5unqQCks6DM8b5EMf4iI8q9grysSppjdCrcMFECLjP1Ty2JtQBDTMTmendShDc9hAocCOU3I35NQbuDNp6n5KTQBemriv92RvQX+7jbvotXd6f7y1jxOg+L5M4LrwbaUZXJynOWqPfP70cHPhWWkk2ZqMBxEQDbRKZx+KkurMv5X85lU+UjlZ/oARnx2lYF2+nm4bEQ0Wm+MOGfzR2whZYg7yqU/XumZ7hX74paQFRcfXH+sESn2e/4tjecDgXOatn7+JDHX+qMt3Vl9P9fM4zrtMMzoNgtWmRcFSQHkzgf2dJN5WDhSw+BhKrCaleTo3d7bYbwutQPpz723V0UeF4CpMV75LqOWytUCuQcdrS2WPPlm05wshyzuKxv6YIug5aYxUJbp05TCnoYIkwIj28wOFLrAWPJvx4noOst7aZVoBUqmaqKYhsHOLTO7xgM6r31GvQuXsGY2SeIBo9Nd7Xlov0N8XT80fN0MGDYclRNDF+qWBxKe02JbeXPLtcQazAAPIkEIZhWEuXNcD2+8oqGEyadTtnVhz373Ak/rMyvU/+D1A8CL1CDyn02se58IHIxeKVGV5bTQAR9tuX1wA1Ts/mLaRZAmd7S7pmKdYf82Mbebyl8xd6+LRqLMRpXrbt6Z4wWGqQ4p5JdH3qBTM2j0DCJwdPD6na7xRNAc9RY7PIc3iw0t49gyqnhcJ0or00dPLqUgzem+J8sXXwmKt+w3rIAMaPmSXK87eBJfCeVMNJISfy/eL5PqKzUiZIsoQP8s5WuLclNYwPpSgDb9gzq/ZX1KKTyJhL4cHQ0ptATmZkU4XOdBW69ERP9iXbELoOXVUVetPt4mGxjAppNiFLLCIhBP7DurO/A8+RzJyTApPwLMOzIu9tH2wsSA05B3kFLT9gKMbSBGX3Gb4ZOOXsHZTLf/o4pzVUNkXLbDOGPnGnNWjKbvCkf/XLKy/JZG6VU+P2lhkKT8sWrAIcAQeqZ1uQW25nnJpkUD/wDpwc0bAnCRS+pPTLRrUJL0CLVeTmCqo64vW9a+MhPK1LNwP32F/5TwHANBatyiEoxl1Hxlg15JvbEIUkjDJrpqI1dkyyz0NrzOc70/OJ2yDOS7ah3tArxv+1vqoGGbxiEe/bTwxc0d9e8MAJls4ZFwpu5jPgK+y7y5Cwgexz4yHNBmqfdVR3MjryiqYyGlCTdRSBfELYlgwkroqdduj+2PzV/QdV5dE8FEifIPR7NpOAvrUUlparx4g5y/MlxpRIJla5uPp0O4ILIMvsV6Blv4zYsBQNRBqhYJ8neaQMPl0nPMPa5KgLdxifpaiXNdS5M3XG7wYQ+6M7tnwkvNvSTvPKNks5eBaNuJhA/9TH+1n3OXOZ1LS3uW9ZbrIt2xuF64tGhdqAqgjR2ChNnq2a6dGSvv1HUfHGP9bltuDoUKpvSDZ1UyVxCDSIbC2oobhICTRXXFj9vPOqWToqd5qtukdP+SbSalutn9Y+DCK81btbbp3dCtFsaayFvjlbKB9gUZoWSMARyKSud+qkVZEzMGpTwjcl4ZseEjyFx4GKBmVOAfUqV6u9dmDUSvdZuezFw2g3X4+wNE0+VOw1hFv5X5Y1pMuvzPWjXoa+B3jTSxHMOkS/XtNKgqaKkglol2FAAreRoX2eUOeXv3CR+Ah5pnaReC9wtz9HdzGBOO+55OV7DRAiO3b7aLFAlIUW/NqTshIH5IWKzvVqmHZgJiFX9u2fUpSZAKSGou6I1at9NzQ4vUM+yQSDsf+QETz24lul6yqydopeQAAAHtEd8J4tlADkkTUoZYr3u1pXZJiX/cnzFHoWjIK/4a3AQK7/fUQ7m78g+HSqMTgjEwpDkWKH5oW2v0nhUhVu1WR/BisVW/olJ7WkUPQ3wpkdAHv9ft0BnuRv4Tee2jM9qtzDjtByKhES2goBDjWBCd4VYXDc/O/hc+sMO93zJiohf47+QZlVpJ2DJBy/21+WvMDFaasHv+1+tmR9JPlyVwxnhnixr5imY8KoZ5mCZMwVpTlQ/eRyMSaaJ9h1LFnLq32bJBmuewZo377Wg2w6pD05e2LL3tfm6z9jZcSJZScfxKpC0LMZ0tF6PjxAZMYwv7iVDjPiqoLBiCdWn/Gx4koUbDayd9uata0kp8j4fef/pex+r0grtUZJfdAidl9IWnr8XJV341wkg0JAdJiPg+lebXIDfjsfvJSrjki/LopiBCj+5Oo4PguwUq2BGU/+iMbf/qA+b6H5Pj9bsca17KNvcfEeTJUx4yq7CFahD8D/cXyw2v/hHYeUqWQd9YUZRxvMBfZesAlJBvNdwCXYxQ55P9ba3EJyxFmnX0tVK3MnxFI/svLZP6pFHi+qPPQyCJSvvtiRTy5YoEGtmwsvZ7sj3S1PvoJuqeAke3x4w2uL49UhfS4FiLtzGVZOdbm4F5HYxRpXKjvHiPmEUUWxEnGL6nnjnKIZyKqM7t2GUnuUSElap5BUzWPkmFqvJXOAMCM7sp9pVWjgscjxNtUW1IGckxg44SBIylG6BB+ThHFhDNIBzeHSksnfb/FzK3ocb2u9OO6CzwO2taY+L4JVobEYR2bfGbLbDX3EZPXuXCJdJoOiAAExtP2eBEvE9GqzXgALn/wEHeA3T46eyoJ095CSzSydXiVHWFVJZEpBG/K65q43ZSrT+cD+0wE+y+E+ZL2U3AQbmOJ3bSGlVB5U5BhEo+j6ZJAlhMDXXf8GgKi/nLobTWk24lJJpVRNyTd2z5fE2ng52vAMNxhvWbqyAoejE5icR0Ruu/oc1/oO2wvLTuN8U6o3Di7TF7Ydk8+5kAAAAAAAAAAAAAAAA=="};
+const instituciones=[
+  {
+    "nombre": "Asociación Educativa Harvard S.R.L.",
+    "departamento": "Junín",
+    "ciudad": "Huancayo",
+    "area": "Educativa",
+    "vacantes": "2",
+    "direccion": "Sede Julio Sumar: Jr. Julio Sumar Nro. 441, El Tambo, Huancayo.\nSede Tres Esquinas: Jr. Huayna Cápac Nro. 240, El Tambo, Huancayo.",
+    "horario": "Lunes a viernes:\n7:45 a. m. – 2:30 p. m.\n34 h semanales",
+    "web": "https://harvard.edu.pe/main/",
+    "review": "Institución educativa orientada a la formación integral de niños y jóvenes, con un enfoque basado en principios y valores cristianos. Promueve el desarrollo de capacidades cognitivas, sociales, motrices y artísticas, buscando fortalecer la formación personal y social de sus estudiantes.",
+    "telefono": "(064) 242194 / (064) 598820",
+    "correo": "harvardhyo@gmail.com"
+  },
+  {
+    "nombre": "NeuroPsico – Psicología Clínica Integral",
+    "departamento": "Cusco",
+    "ciudad": "Cusco",
+    "area": "Clínica",
+    "vacantes": "3",
+    "direccion": "Jr. Clorinda Matto de Turner Nro. 308, Urb. Magisterio Etapa Dos, Cusco.",
+    "horario": "Lunes, miércoles y viernes: 2:00 p. m. – 8:00 p. m.\nMartes y jueves: 8:00 a. m. – 12:00 p. m.\nSábado: 9:00 a. m. – 1:00 p. m.\n30 h semanales",
+    "facebook": "https://www.facebook.com/Neuropsico.Cusco/?locale=es_LA",
+    "review": "Centro especializado en psicología clínica, con una atención basada en evidencia científica y un enfoque humano. Brinda atención a niños, adolescentes, adultos y sus familias, abordando las necesidades psicológicas de las personas en diferentes etapas de su desarrollo.",
+    "telefono": "931 734 691",
+    "correo": "neuropsico.cusco@gmail.com"
+  },
+  {
+    "nombre": "Centro Psicológico CRECETU S.A.C.",
+    "departamento": "Lima",
+    "ciudad": "Lima",
+    "area": "Clínica / Organizacional",
+    "vacantes": "15 en total\nCallao/San Martín: 5\nRímac: 5\nPueblo Libre: 5",
+    "direccion": "Sede Callao: Av. Los Dominicos 303.\nSede Rímac: Av. Samuel Alcázar Cdra. 755, Chalet 33°, 2.º piso.\nSede Pueblo Libre: Av. Sucre 1081, Pueblo Libre.",
+    "horario": "Lunes a sábado:\nTurno 1: 8:00 a. m. – 2:00 p. m.\nTurno 2: 2:00 p. m. – 8:00 p. m.\nTurno 3: 9:00 a. m. – 2:00 p. m. (domingos)\n30 h semanales",
+    "web": "https://crecetu.pe/",
+    "contacto": "https://crecetu.pe/contact/",
+    "review": "Centro psicológico que promueve el bienestar de las personas a lo largo de las diferentes etapas del ciclo vital, desde la infancia hasta la adultez y vejez, así como en organizaciones. Brinda servicios psicológicos y psicoterapéuticos orientados a la atención y desarrollo integral de sus usuarios, mediante atención presencial y virtual.",
+    "telefono": "980 830 379 / 963 795 340",
+    "correo": "rgallosa@crecetu.pe"
+  },
+  {
+    "nombre": "CEBE Manuel Duato",
+    "departamento": "Lima",
+    "ciudad": "Los Olivos",
+    "area": "Educativa",
+    "vacantes": "1",
+    "direccion": "Jr. Santa Cruz de Pachacútec 510, Villa Los Ángeles, Los Olivos, Lima.",
+    "horario": "Lunes a viernes:\nTurno 1: 8:00 a. m. – 1:00 p. m.\nTurno 2: 1:00 p. m. – 6:00 p. m. y un día en la mañana",
+    "facebook": "https://www.facebook.com/cebe.manuelduato/?locale=es_LA",
+    "review": "Institución de Educación Básica Especial dedicada a la atención de personas con necesidades educativas especiales y sus familias. Desarrolla una labor educativa orientada al acompañamiento y desarrollo de sus estudiantes, promoviendo su participación, autonomía y relación con su entorno.",
+    "telefono": "977 851 384",
+    "correo": "carlaruizhpsicologia@gmail.com"
+  },
+  {
+    "nombre": "Centro Psicológico Vida y Ser",
+    "departamento": "Lima",
+    "ciudad": "San Juan de Miraflores",
+    "area": "Clínica / Educativa / Comunitaria",
+    "vacantes": "1 (enero) / 2 (julio)",
+    "direccion": "Av. Guillermo Billingurht 1141, San Juan de Miraflores, Lima.",
+    "horario": "Lunes a viernes:\nTurno 1: 8:00 a. m. – 2:00 p. m.\nTurno 2: 2:00 p. m. – 7:00 p. m.\n30 h semanales",
+    "web": "https://consultoriopsicolo57.wixsite.com/consultoriovidayser",
+    "facebook": "https://www.facebook.com/p/Centro-Psicol%C3%B3gico-Integral-Vida-y-Ser-100078399218689/",
+    "review": "Consultorio psicológico que brinda un espacio seguro y de confianza para el bienestar emocional, mediante una atención personalizada. Cuenta con psicoterapeutas especializados en niños, adolescentes, adultos, parejas y familias, ofreciendo acompañamiento orientado al crecimiento personal y al equilibrio emocional.",
+    "correo": "cpsvidayser@gmail.com",
+    "telefono": "987 795 182"
+  },
+  {
+    "nombre": "AKUNA – Centro de Desarrollo Psicológico",
+    "departamento": "Arequipa",
+    "ciudad": "Arequipa",
+    "area": "Clínica",
+    "vacantes": "4",
+    "direccion": "Urbanización La Melgariana E-16, José Luis Bustamante y Rivero, Arequipa.",
+    "horario": "Lunes a viernes:\n9:00 a. m. – 1:00 p. m. y/o 4:00 p. m. – 8:00 p. m.\n30 h semanales",
+    "facebook": "https://www.facebook.com/CentroAkunaAQP/?locale=es_LA",
+    "instagram": "https://www.instagram.com/akunapsicoterapia",
+    "tiktok": "https://tiktok.com/@akuna_psicoterapia",
+    "review": "Centro de desarrollo psicológico especializado en terapia cognitivo-conductual. Emplea técnicas psicológicas adaptadas a las necesidades particulares de cada caso, con un enfoque orientado a brindar atención especializada y favorecer el bienestar psicológico de sus pacientes.",
+    "telefono": "949 308 112",
+    "correo": "centroakuna@gmail.com"
+  },
+  {
+    "nombre": "Centro Psicológico Psicokhuyay",
+    "departamento": "Cusco",
+    "ciudad": "Cusco",
+    "area": "Clínica / Educativa / Organizacional",
+    "vacantes": "3 en total\n2 varones (uno por cada horario)\n1 mujer",
+    "direccion": "Av. Los Incas 810, Edificio San Antonio, Wanchaq, Cusco.",
+    "horario": "Lunes a sábado:\nTurno 1: 9:00 a. m. – 2:00 p. m.\nTurno 2: 2:00 p. m. – 7:00 p. m.\nTurno 3 (mujer): 3:00 p. m. – 8:00 p. m.\n30 h semanales",
+    "instagram": "https://www.instagram.com/centropsicologicopsicokhuyay",
+    "web": "https://consultorio-psicologico-psicokhuyay-cusco.ueniweb.com/",
+    "review": "Centro psicológico ubicado en Cusco que brinda atención orientada al bienestar y la salud mental. Ofrece evaluación y atención psicológica para personas que presentan dificultades emocionales o psicológicas, acompañándolas en la comprensión de su situación y en el establecimiento de estrategias para generar cambios positivos.",
+    "telefono": "930 851 900",
+    "correo": "msotomayor@continental.edu.pe"
+  },
+  {
+    "nombre": "Escuela de Educación Superior Pedagógica Pública Santa Rosa",
+    "departamento": "Cusco",
+    "ciudad": "Cusco",
+    "area": "Educativa",
+    "vacantes": "8 en total\n5 Educativa\n3 Salud ocupacional (Centro Médico Espinar)",
+    "direccion": "Calle Carmen Kyjllo 265, Cusco.",
+    "horario": "Lunes a viernes:\n8:00 a. m. – 2:00 p. m.\n30 h semanales",
+    "web": "https://www.eesppsantarosacusco.edu.pe/",
+    "review": "Institución de educación superior orientada a la formación docente y al desarrollo educativo, social y comunitario. Promueve una formación crítica y reflexiva, incorporando principios de inclusión, interculturalidad, innovación e investigación en el ámbito educativo.",
+    "telefono": "970 966 060",
+    "correo": "juandongo390@gmail.com"
+  },
+  {
+    "nombre": "CEPAB – Centro de Aprendizaje y Bienestar",
+    "departamento": "Lima",
+    "ciudad": "Lima",
+    "area": "Clínica / Organizacional",
+    "vacantes": "1",
+    "direccion": "Calle Los Halcones 287, Surquillo, Lima.",
+    "horario": "Lunes a viernes: 2:00 p. m. – 7:00 p. m.\nSábado: 8:00 a. m. – 1:00 p. m.",
+    "facebook": "https://www.facebook.com/p/CEPAB-Centro-para-el-aprendizaje-y-bienestar-61551618363835/?locale=es_LA",
+    "instagram": "https://www.instagram.com/cepab.peru",
+    "linktree": "https://linktr.ee/cepab.info",
+    "review": "Centro especializado en terapias integrales orientadas al desarrollo infantil y adolescente. Su trabajo está orientado al acompañamiento de niños y adolescentes, brindando servicios relacionados con su desarrollo y bienestar psicológico mediante una atención especializada.",
+    "telefono": "928 033 022",
+    "correo": "cepab.info@gmail.com"
+  },
+  {
+    "nombre": "POWER YOU – Consultora de Recursos Humanos",
+    "departamento": "Junín",
+    "ciudad": "Huancayo",
+    "area": "Organizacional",
+    "vacantes": "2",
+    "direccion": "Av. Flor de Mayo 343, El Tambo, Mza. G, Lote 11, Urb. Primero de Mayo (cuadra 29 de Av. Huancavelica), Huancayo.",
+    "horario": "Lunes a viernes:\n9:00 a. m. – 1:00 p. m.\n3:00 p. m. – 6:00 p. m.\n35 h semanales",
+    "web": "https://www.poweryou.pe/",
+    "review": "Empresa especializada en asesoría y consultoría en Gestión del Talento Humano, además de servicios relacionados con el área Legal Laboral, Auditoría Contable y Seguridad y Salud en el Trabajo. Su enfoque busca desarrollar el talento de los colaboradores y brindar soluciones estratégicas e innovadoras adaptadas a las necesidades de las organizaciones.",
+    "telefono": "951 651 922",
+    "correo": "socimo.huamani@poweryou.pe / diana.huamani@poweryou.pe"
+  },
+  {
+    "nombre": "SENSES Psicólogos",
+    "departamento": "Arequipa",
+    "ciudad": "Arequipa",
+    "area": "Clínica / Educativa / Social - Comunitaria",
+    "vacantes": "8",
+    "direccion": "Calle Yapurá 212, Zamácola, Cerro Colorado, Arequipa.",
+    "horario": "Lunes a sábado:\n2:00 p. m. – 7:00 p. m.\n30 h semanales",
+    "web": "https://sensespsicologos.com/",
+    "review": "Centro de atención psicológica conformado por profesionales que brindan atención psicológica integral a personas y familias. Desarrolla servicios en los ámbitos clínico, educativo, social y comunitario, atendiendo diferentes etapas del desarrollo y trabajando también con instituciones educativas, organizaciones y entidades públicas.",
+    "telefono": "958 604 447",
+    "correo": "contacto@sensespsicologos.com"
+  },
+  {
+    "nombre": "Centro Psicológico Comunitario de la UC",
+    "departamento": "Junín",
+    "ciudad": "Huancayo",
+    "area": "Clínica / Educativa / Organizacional",
+    "vacantes": "15 en total\nClínica: 5\nEducativa: 5\nOrganizacional: 5",
+    "direccion": "Jr. Dos de Mayo 570, El Tambo, Huancayo.",
+    "horario": "Lunes a viernes: 1:00 p. m. – 6:00 p. m.\nSábado: 8:00 a. m. – 12:30 p. m.\nHorarios rotativos\n30 h semanales",
+    "web": "https://ucontinental.edu.pe/centro-psicologico/",
+    "review": "Unidad especializada de la EAP de Psicología de la Universidad Continental que brinda atención psicológica gratuita a la comunidad. Cuenta con profesionales comprometidos con el cuidado de la salud mental y desarrolla acciones orientadas a la promoción y prevención, con una atención ética, científica e integral.",
+    "telefono": "914 712 865",
+    "correo": "mbarrientos@continental.edu.pe"
+  },
+  {
+    "nombre": "CAP – Centro de Atención Psicológica Arequipa",
+    "departamento": "Arequipa",
+    "ciudad": "Arequipa",
+    "area": "Clínica",
+    "vacantes": "1",
+    "direccion": "Av. Los Incas s/n, Urb. Lambramani, José Luis Bustamante y Rivero, Arequipa.",
+    "horario": "Lunes a sábado:\nMañana: 8:00 a. m. – 1:00 p. m.\nTarde: 1:00 p. m. – 6:00 p. m.\n30 h semanales",
+    "web": "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/",
+    "review": "Centro de Atención Psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada.",
+    "telefono": "994 358 949",
+    "correo": "trodriguez@continental.edu.pe"
+  },
+  {
+    "nombre": "CAP – Centro de Atención Psicológica Lima",
+    "departamento": "Lima",
+    "ciudad": "Los Olivos",
+    "area": "Clínica",
+    "vacantes": "1",
+    "direccion": "Av. Alfredo Mendiola 5988, Los Olivos, Lima.",
+    "horario": "Lunes a sábado:\nMañana: 8:00 a. m. – 1:00 p. m.\nTarde: 1:00 p. m. – 6:00 p. m.\n30 h semanales",
+    "web": "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/",
+    "review": "Centro de Atención Psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada."
+  },
+  {
+    "nombre": "CAP – Centro de Atención Psicológica Cusco",
+    "departamento": "Cusco",
+    "ciudad": "Cusco",
+    "area": "Clínica",
+    "vacantes": "1",
+    "direccion": "Av. La Cultura 604, Cusco.",
+    "horario": "Lunes a sábado:\nMañana: 8:00 a. m. – 1:00 p. m.\nTarde: 1:00 p. m. – 6:00 p. m.\n30 h semanales",
+    "web": "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/",
+    "review": "Centro de Atención Psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada."
+  },
+  {
+    "nombre": "CAP – Centro de Atención Psicológica Huancayo",
+    "departamento": "Junín",
+    "ciudad": "Huancayo",
+    "area": "Clínica",
+    "vacantes": "2",
+    "direccion": "Av. San Carlos 1980, Urb. San Antonio, Huancayo.",
+    "horario": "Lunes a sábado:\nMañana: 8:00 a. m. – 1:00 p. m.\nTarde: 1:00 p. m. – 6:00 p. m.\n30 h semanales",
+    "web": "https://estudiantes.ucontinental.edu.pe/oficinas/bienestar-universitario/centro-de-atencion-psicologica/",
+    "review": "Centro de Atención Psicológica de la Universidad Continental orientado a brindar servicios especializados en el ámbito de la salud mental. Su labor se desarrolla mediante atención psicológica y acompañamiento profesional a personas que requieren orientación y atención especializada."
+  },
+  {
+    "nombre": "I.E. Sagrado Corazón de Jesús – Espinar",
+    "departamento": "Cusco",
+    "ciudad": "Espinar",
+    "area": "Educativa",
+    "vacantes": "1",
+    "direccion": "Calle San Pedro, Espinar, Cusco.",
+    "horario": "Lunes a viernes: 8:00 a. m. – 2:00 p. m.",
+    "facebook": "https://www.facebook.com/SagradoEspinar/",
+    "review": "Institución educativa pública e inclusiva que brinda formación en los niveles de primaria y secundaria. Su labor está orientada a la formación integral de sus estudiantes y al desarrollo de una educación que responda a las necesidades de la comunidad educativa.",
+    "telefono": "(084) 622374",
+    "correo": "cjuro.jolber@gmail.com"
+  },
+  {
+    "nombre": "Corporación Psicológica y Salud Integral MUCAVA S.A.C.",
+    "departamento": "Lima",
+    "ciudad": "San Juan de Miraflores",
+    "area": "Clínica / Educativa",
+    "vacantes": "1",
+    "direccion": "Jr. Pedro Bertonelli 983, San Juan de Miraflores 15801, Lima.",
+    "horario": "Educativa: lunes a viernes, 7:30 a. m. – 2:45 p. m.\nClínica: lunes a sábado, 8:00 a. m. – 1:00 p. m. y 3:00 p. m. – 7:00 p. m.",
+    "facebook": "https://www.facebook.com/PSICOMUCAVA",
+    "review": "Centro Psicológico Especializado MUCAVA brinda servicios de atención psicológica y neuropsicológica dirigidos a niños, adolescentes, jóvenes, adultos y adultos mayores. Desarrolla acciones de promoción, prevención, evaluación y tratamiento orientadas al bienestar y la salud mental, además de contribuir a la formación integral y humanizada de estudiantes mediante sus prácticas preprofesionales.",
+    "telefono": "948 638 479 / 930 137 827 / (01) 407 9048",
+    "correo": "centropsicologicomucava@gmail.com"
+  },
+  {
+    "nombre": "LÉVERIS CONSULTING",
+    "departamento": "Lima",
+    "ciudad": "Miraflores",
+    "area": "Organizacional",
+    "vacantes": "4",
+    "direccion": "Calle Mártir José Olaya 129, Miraflores, Lima.",
+    "horario": "Horario por confirmar.",
+    "web": "https://leveris.com.pe/",
+    "linkedin": "https://www.linkedin.com/in/leveris-consulting-9454221a6/",
+    "review": "Consultora especializada en gestión del talento humano y asesoramiento empresarial. Brinda servicios de selección y reclutamiento, intermediación laboral y evaluación de personal, promoviendo además la inclusión de personas con discapacidad y diversidad funcional. Su trabajo está orientado a brindar soluciones integrales y flexibles a las organizaciones en la gestión de sus recursos humanos.",
+    "telefono": "982 705 914",
+    "correo": "fabiola.correa@leverisconsulting.com / administracion@leverisconsulting.com"
+  },
+  {
+    "nombre": "MAKARENKO SCHOOL",
+    "departamento": "Lima",
+    "ciudad": "San Juan de Lurigancho",
+    "area": "Educativa",
+    "vacantes": "5",
+    "direccion": "Calle Maquinarias 351, Urb. Industrial Flores 81, San Juan de Lurigancho, Lima.",
+    "horario": "Horario por confirmar.",
+    "facebook": "https://www.facebook.com/colegiomakarenko/?locale=es_LA",
+    "review": "Institución educativa orientada a la formación académica y en valores de sus estudiantes. Desarrolla su labor educativa promoviendo una formación integral, con énfasis en el aprendizaje, la convivencia y el acompañamiento de la comunidad educativa.",
+    "telefono": "991 033 659 / 991 033 743",
+    "correo": "informes@antonmakarenko.edu.pe / dpto.psicologico01@antonmakarenko.edu.pe"
+  }
+];
+const W=new Set(["Centro Psicológico CRECETU S.A.C."]);
+function ini(n){return n.replace(/[–—-]/g," ").split(/\s+/).filter(Boolean).filter(p=>!["centro","psicológico","psicologico","de","del","la","el","y"].includes(p.toLowerCase())).slice(0,2).map(p=>p[0]).join("").toUpperCase()||"IMG"}
+function logo(i){let l=logos[i.nombre];return l?`<img src="${l}" alt="Logo de ${i.nombre}" loading="lazy" onerror="this.parentElement.innerHTML='<span>${ini(i.nombre)}</span>'">`:`<span>${ini(i.nombre)}</span>`}
+function links(i){let h="";for(const [k,t] of [["web","🌐 Web"],["facebook","📘 Facebook"],["instagram","📸 Instagram"],["tiktok","🎵 TikTok"],["linkedin","💼 LinkedIn"],["linktree","🔗 Linktree"],["contacto","📩 Contacto"]])if(i[k])h+=`<a class="link" href="${i[k]}" target="_blank" rel="noopener">${t}</a>`;return h}
+function cont(i){return(i.telefono?`<div><strong>📞 Teléfono:</strong> ${i.telefono}</div>`:"")+(i.correo?`<div><strong>✉️ Correo:</strong> ${i.correo}</div>`:"")}
+function fmt(v){return String(v??"").replace(/\n/g,"<br>")}
+function render(){let q=search.value.toLowerCase().trim(),d=department.value,a=area.value,r=instituciones.filter(i=>{let t=`${i.nombre} ${i.departamento} ${i.ciudad} ${i.area} ${i.direccion}`.toLowerCase();return(!q||t.includes(q))&&(!d||i.departamento===d)&&(!a||i.area.split("/").map(x=>x.trim()).includes(a))});count.textContent=r.length;if(!r.length){cards.innerHTML='<div class="empty">No encontramos instituciones con esos criterios de búsqueda.</div>';return}cards.innerHTML=r.map((i,x)=>{let tg=i.area.split("/").map(v=>`<span class="tag">${v.trim()}</span>`).join(""),ln=links(i),ct=cont(i);return`<article class="card"><div class="ct"><div class="logo ${W.has(i.nombre)?"w":""} ${i.nombre==="LÉVERIS CONSULTING"?"leveris":""}">${logo(i)}</div><h3>${i.nombre}</h3></div><div class="tags">${tg}</div><div class="info"><div><strong>📍 Ubicación:</strong> ${i.ciudad}, ${i.departamento}</div><div><strong>👥 Vacantes 2027:</strong> ${fmt(i.vacantes)}</div><div><strong>🏢 Dirección:</strong> ${fmt(i.direccion)}</div><div><strong>🕐 Horario:</strong> ${fmt(i.horario)}</div></div><button class="more" onclick="toggleDetails(${x})">Conocer más</button><div class="details" id="detail-${x}"><div class="review"><h4>Sobre la institución</h4><p>${i.review}</p>${ln?`<div class="lt">Enlaces y redes</div><div class="links">${ln}</div>`:""}${ct?`<div class="lt">Contacto</div><div class="contact">${ct}</div>`:""}</div></div></article>`}).join("")}
+function toggleDetails(x){let d=document.getElementById("detail-"+x),b=d.previousElementSibling,o=d.classList.contains("open");d.classList.toggle("open");b.textContent=o?"Conocer más":"Ocultar información"}
+function filtros(){[...new Set(instituciones.map(i=>i.departamento))].sort((a,b)=>a.localeCompare(b,"es")).forEach(v=>department.add(new Option(v,v)));let s=new Set;instituciones.forEach(i=>i.area.split("/").forEach(v=>s.add(v.trim())));[...s].sort((a,b)=>a.localeCompare(b,"es")).forEach(v=>area.add(new Option(v,v)))}
+search.oninput=render;department.onchange=render;area.onchange=render;clear.onclick=()=>{search.value=department.value=area.value="";render()};filtros();render();
+</script></body></html>
