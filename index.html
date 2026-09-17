@@ -246,7 +246,7 @@ h1{
 
   display:grid;
 
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
 
   gap:28px;
 }
@@ -460,6 +460,16 @@ footer{
 }
 
 
+
+@media(max-width:950px) and (min-width:701px){
+  .opciones{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .opciones .card:last-child{
+    grid-column:1/-1;
+  }
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -616,7 +626,7 @@ footer{
 <section class="hero">
 
   <div class="etiqueta">
-    INSTITUCIONES ALIADAS
+    INSTITUCIONES Y OPORTUNIDADES
   </div>
 
 
@@ -626,8 +636,8 @@ footer{
 
 
   <p>
-    Consulta las instituciones aliadas y conoce las oportunidades
-    disponibles a través de nuestra plataforma de consulta.
+    Consulta las instituciones aliadas, otras opciones de internado
+    y su distribución a través de nuestra plataforma de consulta.
   </p>
 
 </section>
@@ -694,6 +704,35 @@ footer{
   </a>
 
 
+  <a
+    href="otras-opciones.html"
+    class="card"
+  >
+
+    <div class="icono">
+      🧭
+    </div>
+
+
+    <h2>
+      Otras opciones de internado
+    </h2>
+
+
+    <p>
+      Consulta otras instituciones y espacios que pueden ser considerados
+      como opciones de internado.
+    </p>
+
+
+    <div class="boton">
+      Ver otras opciones →
+    </div>
+
+  </a>
+
+
+
 </section>
 
 
@@ -717,8 +756,9 @@ footer{
 
 
       <p>
-        Selecciona una opción para explorar las instituciones aliadas
-        o visualizar su distribución en el mapa interactivo.
+        Selecciona una opción para explorar las instituciones aliadas,
+        consultar otras opciones de internado o visualizar la distribución
+        de las alianzas en el mapa interactivo.
       </p>
 
     </div>
@@ -736,7 +776,7 @@ footer{
 
 <footer>
 
-  Alianzas Estratégicas · Plataforma de consulta
+  Psicología · Plataforma de consulta de internado
 
 </footer>
 
