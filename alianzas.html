@@ -364,9 +364,7 @@ header{
 
     object-fit:contain;
 
-    object-position:center;
-
-    padding:6px;
+    padding:5px;
 
 }
 
@@ -1032,29 +1030,88 @@ Directorio de Alianzas Estratégicas · Programa de Psicología
 
 
 /* =========================================================
-   LOGOS: los 8 enviados están incrustados en este mismo HTML
+   LOGO CAP
 ========================================================= */
 
-const capLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10";
+const capLogo =
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuynTuw3wbBCyRVKPj_vpj8TkE4ZbPTZSO_xu9ZbAKU1aefMpVCJejeMt&s=10";
+
+
+
+/* =========================================================
+   LOGOS
+   EXACTAMENTE LOS ENLACES PROPORCIONADOS
+========================================================= */
 
 const logos = {
-  "Asociación Educativa Harvard S.R.L.": "https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
-  "NeuroPsico – Psicología Clínica Integral": "data:image/webp;base64,UklGRn4CAABXRUJQVlA4IHICAACwDACdASpBAEEAPsFQpE4npCMiKPbaqPAYCUAaMzQFuA0wDpQP+hNDeYGy6AOFVmNXlXOkYxtqS/g9mr3EWisiQs9EKs9ME9l6AijXjKz+vK/9V2bxzJGznkM0YtS3F3kg0E10uUahzZYjejdWgAD++C8Xbf9UpqdJAQ8uQ3eS4BDB2H6dkbtW6y/JqwT4SyfVwnsIHgsJ4/FpNQV1V7VpFYDfScRdYrxqGFsRKF/3STtWyXwk4dart/tWcCCfS3fArel8DzqruGPICO5lypWenD7nbbTlaumBD/TRBwOXqhlExSSP/N/34MMFV3oO1j2yM3UAZ9Pp1k/VlKHgMXkygyEAj/wR5ArQjet3SGz+U/CnTQPl36+t6zB6f567PUr2+QQ5kANfrJKYQSaEnljylvp5nAcJsITSlBslXaiQpqAFgEvqlNDG17upp5/qbRQvuNPcenwMQkSeSeNkfOZvcPMqHqQ+UoD+bZKu9czX1yFf0jr2NQgfTcx+q591qjVPMfX3aCNnf/ikfBPKszXc95Vfzr92jIZK6X+DEwnhuQMbvzYIPpGI+5NY+v654Ph7VHFq40cUZAy59HuKUKwuyMTXlTrFyXrq83aadNKtb7UoQFdnDAYJcJbdctrbWiTawzEdmx0OCwU/1tk79HmVsMD/NvMP8plUzcjzP8Njo6g/2oBFCUGwzk5h4Fu9oPl/06CF95cBDqDWZo94NtiizWzP4LqmHWhCgr9JkmrE7uhNLXEmkzYgfc+4Y/qpTxD/oYYxVLIecxDu5gzrH9AW420vhG+8uT7kgDrJjEdZXcz2XgYp6hROWGGu9BtI5AAAAA==",
-  "Centro Psicológico CRECETU S.A.C.": "data:image/webp;base64,UklGRvgBAABXRUJQVlA4IOwBAAAwCgCdASpBAEEAPsFYpE0npSOiKlv5aPAYCUAarDKxANuddoG8rvlAwDtMTAlQPeM2mWbPJlgxW+K7dZsNi4wUiJi+y18lS/Hr7COTjFWN8W/W5xzcizNZjzAA/vhNAdvUnz6w99bGPmEjbSF0S6l6BlDnS5BiEPcXH3M+4ppCte5Spwl0RVlNz9wAQuZ19ojHyzSj/4ti9keJo3mXTxDFhE/3XkiQ41p7pjF0qXTlsDn8z7WgK53urKAtrY3H0xIghSiNiKSDOuvjK9nD1UYqNHRBpwiZ3HmSj4V+7LiIaiWz1tNAricmt98HJjx6x1vzAymAEZCNE3RAxuFo/+swPse8Z8tPY6gr6VVRJkP2t2/NvGP1vvk1M3q9+h3hGmT0C1vXZXmrZs+vyXgIRK4ICWE4metKC8U27s/KrbHbZZSvKkGYuVZHXkuHNfPw2Lqqa8SHXR/oD8Y2T0krZSOSYbuAVJAIqt+09cR9QMcmt1gynCAwzcLD2JBXT2uvUCCxslHHx5n2VOMP5C5fUF639qIR+h5uSwOiOM+bxkfG8WC7lGoLFstDWLjyuU3erUwkdH2u/bNyXup05FOTNUtMKnB/kBUgvtHhljD9K0S4He8MDR/HbQXj/rpA7Y9dtiGNcQIDLuxDQAAAAAA=",
-  "CEBE Manuel Duato": "data:image/webp;base64,UklGRtADAABXRUJQVlA4IMQDAACwEACdASo8AEEAPsFQoksnpKMhqzbdiPAYCWUAxxW9WGPTEWu1BZKfEBOgXDfSuJTgZvDKMl6C/q44w+YT8BPUdEzP1G4Mx702YUa//jSJ8xqhVM7//3GhpBzLM2Lvob2XqOn6ncZxrB2prTSZ/fjIQXx//atIGWG9YDd+EQ6yeiLT7O5Wh/G3qi/YmsAAAP71YxN4ZVvClPR60CMANTK0RvWE1PFEngLo0tGrELnMUcvpLhjOR6CruT4fkxXRPXWm73jmoKJHMX8iD0qrUoFpJLwYcnV7CwglrMJZQBn5RdMWlktFFqsOwjkk+0CMBF397ede6IN/wcd2wIwmirHATetZcVVyxWPGXHTMR5khepGmj0AlIE78vIRpxDECz737993jw7LCohbtIPrMbeOQjxHfZdkvY/c85IJ+SaBB+GKvEaJ6P5D9UwkxUCRX9RXoc6UooKRYXsTcCEcwtEji98yq/ufUP3vaNLTkmO8i1Ty0zIkxqxQFvpe47byUMbNIxfY4NL9wZCe/gNA/kKcTcO+9Yd8wKQK7nCQrRek8MwD8Lhmxr7rY+EdWZWzZiHJ+5EbiC8ncCRdBmpFb267Ft2veSeXiq5wsj78S2Lo3Luh6REBgzyrVT6GLl8QghmTvKZi1ulLmwe99sXZOw+5ju67wfZLq2sZFDKm+dfLVWvYwOfRwhaN7VQcOH8YH1P8I/3KonAsngnXeqTEKFOvzhaWq22d80PSjH8R6d/aP/mJb+qmL5qldnyLUAGZj3b2fuS7NMO/TdugDttviUfthmxiZdsz41bFrCgDkVL6TsMYqKJhVzj/A3pDAq6HQaKU9mS6vekPr5lQVo7ieFNLu8OqmRAZYnl9X3w7/2uVVdeX5DU2MXhJ5L4xGdLcL6rEZ9v9SmoGhGmJHQ5HewiQFsxC1MBAP1RESGHE8O66QOM14c/vMnKMtnlD1+uDjtFQp7P1/FFuaroXIXgZmhIrJ7Dcvn97ycRsDGFun/pHarzJ67ulfObn3YJDP5VLRi2/+2M+e8w52kVXrXs1mODCmn4FTae9rSlK+b+PNck7myMJFHG7/kdmENbFCyOF9rn1byiO0pIfeA2uGT0jlfvC5nxk7Tpf9lRNOEs9tqkI287Fs0fbFhzoKU3BBu0bbqSFv1piIRm2bSRa4/UiLVbjSfM9sJtUOlxnHJq6RjL/5cgbkR/Rh1FQTljt79NO/rFtX+Gg/7atX1fUflwYt1eV8Fj9JbHQFroJggUGpyK5R/RHX17x5T4HSIIxeIQEPPEFAAAAA",
-  "Centro Psicológico Vida y Ser": "data:image/webp;base64,UklGRsYCAABXRUJQVlA4ILoCAAAQEACdASpBAEEAPsFcpUwnpaOiKln60PAYCWYA05ApLJvphlPezbwL5hwAB9K7Po2hUD3jO8/iBhzs5JFeKTuFzbOPutrYissSgZDpy+vRss+/aWutrUeB0NWq9BCR7kFyDXv7vAahBJ9k6r8NMgKNMhmVhRw4C6c3jyKJUi3x5ODN6IXsdwOpdAD+5ESDMZXI2RMGuAQzNrO+25cX0JYUA9h8UJ/04AcONRsdJbqNZzHb/RJoz4npoyArYEatZZdQw6uEM+JJuHde03Jy8J2ZrC6wEjYF8Ty6/PZoPFf0buxjpDRVDgOjBwEVf/iLLQCByU+U2JDnVYAa4e/c5ckdy94T+//xDjOq9ajsRCmgA2C/OIc8iXSEJByMroXhbfFg1EGfsM8GrGS/2fxdJvyQJz7SL/an/7ghdJqZkBCsk9Q3X+iCe6o/nW7qr3E9Ad52kHTG3WhAqrjoCmdrfZNWUoIMWP8ZOHex2uh4U+jx8ej0BjJ+gSYw1GXOuYdCOia3eK/TkpqV7WOC2/Zr689G/aDZW5PhJCrKddutemn+4ntVUmG5I0CWnrly47EPrYw5NgvjOJH10M6Emw26e4pG4HraPN0FAtTiM11l05CGU6RT9UAO85AchEcWLfwTi/WWuJMG2BPdokRQsvqPBmV0jG/Q4+ZfOx5Q3EfJweDoRHCgHVadNnrYSy82cG2rML9xOoxYVtHcl5+wa4wF5/AtEBewGMym2Pv+75Qzl4ijMmPjOdWcrBm0c+gOrHaY1ED2mbTsxqo1CyVq28EvRn7yEWL6T3GvkNsTlED033mea6E1aitdoI/9Ph0Ner4aWkB4JMxPCcTTFc/UibFsFSgpyG1BK6iNWNwz3RriKxsF5SvauMM5MgHLnIZH+8RPkftGGvE/KBG8+Z+Mt/ePmlKzdvQpKcE6cAAAAA==",
-  "AKUNA – Centro de Desarrollo Psicológico": "data:image/webp;base64,UklGRtIBAABXRUJQVlA4IMYBAABwCgCdASpBAEEAPsFeo04npaMiKlQIePAYCUG3mLX5RxIDbAc85unPqAbzV/tGhBlr+wGs64n6kI1WC88X6s/glCKWGnTHSI/KYPjjld1FLwf9FjwncYftQrzNAAD9xx//kGPwV/BXgD//z0z/on/W3qQgYD/4g94nXghBNbPhVQ1mgDJM47uJQpj+xT/OoBfHuQLsMD+CmXjF3hn9LwMtj/k2qjgThBp4qJnw0t5JBzC78EvLK6fVf/T51nN60eSeetk73BcGqVErJ3/rCSKohqEtU0CjAsy5dlEQuECM4awzTB5l98qTLs2PkYA/VNZlR6y5a2cOjZhsKCqAUlZgJBeeb+0jRqHhyKwpa97DLgAXUzPK4faL+cGUuyFpnlUduMb2gxCJkxKMS4QfkQ4+8j6d5EAFGZ8liglwztO5nxEdMJi8uACrTjp0MszzXeJOVmLUmklJ88eP6eO0Nx2XLLL5Iqo49xEzBtV6FJ3xcP9l++Vhs2XOh79GG/mRHP2fhUqiWFrSX2xtG8nthgqYph1WIFsMYcg/XRXEV0B4GytNR8Hwl7WZsPDkWS69SYHCCb7lDjIAvG9IngsKjA09So3AAAAA",
-  "Centro Psicológico Psicokhuyay": "data:image/webp;base64,UklGRpQCAABXRUJQVlA4IIgCAACQDQCdASpBAEEAPsFapE4npSMiJSvI8BgJZQDWAiM95kyKGF+U6wA0gX6X/quhOzvahBUZMpRLB0PR3OH42XOud9l5rlsfYGMPZxnk7lh8Y88JKhkx8mC+gVZ8yxH+0D9fTVcTSfTu2j0I2cDHsrHn5VMA/AAA/vhOa7gD8LbgXmdSy9eM6ePAMCGkOZStgO2fx2z8j3v2McYU4vXScl6qRi5upKx6qesljTSlodCK/10kzkQdU7vUz6ku9lJme3jDhvoBslHQBTot7URO1zFds3G0Dd62/yy453fEoRnPTUpQ221XhypM+OvhhEho7yTir03eHmbXZLJLtRk1HVCRRMwxBWYzIFRWToAa1daCzNCZtiAFqeBNSlaHDLyFuGHojGq3JsvdUNZbLDdJchJc4nOj5zEmT5RWLiC4KDgMMnKjPA1zqCTFr98Vjw5/if0cCKtZtuL4cNqRB1ZF8TNRb7kRcLt34oax2nWSyNXgE+6M8e6fhxjxLhnZh2k4D4K5uR4yy8ignPNnPlRCNE3ydkNqrfvlkuW2q/m4wYpibsQ0Qd2Z1wIZViyU48aut9Hco4yR09SLQwoTgjPAPI8oeQbJvRpkWZC+xNJz6X+o1XYsMBKx/ct3k6MrxKedbtnkEBgTDcG+lDLKlkHSGJAt8ucyRPStLDRYhq34pI1i4OC/oyHUiK43847MBN0keGbn2/YPTgllonyF+JD++L/sISVfLbdy+nYnMJ9xM1kKyKe9FXWNQTv080pURUQilvYZdJr9x+Qa9qkNdvwbziq1XCzPpJRS7DE+ze/ayLXIyH3mvlUbuBmc5bn3uyhCHjjyWWN2GR1cWE+cYWGqJluR6477AAAAAAA=",
-  "Escuela de Educación Superior Pedagógica Pública Santa Rosa": "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
-  "CEPAB – Centro de Aprendizaje y Bienestar": "data:image/webp;base64,UklGRigBAABXRUJQVlA4IBwBAAAQBwCdASpBAEEAPsFgqFAnpaOio/qouPAYCWcAVShQAU9gjC/vuxnd7NyH/ZklGqYceK/eTblggP0WcGK7/1fUAAD+9qe6Hu+ic3m/Lfnz9/r09dxb77E9RXp3mC9gHM5eElLp2ynK5h9u3KpnG8C/yadzGHHEhaYXPYmYSY+S/8m6ChIcuiAa4+hH7QuPPhnthLhez2zz52U+C9n8CP22PsqOoAabHe9+CElK4jfEHwnYDTGWMVK/PNi2vCKQ36lXfMCnkLvJQgSdHkQNpCOVsicbwefvAI8TJWRdxtNYRZb+Y9AEo5w8B/GKirjGDlMk846rcquwN7RbjlYpYiyveYbjJnpmJm08yu1FURY/5SVnVOEmcXAAAAAAAA==",
-  "POWER YOU – Consultora de Recursos Humanos": "https://www.poweryou.pe/img/Poweryou-consultora.png",
-  "SENSES Psicólogos": "https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png",
-  "CAP – Centro de Atención Psicológica Arequipa": capLogo,
-  "CAP – Centro de Atención Psicológica Lima": capLogo,
-  "CAP – Centro de Atención Psicológica Cusco": capLogo,
-  "CAP – Centro de Atención Psicológica Huancayo": capLogo,
-  "Centro Psicológico Comunitario de la UC": capLogo,
-  "I.E. Sagrado Corazón de Jesús – Espinar": "data:image/webp;base64,UklGRioEAABXRUJQVlA4IB4EAAAwFACdASpBAEEAPsFWo0wnpKMiKlv7wPAYCWwA0mQzLJvDRO4RO2l/VX1AfsV6z3QzdRLvKP7cftVRneZcHYoicluMlXeODlK6hBkn8CLk0CDK/svFJpHQtnJtiLtvH5Dmn0j3qiX+I4lUPwtAafdNjex5RAlYBbIDm5j18FnB/2yGeFX2r9Ug8cujls5eiHsh1L+l81Id68f9uK+PQ2+CqtiaBA1lLTngAAD++hAoVgt/hJ4WdBk0+uq94a3+UcoupFST9ejciBj7v/AVrcA75EccVS9HNCM93NK2/velqsvEKdfVWny96IF6Y8d92ZwAVGE0AW2Knufyq3qwH4I8ErN3EBlu/dX0jQrjK1X7PinvL8+tY6sw5b6gBMszVIzHlxblEUddUgJb7/jzpSsm8PSz+cmGtJq+xQTrYLifGvD1m/bRVoMM6bGKz1c+7kLXr7WL2cnkUYOzQH4ZAu12d611HFJ9PxID1DFUs6SOq/pQT1Nw2caMdhiTfsDpUmqhIXiaJKUilHNHGydKB7aHS/NzB7naUfOAvsYoed0OxHoWeGgLGAo3j0PWIRk2jLc2mY5SmYkBseZ3bxkgT8A8Puebv6HeNGXH+r19AUfLteXnR3uuTTpe2lceTIpJSouMs/Ne3a3Qj1lzk6KL+NxdSDVB8g8a1uodmZyormUtKbzc2+A2P1z48zYht9K9x5SGeGYqoyRr49ZalPjvUBAaHuL370bAsln+nd0velFV5C1nauBDTKojz/z/+KifgE5RxvRX84ct4iIdcqQEuY783HHjjH0AS0IQDXpzwwBwTTbmmd2yRajocrwusquVwXx9igB2ckcfV2kd824MGfxCDuKUjpSKxVpzeehZ5EE3ltM0U7ujzXx50e2E6uGnUe9zheD2VQymVFirGNh4DLCmBHqecie9LtPmpfjfR1qSWaheBtNMB79IvJNolIOsDrk3ft/a8vTMXiIJahkXmvA3p0Iot8m5VG5cSCpi/63BzrCSjzXqES9qiXTMO73rxvodjlrc/SvE/mU8GB2RNWRVRSiatlGqFiU6duY9ffY4lZfDBPMzBF9mHJ/dEauz7nrQ17T1O/Y4mfauneiHYBYdf9pVNX0W93an6p7v5GO2F0sDtN5g5crZPWehRo+XXbG4n/SY188Cl+Hnrj65NYlIIu6UultUi0KRczgUPtmCdVB6iSrf7A/hYiq5GIeveTqqXzF82vp7YKrGhWb7JOfh2g5A9WPuAfxfujjjmJ4l3hDfZ7tNEME8uZMB6ilw1fffN1HPGgPfcPapC1a1mpBX8ZoIzQund+JrTr3XZLWdhmGHf1QLeV6aLhd79YV8/7yRU0rznvyE0/jYcFfO9EYQCvFUuJbrxklxa92Nk8A/o+s3M5+MaAlJEwNAAAAA"
+
+  "Asociación Educativa Harvard S.R.L.":
+  "https://harvard.edu.pe/main/wp-content/uploads/2021/03/Logo-hv.png",
+
+
+  "NeuroPsico – Psicología Clínica Integral":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/517702437_724287983682180_4172104383809478455_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=dkUzR99fK1MQ7kNvwFtY-SM&_nc_oc=AdrEY3cCKWeymdJlVA0zltvutc8EzSJ-LKsfqINV1sPpbbCa2JHKwmY61YGmCz0ldBE&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=M0ApEXz9vbu2Zfb_oiyi4w&_nc_ss=79289&oh=00_AQEIiy7w_ZbRUBTItN02jz38q8dM3rZZNwYqBUaUuT6uhg&oe=6A976B2F",
+
+
+  "Centro Psicológico CRECETU S.A.C.":
+  "https://media.licdn.com/dms/image/v2/C4E0BAQGF8JH54qJNJQ/company-logo_200_200/company-logo_200_200/0/1643150257720?e=1789603200&v=beta&t=MjQfw7Z73sMGkpbUgVwHhrRiAC3vO6KQ68m1-OYBRCE",
+
+
+  "CEBE Manuel Duato":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/540531016_1187417123408128_8085036144510589453_n.jpg?stp=dst-jpg_tt6&cstp=mx180x196&ctp=s180x196&_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=XedluPYwr20Q7kNvwHL_dug&_nc_oc=AdoWb9hnyVG_B60jyKx1LKw3ohZqk5FcSK37_to1AzlWTj7D9-o41UZrwhWCvdUJoV0&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=tQvCzK8oqR5SDIzwIfuDCQ&_nc_ss=79289&oh=00_AQGVMmHj20kFrbu7w8JAN-942KT6Cjggl1xuPkjyQTHsUw&oe=6A9785E3",
+
+
+  "Centro Psicológico Vida y Ser":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/530249722_757383343551633_8727089848538141635_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TzRD2Sw6ySoQ7kNvwFeP_FS&_nc_oc=AdoBD6WIpVoNZ_-KMkvF1VRQJ6dKUye9wydvwOnOobYvIihZNzJOH5NAv7J1x5cpxhg&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=GDICZKlb3fshcdXC7wE6pw&_nc_ss=79289&oh=00_AQGTr0i_3ojmWSjqgwx-sOanMTXlozVU6ONdsPFQnzfoIA&oe=6A9781ED",
+
+
+  "AKUNA – Centro de Desarrollo Psicológico":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/442414609_978746417587458_5232732681636086440_n.jpg?stp=dst-jpg_tt6&cstp=mx1778x1778&ctp=s1778x1778&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=h2VmMPRTEeAQ7kNvwEY3HXy&_nc_oc=AdrgfWnrVBnatFc59NR5pmGC50F6CZNdZ3_nqb6dnULrCOSyagDssdTu3qyV6Jhv9nk&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=uh7gnhUt3oT5DnOO1Awz8A&_nc_ss=79289&oh=00_AQHBdtGND1fD_ji2QLUmGXUNiTEmskwiXTgPY-7ZEmViKw&oe=6A97900C",
+
+
+  "Centro Psicológico Psicokhuyay":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/433009127_845347307605917_892436581148467499_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1500&ctp=s1500x1500&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=0eF3yUiThtMQ7kNvwHQCxwz&_nc_oc=Adoy93l-sQBPzcxikBNfrWF5x8puXc1_60bZJxaYGYKcrcErnCiRVL76hJPubtaONds&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=O4B1bTeLsCqzu-YitH4dTA&_nc_ss=79289&oh=00_AQEXq2kBEtw_Ey2Ywz3XiJz3N9J58gX44LmbWBLftmCRjw&oe=6A976C55",
+
+
+  "Escuela de Educación Superior Pedagógica Pública Santa Rosa":
+  "https://eesppsantarosacusco.edu.pe/public/assets/img/EESPP_SR%20.png",
+
+
+  "CEPAB – Centro de Aprendizaje y Bienestar":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/717187301_122209444034053945_660592734189634755_n.jpg?stp=dst-jpg_tt6&cstp=mx625x625&ctp=s625x625&_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MUodkYmmNiwQ7kNvwGAmjvW&_nc_oc=AdrkBZltQ-yj8XhC6Ka1NPuaCNasm0yP_-8IiwhunhjetuVzgwp0pxdzVFRVq1dYoWs&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=iwDCLTHc7Vp1HCkr4nOnsw&_nc_ss=79289&oh=00_AQE-nrJ3-emm5R630PSGjQGpCKVyG5Ihjca3mOKnysYRZw&oe=6A977CC2",
+
+
+  "POWER YOU – Consultora de Recursos Humanos":
+  "https://www.poweryou.pe/img/Poweryou-consultora.png",
+
+
+  "SENSES Psicólogos":
+  "https://sensespsicologos.com/wp-content/uploads/2023/07/LOGO-SP1.png",
+
+
+  "CAP – Centro de Atención Psicológica Arequipa":
+  capLogo,
+
+
+  "CAP – Centro de Atención Psicológica Lima":
+  capLogo,
+
+
+  "CAP – Centro de Atención Psicológica Cusco":
+  capLogo,
+
+
+  "CAP – Centro de Atención Psicológica Huancayo":
+  capLogo,
+
+
+  "Centro Psicológico Comunitario de la UC":
+  capLogo,
+
+
+  "I.E. Sagrado Corazón de Jesús – Espinar":
+  "https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-1/487313792_122095900502844749_6555644371653455460_n.jpg?stp=dst-jpg_tt6&cstp=mx1198x1201&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=Jr3E422Ua00Q7kNvwHuYYZj&_nc_oc=Adr936k70roqYFFLLmRxdqd3c1MppacryDv1FVFimNWVJAFordLL3RWYry4rfE0zpm4&_nc_zt=24&_nc_ht=scontent-lim1-1.xx&_nc_gid=NuzYe9DUQuTsRpd33fam4A&_nc_ss=79289&oh=00_AQE72zDVwDu_IHPmhvAimaIO_-WPALk8yTCfBBvcgraZwg&oe=6A97817F"
+
 };
 
 
@@ -1519,18 +1576,6 @@ function iniciales(nombre){
 }
 
 
-/* Mostrar iniciales si el archivo del logo no existe o no carga */
-function mostrarIniciales(img, texto){
-
-    const contenedor = img.parentElement;
-
-    if(!contenedor) return;
-
-    contenedor.innerHTML = `<span>${texto}</span>`;
-
-}
-
-
 
 /* Crear botones de redes y páginas */
 
@@ -1882,13 +1927,15 @@ function render(){
 
                                 src="${logo}"
 
-                                alt="Logo de ${item.nombre}"
+                                alt="${item.nombre}"
 
-                                loading="lazy"
+                                onerror="
 
-                                decoding="async"
+                                this.style.display='none';
 
-                                onerror="mostrarIniciales(this, '${iniciales(item.nombre)}')"
+                                this.parentElement.innerHTML='<span>${iniciales(item.nombre)}</span>';
+
+                                "
 
                                 >
 
