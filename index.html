@@ -592,6 +592,301 @@ footer{
     flex-direction:column;
   }
 }
+
+/* =====================================================
+   AVISO FLOTANTE - NO MODIFICA EL DISEÑO DE LA PORTADA
+===================================================== */
+.aviso-fab{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:90;
+  border:0;
+  border-radius:999px;
+  padding:12px 17px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  background:#5A2F84;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(74,42,103,.23);
+}
+.aviso-fab:hover{transform:translateY(-2px)}
+.aviso-fab .aviso-num{
+  min-width:21px;
+  height:21px;
+  border-radius:999px;
+  padding:0 6px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#5A2F84;
+  font-size:10px;
+}
+
+.aviso-overlay{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(31,27,38,.42);
+  backdrop-filter:blur(4px);
+}
+.aviso-overlay.abierto{display:flex}
+
+.aviso-modal{
+  width:min(790px,96vw);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border:1px solid #E7DEEF;
+  border-radius:22px;
+  box-shadow:0 28px 75px rgba(32,24,40,.27);
+}
+
+.aviso-cabecera{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:19px 21px 15px;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #eee8f2;
+}
+
+.aviso-titulo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.aviso-icono{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:12px;
+  background:#F1ECF8;
+  color:#5A2F84;
+  display:grid;
+  place-items:center;
+  font-size:21px;
+}
+
+.aviso-cabecera h2{
+  margin:0;
+  color:#2f3544;
+  font-size:21px;
+}
+
+.aviso-cabecera p{
+  margin:4px 0 0;
+  color:#746f7e;
+  font-size:11px;
+}
+
+.aviso-x{
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:9px;
+  background:#F4F1F6;
+  color:#655b6c;
+  cursor:pointer;
+  font-size:19px;
+}
+
+.aviso-contenido{
+  padding:18px 21px 8px;
+}
+
+.aviso-card{
+  display:grid;
+  grid-template-columns:1fr 235px;
+  gap:20px;
+  align-items:center;
+  padding:20px;
+  border:1px solid #E5DAED;
+  border-radius:17px;
+  background:linear-gradient(135deg,#FCFAFD,#F3EDF8);
+}
+
+.aviso-estado{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  padding:6px 9px;
+  margin-bottom:10px;
+  border-radius:999px;
+  background:#E9DFF2;
+  color:#5A2F84;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+.aviso-estado::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.aviso-card h3{
+  margin:0 0 8px;
+  color:#313646;
+  font-size:19px;
+}
+
+.aviso-card .descripcion{
+  margin:0 0 14px;
+  color:#6d7281;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.aviso-datos{
+  display:grid;
+  gap:8px;
+  color:#4e5360;
+  font-size:12px;
+}
+.aviso-datos strong{color:#353947}
+
+.aviso-acciones{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+.aviso-btn{
+  border:0;
+  border-radius:10px;
+  padding:11px 14px;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:800;
+}
+
+.aviso-btn.principal{
+  color:#fff;
+  background:#5A2F84;
+}
+
+.aviso-btn.secundario{
+  color:#5A2F84;
+  background:#fff;
+  border:1px solid #D9CBE4;
+}
+
+.aviso-poster{
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:13px;
+  border:1px solid rgba(90,47,132,.18);
+  cursor:pointer;
+  box-shadow:0 9px 22px rgba(73,48,93,.10);
+}
+
+.aviso-pie{
+  padding:15px 21px 19px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.aviso-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#737887;
+  font-size:11px;
+  cursor:pointer;
+}
+.aviso-check input{
+  width:16px;
+  height:16px;
+  accent-color:#5A2F84;
+}
+
+.aviso-cerrar{
+  border:0;
+  border-radius:9px;
+  padding:10px 16px;
+  background:#EEE9F3;
+  color:#50425C;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* Visor de la imagen completa */
+.aviso-visor{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(19,17,24,.80);
+}
+.aviso-visor.abierto{display:flex}
+.aviso-visor img{
+  max-width:min(760px,92vw);
+  max-height:90vh;
+  border-radius:14px;
+  box-shadow:0 28px 70px rgba(0,0,0,.38);
+}
+.aviso-visor button{
+  position:absolute;
+  top:18px;
+  right:20px;
+  width:40px;
+  height:40px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+  .aviso-card{
+    grid-template-columns:1fr;
+  }
+  .aviso-poster{
+    max-height:none;
+  }
+  .aviso-pie{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .aviso-cerrar{
+    width:100%;
+  }
+  .aviso-fab{
+    right:14px;
+    bottom:14px;
+  }
+}
+
 </style>
 </head>
 
@@ -735,6 +1030,187 @@ footer{
 <footer>
   Facultad de Psicología · Universidad Continental
 </footer>
+
+
+<!-- =====================================================
+     AVISO FLOTANTE
+===================================================== -->
+<button class="aviso-fab" id="avisoFab" type="button" aria-label="Abrir avisos importantes">
+  📢 Avisos
+  <span class="aviso-num">1</span>
+</button>
+
+<div class="aviso-overlay" id="avisoOverlay" aria-hidden="true">
+  <section class="aviso-modal" role="dialog" aria-modal="true" aria-labelledby="avisoTitulo">
+
+    <div class="aviso-cabecera">
+      <div class="aviso-titulo">
+        <div class="aviso-icono">📢</div>
+        <div>
+          <h2 id="avisoTitulo">Avisos importantes</h2>
+          <p>Novedades relacionadas con el internado de Psicología.</p>
+        </div>
+      </div>
+
+      <button class="aviso-x" id="avisoX" type="button" aria-label="Cerrar aviso">×</button>
+    </div>
+
+    <div class="aviso-contenido">
+      <article class="aviso-card">
+
+        <div>
+          <div class="aviso-estado" id="estadoConvocatoria">Próxima convocatoria</div>
+
+          <h3>Centro Psicológico Comunitario de la UC</h3>
+
+          <p class="descripcion">
+            Convocatoria para recibir nuevos internos y practicantes que deseen
+            fortalecer sus competencias profesionales en la atención de la salud
+            mental con enfoque comunitario.
+          </p>
+
+          <div class="aviso-datos">
+            <div><strong>📅 Postulación:</strong> del 28 de septiembre al 2 de octubre.</div>
+            <div><strong>📱 Contacto:</strong> 914 712 865</div>
+            <div><strong>💻 Modalidad:</strong> a distancia.</div>
+          </div>
+
+          <div class="aviso-acciones">
+            <button class="aviso-btn principal" id="abrirComunicado" type="button">
+              Ver comunicado
+            </button>
+
+            <a class="aviso-btn secundario" href="alianzas.html">
+              Ver instituciones
+            </a>
+          </div>
+        </div>
+
+        <img
+          class="aviso-poster"
+          id="miniComunicado"
+          src="aviso-centro-comunitario.jpeg"
+          alt="Comunicado de postulación del Centro Psicológico Comunitario de la UC"
+        >
+      </article>
+    </div>
+
+    <div class="aviso-pie">
+      <label class="aviso-check">
+        <input type="checkbox" id="noMostrarHoy">
+        No mostrar nuevamente hoy
+      </label>
+
+      <button class="aviso-cerrar" id="cerrarAviso" type="button">
+        Cerrar
+      </button>
+    </div>
+
+  </section>
+</div>
+
+<div class="aviso-visor" id="avisoVisor" aria-hidden="true">
+  <button id="cerrarVisor" type="button" aria-label="Cerrar comunicado">×</button>
+  <img src="aviso-centro-comunitario.jpeg" alt="Comunicado completo de postulación">
+</div>
+
+
+<script>
+(function(){
+  const overlay = document.getElementById("avisoOverlay");
+  const fab = document.getElementById("avisoFab");
+  const cerrar = document.getElementById("cerrarAviso");
+  const cerrarX = document.getElementById("avisoX");
+  const noMostrarHoy = document.getElementById("noMostrarHoy");
+  const visor = document.getElementById("avisoVisor");
+  const abrirComunicado = document.getElementById("abrirComunicado");
+  const miniComunicado = document.getElementById("miniComunicado");
+  const cerrarVisor = document.getElementById("cerrarVisor");
+  const estado = document.getElementById("estadoConvocatoria");
+
+  const ahora = new Date();
+  const claveHoy = [
+    ahora.getFullYear(),
+    String(ahora.getMonth()+1).padStart(2,"0"),
+    String(ahora.getDate()).padStart(2,"0")
+  ].join("-");
+
+  const storageKey = "ucAvisoNoMostrarDia";
+  const diaGuardado = localStorage.getItem(storageKey);
+
+  function abrirAviso(){
+    overlay.classList.add("abierto");
+    overlay.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function cerrarAviso(){
+    if(noMostrarHoy.checked){
+      localStorage.setItem(storageKey, claveHoy);
+    }
+    overlay.classList.remove("abierto");
+    overlay.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  function abrirVisor(){
+    visor.classList.add("abierto");
+    visor.setAttribute("aria-hidden","false");
+  }
+
+  function cerrarImagen(){
+    visor.classList.remove("abierto");
+    visor.setAttribute("aria-hidden","true");
+  }
+
+  fab.addEventListener("click", abrirAviso);
+  cerrar.addEventListener("click", cerrarAviso);
+  cerrarX.addEventListener("click", cerrarAviso);
+
+  overlay.addEventListener("click", function(e){
+    if(e.target === overlay) cerrarAviso();
+  });
+
+  abrirComunicado.addEventListener("click", abrirVisor);
+  miniComunicado.addEventListener("click", abrirVisor);
+  cerrarVisor.addEventListener("click", cerrarImagen);
+
+  visor.addEventListener("click", function(e){
+    if(e.target === visor) cerrarImagen();
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      if(visor.classList.contains("abierto")){
+        cerrarImagen();
+      }else if(overlay.classList.contains("abierto")){
+        cerrarAviso();
+      }
+    }
+  });
+
+  /* Estado automático para la convocatoria 2026 */
+  const inicio = new Date(2026, 8, 28, 0, 0, 0);
+  const fin = new Date(2026, 9, 2, 23, 59, 59);
+
+  if(ahora < inicio){
+    estado.textContent = "Próxima convocatoria";
+  }else if(ahora <= fin){
+    estado.textContent = "Postulación abierta";
+    estado.style.background = "#E7F5EC";
+    estado.style.color = "#287349";
+  }else{
+    estado.textContent = "Convocatoria finalizada";
+    estado.style.background = "#F0F0F2";
+    estado.style.color = "#777B84";
+  }
+
+  /* Mostrar automáticamente al ingresar, salvo que se ocultó hoy */
+  if(diaGuardado !== claveHoy){
+    setTimeout(abrirAviso, 700);
+  }
+})();
+</script>
 
 </body>
 </html>
