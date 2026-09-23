@@ -594,7 +594,7 @@ footer{
 }
 
 /* =====================================================
-   AVISO FLOTANTE - NO MODIFICA EL DISEÑO DE LA PORTADA
+   AVISOS Y NOTICIAS - DISEÑO MEJORADO
 ===================================================== */
 .aviso-fab{
   position:fixed;
@@ -607,14 +607,18 @@ footer{
   display:flex;
   align-items:center;
   gap:9px;
-  background:#5A2F84;
+  background:linear-gradient(135deg,#5A2F84,#764CA0);
   color:#fff;
   font-size:12px;
   font-weight:800;
   cursor:pointer;
-  box-shadow:0 12px 28px rgba(74,42,103,.23);
+  box-shadow:0 14px 34px rgba(74,42,103,.28);
+  transition:.2s ease;
 }
-.aviso-fab:hover{transform:translateY(-2px)}
+.aviso-fab:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 38px rgba(74,42,103,.32);
+}
 .aviso-fab .aviso-num{
   min-width:21px;
   height:21px;
@@ -635,19 +639,19 @@ footer{
   align-items:center;
   justify-content:center;
   padding:22px;
-  background:rgba(31,27,38,.42);
-  backdrop-filter:blur(4px);
+  background:rgba(31,27,38,.48);
+  backdrop-filter:blur(7px);
 }
 .aviso-overlay.abierto{display:flex}
 
 .aviso-modal{
-  width:min(790px,96vw);
-  max-height:90vh;
+  width:min(820px,96vw);
+  max-height:91vh;
   overflow:auto;
   background:#fff;
   border:1px solid #E7DEEF;
-  border-radius:22px;
-  box-shadow:0 28px 75px rgba(32,24,40,.27);
+  border-radius:26px;
+  box-shadow:0 30px 90px rgba(32,24,40,.32);
 }
 
 .aviso-cabecera{
@@ -658,66 +662,83 @@ footer{
   align-items:center;
   justify-content:space-between;
   gap:16px;
-  padding:19px 21px 15px;
-  background:rgba(255,255,255,.97);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #eee8f2;
+  padding:20px 22px 17px;
+  background:
+    linear-gradient(90deg,rgba(247,242,251,.98),rgba(255,255,255,.98));
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #ECE5F1;
 }
 
 .aviso-titulo{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:13px;
 }
 
 .aviso-icono{
-  width:42px;
-  height:42px;
-  flex:0 0 42px;
-  border-radius:12px;
-  background:#F1ECF8;
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#EADFF3,#F7F2FB);
   color:#5A2F84;
   display:grid;
   place-items:center;
-  font-size:21px;
+  font-size:22px;
+  border:1px solid #E1D4EB;
 }
 
 .aviso-cabecera h2{
   margin:0;
-  color:#2f3544;
-  font-size:21px;
+  color:#2F3544;
+  font-size:22px;
 }
 
 .aviso-cabecera p{
   margin:4px 0 0;
-  color:#746f7e;
+  color:#746F7E;
   font-size:11px;
 }
 
 .aviso-x{
-  width:35px;
-  height:35px;
+  width:36px;
+  height:36px;
   border:0;
-  border-radius:9px;
+  border-radius:11px;
   background:#F4F1F6;
-  color:#655b6c;
+  color:#655B6C;
   cursor:pointer;
   font-size:19px;
 }
 
 .aviso-contenido{
-  padding:18px 21px 8px;
+  padding:20px 22px 10px;
 }
 
+/* ---------- aviso principal ---------- */
 .aviso-card{
+  position:relative;
   display:grid;
-  grid-template-columns:1fr 235px;
-  gap:20px;
+  grid-template-columns:1fr 240px;
+  gap:22px;
   align-items:center;
-  padding:20px;
+  padding:22px;
   border:1px solid #E5DAED;
-  border-radius:17px;
-  background:linear-gradient(135deg,#FCFAFD,#F3EDF8);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 88% 15%,rgba(111,72,154,.12),transparent 24%),
+    linear-gradient(135deg,#FCFAFD,#F3EDF8);
+  overflow:hidden;
+}
+
+.aviso-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#5A2F84,#8A63B5);
 }
 
 .aviso-estado{
@@ -725,8 +746,8 @@ footer{
   align-items:center;
   gap:7px;
   width:max-content;
-  padding:6px 9px;
-  margin-bottom:10px;
+  padding:7px 10px;
+  margin-bottom:11px;
   border-radius:999px;
   background:#E9DFF2;
   color:#5A2F84;
@@ -746,20 +767,20 @@ footer{
 .aviso-card h3{
   margin:0 0 8px;
   color:#313646;
-  font-size:19px;
+  font-size:20px;
 }
 
 .aviso-card .descripcion{
-  margin:0 0 14px;
-  color:#6d7281;
+  margin:0 0 15px;
+  color:#6D7281;
   font-size:12px;
-  line-height:1.55;
+  line-height:1.6;
 }
 
 .aviso-datos{
   display:grid;
-  gap:8px;
-  color:#4e5360;
+  gap:9px;
+  color:#4E5360;
   font-size:12px;
 }
 .aviso-datos strong{color:#353947}
@@ -768,7 +789,7 @@ footer{
   display:flex;
   gap:9px;
   flex-wrap:wrap;
-  margin-top:16px;
+  margin-top:17px;
 }
 
 .aviso-btn{
@@ -779,13 +800,14 @@ footer{
   cursor:pointer;
   font-size:11px;
   font-weight:800;
+  transition:.2s ease;
 }
-
 .aviso-btn.principal{
   color:#fff;
-  background:#5A2F84;
+  background:linear-gradient(135deg,#5A2F84,#74499E);
+  box-shadow:0 8px 18px rgba(90,47,132,.18);
 }
-
+.aviso-btn.principal:hover{transform:translateY(-1px)}
 .aviso-btn.secundario{
   color:#5A2F84;
   background:#fff;
@@ -794,20 +816,153 @@ footer{
 
 .aviso-poster{
   width:100%;
-  max-height:300px;
+  max-height:305px;
   object-fit:cover;
-  border-radius:13px;
+  border-radius:15px;
   border:1px solid rgba(90,47,132,.18);
   cursor:pointer;
-  box-shadow:0 9px 22px rgba(73,48,93,.10);
+  box-shadow:0 12px 26px rgba(73,48,93,.13);
+}
+
+/* ---------- divisor ---------- */
+.panel-divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:20px 0 13px;
+  color:#82758C;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+}
+.panel-divider::before,
+.panel-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#ECE6F0;
+}
+
+/* ---------- noticias ---------- */
+.noticias-seccion{
+  margin-top:0;
+}
+
+.noticias-titulo{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 0 10px;
+}
+
+.noticias-titulo h3{
+  margin:0;
+  color:#313646;
+  font-size:16px;
+}
+
+.noticias-titulo span{
+  color:#7B7283;
+  font-size:10px;
+}
+
+.noticia-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:18px;
+  align-items:center;
+  padding:16px;
+  border:1px solid #E4E7F0;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 15% 0%,rgba(91,120,214,.08),transparent 28%),
+    linear-gradient(135deg,#FBFCFF,#F5F7FC);
+  overflow:hidden;
+}
+
+.noticia-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,#6C82D4,#8B9BE0);
+}
+
+.noticia-imagen{
+  width:170px;
+  height:120px;
+  object-fit:cover;
+  border-radius:13px;
+  border:1px solid #E0E5F0;
+  box-shadow:0 8px 18px rgba(64,73,101,.08);
+}
+
+.noticia-etiqueta{
+  display:inline-block;
+  margin-bottom:7px;
+  color:#5A2F84;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+
+.noticia-card h4{
+  margin:0 0 7px;
+  color:#2F3544;
+  font-size:15px;
+  line-height:1.35;
+}
+
+.noticia-card p{
+  margin:0;
+  color:#6F7584;
+  font-size:11px;
+  line-height:1.55;
+}
+
+.noticia-datos{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:10px 0 12px;
+}
+
+.noticia-dato{
+  padding:6px 8px;
+  border-radius:999px;
+  background:#EEF2FB;
+  color:#5C6FAF;
+  font-size:9px;
+  font-weight:800;
+}
+
+.noticia-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  padding:9px 12px;
+  border-radius:9px;
+  background:#fff;
+  color:#5A2F84;
+  border:1px solid #D9CBE4;
+  font-size:10px;
+  font-weight:800;
 }
 
 .aviso-pie{
-  padding:15px 21px 19px;
+  padding:16px 22px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:15px;
+  border-top:1px solid #F0EBF3;
 }
 
 .aviso-check{
@@ -826,7 +981,7 @@ footer{
 
 .aviso-cerrar{
   border:0;
-  border-radius:9px;
+  border-radius:10px;
   padding:10px 16px;
   background:#EEE9F3;
   color:#50425C;
@@ -835,7 +990,7 @@ footer{
   cursor:pointer;
 }
 
-/* Visor de la imagen completa */
+/* Visor */
 .aviso-visor{
   position:fixed;
   inset:0;
@@ -844,7 +999,7 @@ footer{
   align-items:center;
   justify-content:center;
   padding:22px;
-  background:rgba(19,17,24,.80);
+  background:rgba(19,17,24,.82);
 }
 .aviso-visor.abierto{display:flex}
 .aviso-visor img{
@@ -871,16 +1026,29 @@ footer{
   .aviso-card{
     grid-template-columns:1fr;
   }
+
   .aviso-poster{
     max-height:none;
   }
+
+  .noticia-card{
+    grid-template-columns:1fr;
+  }
+
+  .noticia-imagen{
+    width:100%;
+    height:175px;
+  }
+
   .aviso-pie{
     flex-direction:column;
     align-items:flex-start;
   }
+
   .aviso-cerrar{
     width:100%;
   }
+
   .aviso-fab{
     right:14px;
     bottom:14px;
@@ -900,7 +1068,7 @@ footer{
 
       <div class="faculty">
         <strong>FACULTAD DE PSICOLOGÍA</strong>
-        <span>Modalidad presencial</span>
+        <span>Modalidad a distancia</span>
       </div>
     </div>
 
@@ -1022,7 +1190,7 @@ footer{
     </p>
   </div>
 
-  <div class="closing-badge">Psicología · Modalidad presencial</div>
+  <div class="closing-badge">Psicología · Modalidad a distancia</div>
 </section>
 
 </main>
@@ -1047,8 +1215,8 @@ footer{
       <div class="aviso-titulo">
         <div class="aviso-icono">📢</div>
         <div>
-          <h2 id="avisoTitulo">Avisos importantes</h2>
-          <p>Novedades relacionadas con el internado de Psicología.</p>
+          <h2 id="avisoTitulo">Avisos y noticias</h2>
+          <p>Información relevante del internado y actualidad de Psicología UC.</p>
         </div>
       </div>
 
@@ -1072,7 +1240,7 @@ footer{
           <div class="aviso-datos">
             <div><strong>📅 Postulación:</strong> del 28 de septiembre al 2 de octubre.</div>
             <div><strong>📱 Contacto:</strong> 914 712 865</div>
-            <div><strong>💻 Modalidad:</strong> presencial.</div>
+            <div><strong>💻 Modalidad:</strong> a distancia.</div>
           </div>
 
           <div class="aviso-acciones">
@@ -1093,6 +1261,53 @@ footer{
           alt="Comunicado de postulación del Centro Psicológico Comunitario de la UC"
         >
       </article>
+
+      <div class="panel-divider">Noticias de Psicología UC</div>
+
+      <section class="noticias-seccion">
+        <div class="noticias-titulo">
+          <h3>📰 Noticias</h3>
+          <span>Actualidad de Psicología UC</span>
+        </div>
+
+        
+        <article class="noticia-card">
+          <img
+            class="noticia-imagen"
+            src="https://estudiantes.ucontinental.edu.pe/wp-content/uploads/2025/04/Programa-CALMA.png"
+            alt="Programa CALMA UC"
+          >
+
+          <div>
+            <div class="noticia-etiqueta">Próximamente</div>
+
+            <h4>
+              Conoce más sobre CALMA UC
+            </h4>
+
+            <p>
+              Próximamente compartiremos más información sobre CALMA UC,
+              programa impulsado por la carrera de Psicología de la Universidad Continental
+              y orientado al acompañamiento y bienestar psicológico.
+            </p>
+
+            <div class="noticia-datos">
+              <span class="noticia-dato">Psicología UC</span>
+              <span class="noticia-dato">Bienestar psicológico</span>
+            </div>
+
+            <a
+              class="noticia-link"
+              href="https://estudiantes.ucontinental.edu.pe/programa-calma-uc-cinco-anos-transformando-vidas-con-atencion-psicologica-gratuita-en-latinoamerica/"
+              target="_blank"
+              rel="noopener"
+            >
+              Conocer CALMA UC →
+            </a>
+          </div>
+        </article>
+      </section>
+
     </div>
 
     <div class="aviso-pie">
@@ -1214,3 +1429,4 @@ footer{
 
 </body>
 </html>
+
