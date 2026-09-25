@@ -645,7 +645,7 @@ footer{
 .aviso-overlay.abierto{display:flex}
 
 .aviso-modal{
-  width:min(820px,96vw);
+  width:min(860px,96vw);
   max-height:91vh;
   overflow:auto;
   background:#fff;
@@ -691,13 +691,13 @@ footer{
 .aviso-cabecera h2{
   margin:0;
   color:#2F3544;
-  font-size:22px;
+  font-size:24px;
 }
 
 .aviso-cabecera p{
   margin:4px 0 0;
   color:#746F7E;
-  font-size:11px;
+  font-size:13px;
 }
 
 .aviso-x{
@@ -767,13 +767,13 @@ footer{
 .aviso-card h3{
   margin:0 0 8px;
   color:#313646;
-  font-size:20px;
+  font-size:22px;
 }
 
 .aviso-card .descripcion{
   margin:0 0 15px;
   color:#6D7281;
-  font-size:12px;
+  font-size:14px;
   line-height:1.6;
 }
 
@@ -781,7 +781,7 @@ footer{
   display:grid;
   gap:9px;
   color:#4E5360;
-  font-size:12px;
+  font-size:13px;
 }
 .aviso-datos strong{color:#353947}
 
@@ -798,7 +798,7 @@ footer{
   padding:11px 14px;
   text-decoration:none;
   cursor:pointer;
-  font-size:11px;
+  font-size:12.5px;
   font-weight:800;
   transition:.2s ease;
 }
@@ -831,7 +831,7 @@ footer{
   gap:12px;
   margin:20px 0 13px;
   color:#82758C;
-  font-size:10px;
+  font-size:11.5px;
   font-weight:800;
   letter-spacing:.9px;
   text-transform:uppercase;
@@ -860,12 +860,12 @@ footer{
 .noticias-titulo h3{
   margin:0;
   color:#313646;
-  font-size:16px;
+  font-size:18px;
 }
 
 .noticias-titulo span{
   color:#7B7283;
-  font-size:10px;
+  font-size:12px;
 }
 
 .noticia-card{
@@ -906,7 +906,7 @@ footer{
   display:inline-block;
   margin-bottom:7px;
   color:#5A2F84;
-  font-size:9px;
+  font-size:10.5px;
   font-weight:900;
   letter-spacing:.7px;
   text-transform:uppercase;
@@ -915,14 +915,14 @@ footer{
 .noticia-card h4{
   margin:0 0 7px;
   color:#2F3544;
-  font-size:15px;
+  font-size:18px;
   line-height:1.35;
 }
 
 .noticia-card p{
   margin:0;
   color:#6F7584;
-  font-size:11px;
+  font-size:13px;
   line-height:1.55;
 }
 
@@ -938,7 +938,7 @@ footer{
   border-radius:999px;
   background:#EEF2FB;
   color:#5C6FAF;
-  font-size:9px;
+  font-size:10.5px;
   font-weight:800;
 }
 
@@ -952,7 +952,7 @@ footer{
   background:#fff;
   color:#5A2F84;
   border:1px solid #D9CBE4;
-  font-size:10px;
+  font-size:12px;
   font-weight:800;
 }
 
@@ -970,7 +970,7 @@ footer{
   align-items:center;
   gap:8px;
   color:#737887;
-  font-size:11px;
+  font-size:12.5px;
   cursor:pointer;
 }
 .aviso-check input{
@@ -985,7 +985,7 @@ footer{
   padding:10px 16px;
   background:#EEE9F3;
   color:#50425C;
-  font-size:11px;
+  font-size:12.5px;
   font-weight:800;
   cursor:pointer;
 }
@@ -1052,6 +1052,111 @@ footer{
   .aviso-fab{
     right:14px;
     bottom:14px;
+  }
+}
+
+
+/* =====================================================
+   NOTICIA DESTACADA - CONVOCATORIA CALMA 2027
+===================================================== */
+.calma-news{
+  position:relative;
+  overflow:hidden;
+}
+
+.calma-news::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  right:-75px;
+  top:-85px;
+  background:rgba(90,47,132,.05);
+  pointer-events:none;
+}
+
+.calma-status{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 9px;
+  border-radius:999px;
+  background:#E7F5EC;
+  color:#287349;
+  font-size:10.5px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  margin-bottom:7px;
+}
+
+.calma-status::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.calma-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin:12px 0;
+}
+
+.calma-info{
+  padding:8px 9px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #E8E1EE;
+  color:#565B69;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.calma-info strong{
+  display:block;
+  color:#343947;
+  margin-bottom:2px;
+}
+
+.calma-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.calma-action{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  border-radius:9px;
+  padding:9px 11px;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.calma-action:hover{transform:translateY(-1px)}
+
+.calma-action.primary{
+  background:#5A2F84;
+  color:#fff;
+}
+
+.calma-action.light{
+  background:#fff;
+  color:#5A2F84;
+  border:1px solid #D9CBE4;
+}
+
+@media(max-width:700px){
+  .calma-grid{
+    grid-template-columns:1fr;
   }
 }
 
@@ -1240,7 +1345,7 @@ footer{
           <div class="aviso-datos">
             <div><strong>📅 Postulación:</strong> del 28 de septiembre al 2 de octubre.</div>
             <div><strong>📱 Contacto:</strong> 914 712 865</div>
-            <div><strong>💻 Modalidad:</strong> presencial.</div>
+            <div><strong>💻 Modalidad:</strong> a distancia.</div>
           </div>
 
           <div class="aviso-acciones">
@@ -1271,7 +1376,8 @@ footer{
         </div>
 
         
-        <article class="noticia-card">
+        
+        <article class="noticia-card calma-news">
           <img
             class="noticia-imagen"
             src="https://estudiantes.ucontinental.edu.pe/wp-content/uploads/2025/04/Programa-CALMA.png"
@@ -1279,30 +1385,81 @@ footer{
           >
 
           <div>
-            <div class="noticia-etiqueta">Próximamente</div>
+            <div class="calma-status" id="calmaStatus">Convocatoria abierta</div>
 
-            <h4>
-              Conoce más sobre CALMA UC
-            </h4>
+            <h4>Convocatoria CALMA 2027 🧠</h4>
 
             <p>
-              Próximamente compartiremos más información sobre CALMA UC,
-              programa impulsado por la carrera de Psicología de la Universidad Continental,
-              en modalidad virtual, y orientado al acompañamiento y bienestar psicológico.
+              Dirigida a estudiantes de Psicología de la Universidad Continental
+              que deseen realizar su internado en CALMA, Servicio de Responsabilidad
+              Social Universitaria de la Facultad de Psicología.
             </p>
 
             <div class="noticia-datos">
-              <span class="noticia-dato">Modalidad virtual</span>
-              <span class="noticia-dato">Bienestar psicológico</span>
+              <span class="noticia-dato">13 vacantes</span>
+              <span class="noticia-dato">Modalidad virtual-híbrida</span>
+              <span class="noticia-dato">Salud mental e inclusión</span>
             </div>
 
-            <a
-              class="noticia-link"
-              href="https://www.linkedin.com/pulse/se-puede-estudiar-psicolog%C3%ADa-distancia-mi-internado-blsuf"
-              onclick="window.location.href=this.href; return false;"
-            >
-              Ver publicación en LinkedIn →
-            </a>
+            <div class="calma-grid">
+              <div class="calma-info">
+                <strong>📅 Convocatoria</strong>
+                23 de septiembre al 11 de octubre de 2026
+              </div>
+
+              <div class="calma-info">
+                <strong>🧩 Inducción asincrónica</strong>
+                Desde el 1 de diciembre de 2026
+              </div>
+
+              <div class="calma-info">
+                <strong>🚀 Inicio del internado</strong>
+                Lunes 4 de enero de 2027
+              </div>
+
+              <div class="calma-info">
+                <strong>📩 Consultas</strong>
+                calma@continental.edu.pe
+              </div>
+            </div>
+
+            <div class="calma-actions">
+              <a
+                class="calma-action primary"
+                href="https://forms.gle/c256sHAdoN9RuYvJ9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📝 Postular ahora
+              </a>
+
+              <a
+                class="calma-action light"
+                href="https://drive.google.com/file/d/1le3a3PnT-y7jkV2lX4EhZpExhl4zq1bZ/view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📄 Ver ficha informativa
+              </a>
+
+              <a
+                class="calma-action light"
+                href="https://www.linkedin.com/pulse/se-puede-estudiar-psicolog%C3%ADa-distancia-mi-internado-blsuf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🔗 Conocer CALMA
+              </a>
+
+              <a
+                class="calma-action light"
+                href="https://whatsapp.com/channel/0029Va72uccHwXbHGY5Uec0d/706"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📲 Canal de WhatsApp
+              </a>
+            </div>
           </div>
         </article>
       </section>
@@ -1417,6 +1574,28 @@ footer{
     estado.textContent = "Convocatoria finalizada";
     estado.style.background = "#F0F0F2";
     estado.style.color = "#777B84";
+  }
+
+  
+  /* Estado automático de la convocatoria CALMA 2027 */
+  const calmaStatus = document.getElementById("calmaStatus");
+  if(calmaStatus){
+    const calmaInicio = new Date(2026, 8, 23, 0, 0, 0);
+    const calmaFin = new Date(2026, 9, 11, 23, 59, 59);
+
+    if(ahora < calmaInicio){
+      calmaStatus.textContent = "Próxima convocatoria";
+      calmaStatus.style.background = "#F1ECF8";
+      calmaStatus.style.color = "#5A2F84";
+    }else if(ahora <= calmaFin){
+      calmaStatus.textContent = "Convocatoria abierta";
+      calmaStatus.style.background = "#E7F5EC";
+      calmaStatus.style.color = "#287349";
+    }else{
+      calmaStatus.textContent = "Convocatoria finalizada";
+      calmaStatus.style.background = "#F0F0F2";
+      calmaStatus.style.color = "#777B84";
+    }
   }
 
   /* Mostrar automáticamente al ingresar, salvo que se ocultó hoy */
