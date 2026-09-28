@@ -1317,6 +1317,174 @@ footer{
   color:#3D4350;
 }
 
+
+/* =====================================================
+   AJUSTE: ENTREVISTAS CPC + LÉVERIS
+===================================================== */
+.entrevistas-lista.entrevistas-dos{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+/* =====================================================
+   POWER YOU - PROCESO DE SELECCIÓN POR VIDEO
+===================================================== */
+.poweryou-news{
+  position:relative;
+  overflow:hidden;
+  margin-bottom:16px;
+  border:1px solid #F0D7DA;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(221,41,54,.08),transparent 28%),
+    linear-gradient(135deg,#FFFDFD,#FFF6F7);
+}
+
+.poweryou-news::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,#D92D3A,#F15A63);
+}
+
+.poweryou-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 10px;
+  margin-bottom:9px;
+  border-radius:999px;
+  background:#FFE7EA;
+  color:#B4232F;
+  font-size:10.5px;
+  font-weight:900;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+}
+
+.poweryou-status::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.poweryou-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin:12px 0;
+}
+
+.poweryou-box{
+  padding:11px 12px;
+  border-radius:11px;
+  background:#fff;
+  border:1px solid #F0E0E2;
+  color:#4E5560;
+  font-size:12.5px;
+  line-height:1.5;
+}
+
+.poweryou-box strong{
+  display:block;
+  color:#343947;
+  margin-bottom:3px;
+}
+
+.poweryou-steps{
+  margin:12px 0 0;
+  padding:12px 14px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid #EFE1E3;
+}
+
+.poweryou-steps strong{
+  display:block;
+  margin-bottom:6px;
+  color:#343947;
+  font-size:12.5px;
+}
+
+.poweryou-steps ul{
+  margin:0;
+  padding-left:18px;
+  color:#555C68;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.poweryou-send{
+  margin-top:11px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:#FFF0F2;
+  border:1px solid #F2DADD;
+  color:#5B4650;
+  font-size:12.5px;
+  line-height:1.5;
+}
+
+.poweryou-send strong{
+  color:#B4232F;
+}
+
+.poweryou-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:13px;
+  padding:10px 13px;
+  border-radius:10px;
+  text-decoration:none;
+  background:#C92735;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+}
+
+@media(max-width:700px){
+  .entrevistas-lista.entrevistas-dos,
+  .poweryou-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* Ajuste del aviso conjunto: 3 instituciones */
+.entrevistas-lista.entrevistas-tres{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+@media(max-width:850px){
+  .entrevistas-lista.entrevistas-tres{
+    grid-template-columns:1fr;
+  }
+}
+
+
+.inst-drive-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:9px;
+  padding:8px 10px;
+  border-radius:9px;
+  background:#FFF0F2;
+  border:1px solid #F0D7DA;
+  color:#B4232F;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  line-height:1.3;
+}
+.inst-drive-btn:hover{
+  background:#FFE6E9;
+}
+
 </style>
 </head>
 
@@ -1498,32 +1666,40 @@ footer{
 
         <article class="noticia-card entrevistas-news">
           <div>
-            <div class="entrevistas-status">Entrevistas abiertas</div>
+            <div class="entrevistas-status">Procesos abiertos</div>
 
-            <h4>¿Quieres realizar tu internado de Psicología?</h4>
+            <h4>Procesos de selección abiertos para tu internado de Psicología</h4>
 
             <p>
-              Desde hoy, <strong>28 de septiembre</strong>, se encuentran abiertas las entrevistas
+              Desde hoy, <strong>28 de septiembre</strong>, se encuentran abiertos los procesos de selección
               para estudiantes interesados en realizar su internado en las siguientes instituciones:
             </p>
 
-            <div class="entrevistas-lista">
+            <div class="entrevistas-lista entrevistas-tres">
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">🏢 POWER YOU</span>
-                <span class="inst-dato"><strong>📍 Modalidad:</strong> presencial</span>
-                <span class="inst-dato"><strong>📱 Contacto:</strong> +51 951 651 922</span>
-                <span class="inst-dato"><strong>✉️ Correo:</strong> contacto@poweryou.pe</span>
+                <span class="inst-dato"><strong>🎥 Proceso:</strong> video de presentación</span>
+                <span class="inst-dato"><strong>⏱️ Duración:</strong> máximo 1 min 30 s</span>
+                <span class="inst-dato"><strong>📱 Envío:</strong> 951 651 922</span>
+                <span class="inst-dato"><strong>📄 Adjuntar:</strong> CV descriptivo</span>
+                <span class="inst-dato"><strong>📅 Límite:</strong> 30 de septiembre, 12:00 p. m.</span>
+                <span class="inst-dato"><strong>🔄 Modalidad:</strong> híbrida</span>
+                <a class="inst-drive-btn" href="https://drive.google.com/file/d/1wtK9pWxLqLDeUnBqYd5xPL8bJtarLpIy/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  📄 Ver indicaciones de POWER YOU
+                </a>
               </div>
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">🧠 Centro Psicológico Comunitario de la UC</span>
+                <span class="inst-dato"><strong>🗣️ Proceso:</strong> entrevista</span>
                 <span class="inst-dato"><strong>📍 Modalidad:</strong> presencial</span>
                 <span class="inst-dato"><strong>📱 Contacto:</strong> (+51) 914 712 865</span>
               </div>
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">💼 LÉVERIS CONSULTING</span>
+                <span class="inst-dato"><strong>🗣️ Proceso:</strong> entrevista</span>
                 <span class="inst-dato"><strong>💻 Modalidad:</strong> virtual</span>
                 <span class="inst-dato"><strong>📱 Contacto:</strong> 982 705 914</span>
                 <span class="inst-dato"><strong>✉️ Correo:</strong> administracion@leverisconsulting.com</span>
@@ -1532,15 +1708,19 @@ footer{
             </div>
 
             <div class="entrevistas-fecha">
-              <strong>📅 Periodo de entrevistas:</strong><br>
-              Del 28 de septiembre al 2 de octubre de 2026.
+              <strong>📅 Entrevistas:</strong><br>
+              Centro Psicológico Comunitario de la UC y LÉVERIS CONSULTING:
+              del 28 de septiembre al 2 de octubre de 2026.<br><br>
+              <strong>🎥 POWER YOU:</strong> envío de video y CV hasta el
+              30 de septiembre de 2026 a las 12:00 p. m.
             </div>
 
             <div class="entrevistas-contacto">
-              <strong>📲 ¿Cómo coordinar tu entrevista?</strong><br>
-              Comunícate directamente con los números de contacto que aparecen
-              en cada institución. También puedes revisar su información completa
-              desde la plataforma de alianzas.
+              <strong>📲 ¿Cómo participar?</strong><br>
+              Para el Centro Psicológico Comunitario de la UC y LÉVERIS CONSULTING,
+              comunícate directamente con sus números de contacto para coordinar tu entrevista.
+              Para POWER YOU, envía tu video de presentación junto con tu CV descriptivo
+              al número indicado.
             </div>
 
             <a class="entrevistas-cta" href="alianzas.html">
@@ -1548,6 +1728,7 @@ footer{
             </a>
           </div>
         </article>
+
 <article class="noticia-card calma-news">
           <img
             class="noticia-imagen"
