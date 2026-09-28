@@ -1485,6 +1485,103 @@ footer{
   background:#FFE6E9;
 }
 
+
+/* =====================================================
+   COMUNICADO MUCAVA
+===================================================== */
+.mucava-news{
+  position:relative;
+  overflow:hidden;
+  margin-bottom:16px;
+  border:1px solid #E7DCEF;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(90,47,132,.08),transparent 28%),
+    linear-gradient(135deg,#FCFAFD,#F7F2FA);
+}
+.mucava-news::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,#5A2F84,#8A63B5);
+}
+.mucava-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 10px;
+  margin-bottom:9px;
+  border-radius:999px;
+  background:#EEE6F5;
+  color:#5A2F84;
+  font-size:10.5px;
+  font-weight:900;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+}
+.mucava-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin:12px 0;
+}
+.mucava-box{
+  padding:11px 12px;
+  border-radius:11px;
+  background:#fff;
+  border:1px solid #E8E0ED;
+  color:#4E5560;
+  font-size:12.5px;
+  line-height:1.5;
+}
+.mucava-box strong{
+  display:block;
+  color:#343947;
+  margin-bottom:3px;
+}
+.mucava-step{
+  margin-top:10px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:#F4EEF8;
+  border:1px solid #E3D5EC;
+  color:#564463;
+  font-size:12.5px;
+  line-height:1.5;
+}
+.mucava-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.mucava-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 13px;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+}
+.mucava-btn.primary{
+  background:#5A2F84;
+  color:#fff;
+}
+.mucava-btn.light{
+  background:#fff;
+  color:#5A2F84;
+  border:1px solid #D9CBE4;
+}
+@media(max-width:700px){
+  .mucava-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -1635,7 +1732,7 @@ footer{
 ===================================================== -->
 <button class="aviso-fab" id="avisoFab" type="button" aria-label="Abrir avisos importantes">
   📢 Avisos
-  <span class="aviso-num">2</span>
+  <span class="aviso-num">3</span>
 </button>
 
 <div class="aviso-overlay" id="avisoOverlay" aria-hidden="true">
@@ -1679,6 +1776,7 @@ footer{
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">🏢 POWER YOU</span>
+                <span class="inst-dato"><strong>📍 Ubicación:</strong> Huancayo, Junín</span>
                 <span class="inst-dato"><strong>🎥 Proceso:</strong> video de presentación</span>
                 <span class="inst-dato"><strong>⏱️ Duración:</strong> máximo 1 min 30 s</span>
                 <span class="inst-dato"><strong>📱 Envío:</strong> 951 651 922</span>
@@ -1692,6 +1790,7 @@ footer{
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">🧠 Centro Psicológico Comunitario de la UC</span>
+                <span class="inst-dato"><strong>📍 Ubicación:</strong> Huancayo, Junín</span>
                 <span class="inst-dato"><strong>🗣️ Proceso:</strong> entrevista</span>
                 <span class="inst-dato"><strong>📍 Modalidad:</strong> presencial</span>
                 <span class="inst-dato"><strong>📱 Contacto:</strong> (+51) 914 712 865</span>
@@ -1699,6 +1798,7 @@ footer{
 
               <div class="entrevistas-inst">
                 <span class="inst-nombre">💼 LÉVERIS CONSULTING</span>
+                <span class="inst-dato"><strong>📍 Ubicación:</strong> Miraflores, Lima</span>
                 <span class="inst-dato"><strong>🗣️ Proceso:</strong> entrevista</span>
                 <span class="inst-dato"><strong>💻 Modalidad:</strong> virtual</span>
                 <span class="inst-dato"><strong>📱 Contacto:</strong> 982 705 914</span>
@@ -1728,6 +1828,67 @@ footer{
             </a>
           </div>
         </article>
+
+
+        <article class="noticia-card mucava-news">
+          <div>
+            <div class="mucava-status">Citas disponibles</div>
+
+            <h4>MUCAVA — Coordinación para internado</h4>
+
+            <p>
+              Si estás interesado(a) en realizar tu internado en MUCAVA,
+              primero debes comunicarte por WhatsApp para solicitar una cita.
+            </p>
+
+            <div class="mucava-grid">
+              <div class="mucava-box">
+                <strong>📅 Fechas</strong>
+                Del lunes 28 al sábado 04.
+              </div>
+
+              <div class="mucava-box">
+                <strong>📱 WhatsApp</strong>
+                940 588 259
+              </div>
+
+              <div class="mucava-box">
+                <strong>📍 Ubicación</strong>
+                San Juan de Miraflores, Lima
+              </div>
+
+              <div class="mucava-box">
+                <strong>🌤️ Horario referencial — mañana</strong>
+                De 8:00 a. m. a 12:00 p. m.
+              </div>
+
+              <div class="mucava-box">
+                <strong>🌙 Horario referencial — tarde</strong>
+                De 3:00 p. m. a 7:00 p. m.
+              </div>
+            </div>
+
+            <div class="mucava-step">
+              <strong>1.º paso:</strong> escribe por WhatsApp para coordinar y separar tu cita.
+            </div>
+
+            <div class="mucava-actions">
+              <a
+                class="mucava-btn primary"
+                href="https://wa.me/51940588259"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📲 Solicitar cita por WhatsApp
+              </a>
+
+              <a class="mucava-btn light" href="alianzas.html">
+                Ver MUCAVA en la plataforma →
+              </a>
+            </div>
+          </div>
+        </article>
+
 
 <article class="noticia-card calma-news">
           <img
