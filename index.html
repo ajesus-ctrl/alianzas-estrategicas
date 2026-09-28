@@ -1160,6 +1160,114 @@ footer{
   }
 }
 
+
+/* =====================================================
+   NOTICIA DESTACADA - ENTREVISTAS ABIERTAS
+===================================================== */
+.entrevistas-news{
+  position:relative;
+  overflow:hidden;
+  margin-bottom:16px;
+  border:1px solid #DDE8E1;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(46,125,79,.10),transparent 28%),
+    linear-gradient(135deg,#FBFEFC,#F3FAF5);
+}
+
+.entrevistas-news::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,#2E7D4F,#58A874);
+}
+
+.entrevistas-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  padding:7px 10px;
+  margin-bottom:9px;
+  border-radius:999px;
+  background:#E5F5EB;
+  color:#287349;
+  font-size:10.5px;
+  font-weight:900;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+}
+
+.entrevistas-status::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.entrevistas-lista{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  margin:13px 0;
+}
+
+.entrevistas-inst{
+  padding:10px 11px;
+  border-radius:11px;
+  background:#fff;
+  border:1px solid #E3EBE6;
+  color:#3F4650;
+  font-size:12px;
+  font-weight:800;
+  text-align:center;
+}
+
+.entrevistas-fecha{
+  margin-top:12px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:#fff;
+  border:1px solid #E4EAE6;
+  color:#4E5560;
+  font-size:12.5px;
+  line-height:1.5;
+}
+
+.entrevistas-contacto{
+  margin-top:10px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:#F6F2FA;
+  border:1px solid #E5D9ED;
+  color:#554763;
+  font-size:12.5px;
+  line-height:1.5;
+}
+
+.entrevistas-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:13px;
+  padding:10px 13px;
+  border-radius:10px;
+  text-decoration:none;
+  background:#5A2F84;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+}
+
+@media(max-width:700px){
+  .entrevistas-lista{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -1310,7 +1418,7 @@ footer{
 ===================================================== -->
 <button class="aviso-fab" id="avisoFab" type="button" aria-label="Abrir avisos importantes">
   📢 Avisos
-  <span class="aviso-num">1</span>
+  <span class="aviso-num">2</span>
 </button>
 
 <div class="aviso-overlay" id="avisoOverlay" aria-hidden="true">
@@ -1337,7 +1445,42 @@ footer{
 
         
         
-        <article class="noticia-card calma-news">
+        
+
+        <article class="noticia-card entrevistas-news">
+          <div>
+            <div class="entrevistas-status">Entrevistas abiertas</div>
+
+            <h4>¿Quieres realizar tu internado de Psicología?</h4>
+
+            <p>
+              Desde hoy, <strong>28 de septiembre</strong>, se encuentran abiertas las entrevistas
+              para estudiantes interesados en realizar su internado en las siguientes instituciones:
+            </p>
+
+            <div class="entrevistas-lista">
+              <div class="entrevistas-inst">🏢 POWER YOU</div>
+              <div class="entrevistas-inst">🧠 Centro Psicológico Comunitario de la UC</div>
+              <div class="entrevistas-inst">💼 LÉVERIS CONSULTING</div>
+            </div>
+
+            <div class="entrevistas-fecha">
+              <strong>📅 Periodo de entrevistas:</strong><br>
+              Del 28 de septiembre al 2 de octubre de 2026.
+            </div>
+
+            <div class="entrevistas-contacto">
+              <strong>📲 ¿Cómo coordinar tu entrevista?</strong><br>
+              Comunícate directamente con los números de contacto que aparecen
+              en la página de cada institución.
+            </div>
+
+            <a class="entrevistas-cta" href="alianzas.html">
+              Ver instituciones →
+            </a>
+          </div>
+        </article>
+<article class="noticia-card calma-news">
           <img
             class="noticia-imagen"
             src="https://estudiantes.ucontinental.edu.pe/wp-content/uploads/2025/04/Programa-CALMA.png"
